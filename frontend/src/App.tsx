@@ -1,8 +1,8 @@
 // import Guru from "./pages/Guru"
 // import HomePage from "./pages/HomePage"
-  import Signup from "./pages/Signup"
+  // import Signup from "./pages/Signup"
 
-//  import Login from "./pages/Login"
+  import Login from "./pages/Login"
 
 function App() {
 
@@ -10,8 +10,8 @@ function App() {
     <>
       {/* <Guru/>
       <HomePage/> */}
-      <Signup/>
-      {/* <Login/> */}
+      {/* <Signup/> */}
+      <Login/>
     </>
   )
 }
