@@ -1,6 +1,6 @@
 import { app } from "./app";
 import { env } from "./config/env";
-import { pgPool, prisma } from "./config/prisma-client";
+import { prisma } from "./config/prisma-client";
 
 async function startServer(): Promise<void> {
   await prisma.$connect();
@@ -22,7 +22,6 @@ async function startServer(): Promise<void> {
     }
 
     await prisma.$disconnect();
-    await pgPool.end();
     process.exit(1);
   });
 
@@ -30,7 +29,6 @@ async function startServer(): Promise<void> {
     console.log(`Received ${signal}. Closing server gracefully.`);
     server.close(async () => {
       await prisma.$disconnect();
-      await pgPool.end();
       process.exit(0);
     });
   };
@@ -47,6 +45,5 @@ async function startServer(): Promise<void> {
 startServer().catch(async (error) => {
   console.error("Failed to start server:", error);
   await prisma.$disconnect();
-  await pgPool.end();
   process.exit(1);
 });

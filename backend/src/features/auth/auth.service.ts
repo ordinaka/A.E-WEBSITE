@@ -17,6 +17,7 @@ import { AccessTokenPayload, signAccessToken } from "../../shared/utils/token";
 export interface RegisterInput {
   firstName: string;
   lastName: string;
+  username: string;
   email: string;
   password: string;
 }
@@ -32,6 +33,7 @@ export interface AuthenticatedUser {
   id: string;
   firstName: string;
   lastName: string;
+  username: string;
   email: string;
   role: AccessTokenPayload["role"];
   status: AccessTokenPayload["status"];
@@ -86,6 +88,7 @@ function toAuthenticatedUser(user: {
   id: string;
   firstName: string;
   lastName: string;
+  username: string;
   email: string;
   role: User["role"];
   status: User["status"];
@@ -94,6 +97,7 @@ function toAuthenticatedUser(user: {
     id: user.id,
     firstName: user.firstName,
     lastName: user.lastName,
+    username: user.username,
     email: user.email,
     role: user.role as AccessTokenPayload["role"],
     status: user.status as AccessTokenPayload["status"]
@@ -251,10 +255,12 @@ export const authService = {
       data: {
         firstName: input.firstName,
         lastName: input.lastName,
+        username: input.username,
         email: input.email,
         passwordHash,
         role: "STUDENT",
-        status: "PENDING_VERIFICATION"
+        status: "ACTIVE",
+        emailVerifiedAt: new Date()
       }
     });
 
@@ -262,7 +268,7 @@ export const authService = {
 
     return {
       user: toAuthenticatedUser(user),
-      verificationRequired: true,
+      verificationRequired: false,
       verificationEmailSent: delivery.sent,
       canResendVerificationEmail: true,
       alreadyExists: false
@@ -270,11 +276,15 @@ export const authService = {
   },
 
   login: async (input: LoginInput): Promise<AuthenticationResult> => {
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findFirst({
       where: {
-        email: input.email
+        OR: [
+          { email: input.email },
+          { username: input.email }
+        ]
       }
     });
+
 
     if (!user) {
       throw new AppError(401, INVALID_CREDENTIALS_MESSAGE, "INVALID_CREDENTIALS");

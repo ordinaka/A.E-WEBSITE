@@ -17,10 +17,10 @@
   resolved "https://registry.npmjs.org/@electric-sql/pglite/-/pglite-0.4.1.tgz"
   integrity sha512-mZ9NzzUSYPOCnxHH1oAHPRzoMFJHY472raDKwXl/+6oPbpdJ7g8LsCN4FSaIIfkiCKHhb3iF/Zqo3NYxaIhU7Q==
 
-"@esbuild/darwin-arm64@0.27.7":
+"@esbuild/linux-x64@0.27.7":
   version "0.27.7"
-  resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.27.7.tgz"
-  integrity sha512-5lckdqeuBPlKUwvoCXIgI2D9/ABmPq3Rdp7IfL70393YgaASt7tbju3Ac+ePVi3KDH6N2RqePfHnXkaDtY9fkw==
+  resolved "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.27.7.tgz"
+  integrity sha512-hzznmADPt+OmsYzw1EE33ccA+HPdIqiCRq7cQeL1Jlq2gb1+OyWBkMCrYGBJ+sxVzve2ZJEVeePbLM2iEIZSxA==
 
 "@hono/node-server@1.19.11":
   version "1.19.11"
@@ -32,27 +32,27 @@
   resolved "https://registry.npmjs.org/@kurkle/color/-/color-0.3.4.tgz"
   integrity sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==
 
-"@prisma/adapter-pg@^7.6.0":
-  version "7.6.0"
-  resolved "https://registry.npmjs.org/@prisma/adapter-pg/-/adapter-pg-7.6.0.tgz"
-  integrity sha512-BjHNmJqqa42NqJSDPnXUfwUofWo8LJY7Ui2gqxN4DmAOb+H/gGKv+hln2Xq/1kSJXPW5AXMXuNiPDMpywvyIOw==
+"@prisma/adapter-pg@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.npmjs.org/@prisma/adapter-pg/-/adapter-pg-7.7.0.tgz"
+  integrity sha512-q33Ta8sKbgzEpAy0lx45tAq//yMv0qcb+8nj+TCA3P4wiAY+OBFEFk/NDkZncAfHaNJeGo5WJpJdpbL+ijYx8g==
   dependencies:
-    "@prisma/driver-adapter-utils" "7.6.0"
+    "@prisma/driver-adapter-utils" "7.7.0"
     "@types/pg" "^8.16.0"
     pg "^8.16.3"
     postgres-array "3.0.4"
 
-"@prisma/client-runtime-utils@7.6.0":
-  version "7.6.0"
-  resolved "https://registry.npmjs.org/@prisma/client-runtime-utils/-/client-runtime-utils-7.6.0.tgz"
-  integrity sha512-fD7jlqubsZvVODKvsp9lOpXVecx2aWGxC2l35Ioz2t+teUJ5CfR0SAMsi7UkU1VvaZmmm+DS6BdujF622nY7tQ==
+"@prisma/client-runtime-utils@7.7.0":
+  version "7.7.0"
+  resolved "https://registry.npmjs.org/@prisma/client-runtime-utils/-/client-runtime-utils-7.7.0.tgz"
+  integrity sha512-BLyd0UpFYOtyJFTHm7jS9vesHW7P83abibodQMiIofqjBKzDHQ1VAsQkdfvXyYDkPlONPfOTz7/rv3x/+CQqvQ==
 
-"@prisma/client@^7.6.0":
-  version "7.6.0"
-  resolved "https://registry.npmjs.org/@prisma/client/-/client-7.6.0.tgz"
-  integrity sha512-7Pe/1ayh3GgWPEg4mmT4ax77LJ1wC+XlnIFvQ94bLP2DsUnOpnruQQR3Jw7r+Frthk94QqDNxo3FjSg8h9PXeQ==
+"@prisma/client@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.npmjs.org/@prisma/client/-/client-7.7.0.tgz"
+  integrity sha512-5Ar4OsZpJ54s21sy5oDNNW9gQtd4NuxCaiM7+JDTOU07D6VvlpLjYzAVCMB1+JzokN+08dAVomlx+b7bhJd3ww==
   dependencies:
-    "@prisma/client-runtime-utils" "7.6.0"
+    "@prisma/client-runtime-utils" "7.7.0"
 
 "@prisma/config@7.6.0":
   version "7.6.0"
@@ -73,6 +73,11 @@
   version "7.6.0"
   resolved "https://registry.npmjs.org/@prisma/debug/-/debug-7.6.0.tgz"
   integrity sha512-LpHr3qos4lQZ6sxwjStf59YBht7m9/QF7NSQsMH6qGENWZu2w3UkQUGn1h5iRkDjnWRj3VHykOu9qFhps4ADvA==
+
+"@prisma/debug@7.7.0":
+  version "7.7.0"
+  resolved "https://registry.npmjs.org/@prisma/debug/-/debug-7.7.0.tgz"
+  integrity sha512-12J62XdqCmpiwJHhHdQxZeY3ckVCWIFmcJP8hg5dPTceeiQ0wiojXGFYTluKqFQfu46fRLgb/rLALZMAx3+dTA==
 
 "@prisma/dev@0.24.3":
   version "0.24.3"
@@ -97,12 +102,12 @@
     valibot "1.2.0"
     zeptomatch "2.1.0"
 
-"@prisma/driver-adapter-utils@7.6.0":
-  version "7.6.0"
-  resolved "https://registry.npmjs.org/@prisma/driver-adapter-utils/-/driver-adapter-utils-7.6.0.tgz"
-  integrity sha512-D8j3p0RnhLuufMaRLX6QqtGgPC5Ao3l5oFP6Q5AL0rTHi4vna+NzGEipwCsfvcSvaGFCbsH3lsTMbb4WvY+ovA==
+"@prisma/driver-adapter-utils@7.7.0":
+  version "7.7.0"
+  resolved "https://registry.npmjs.org/@prisma/driver-adapter-utils/-/driver-adapter-utils-7.7.0.tgz"
+  integrity sha512-gZXREeu6mOk7zXfGFJgh86p7Vhj0sXNKp+4Cg1tWYo7V2dfncP2qxS2BiTmbIIha8xPqItkl0WSw38RuSq1HoQ==
   dependencies:
-    "@prisma/debug" "7.6.0"
+    "@prisma/debug" "7.7.0"
 
 "@prisma/engines-version@7.6.0-1.75cbdc1eb7150937890ad5465d861175c6624711":
   version "7.6.0-1.75cbdc1eb7150937890ad5465d861175c6624711"
@@ -713,11 +718,6 @@ fresh@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz"
   integrity sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==
-
-fsevents@~2.3.3:
-  version "2.3.3"
-  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
-  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
 function-bind@^1.1.2:
   version "1.1.2"
