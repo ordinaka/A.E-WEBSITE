@@ -228,49 +228,46 @@ async function createAuthenticationResult(
 
 export const authService = {
   register: async (input: RegisterInput): Promise<RegisterResult> => {
-    const existingUser = await prisma.user.findUnique({
+    // Check both email and username in ONE database query (more efficient)
+    const existingUser = await prisma.user.findFirst({
       where: {
-        email: input.email
+        OR: [
+          { email: input.email },
+          { username: input.username }
+        ]
       },
       select: {
-      id: true,
-      firstName: true,
-      lastName: true,
-      username: true, 
-      email: true,
-      role: true,
-      status: true
+        id: true,
+        firstName: true,
+        lastName: true,
+        username: true, 
+        email: true,
+        role: true,
+        status: true
       }
     });
 
     if (existingUser) {
-      if (existingUser.status !== "PENDING_VERIFICATION") {
-        throw new AppError(409, "An account with this email already exists.", "EMAIL_IN_USE");
+      // Check if it's email or username conflict
+      if (existingUser.email === input.email) {
+        if (existingUser.status !== "PENDING_VERIFICATION") {
+          throw new AppError(409, "An account with this email already exists.", "EMAIL_IN_USE");
+        }
+        const existingUserDelivery = await trySendVerificationEmail(existingUser);
+        return {
+          user: toAuthenticatedUser(existingUser),
+          verificationRequired: true,
+          verificationEmailSent: existingUserDelivery.sent,
+          canResendVerificationEmail: true,
+          alreadyExists: true
+        };
       }
-
-      const existingUserDelivery = await trySendVerificationEmail(existingUser);
-
-      return {
-        user: toAuthenticatedUser(existingUser),
-        verificationRequired: true,
-        verificationEmailSent: existingUserDelivery.sent,
-        canResendVerificationEmail: true,
-        alreadyExists: true
-      };
-    }
-
-    //username intigration
-        const existingUsername = await prisma.user.findUnique({
-       where: {
-        username: input.username
+      
+      // Username conflict
+      if (existingUser.username === input.username) {
+        throw new AppError(409, "Username already taken.", "USERNAME_IN_USE");
       }
-    });
-    
-    if (existingUsername) {
-      throw new AppError(409, "Username already taken.", "USERNAME_IN_USE");
     }
-
-
 
     const passwordHash = await hashPassword(input.password);
 
@@ -280,7 +277,6 @@ export const authService = {
         lastName: input.lastName,
         username: input.username,
         email: input.email,
-        username: input.username,
         passwordHash,
         role: "STUDENT",
         status: "ACTIVE",
