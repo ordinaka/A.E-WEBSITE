@@ -335,7 +335,7 @@ const DesignCourses: React.FC = () => {
           </div>
 
           {/* SOrting - Top Right */}
-          <div className="sort text-[#E8C9C9] flex items-center gap-2 justify-end mb-6 relative">
+          <div className="sort text-[#E8C9C9] z-2 flex items-center gap-2 justify-end mb-6 relative">
             <h2 className="text-sm md:text-base">Sort by:</h2>
             <div
               className="flex gap-4 border border-[#E8C9C9] px-3 md:px-4 py-2 rounded cursor-pointer text-sm md:text-base"
