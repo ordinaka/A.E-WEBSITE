@@ -1,8 +1,8 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { apiFetch } from "../lib/api";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
-import { Users } from "lucide-react";
+import { Users, X } from "lucide-react";
 
 interface TeamMember {
   id: string;
@@ -43,6 +43,17 @@ const FadeInWhenVisible = ({
 export default function AboutPage() {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (selectedMember) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => { document.body.style.overflow = "unset"; };
+  }, [selectedMember]);
 
   useEffect(() => {
     async function getTeam() {
@@ -148,7 +159,10 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
               {teamMembers.map((member, idx) => (
                 <FadeInWhenVisible delay={0.4 + idx * 0.1} key={member.id}>
-                  <div className="group relative bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-purple-500/10 hover:border-purple-500/30">
+                  <div 
+                    onClick={() => setSelectedMember(member)}
+                    className="group relative bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-purple-500/10 hover:border-purple-500/30 cursor-pointer"
+                  >
                     {/* Image Container */}
                     <div className="relative aspect-square md:aspect-[4/5] overflow-hidden border-b border-white/5">
                       {member.imageUrl ? (
@@ -163,59 +177,22 @@ export default function AboutPage() {
                         </div>
                       )}
                       
-                      {/* Social Overlay */}
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050020] via-transparent to-transparent opacity-0 hover:opacity-100 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 gap-4 translate-y-4 group-hover:translate-y-0 transition-transform z-10">
-                          {member.linkedinUrl && (
-                            <a 
-                              href={member.linkedinUrl} 
-                              target="_blank" 
-                              rel="noreferrer" 
-                              className="p-3 bg-white/10 backdrop-blur-md rounded-xl hover:bg-[#0077b5] text-white transition-all transform hover:-translate-y-1 shadow-lg"
-                              title="LinkedIn Profile"
-                            >
-                              <FaLinkedin className="w-5 h-5" />
-                            </a>
-                          )}
-                          {member.twitterUrl && (
-                            <a 
-                              href={member.twitterUrl} 
-                              target="_blank" 
-                              rel="noreferrer" 
-                              className="p-3 bg-white/10 backdrop-blur-md rounded-xl hover:bg-black text-white transition-all transform hover:-translate-y-1 shadow-lg"
-                              title="Twitter / X Profile"
-                            >
-                              <FaTwitter className="w-5 h-5" />
-                            </a>
-                          )}
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050020] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 translate-y-4 group-hover:translate-y-0 transition-transform z-10">
+                          <span className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-white text-sm font-semibold tracking-wide border border-white/20 shadow-[0_10px_30px_rgba(120,40,255,0.3)] hover:bg-white/20 transition-colors">
+                            View Profile
+                          </span>
                       </div>
                     </div>
 
                     {/* Content Container */}
-                    <div className="p-6 md:p-8 relative">
-                      <div className="mb-4">
-                        <p className="text-blue-400 font-bold text-[10px] uppercase tracking-[0.2em] mb-1 font-outfit drop-shadow-[0_0_10px_rgba(15,128,221,0.5)]">
-                          {member.roleTitle}
-                        </p>
-                        <h3 className="text-xl sm:text-2xl font-bold text-white leading-none italic flex items-center gap-2">
-                          {member.fullName}
-                          <div className="w-1.5 h-1.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
-                        </h3>
-                      </div>
-                      
-                      <div className="max-h-32 sm:max-h-40 overflow-y-auto pr-2 pb-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                        <p className="text-white/60 text-sm leading-relaxed font-light transition-colors group-hover:text-white/80">
-                          {member.bio}
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/5">
-                        <span className="text-[10px] text-white/30 uppercase font-medium tracking-widest">Connect</span>
-                        <div className="flex gap-1.5">
-                           <div className="w-1 h-1 rounded-full bg-white/20" />
-                           <div className="w-1 h-1 rounded-full bg-white/20" />
-                           <div className="w-1 h-1 rounded-full bg-white/20" />
-                        </div>
-                      </div>
+                    <div className="p-6 md:p-8 relative text-center">
+                      <p className="text-blue-400 font-bold text-[10px] uppercase tracking-[0.2em] mb-2 font-outfit drop-shadow-[0_0_10px_rgba(15,128,221,0.5)]">
+                        {member.roleTitle}
+                      </p>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white leading-none italic flex justify-center items-center gap-2">
+                        {member.fullName}
+                      </h3>
                     </div>
                   </div>
                 </FadeInWhenVisible>
@@ -225,6 +202,96 @@ export default function AboutPage() {
 
         </div>
       </div>
+
+      {/* Profile Modal */}
+      <AnimatePresence>
+        {selectedMember && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedMember(null)}
+              className="absolute inset-0 bg-[#050020]/90 backdrop-blur-md cursor-pointer"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-gradient-to-br from-[#120A38] to-[#0A0520] border border-white/10 rounded-[2rem] shadow-[0_30px_100px_rgba(120,40,255,0.4)] flex flex-col md:flex-row z-10"
+            >
+              {/* Close Button */}
+              <button 
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 p-2 bg-white/5 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-colors z-20"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Modal Image */}
+              <div className="w-full md:w-2/5 aspect-square md:aspect-auto md:h-full bg-black relative shrink-0">
+                {selectedMember.imageUrl ? (
+                  <img 
+                    src={selectedMember.imageUrl} 
+                    alt={selectedMember.fullName} 
+                    className="w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-linear-to-br from-purple-500/20 via-blue-500/20 to-[#050020] flex items-center justify-center">
+                     <span className="text-8xl font-black text-white/10 select-none">{selectedMember.fullName.charAt(0)}</span>
+                  </div>
+                )}
+                <div className="absolute inset-0 border-r border-white/5 pointer-events-none hidden md:block" />
+              </div>
+
+              {/* Modal Content */}
+              <div className="w-full md:w-3/5 p-8 md:p-10 lg:p-12 flex flex-col overflow-y-auto">
+                <p className="text-blue-400 font-bold text-xs uppercase tracking-[0.2em] mb-2 font-outfit drop-shadow-[0_0_10px_rgba(15,128,221,0.5)]">
+                  {selectedMember.roleTitle}
+                </p>
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-white leading-none italic mb-8 flex items-center gap-3">
+                  {selectedMember.fullName}
+                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.8)]" />
+                </h3>
+                
+                <div className="prose prose-invert max-w-none mb-10 overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                  <p className="text-white/70 text-base md:text-lg leading-relaxed font-light whitespace-pre-wrap">
+                    {selectedMember.bio}
+                  </p>
+                </div>
+
+                <div className="mt-auto pt-6 border-t border-white/10 flex items-center gap-4">
+                  <span className="text-xs text-white/40 uppercase font-medium tracking-widest mr-2">Connect</span>
+                  {selectedMember.linkedinUrl && (
+                    <a 
+                      href={selectedMember.linkedinUrl} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-[#0077b5] hover:border-[#0077b5] hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                    >
+                      <FaLinkedin className="w-5 h-5" />
+                    </a>
+                  )}
+                  {selectedMember.twitterUrl && (
+                    <a 
+                      href={selectedMember.twitterUrl} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-black hover:border-black hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                    >
+                      <FaTwitter className="w-5 h-5" />
+                    </a>
+                  )}
+                  {!selectedMember.linkedinUrl && !selectedMember.twitterUrl && (
+                    <span className="text-white/30 text-sm italic">No active links</span>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
