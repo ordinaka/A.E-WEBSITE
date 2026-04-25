@@ -111,6 +111,8 @@ model TeamMember {
   imageUrl    String?
   linkedinUrl String?
   twitterUrl  String?
+  whatsappUrl String?
+  emailAddress String?
   sortOrder   Int      @default(0)
   isVisible   Boolean  @default(true)
   createdAt   DateTime @default(now())

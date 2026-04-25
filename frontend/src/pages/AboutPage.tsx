@@ -1,7 +1,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { apiFetch } from "../lib/api";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { Users, X } from "lucide-react";
 
 interface TeamMember {
@@ -12,6 +12,8 @@ interface TeamMember {
   imageUrl: string | null;
   linkedinUrl?: string | null;
   twitterUrl?: string | null;
+  whatsappUrl?: string | null;
+  emailAddress?: string | null;
 }
 
 const bgPath = "/background.jpg";
@@ -283,7 +285,25 @@ export default function AboutPage() {
                       <FaTwitter className="w-5 h-5" />
                     </a>
                   )}
-                  {!selectedMember.linkedinUrl && !selectedMember.twitterUrl && (
+                  {selectedMember.whatsappUrl && (
+                    <a 
+                      href={selectedMember.whatsappUrl} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-[#25D366] hover:border-[#25D366] hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                    >
+                      <FaWhatsapp className="w-5 h-5" />
+                    </a>
+                  )}
+                  {selectedMember.emailAddress && (
+                    <a 
+                      href={selectedMember.emailAddress.startsWith('mailto:') ? selectedMember.emailAddress : `mailto:${selectedMember.emailAddress}`} 
+                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-rose-500 hover:border-rose-500 hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                    >
+                      <FaEnvelope className="w-5 h-5" />
+                    </a>
+                  )}
+                  {!selectedMember.linkedinUrl && !selectedMember.twitterUrl && !selectedMember.whatsappUrl && !selectedMember.emailAddress && (
                     <span className="text-white/30 text-sm italic">No active links</span>
                   )}
                 </div>
