@@ -150,12 +150,12 @@ export default function AboutPage() {
                 <FadeInWhenVisible delay={0.4 + idx * 0.1} key={member.id}>
                   <div className="group relative bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-purple-500/10 hover:border-purple-500/30">
                     {/* Image Container */}
-                    <div className="relative aspect-[4/5] overflow-hidden">
+                    <div className="relative aspect-square md:aspect-[4/5] overflow-hidden border-b border-white/5">
                       {member.imageUrl ? (
                         <img 
                           src={member.imageUrl} 
                           alt={member.fullName} 
-                          className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out"
                         />
                       ) : (
                         <div className="w-full h-full bg-linear-to-br from-purple-500/10 via-blue-500/10 to-[#050020] flex items-center justify-center">
@@ -164,7 +164,7 @@ export default function AboutPage() {
                       )}
                       
                       {/* Social Overlay */}
-                      <div className="absolute inset-0 bg-linear-to-t from-[#050020] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8 gap-4 translate-y-4 group-hover:translate-y-0 transition-transform">
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050020] via-transparent to-transparent opacity-0 hover:opacity-100 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 gap-4 translate-y-4 group-hover:translate-y-0 transition-transform z-10">
                           {member.linkedinUrl && (
                             <a 
                               href={member.linkedinUrl} 
@@ -191,22 +191,24 @@ export default function AboutPage() {
                     </div>
 
                     {/* Content Container */}
-                    <div className="p-8 relative">
+                    <div className="p-6 md:p-8 relative">
                       <div className="mb-4">
                         <p className="text-blue-400 font-bold text-[10px] uppercase tracking-[0.2em] mb-1 font-outfit drop-shadow-[0_0_10px_rgba(15,128,221,0.5)]">
                           {member.roleTitle}
                         </p>
-                        <h3 className="text-2xl font-bold text-white leading-none italic flex items-center gap-2">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white leading-none italic flex items-center gap-2">
                           {member.fullName}
                           <div className="w-1.5 h-1.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
                         </h3>
                       </div>
                       
-                      <p className="text-white/50 text-sm leading-relaxed font-light line-clamp-3 mb-6 transition-colors group-hover:text-white/70">
-                        {member.bio}
-                      </p>
+                      <div className="max-h-32 sm:max-h-40 overflow-y-auto pr-2 pb-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                        <p className="text-white/60 text-sm leading-relaxed font-light transition-colors group-hover:text-white/80">
+                          {member.bio}
+                        </p>
+                      </div>
 
-                      <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                      <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/5">
                         <span className="text-[10px] text-white/30 uppercase font-medium tracking-widest">Connect</span>
                         <div className="flex gap-1.5">
                            <div className="w-1 h-1 rounded-full bg-white/20" />
