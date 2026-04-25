@@ -11,7 +11,6 @@ import {
   AlertCircle,
   CheckCircle2,
   Image as ImageIcon,
-  Eye,
   EyeOff,
   UserPlus,
   Upload
