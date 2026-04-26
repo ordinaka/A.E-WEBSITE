@@ -93,7 +93,7 @@ passport.use(
           sessionId: session.id
         });
 
-        return done(null, { user, accessToken, refreshToken });
+        return done(null, { user, accessToken, refreshToken } as any);
       } catch (err) {
         return done(err as Error);
       }

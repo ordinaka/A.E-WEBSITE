@@ -31,7 +31,7 @@ authRouter.get(
   "/google/callback",
   passport.authenticate("google", { session: false, failureRedirect: `${env.clientBaseUrl}/login?error=google_failed` }),
   (req, res) => {
-    const result = req.user as {
+    const result = (req.user as unknown) as {
       user: { id: string; firstName: string; email: string; role: string; status: string };
       accessToken: string;
       refreshToken: string;
