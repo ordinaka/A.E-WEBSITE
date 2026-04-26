@@ -19,6 +19,9 @@ import GuruCircle from "./pages/GuruCircle";
 // Auth Pages
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import OAuthCallback from "./pages/OAuthCallback";
 import DashboardPage from "./pages/DashboardPage";
 import ModuleDetailPage from "./pages/ModuleDetailPage";
 import QuizPage from "./pages/QuizPage";
@@ -52,6 +55,9 @@ function App() {
           <Route path="/guru-circle" element={<GuruCircle />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/auth/callback" element={<OAuthCallback />} />
 
           {/* AUTHENTICATED USER ROUTES */}
           <Route
