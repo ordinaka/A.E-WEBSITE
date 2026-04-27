@@ -23,8 +23,12 @@ This document outlines the entire process of deploying the A.E-WEBSITE applicati
    - `PORT=5000`
    - `NODE_ENV=production`
    - `DATABASE_URL` (Internal Render URL)
+   - `APP_BASE_URL=https://ae-website-backend.onrender.com` ← **required for Google OAuth callback**
+   - `CLIENT_BASE_URL=https://a-e-website.vercel.app` ← **required for post-OAuth redirect to frontend**
+   - `CORS_ORIGIN=https://a-e-website.vercel.app`
    - `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
    - 4 Auth Secrets: `ACCESS_TOKEN_SECRET`, `REFRESH_TOKEN_SECRET`, `EMAIL_VERIFICATION_TOKEN_SECRET`, `PASSWORD_RESET_TOKEN_SECRET`
+   - `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` ← **required for Google OAuth**
 
 **⚠️ Challenge 1: TypeScript Build Failure**
 *   **The Problem:** Rendering failed during `tsc` because `npm install` skips installing `devDependencies` (like `@types/cors` and `@types/multer`) when `NODE_ENV=production` is set.
