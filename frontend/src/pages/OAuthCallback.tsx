@@ -4,17 +4,18 @@ import { useAuth } from "../context/useAuth";
 import type { AuthUser } from "../context/AuthContext";
 
 /**
- * This page is the "landing zone" after Google OAuth.
- * The backend redirects here with ?token=...&userId=...&role=...&status=...
- * We read those params, log the user in via AuthContext, then redirect to Dashboard.
+ * Landing zone after Google OAuth.
+ * Backend redirects here with ?token=...&userId=...&firstName=...&email=...&role=...&status=...
+ * We store the token in localStorage/AuthContext, THEN navigate to Dashboard.
  */
 export default function OAuthCallback() {
   const navigate = useNavigate();
-  const { login, isLoggedIn, user } = useAuth();
+  const { login } = useAuth();
   const processed = useRef(false);
 
   useEffect(() => {
     if (processed.current) return;
+    processed.current = true;
 
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
@@ -30,8 +31,6 @@ export default function OAuthCallback() {
       return;
     }
 
-    processed.current = true;
-
     const authUser: AuthUser = {
       id: userId,
       firstName,
@@ -39,19 +38,20 @@ export default function OAuthCallback() {
       username: params.get("username") ?? email,
       email,
       role: role as AuthUser["role"],
-      status: (status as AuthUser["status"]) ?? "ACTIVE"
+      status: (status as AuthUser["status"]) ?? "ACTIVE",
     };
 
+    // login() writes to localStorage synchronously before updating React state.
+    // We then use a minimal setTimeout(0) so the browser flushes the storage
+    // write and React can commit the state update before we navigate — this
+    // prevents DashboardPage from mounting before ae_token is available.
     login(authUser, token);
-  }, [login, navigate]);
 
-  // Once logged in, redirect to the right place
-  useEffect(() => {
-    if (isLoggedIn && user) {
-      const isAdmin = user.role === "ADMIN" || user.role === "SUPER_ADMIN";
+    const isAdmin = authUser.role === "ADMIN" || authUser.role === "SUPER_ADMIN";
+    setTimeout(() => {
       navigate(isAdmin ? "/admin" : "/dashboard", { replace: true });
-    }
-  }, [isLoggedIn, user, navigate]);
+    }, 0);
+  }, [login, navigate]);
 
   return (
     <div className="min-h-screen bg-[#050020] flex items-center justify-center">

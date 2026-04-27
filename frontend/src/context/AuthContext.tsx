@@ -104,12 +104,17 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const storedAuth = getStoredAuth();
   const [user, setUser] = useState<AuthUser | null>(storedAuth.user);
   const [token, setToken] = useState<string | null>(storedAuth.token);
+  // isLoading is always false: localStorage is read synchronously in the
+  // useState initialisers above, so auth is resolved before first render.
+  const isLoading = false;
 
   const login = (newUser: AuthUser, newToken: string) => {
-    setUser(newUser);
-    setToken(newToken);
+    // Write to localStorage synchronously FIRST so apiFetch can read it
+    // even if React hasn't re-rendered yet.
     localStorage.setItem("ae_user", JSON.stringify(newUser));
     localStorage.setItem("ae_token", newToken);
+    setUser(newUser);
+    setToken(newToken);
   };
 
   const logout = () => {
@@ -123,7 +128,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       value={{
         user,
         token,
-        isLoading: false,
+        isLoading,
         login,
         logout,
         isLoggedIn: !!user,
