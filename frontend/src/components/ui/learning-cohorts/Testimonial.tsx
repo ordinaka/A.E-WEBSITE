@@ -58,7 +58,7 @@ export default function Testimonial() {
           {/* LEFT */}
           <div className="hidden md:flex flex-1 justify-end">
             <div className="w-[90%] opacity-30 scale-[0.97] blur-[0.5px] transition-all duration-500">
-              <div className="bg-[#050020] p-5 rounded-xl backdrop-blur-sm">
+              <div className="bg-[var(--ae-bg)] p-5 rounded-xl backdrop-blur-sm">
                 <p className="text-sm text-gray-300 line-clamp-4">
                   {testimonials[prev].text}
                 </p>
@@ -72,7 +72,7 @@ export default function Testimonial() {
             {/* Glow */}
             <div className="absolute inset-0 bg-purple-600 blur-[90px] opacity-40 rounded-2xl"></div>
 
-            <div className="relative bg-gradient-to-br from-[#050020] to-[#5F00FF] p-7 rounded-2xl border border-cyan-400/40 shadow-[0_0_30px_rgba(34,211,238,0.25)]">
+            <div className="relative bg-gradient-to-br from-[var(--ae-bg)] to-[var(--ae-blue)] p-7 rounded-2xl border border-cyan-400/40 shadow-[0_0_30px_rgba(34,211,238,0.25)]">
 
               <p className="text-base leading-relaxed text-white text-center mb-6">
                 {testimonials[index].text}

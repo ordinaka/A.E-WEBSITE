@@ -158,7 +158,7 @@ const Signup = (): ReactElement => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#050020] flex items-stretch overflow-hidden">
+    <div className="min-h-screen w-full bg-[var(--ae-bg)] flex items-stretch overflow-hidden">
       {/* ── Left: Form Panel ── */}
       <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24 z-10">
         <div className="w-full max-w-lg">
@@ -339,9 +339,9 @@ const Signup = (): ReactElement => {
       {/* ── Right: Image Panel ── */}
       <div className="hidden lg:block relative w-[42%] xl:w-[48%] shrink-0">
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050020] via-[#050020]/20 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#050020] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#050020] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ae-bg)] via-[var(--ae-bg)]/20 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[var(--ae-bg)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--ae-bg)] to-transparent z-10 pointer-events-none" />
 
         <img
           src={classImg}

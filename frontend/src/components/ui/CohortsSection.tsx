@@ -45,7 +45,7 @@ export default function CohortsSection() {
         {/* Header */}
         <FadeInWhenVisible delay={0.2}>
           <header className="text-center mb-10 sm:mb-12 md:mb-16">
-            <h1 className="mx-auto mb-4 sm:mb-6 w-full max-w-134.5 text-center font-semibold text-4xl sm:text-5xl md:text-[72.8527px] md:leading-23 md:tracking-[-4.40297px] bg-[linear-gradient(270deg,#6635C4_0%,#050020_147.96%)] bg-clip-text text-transparent">
+            <h1 className="mx-auto mb-4 sm:mb-6 w-full max-w-134.5 text-center font-semibold text-4xl sm:text-5xl md:text-[72.8527px] md:leading-23 md:tracking-[-4.40297px] bg-[linear-gradient(270deg,var(--ae-blue)_0%,var(--ae-bg)_147.96%)] bg-clip-text text-transparent">
               Learning Cohorts
             </h1>
             <p className="text-white/90 text-xs sm:text-base md:text-xl max-w-2xl mx-auto leading-relaxed px-4">
@@ -70,8 +70,8 @@ export default function CohortsSection() {
           pr-2.5 sm:pr-2.5
           pl-4 sm:pl-6.75
           rounded-[15px]
-          bg-linear-to-r from-[#060221] from-[-14.09%] to-[#201239] to-100%
-          shadow-[inset_0_0_17.2px_#023053]
+          bg-linear-to-r from-[var(--ae-plum-deep)] from-[-14.09%] to-[var(--ae-plum)] to-100%
+          shadow-[inset_0_0_17.2px_var(--ae-blue)]
         "
             >
               <input
@@ -97,8 +97,8 @@ export default function CohortsSection() {
             rounded-[15px]
             flex items-center justify-center
           
-          bg-[linear-gradient(90deg,#060221_-14.09%,#201239_100%)]
-          shadow-[inset_0_0_17.2px_#023053]
+          bg-[linear-gradient(90deg,var(--ae-plum-deep)_-14.09%,var(--ae-plum)_100%)]
+          shadow-[inset_0_0_17.2px_var(--ae-blue)]
           "
               >
                 <Search className="w-5 h-5 text-white" />
@@ -113,7 +113,7 @@ export default function CohortsSection() {
           <div className="relative w-full flex justify-center items-center min-h-80 sm:min-h-125">
             {/* Center fixed person */}
             <div className="absolute z-20 top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center px-2 sm:px-0">
-              <div className="relative flex h-[180px] w-[180px] items-center justify-center rounded-full bg-[#7B37D9] shadow-[0_0_56px_#9326D1] sm:h-[245px] sm:w-[245px] md:h-72.75 md:w-72.75 md:shadow-[0_0_94px_#9326D1]">
+              <div className="relative flex h-[180px] w-[180px] items-center justify-center rounded-full bg-[var(--ae-blue)] shadow-[0_0_56px_var(--ae-lavender)] sm:h-[245px] sm:w-[245px] md:h-72.75 md:w-72.75 md:shadow-[0_0_94px_var(--ae-lavender)]">
                 <div className="relative flex h-[150px] w-[150px] items-center justify-center overflow-hidden rounded-full bg-white shadow-[0_0_32px_rgba(0,19,34,0.08)] sm:h-[205px] sm:w-[205px] md:h-61.25 md:w-61.25 md:shadow-[0_0_51.2px_rgba(0,19,34,0.08)]">
                   <img
                     src="/favicon.png"
@@ -125,7 +125,7 @@ export default function CohortsSection() {
 
               <Link
                 to="/signup"
-                className="mt-5 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] bg-linear-to-r from-[#951DC8] from-0% to-[#1C044E] to-100% px-3.5 text-[16px] font-normal leading-6 tracking-[-0.4px] text-white shadow-[inset_0_0_25.025px_rgba(0,121,221,0.7)] transition-transform hover:scale-[1.03] sm:mt-8.5 sm:h-19.25 sm:w-[220.73px] sm:gap-[12.83px] sm:rounded-[19.25px] sm:px-[12.83px] sm:text-[25.6714px] sm:leading-8 sm:tracking-[-0.641785px]"
+                className="mt-5 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] bg-linear-to-r from-[var(--ae-lavender)] from-0% to-[#1C044E] to-100% px-3.5 text-[16px] font-normal leading-6 tracking-[-0.4px] text-white shadow-[inset_0_0_25.025px_rgba(0,121,221,0.7)] transition-transform hover:scale-[1.03] sm:mt-8.5 sm:h-19.25 sm:w-[220.73px] sm:gap-[12.83px] sm:rounded-[19.25px] sm:px-[12.83px] sm:text-[25.6714px] sm:leading-8 sm:tracking-[-0.641785px]"
               >
                 Enroll now
                 <ArrowRight className="h-4 w-4 -rotate-45 stroke-[2.08807px] sm:h-[16.33px] sm:w-[16.33px]" />

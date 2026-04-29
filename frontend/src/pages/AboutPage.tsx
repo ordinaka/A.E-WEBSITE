@@ -72,7 +72,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-[#050020] min-h-screen font-outfit">
+    <div className="relative overflow-hidden bg-[var(--ae-bg)] min-h-screen font-outfit">
       <div
         className="w-full relative overflow-hidden"
         style={{
@@ -83,7 +83,7 @@ export default function AboutPage() {
         }}
       >
         {/* Soft overlay for depth */}
-        <div className="absolute inset-0 bg-[#050020]/60 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[var(--ae-bg)]/60 pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
           
@@ -103,7 +103,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             <FadeInWhenVisible delay={0.1}>
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 lg:p-12 h-full shadow-2xl">
-                <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[#7928FF] to-[#4C00FF] flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[var(--ae-blue)] to-[var(--ae-plum)] flex items-center justify-center mb-6">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -117,7 +117,7 @@ export default function AboutPage() {
 
             <FadeInWhenVisible delay={0.2}>
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 lg:p-12 h-full shadow-2xl">
-                <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[#FF28B5] to-[#7928FF] flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[#FF28B5] to-[var(--ae-blue)] flex items-center justify-center mb-6">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -134,7 +134,7 @@ export default function AboutPage() {
           {/* Team Section */}
           <FadeInWhenVisible delay={0.3}>
             <div className="text-center mb-16 px-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-linear-to-r from-[#7928FF]/20 to-[#4C00FF]/20 border border-[#7928FF]/30 mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-linear-to-r from-[var(--ae-blue)]/20 to-[var(--ae-plum)]/20 border border-[var(--ae-blue)]/30 mb-4">
                 <Users className="w-4 h-4 text-purple-400" />
                 <span className="text-xs font-bold text-purple-300 uppercase tracking-widest">Our Team</span>
               </div>
@@ -174,13 +174,13 @@ export default function AboutPage() {
                           className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out"
                         />
                       ) : (
-                        <div className="w-full h-full bg-linear-to-br from-purple-500/10 via-blue-500/10 to-[#050020] flex items-center justify-center">
+                        <div className="w-full h-full bg-linear-to-br from-purple-500/10 via-blue-500/10 to-[var(--ae-bg)] flex items-center justify-center">
                            <span className="text-5xl font-black text-white/10 select-none">{member.fullName.charAt(0)}</span>
                         </div>
                       )}
                       
                       {/* Hover Overlay */}
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#050020] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 translate-y-4 group-hover:translate-y-0 transition-transform z-10">
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--ae-bg)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 translate-y-4 group-hover:translate-y-0 transition-transform z-10">
                           <span className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-white text-sm font-semibold tracking-wide border border-white/20 shadow-[0_10px_30px_rgba(120,40,255,0.3)] hover:bg-white/20 transition-colors">
                             View Profile
                           </span>
@@ -214,7 +214,7 @@ export default function AboutPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedMember(null)}
-              className="absolute inset-0 bg-[#050020]/90 backdrop-blur-md cursor-pointer"
+              className="absolute inset-0 bg-[var(--ae-bg)]/90 backdrop-blur-md cursor-pointer"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -240,7 +240,7 @@ export default function AboutPage() {
                     className="w-full h-full object-cover object-top"
                   />
                 ) : (
-                  <div className="w-full h-full bg-linear-to-br from-purple-500/20 via-blue-500/20 to-[#050020] flex items-center justify-center">
+                  <div className="w-full h-full bg-linear-to-br from-purple-500/20 via-blue-500/20 to-[var(--ae-bg)] flex items-center justify-center">
                      <span className="text-8xl font-black text-white/10 select-none">{selectedMember.fullName.charAt(0)}</span>
                   </div>
                 )}

@@ -16,7 +16,7 @@ const cohorts = [
 
 function Hero() {
   return (
-    <section className="w-full pt-48 pb-16 relative overflow-hidden flex flex-col items-center bg-[#050020]">
+    <section className="w-full pt-48 pb-16 relative overflow-hidden flex flex-col items-center bg-[var(--ae-bg)]">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-purple-700/25 blur-[220px] rounded-full" />
@@ -25,7 +25,7 @@ function Hero() {
 
       <div className="relative w-full max-w-7xl px-6 text-center">
         {/* Title */}
-        <h1 className="text-5xl md:text-7xl font-semibold leading-tight pb-2 mb-4 bg-gradient-to-r from-white via-purple-200 to-[#6635C4] text-transparent bg-clip-text">
+        <h1 className="text-5xl md:text-7xl font-semibold leading-tight pb-2 mb-4 bg-gradient-to-r from-white via-purple-200 to-[var(--ae-blue)] text-transparent bg-clip-text">
           Learning Cohorts
         </h1>
 
@@ -38,9 +38,9 @@ function Hero() {
           <input
             placeholder="Search for a course or cohort..."
             className="w-full max-w-[480px] px-6 py-4 rounded-2xl
-              bg-gradient-to-r from-[#060221] to-[#201239]
+              bg-gradient-to-r from-[var(--ae-plum-deep)] to-[var(--ae-plum)]
               border border-purple-500/20
-              text-white placeholder:text-[#407199]
+              text-white placeholder:text-[var(--ae-periwinkle)]
               outline-none
               shadow-[inset_0_0_20px_rgba(2,48,83,0.8)]
               focus:border-purple-500/50 transition-colors"
@@ -59,7 +59,7 @@ function Hero() {
       <div className="relative w-full flex justify-center items-center min-h-80 sm:min-h-[500px]">
         {/* Center fixed AE logo */}
         <div className="absolute z-20 top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
-          <div className="relative flex h-[180px] w-[180px] items-center justify-center rounded-full bg-[#7B37D9] shadow-[0_0_56px_#9326D1] sm:h-[245px] sm:w-[245px] md:h-72 md:w-72 md:shadow-[0_0_94px_#9326D1]">
+          <div className="relative flex h-[180px] w-[180px] items-center justify-center rounded-full bg-[var(--ae-blue)] shadow-[0_0_56px_var(--ae-lavender)] sm:h-[245px] sm:w-[245px] md:h-72 md:w-72 md:shadow-[0_0_94px_var(--ae-lavender)]">
             <div className="relative flex h-[150px] w-[150px] items-center justify-center overflow-hidden rounded-full bg-white shadow-[0_0_32px_rgba(0,19,34,0.08)] sm:h-[205px] sm:w-[205px] md:h-60 md:w-60">
               <img
                 src={favicon}
@@ -71,7 +71,7 @@ function Hero() {
 
           <Link
             to="/signup"
-            className="mt-5 sm:mt-8 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] bg-gradient-to-r from-[#951DC8] to-[#1C044E] px-4 text-base font-medium text-white shadow-[inset_0_0_25px_rgba(0,121,221,0.7)] transition-transform hover:scale-[1.03] sm:h-[72px] sm:w-[220px] sm:rounded-[19px] sm:text-xl"
+            className="mt-5 sm:mt-8 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] bg-gradient-to-r from-[var(--ae-lavender)] to-[#1C044E] px-4 text-base font-medium text-white shadow-[inset_0_0_25px_rgba(0,121,221,0.7)] transition-transform hover:scale-[1.03] sm:h-[72px] sm:w-[220px] sm:rounded-[19px] sm:text-xl"
           >
             Enroll now
             <ArrowRight className="h-4 w-4 -rotate-45" />

@@ -62,7 +62,7 @@ function Footer() {
 
             {/* Button */}
             <div className="flex md:justify-end mt-4 md:mt-0">
-              <button className="bg-[#5F00FF] px-6 py-2 md:px-7 md:py-3 rounded-full text-xs md:text-sm hover:bg-[#7a33ff] transition">
+              <button className="bg-[var(--ae-blue)] px-6 py-2 md:px-7 md:py-3 rounded-full text-xs md:text-sm hover:bg-[#7a33ff] transition">
                 Log Out
               </button>
             </div>

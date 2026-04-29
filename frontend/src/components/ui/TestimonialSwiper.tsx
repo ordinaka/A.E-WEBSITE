@@ -84,8 +84,8 @@ export default function TestimonialSwiper() {
       className="relative w-full py-4 sm:py-5 md:py-8 px-4 sm:px-6 overflow-visible"
     >
       {/* decorative blue radial glow in center (enhances the blob) */}
-      <div className="pointer-events-none absolute -left-65.5 top-[18%] z-0 h-122.25 w-120.75 -translate-y-1/2 rounded-full bg-[#5F00FF] mix-blend-normal blur-[250px]" />
-      <div className="pointer-events-none absolute -right-65.5 top-[18%] z-0 h-122.25 w-120.75 -translate-y-1/2 rounded-full bg-[#5F00FF] mix-blend-normal blur-[250px]" />
+      <div className="pointer-events-none absolute -left-65.5 top-[18%] z-0 h-122.25 w-120.75 -translate-y-1/2 rounded-full bg-[var(--ae-blue)] mix-blend-normal blur-[250px]" />
+      <div className="pointer-events-none absolute -right-65.5 top-[18%] z-0 h-122.25 w-120.75 -translate-y-1/2 rounded-full bg-[var(--ae-blue)] mix-blend-normal blur-[250px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <FadeInWhenVisible delay={0.05}>

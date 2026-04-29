@@ -110,7 +110,7 @@ const Card = ({
           <button
             className={
               center
-                ? "w-full py-2 rounded-md flex items-center justify-center bg-linear-to-r from-[#7928FF]  to-[#4C00FF] text-white font-semibold shadow-lg"
+                ? "w-full py-2 rounded-md flex items-center justify-center bg-linear-to-r from-[var(--ae-blue)]  to-[var(--ae-plum)] text-white font-semibold shadow-lg"
                 : undefined
             }
           >
@@ -119,7 +119,7 @@ const Card = ({
         )}
         {comment && commentLink && (
           <p className="text-white/60 text-start text-sm leading-relaxed">
-            <a href="" className="text-[#0F80DD] text-md mr-2">
+            <a href="" className="text-[var(--ae-blue)] text-md mr-2">
               {commentLink}
             </a>
             {comment}
@@ -142,7 +142,7 @@ const HomePage = () => {
 
   return (
     <>
-    <div className="relative overflow-hidden bg-[#050020]">
+    <div className="relative overflow-hidden bg-[var(--ae-bg)]">
     <div
       className="min-h-screen w-full relative overflow-hidden"
       style={{
@@ -154,7 +154,7 @@ const HomePage = () => {
       {/* Enhanced overlay for better blending */}
     
       {/* Additional soft overlay for depth */}
-      <div className="absolute inset-0 bg-[#050020]/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[var(--ae-bg)]/40 pointer-events-none" />
 
       {/* centered hero */}
       <header className="relative z-20 flex items-center justify-center min-h-screen pt-80 lg:pt-70 lg:pb-12 h-screen">
@@ -328,7 +328,7 @@ const HomePage = () => {
                 </div>
                 <div className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5 w-full">
                   <button className="flex flex-row justify-center items-center w-[172px] h-[60px] p-[10px] gap [10px] rounded-[15px] 
-                  bg-[linear-gradient(270deg,#A822DB_0%,#09003B_100%)] shadow-[inset_0_0_19.5px_rgba(0,121,221,0.7)] text-white 
+                  bg-[linear-gradient(270deg,var(--ae-lavender)_0%,var(--ae-bg-deep)_100%)] shadow-[inset_0_0_19.5px_rgba(0,121,221,0.7)] text-white 
                   text-base lg:text-xl font-normal transition-all duration-500 hover:-translate-y-1">
                     <ArrowUpRight size={15} className="sm:w-4 sm:h-4" />
                     Read More

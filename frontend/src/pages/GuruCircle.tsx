@@ -69,7 +69,7 @@ export default function GuruCircle() {
   return (
     <div
       style={{
-        background: "linear-gradient(155deg,#0d0b2e 0%,#080620 55%,#110935 100%)",
+        background: "linear-gradient(155deg,var(--ae-bg-deep) 0%,var(--ae-bg-deep) 55%,var(--ae-plum-deep) 100%)",
         fontFamily: "'Sora','DM Sans',sans-serif",
         color: "white",
         display: "flex",
@@ -118,7 +118,7 @@ export default function GuruCircle() {
               cx="50"
               cy="50"
               r={r}
-              stroke="#6644cc"
+              stroke="var(--ae-blue)"
               strokeWidth="0.18"
               opacity={0.5 - i * 0.06}
             />
@@ -151,7 +151,7 @@ export default function GuruCircle() {
                   overflow: "hidden",
                   border:
                     hovered === m.id
-                      ? "2.5px solid #8b5cf6"
+                      ? "2.5px solid var(--ae-periwinkle)"
                       : "2px solid rgba(255,255,255,0.22)",
                   boxShadow:
                     hovered === m.id
@@ -174,7 +174,7 @@ export default function GuruCircle() {
                     left: "50%",
                     transform: "translateX(-50%)",
                     bottom: "-24px",
-                    background: "#5b21b6",
+                    background: "var(--ae-plum)",
                     color: "white",
                     fontSize: "10px",
                     fontWeight: 700,
@@ -231,7 +231,7 @@ export default function GuruCircle() {
             zIndex: 10,
           }}
         >
-          <span style={{ color: "#f5a623" }}>★</span> 4.8
+          <span style={{ color: "var(--ae-peach)" }}>★</span> 4.8
         </div>
 
         {/* ── CENTER TEXT ── */}
@@ -250,9 +250,9 @@ export default function GuruCircle() {
               margin: 0,
             }}
           >
-            <span style={{ color: "#c4b5fd" }}>Welcome To The</span>
+            <span style={{ color: "var(--ae-lavender)" }}>Welcome To The</span>
             <br />
-            <span style={{ color: "#7c3aed" }}>Guru Circle</span>
+            <span style={{ color: "var(--ae-blue)" }}>Guru Circle</span>
           </h1>
           <p
             className="text-[clamp(0.7rem,1.15vw,0.8rem)] md:text-[clamp(0.58rem,1.15vw,0.8rem)]"
@@ -268,7 +268,7 @@ export default function GuruCircle() {
           <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full justify-center">
             <button className="px-8 py-3 w-full sm:w-auto"
               style={{
-                background: "#5b21b6",
+                background: "var(--ae-plum)",
                 color: "white",
                 border: "none",
                 borderRadius: "7px",
@@ -282,7 +282,7 @@ export default function GuruCircle() {
             </button>
             <button className="px-8 py-3 w-full sm:w-auto"
               style={{
-                background: "#0f0d25",
+                background: "var(--ae-bg-deep)",
                 color: "white",
                 border: "1px solid rgba(255,255,255,0.15)",
                 borderRadius: "7px",
@@ -315,7 +315,7 @@ export default function GuruCircle() {
                 backdropFilter: "blur(16px)",
               }}
             >
-              <div style={{ fontSize: "13px", color: "#8b5cf6", marginBottom: "6px" }}>
+              <div style={{ fontSize: "13px", color: "var(--ae-periwinkle)", marginBottom: "6px" }}>
                 {f.icon}
               </div>
               <p style={{ fontWeight: 700, fontSize: "clamp(10px,1.45vw,14px)", marginBottom: "5px" }}>
@@ -356,7 +356,7 @@ export default function GuruCircle() {
       </div>
 
       {/* ── GET STARTED SECTION ── */}
-      <div className="w-full bg-[#070014] py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden">
+      <div className="w-full bg-[var(--ae-bg-deep)] py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden">
         {/* Decorative glow */}
         <div className="absolute -top-40 -right-1/3 w-96 h-96 rounded-full bg-[rgba(135,75,255,0.12)] blur-[120px] pointer-events-none" />
         <div className="absolute -bottom-40 -left-1/4 w-96 h-96 rounded-full bg-[rgba(79,39,245,0.08)] blur-[100px] pointer-events-none" />
@@ -376,7 +376,7 @@ export default function GuruCircle() {
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
             {/* Primary Button */}
             <button 
-              className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#7928FF] to-[#4C00FF] text-white font-bold rounded-lg hover:scale-105 transition-transform duration-200 shadow-lg text-base md:text-lg"
+              className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[var(--ae-blue)] to-[var(--ae-plum)] text-white font-bold rounded-lg hover:scale-105 transition-transform duration-200 shadow-lg text-base md:text-lg"
             >
               Get Started Now
             </button>
@@ -396,9 +396,9 @@ export default function GuruCircle() {
               <input
                 type="email"
                 placeholder="Enter your email..."
-                className="flex-1 px-5 py-3 md:py-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#7928FF] focus:bg-white/15 transition-all"
+                className="flex-1 px-5 py-3 md:py-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--ae-blue)] focus:bg-white/15 transition-all"
               />
-              <button className="px-8 py-3 md:py-4 bg-gradient-to-r from-[#7928FF] to-[#4C00FF] text-white font-semibold rounded-lg hover:shadow-lg transition-all whitespace-nowrap">
+              <button className="px-8 py-3 md:py-4 bg-gradient-to-r from-[var(--ae-blue)] to-[var(--ae-plum)] text-white font-semibold rounded-lg hover:shadow-lg transition-all whitespace-nowrap">
                 Subscribe
               </button>
             </div>

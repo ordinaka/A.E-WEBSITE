@@ -7,6 +7,17 @@
 :root {
   --sans: 'Inter', 'Segoe UI', Roboto, sans-serif;
   --heading: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+  --ae-plum: #332754;
+  --ae-plum-deep: #251d3f;
+  --ae-blue: #33418f;
+  --ae-periwinkle: #9aa8e7;
+  --ae-peach: #f5a487;
+  --ae-lavender: #e3b5ee;
+  --ae-bg: #251d3f;
+  --ae-bg-deep: #1e1735;
+  --ae-surface: #332754;
+  --ae-border: rgba(154, 168, 231, 0.24);
+  --ae-muted: #cbd3f4;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -18,6 +29,45 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
+
+@theme {
+  --color-purple-50: #fbf5fd;
+  --color-purple-100: #f3dcf7;
+  --color-purple-200: #e3b5ee;
+  --color-purple-300: #c7b8ee;
+  --color-purple-400: #9aa8e7;
+  --color-purple-500: #6f7fd0;
+  --color-purple-600: #33418f;
+  --color-purple-700: #332754;
+  --color-purple-800: #2b2249;
+  --color-purple-900: #251d3f;
+  --color-purple-950: #1e1735;
+
+  --color-violet-50: #fbf5fd;
+  --color-violet-100: #f3dcf7;
+  --color-violet-200: #e3b5ee;
+  --color-violet-300: #c7b8ee;
+  --color-violet-400: #9aa8e7;
+  --color-violet-500: #6f7fd0;
+  --color-violet-600: #33418f;
+  --color-violet-700: #332754;
+  --color-violet-800: #2b2249;
+  --color-violet-900: #251d3f;
+  --color-violet-950: #1e1735;
+
+  --color-fuchsia-400: #e3b5ee;
+  --color-fuchsia-500: #d49ae3;
+  --color-fuchsia-600: #b579c8;
+  --color-pink-400: #f5a487;
+  --color-pink-500: #ef9273;
+  --color-pink-600: #d9795f;
+  --color-blue-400: #9aa8e7;
+  --color-blue-500: #6679d0;
+  --color-blue-600: #33418f;
+  --color-indigo-400: #9aa8e7;
+  --color-indigo-500: #6679d0;
+  --color-indigo-600: #33418f;
 }
 
 #root {
@@ -33,6 +83,7 @@
 
 body {
   color: white;
+  background: var(--ae-bg);
   margin: 0;
   overflow-x: hidden;
   font-family: var(--sans);
@@ -57,9 +108,9 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   background: linear-gradient(
     to right,
-    rgba(5, 0, 32, 0.98) 0%,
-    rgba(5, 0, 32, 0.82) 35%,
-    rgba(5, 0, 32, 0) 100%
+    rgba(37, 29, 63, 0.98) 0%,
+    rgba(37, 29, 63, 0.82) 35%,
+    rgba(37, 29, 63, 0) 100%
   );
 }
 
@@ -67,9 +118,9 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   background: linear-gradient(
     to left,
-    rgba(5, 0, 32, 0.98) 0%,
-    rgba(5, 0, 32, 0.82) 35%,
-    rgba(5, 0, 32, 0) 100%
+    rgba(37, 29, 63, 0.98) 0%,
+    rgba(37, 29, 63, 0.82) 35%,
+    rgba(37, 29, 63, 0) 100%
   );
 
 }

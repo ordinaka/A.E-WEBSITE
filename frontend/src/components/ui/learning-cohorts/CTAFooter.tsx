@@ -32,7 +32,7 @@ export default function CTAFooter() {
             </p>
 
             <div className="flex justify-start">
-              <button className="px-5 py-2 rounded-lg bg-[#5F00FF] text-sm font-medium hover:opacity-90 transition">
+              <button className="px-5 py-2 rounded-lg bg-[var(--ae-blue)] text-sm font-medium hover:opacity-90 transition">
                 Start Your Instructor Journey <img src= {arrow}/>
               </button>
             </div>
@@ -55,7 +55,7 @@ export default function CTAFooter() {
             </p>
 
             <div className="flex justify-start">
-              <button className="px-6 py-2 rounded-lg bg-[#5F00FF] text-sm font-medium hover:opacity-90 transition">
+              <button className="px-6 py-2 rounded-lg bg-[var(--ae-blue)] text-sm font-medium hover:opacity-90 transition">
                 Checkout Courses <img src= {arrow}/>
               </button>
             </div>
@@ -114,7 +114,7 @@ export default function CTAFooter() {
 
             {/* BUTTON */}
             <div className="flex md:justify-end items-start">
-              <button className="px-6 py-2 rounded-full bg-[#5F00FF] text-sm font-medium">
+              <button className="px-6 py-2 rounded-full bg-[var(--ae-blue)] text-sm font-medium">
                 Log Out
               </button>
             </div>

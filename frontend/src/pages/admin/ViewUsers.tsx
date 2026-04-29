@@ -186,7 +186,7 @@ export default function ViewUsers() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[#050020] text-white overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--ae-bg)] text-white overflow-hidden relative">
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
