@@ -46,7 +46,7 @@ const InputField = ({
   extra?: React.ReactNode;
 }) => (
   <div className="space-y-1.5">
-    <label htmlFor={id} className="block text-xs font-semibold text-gray-400 uppercase tracking-wider">
+    <label htmlFor={id} className="block text-xs font-semibold text-[var(--ae-periwinkle)] uppercase tracking-wider">
       {label}
     </label>
     <div className="relative">
@@ -57,7 +57,7 @@ const InputField = ({
         value={value}
         onChange={onChange}
         autoComplete={id}
-        className="w-full rounded-2xl bg-white/5 border border-white/10 focus:border-violet-500/60 focus:bg-white/10 focus:ring-2 focus:ring-violet-500/20 outline-none px-4 py-3.5 text-white placeholder:text-gray-600 transition-all text-sm pr-12"
+        className="w-full rounded-2xl bg-white/10 border border-[var(--ae-border)] focus:border-[var(--ae-peach)] focus:bg-white/15 focus:ring-2 focus:ring-[rgba(245,164,135,0.22)] outline-none px-4 py-3.5 text-white placeholder:text-white/40 transition-all text-sm pr-12"
       />
       {extra}
     </div>
@@ -158,15 +158,15 @@ const Signup = (): ReactElement => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[var(--ae-bg)] flex items-stretch overflow-hidden">
+    <div className="min-h-screen w-full ae-brand-page flex items-stretch overflow-hidden">
       {/* ── Left: Form Panel ── */}
       <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24 z-10">
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-lg ae-auth-card rounded-[28px] p-6 sm:p-8">
 
           {/* Brand */}
           <div className="mb-8">
             <div className="inline-flex items-center gap-3 mb-2">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center shadow-lg shadow-violet-500/30">
+              <div className="w-9 h-9 rounded-xl bg-[var(--ae-peach)] flex items-center justify-center shadow-lg shadow-[rgba(245,164,135,0.25)]">
                 <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
@@ -176,7 +176,7 @@ const Signup = (): ReactElement => {
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-6 leading-tight">
               Create your account ✨
             </h1>
-            <p className="text-gray-400 mt-2 text-sm">Join thousands of learners today. It's free.</p>
+            <p className="text-[var(--ae-muted)] mt-2 text-sm">Join thousands of learners today. It's free.</p>
           </div>
 
           {/* ── Success State ── */}
@@ -224,7 +224,7 @@ const Signup = (): ReactElement => {
               {/* ── Divider ── */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex-1 h-px bg-white/10" />
-                <span className="text-xs font-medium text-gray-500 uppercase tracking-widest whitespace-nowrap">or register with email</span>
+                <span className="text-xs font-medium text-[var(--ae-periwinkle)] uppercase tracking-widest whitespace-nowrap">or register with email</span>
                 <div className="flex-1 h-px bg-white/10" />
               </div>
 
@@ -308,7 +308,7 @@ const Signup = (): ReactElement => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-bold py-4 mt-2 transition-all duration-200 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                  className="w-full rounded-2xl ae-brand-button font-bold py-4 mt-2 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <>
@@ -325,9 +325,9 @@ const Signup = (): ReactElement => {
               </form>
 
               {/* Footer */}
-              <p className="mt-6 text-center text-sm text-gray-500">
+              <p className="mt-6 text-center text-sm text-[var(--ae-muted)]">
                 Already have an account?{" "}
-                <Link to="/login" className="text-violet-400 hover:text-violet-300 font-semibold transition-colors">
+                <Link to="/login" className="ae-brand-link font-semibold transition-colors">
                   Sign in
                 </Link>
               </p>
@@ -351,7 +351,7 @@ const Signup = (): ReactElement => {
 
         {/* Floating stats card */}
         <div className="absolute top-12 right-10 z-20">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-5 shadow-2xl min-w-[180px]">
+          <div className="ae-brand-card rounded-3xl p-5 shadow-2xl min-w-[180px]">
             <p className="text-4xl font-extrabold text-white">2.4k+</p>
             <p className="text-gray-400 text-sm mt-1">Active learners</p>
             <div className="flex items-center gap-1 mt-3">
@@ -367,7 +367,7 @@ const Signup = (): ReactElement => {
 
         {/* Floating bottom badge */}
         <div className="absolute bottom-12 right-10 z-20 max-w-[220px]">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-5 shadow-2xl">
+          <div className="ae-brand-card rounded-3xl p-5 shadow-2xl">
             <div className="w-10 h-10 rounded-2xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center mb-3">
               <svg className="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />

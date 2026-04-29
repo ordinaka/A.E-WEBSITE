@@ -18,7 +18,7 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-4">
-      <div className="w-full max-w-7xl flex items-center justify-between px-6 py-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/10">
+      <div className="w-full max-w-7xl flex items-center justify-between px-6 py-3 rounded-full ae-brand-card">
 
         {/* LOGO */}
         <img src={favicon} alt="logo" className="w-10 h-10 rounded-full" />

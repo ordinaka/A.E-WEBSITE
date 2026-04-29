@@ -94,6 +94,49 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading);
 }
 
+.ae-brand-page {
+  background:
+    linear-gradient(135deg, rgba(37, 29, 63, 0.98) 0%, rgba(51, 39, 84, 0.96) 42%, rgba(51, 65, 143, 0.82) 100%),
+    repeating-linear-gradient(90deg, rgba(154, 168, 231, 0.08) 0 1px, transparent 1px 80px);
+}
+
+.ae-brand-band {
+  background:
+    linear-gradient(120deg, rgba(154, 168, 231, 0.18), rgba(245, 164, 135, 0.14)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--ae-border);
+}
+
+.ae-brand-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(154, 168, 231, 0.08));
+  border: 1px solid var(--ae-border);
+  box-shadow: 0 24px 80px rgba(30, 23, 53, 0.36);
+}
+
+.ae-auth-card {
+  background: linear-gradient(160deg, rgba(51, 39, 84, 0.78), rgba(30, 23, 53, 0.76));
+  border: 1px solid var(--ae-border);
+  box-shadow: 0 30px 90px rgba(30, 23, 53, 0.45);
+}
+
+.ae-brand-button {
+  background: linear-gradient(135deg, var(--ae-peach), var(--ae-lavender) 52%, var(--ae-periwinkle));
+  color: var(--ae-plum-deep);
+  box-shadow: 0 18px 40px rgba(245, 164, 135, 0.22);
+}
+
+.ae-brand-button:hover {
+  filter: brightness(1.04);
+}
+
+.ae-brand-link {
+  color: var(--ae-lavender);
+}
+
+.ae-brand-link:hover {
+  color: var(--ae-peach);
+}
+
 .marquee-edge-left,
 .marquee-edge-right {
   position: absolute;

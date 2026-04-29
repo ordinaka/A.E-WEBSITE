@@ -59,7 +59,7 @@ const Card = ({
   <div
     className="
       w-full min-h-80 md:h-82
-      bg-white/4 backdrop-blur-md border border-white/20
+      ae-brand-card backdrop-blur-md
       rounded-xl p-6 sm:p-8 md:p-10
       relative
       flex flex-col justify-between items-start
@@ -110,7 +110,7 @@ const Card = ({
           <button
             className={
               center
-                ? "w-full py-2 rounded-md flex items-center justify-center bg-linear-to-r from-[var(--ae-blue)]  to-[var(--ae-plum)] text-white font-semibold shadow-lg"
+                ? "w-full py-2 rounded-md flex items-center justify-center ae-brand-button font-semibold"
                 : undefined
             }
           >
@@ -142,7 +142,7 @@ const HomePage = () => {
 
   return (
     <>
-    <div className="relative overflow-hidden bg-[var(--ae-bg)]">
+    <div className="relative overflow-hidden ae-brand-page">
     <div
       className="min-h-screen w-full relative overflow-hidden"
       style={{
@@ -154,32 +154,32 @@ const HomePage = () => {
       {/* Enhanced overlay for better blending */}
     
       {/* Additional soft overlay for depth */}
-      <div className="absolute inset-0 bg-[var(--ae-bg)]/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(37,29,63,0.72)] via-[rgba(51,65,143,0.44)] to-[rgba(37,29,63,0.9)] pointer-events-none" />
 
       {/* centered hero */}
       <header className="relative z-20 flex items-center justify-center min-h-screen pt-80 lg:pt-70 lg:pb-12 h-screen">
         <div className="max-w-3xl text-center px-4 sm:px-6">
           <FadeInWhenVisible>
-            <p className="text-white/90 tracking-widest text-xs sm:text-sm md:text-base mb-3 md:mb-4">
+            <p className="text-[var(--ae-peach)] font-bold tracking-widest text-xs sm:text-sm md:text-base mb-3 md:mb-4">
               Welcome to AE.
             </p>
 
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight drop-shadow-[0_8px_40px_rgba(120,40,255,0.25)]">
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight drop-shadow-[0_8px_40px_rgba(37,29,63,0.35)]">
               Gear Up For The
               <br />
-              Future.
+              <span className="text-[var(--ae-peach)]">Future.</span>
             </h1>
 
-            <p className="text-white/90 mt-4 sm:mt-6 max-w-xl mx-auto text-sm sm:text-base">
+            <p className="text-[var(--ae-muted)] mt-4 sm:mt-6 max-w-xl mx-auto text-sm sm:text-base">
               Lorem ipsum dolor sit amet, consectetur <span className="block">adipiscin</span>
             </p>
 
             {/* circular indicator + down arrow */}
             <div className="flex flex-col items-center gap-3 mt-8">
-              <div className="w-10 h-10 rounded-full border border-white/12 flex items-center justify-center text-white/70">
+              <div className="w-10 h-10 rounded-full border border-[var(--ae-peach)]/40 bg-[var(--ae-peach)]/10 flex items-center justify-center text-[var(--ae-peach)]">
                 <Mouse size={25} strokeWidth={1.5} />
               </div>
-              <ArrowDown size={38} className="text-white/80 animate-bounce" />
+              <ArrowDown size={38} className="text-[var(--ae-peach)] animate-bounce" />
             </div>
           </FadeInWhenVisible>
         </div>

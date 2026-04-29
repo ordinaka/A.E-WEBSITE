@@ -197,7 +197,7 @@ export default function ModuleDetailPage() {
   }, [moduleDetail]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[var(--ae-bg)] text-white">
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white">
       <div className="max-w-5xl mx-auto space-y-6">
         {isLoading ? (
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8">Loading module...</div>

@@ -113,7 +113,7 @@ export default function TestimonialsPage() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[var(--ae-bg)] min-h-screen">
+    <div className="relative overflow-hidden ae-brand-page min-h-screen">
       <div
         className="w-full relative overflow-hidden min-h-screen"
         style={{
@@ -123,7 +123,7 @@ export default function TestimonialsPage() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-[var(--ae-bg)]/60 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
 

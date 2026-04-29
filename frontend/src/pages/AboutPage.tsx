@@ -72,7 +72,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-[var(--ae-bg)] min-h-screen font-outfit">
+    <div className="relative overflow-hidden ae-brand-page min-h-screen font-outfit">
       <div
         className="w-full relative overflow-hidden"
         style={{
@@ -83,7 +83,7 @@ export default function AboutPage() {
         }}
       >
         {/* Soft overlay for depth */}
-        <div className="absolute inset-0 bg-[var(--ae-bg)]/60 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
           
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 <FadeInWhenVisible delay={0.4 + idx * 0.1} key={member.id}>
                   <div 
                     onClick={() => setSelectedMember(member)}
-                    className="group relative bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-purple-500/10 hover:border-purple-500/30 cursor-pointer"
+                    className="group relative ae-brand-card backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-purple-500/10 hover:border-purple-500/30 cursor-pointer"
                   >
                     {/* Image Container */}
                     <div className="relative aspect-square md:aspect-[4/5] overflow-hidden border-b border-white/5">
@@ -214,7 +214,7 @@ export default function AboutPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedMember(null)}
-              className="absolute inset-0 bg-[var(--ae-bg)]/90 backdrop-blur-md cursor-pointer"
+              className="absolute inset-0 bg-[rgba(37,29,63,0.90)] backdrop-blur-md cursor-pointer"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}

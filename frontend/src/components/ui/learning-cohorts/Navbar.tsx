@@ -45,7 +45,7 @@ function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-4">
       <div className="w-full max-w-7xl relative">
-        <div className="w-full flex items-center justify-between px-6 py-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/10">
+        <div className="w-full flex items-center justify-between px-6 py-3 rounded-full ae-brand-card backdrop-blur-xl">
 
           {/* LOGO */}
           <Link to="/" onClick={closeMenu}>
@@ -53,9 +53,9 @@ function Navbar() {
           </Link>
 
           {/* DESKTOP NAV LINKS */}
-          <nav className="hidden lg:flex gap-8 text-sm text-gray-300">
+          <nav className="hidden lg:flex gap-8 text-sm text-[var(--ae-muted)]">
             {navLinks.map((link) => (
-              <Link key={link.to} to={link.to} className="hover:text-white transition-colors">
+              <Link key={link.to} to={link.to} className="hover:text-[var(--ae-peach)] transition-colors">
                 {link.label}
               </Link>
             ))}
@@ -66,16 +66,16 @@ function Navbar() {
             <div className="hidden sm:flex gap-4 items-center">
               {!isLoggedIn ? (
                 <>
-                  <Link to="/login" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to="/login" className="text-sm text-[var(--ae-muted)] hover:text-[var(--ae-peach)] transition-colors">
                     Login
                   </Link>
-                  <Link to="/signup" className="text-sm bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full transition-colors border border-white/10">
+                  <Link to="/signup" className="text-sm ae-brand-button px-4 py-2 rounded-full transition-colors">
                     Sign Up
                   </Link>
                 </>
               ) : (
                 <>
-                  <Link to={dashboardPath} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={dashboardPath} className="text-sm text-[var(--ae-muted)] hover:text-[var(--ae-peach)] transition-colors">
                     {isAdmin ? "Admin Dashboard" : "Dashboard"}
                   </Link>
                   <button
@@ -97,7 +97,7 @@ function Navbar() {
             </button>
 
             {isLoggedIn && (
-              <Link to={dashboardPath} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full bg-purple-600 items-center justify-center cursor-pointer hover:bg-purple-500 transition-colors">
+              <Link to={dashboardPath} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full bg-[var(--ae-peach)] text-[var(--ae-plum-deep)] items-center justify-center cursor-pointer hover:brightness-105 transition-colors">
                 👤
               </Link>
             )}
@@ -106,7 +106,7 @@ function Navbar() {
 
         {/* MOBILE MENU DROPDOWN */}
         {isMenuOpen && (
-          <div className="absolute top-20 left-0 w-full bg-black/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 lg:hidden flex flex-col gap-6 text-lg text-gray-300 animate-in fade-in slide-in-from-top-4 duration-300 z-40">
+          <div className="absolute top-20 left-0 w-full ae-brand-card backdrop-blur-2xl rounded-3xl p-8 lg:hidden flex flex-col gap-6 text-lg text-[var(--ae-muted)] animate-in fade-in slide-in-from-top-4 duration-300 z-40">
             {navLinks.map((link) => (
               <Link
                 key={link.to}

@@ -10,7 +10,7 @@ import CTAFooter from "../components/ui/learning-cohorts/CTAFooter";
 
 export default function LearningCohort() {
   return (
-    <div className="relative min-h-screen bg-[var(--ae-bg)] text-white overflow-hidden">
+    <div className="relative min-h-screen ae-brand-page text-white overflow-hidden">
 
       {/* 🌌 GLOBAL BACKGROUND GLOW */}
       <div className="pointer-events-none absolute inset-0 z-0">

@@ -157,22 +157,21 @@ export default function DashboardPage() {
   }, [loadDashboard]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[var(--ae-bg)] text-white overflow-hidden relative">
-      {/* Background decorations */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-600/10 rounded-full blur-[120px] pointer-events-none" />
-
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white overflow-hidden relative">
       <motion.div 
         className="max-w-6xl mx-auto relative z-10 pb-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-500 bg-clip-text text-transparent">
+        <motion.div variants={itemVariants} className="mb-10 ae-brand-band rounded-[28px] p-6 md:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--ae-peach)] mb-3">
+            Algorithmic Explorers Dashboard
+          </p>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 text-white">
             Welcome back, {user?.firstName || "Student"}!
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl">
+          <p className="text-[var(--ae-muted)] text-lg max-w-2xl">
             Track your module progress, continue your learning, and stay on top.
           </p>
         </motion.div>
@@ -209,7 +208,7 @@ export default function DashboardPage() {
           <div className="space-y-8">
             <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {/* Stat Cards */}
-              <motion.div whileHover={{ y: -4 }} className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-purple-500/30 rounded-2xl p-6 shadow-xl transition-colors group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card backdrop-blur-xl border border-white/[0.08] hover:border-purple-500/30 rounded-2xl p-6 shadow-xl transition-colors group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-purple-500/10 rounded-xl group-hover:bg-purple-500/20 transition-colors">
                     <BookOpen className="w-6 h-6 text-purple-400" />
@@ -219,7 +218,7 @@ export default function DashboardPage() {
                 <p className="text-3xl font-bold text-white">{dashboard.summary.totalModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-emerald-500/30 rounded-2xl p-6 shadow-xl transition-colors group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card backdrop-blur-xl border border-white/[0.08] hover:border-emerald-500/30 rounded-2xl p-6 shadow-xl transition-colors group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-emerald-500/10 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
                     <CheckCircle className="w-6 h-6 text-emerald-400" />
@@ -229,7 +228,7 @@ export default function DashboardPage() {
                 <p className="text-3xl font-bold text-white">{dashboard.summary.completedModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-amber-500/30 rounded-2xl p-6 shadow-xl transition-colors group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card backdrop-blur-xl border border-white/[0.08] hover:border-amber-500/30 rounded-2xl p-6 shadow-xl transition-colors group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-amber-500/10 rounded-xl group-hover:bg-amber-500/20 transition-colors">
                     <PlayCircle className="w-6 h-6 text-amber-400" />
@@ -239,7 +238,7 @@ export default function DashboardPage() {
                 <p className="text-3xl font-bold text-white">{dashboard.summary.inProgressModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-gray-400/30 rounded-2xl p-6 shadow-xl transition-colors group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card backdrop-blur-xl border border-white/[0.08] hover:border-gray-400/30 rounded-2xl p-6 shadow-xl transition-colors group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors">
                     <Clock className="w-6 h-6 text-gray-400" />
@@ -249,10 +248,10 @@ export default function DashboardPage() {
                 <p className="text-3xl font-bold text-white">{dashboard.summary.notStartedModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-gradient-to-br from-purple-900/40 to-pink-900/20 backdrop-blur-xl border border-purple-500/20 hover:border-purple-400/50 rounded-2xl p-6 shadow-xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-band backdrop-blur-xl hover:border-[var(--ae-peach)]/50 rounded-2xl p-6 shadow-xl relative overflow-hidden group">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[var(--ae-peach)] via-[var(--ae-lavender)] to-[var(--ae-periwinkle)]" />
                 <div className="flex items-start justify-between mb-4 relative z-10">
-                  <div className="p-3 bg-purple-500/20 rounded-xl group-hover:bg-purple-500/30 transition-colors shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+                  <div className="p-3 bg-[var(--ae-peach)]/20 rounded-xl group-hover:bg-[var(--ae-peach)]/30 transition-colors shadow-[0_0_15px_rgba(245,164,135,0.25)]">
                     <TrendingUp className="w-6 h-6 text-purple-300" />
                   </div>
                 </div>
@@ -266,7 +265,7 @@ export default function DashboardPage() {
             </motion.div>
 
             {/* Main Progress Tracker */}
-            <motion.div variants={itemVariants} className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-3xl p-6 md:p-8">
+            <motion.div variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.05] rounded-3xl p-6 md:p-8">
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
                  <div>
                     <h2 className="text-2xl font-bold text-white mb-2">Learning Tracker</h2>
@@ -283,7 +282,7 @@ export default function DashboardPage() {
                   initial={{ width: 0 }}
                   animate={{ width: `${Math.max(0, Math.min(100, dashboard.summary.overallProgressPercent))}%` }}
                   transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                  className="h-full bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 rounded-full relative"
+                  className="h-full bg-gradient-to-r from-[var(--ae-blue)] via-[var(--ae-lavender)] to-[var(--ae-peach)] rounded-full relative"
                 />
               </div>
             </motion.div>
@@ -295,7 +294,7 @@ export default function DashboardPage() {
               </div>
 
               {dashboard.modules.length === 0 ? (
-                <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-12 text-center text-gray-400">
+                <div className="ae-brand-card border border-white/5 rounded-3xl p-12 text-center text-gray-400">
                   <BookOpen className="w-12 h-12 mx-auto text-gray-600 mb-4 opacity-50" />
                   <p>No modules available yet.</p>
                 </div>
@@ -310,7 +309,7 @@ export default function DashboardPage() {
                       <motion.div
                         variants={itemVariants}
                         whileHover={{ scale: 1.01, x: 5 }}
-                        className="bg-white/[0.03] backdrop-blur-md border border-white/[0.08] hover:border-purple-500/30 hover:bg-white/[0.05] rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all shadow-lg hover:shadow-purple-500/5 relative overflow-hidden"
+                        className="ae-brand-card backdrop-blur-md border border-white/[0.08] hover:border-purple-500/30 hover:bg-white/[0.05] rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all shadow-lg hover:shadow-purple-500/5 relative overflow-hidden"
                       >
                         {/* Optional glow on hover */}
                         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />

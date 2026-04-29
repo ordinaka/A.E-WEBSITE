@@ -185,7 +185,7 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[var(--ae-bg)] text-white overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white overflow-hidden relative">
       {/* Background decorations for Admin Theme */}
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
@@ -248,7 +248,7 @@ export default function AdminDashboard() {
                     key={card.label}
                     variants={itemVariants}
                     whileHover={{ y: -4 }}
-                    className={`bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-6 shadow-xl transition-all duration-300 group ${card.border}`}
+                    className={`ae-brand-card backdrop-blur-xl border border-white/[0.08] rounded-3xl p-6 shadow-xl transition-all duration-300 group ${card.border}`}
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className={`p-3 rounded-xl transition-colors ${card.bg}`}>
@@ -263,7 +263,7 @@ export default function AdminDashboard() {
               })}
             </motion.section>
 
-            <motion.section variants={itemVariants} className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-3xl p-8 mt-8 shadow-2xl">
+            <motion.section variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.05] rounded-3xl p-8 mt-8 shadow-2xl">
               <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {quickActions.map((action) => {

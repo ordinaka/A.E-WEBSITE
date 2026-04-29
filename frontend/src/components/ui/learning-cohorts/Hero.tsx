@@ -16,7 +16,7 @@ const cohorts = [
 
 function Hero() {
   return (
-    <section className="w-full pt-48 pb-16 relative overflow-hidden flex flex-col items-center bg-[var(--ae-bg)]">
+    <section className="w-full pt-48 pb-16 relative overflow-hidden flex flex-col items-center ae-brand-page">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-purple-700/25 blur-[220px] rounded-full" />

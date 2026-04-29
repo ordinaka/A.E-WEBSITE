@@ -58,7 +58,7 @@ export default function Testimonial() {
           {/* LEFT */}
           <div className="hidden md:flex flex-1 justify-end">
             <div className="w-[90%] opacity-30 scale-[0.97] blur-[0.5px] transition-all duration-500">
-              <div className="bg-[var(--ae-bg)] p-5 rounded-xl backdrop-blur-sm">
+              <div className="ae-brand-page p-5 rounded-xl backdrop-blur-sm">
                 <p className="text-sm text-gray-300 line-clamp-4">
                   {testimonials[prev].text}
                 </p>
