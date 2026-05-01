@@ -235,10 +235,9 @@ const HomePage = () => {
       </FadeInWhenVisible>
       {/* Sponsors Section – Swiper marquee with blurred fade edges */}
       <FadeInWhenVisible delay={0.5} y={20}>
-        <section className="relative z-20 pt-0 pb-6 sm:pb-8 px-4 sm:px-6">
-          {/* removed top padding */}
-          <div className="max-w-7xl mx-auto w-full overflow-hidden rounded-xl">
-            <div className="relative">
+        <section className="relative z-20 pt-2 pb-8 sm:pb-12 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto w-full overflow-hidden rounded-2xl bg-[var(--ae-plum-deep)] shadow-lg">
+            <div className="relative py-4">
               <Swiper
                 className="marquee-swiper pointer-events-none"
                 modules={[Autoplay, FreeMode]}
@@ -273,9 +272,9 @@ const HomePage = () => {
                 ))}
               </Swiper>
 
-              {/* Blurred linear edges */}
-              <div className="marquee-edge-left" />
-              <div className="marquee-edge-right" />
+              {/* Dark faded edges for smooth entry/exit of white logos */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[var(--ae-plum-deep)] to-transparent z-20 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[var(--ae-plum-deep)] to-transparent z-20 pointer-events-none" />
             </div>
           </div>
         </section>
