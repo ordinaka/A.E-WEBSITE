@@ -115,7 +115,7 @@ export default function ModulesPage() {
           {isLoading && (
             <FadeInWhenVisible>
               <div className="flex flex-col items-center justify-center py-24 gap-4">
-                <Loader2 className="w-10 h-10 text-purple-400 animate-spin" />
+                <Loader2 className="w-10 h-10 text-[var(--ae-periwinkle)] animate-spin" />
                 <p className="text-white/60 text-sm">Loading modules…</p>
               </div>
             </FadeInWhenVisible>
@@ -165,7 +165,7 @@ export default function ModulesPage() {
                       </div>
 
                       {mod.hasPublishedQuiz && (
-                        <div className="absolute top-4 right-4 bg-purple-500/20 border border-purple-400/30 text-purple-300 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                        <div className="absolute top-4 right-4 bg-[var(--ae-periwinkle)]/20 border border-[var(--ae-periwinkle)]/30 text-[var(--ae-lavender)] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
                           Quiz
                         </div>
                       )}
@@ -175,7 +175,7 @@ export default function ModulesPage() {
 
                     {/* Content */}
                     <div className="p-6 flex flex-col flex-grow">
-                      <h2 className="text-xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors line-clamp-2">
+                      <h2 className="text-xl font-semibold text-white mb-3 group-hover:text-[var(--ae-lavender)] transition-colors line-clamp-2">
                         {mod.title}
                       </h2>
                       <p className="text-white/60 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
@@ -201,10 +201,10 @@ export default function ModulesPage() {
                         <Link
                           to="/login"
                           className="relative w-full py-3.5 rounded-2xl flex items-center justify-center gap-2.5 font-bold transition-all duration-300 overflow-hidden group/btn
-                            bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600
-                            shadow-[0_0_24px_rgba(120,40,255,0.35)]
-                            hover:shadow-[0_0_40px_rgba(120,40,255,0.6)]
-                            hover:from-violet-500 hover:via-purple-500 hover:to-indigo-500
+                            bg-[var(--ae-blue)]
+                            shadow-[0_0_24px_rgba(51,65,143,0.35)]
+                            hover:shadow-[0_0_40px_rgba(51,65,143,0.6)]
+                            hover:bg-[var(--ae-blue)]/80
                             hover:scale-[1.02] active:scale-[0.98] text-white text-sm"
                         >
                           {/* Shine sweep */}

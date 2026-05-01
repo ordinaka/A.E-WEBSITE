@@ -149,7 +149,7 @@ const getResourceBadgeStyle = (type: ResourceType): string => {
   if (type === "DOCUMENT") {
     return "bg-sky-500/15 text-sky-300 border border-sky-400/30";
   }
-  return "bg-purple-500/15 text-purple-300 border border-purple-400/30";
+  return "bg-[var(--ae-periwinkle)]/15 text-[var(--ae-periwinkle)] border border-[var(--ae-periwinkle)]/30";
 };
 
 export default function ModuleDetailPage() {
@@ -219,7 +219,7 @@ export default function ModuleDetailPage() {
         {!isLoading && !error && moduleDetail ? (
           <>
             <section className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h1 className="text-3xl font-bold text-purple-300 mb-2">{moduleDetail.title}</h1>
+              <h1 className="text-3xl font-bold text-[var(--ae-lavender)] mb-2">{moduleDetail.title}</h1>
               {moduleDetail.shortDescription ? (
                 <p className="text-gray-200 mb-2">{moduleDetail.shortDescription}</p>
               ) : null}
@@ -229,7 +229,7 @@ export default function ModuleDetailPage() {
                 {quizTarget ? (
                   <Link
                     to={quizTarget}
-                    className="inline-flex items-center px-5 py-2.5 bg-purple-600 hover:bg-purple-500 rounded-lg font-semibold"
+                    className="inline-flex items-center px-5 py-2.5 bg-[var(--ae-blue)] hover:bg-[var(--ae-blue)]/80 rounded-lg font-semibold"
                   >
                     Start Quiz
                   </Link>
