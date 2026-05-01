@@ -10,6 +10,7 @@ import { ArrowUpRight } from "lucide-react";
 import CohortsSection from "../components/ui/CohortsSection";
 import TestimonialSwiper from "../components/ui/TestimonialSwiper";
 import CommunitySection from "../components/ui/CommunitySection";
+import InternshipModal from "../components/ui/InternshipModal";
 
 const bgPath = "/background.jpg";
 
@@ -337,6 +338,7 @@ const HomePage = () => {
       <TestimonialSwiper />
       {/* Community Section */}
       <CommunitySection />
+      <InternshipModal />
       </div>
     </>
   );
