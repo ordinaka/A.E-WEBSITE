@@ -85,30 +85,30 @@ export default function CTAFooter() {
               <p className="text-gray-400 text-sm mb-4 leading-relaxed text-left">
                 Work together seamlessly with real-time updates and communication.
               </p>
-              <p className="text-gray-500 text-sm text-left">
+              <p className="text-white text-sm text-left font-semibold">
                 Team Conditional & Policy
               </p>
             </div>
 
             {/* PAGES */}
             <div>
-              <h3 className="font-medium mb-4 ml-40 text-left">Pages</h3>
-              <ul className="space-y-2 text-sm text-gray-400 ml-40 text-left">
-                <li>Home</li>
-                <li>Projects</li>
-                <li>AE News</li>
-                <li>Exco Team</li>
+              <h3 className="font-medium mb-4 text-left">Pages</h3>
+              <ul className="space-y-2 text-sm text-white/90 text-left">
+                <li className="hover:text-white cursor-pointer">Home</li>
+                <li className="hover:text-white cursor-pointer">Projects</li>
+                <li className="hover:text-white cursor-pointer">AE News</li>
+                <li className="hover:text-white cursor-pointer">Exco Team</li>
               </ul>
             </div>
 
             {/* COMPANY */}
             <div>
-              <h3 className="font-medium mb-4 text-left ml-50">Company</h3>
-              <ul className="space-y-2 text-sm text-gray-400 ml-50 text-left">
-                <li>Customer</li>
-                <li>Enterprise</li>
-                <li>Partners</li>
-                <li>Job</li>
+              <h3 className="font-medium mb-4 text-left">Company</h3>
+              <ul className="space-y-2 text-sm text-white/90 text-left">
+                <li className="hover:text-white cursor-pointer">Customer</li>
+                <li className="hover:text-white cursor-pointer">Enterprise</li>
+                <li className="hover:text-white cursor-pointer">Partners</li>
+                <li className="hover:text-white cursor-pointer">Job</li>
               </ul>
             </div>
 

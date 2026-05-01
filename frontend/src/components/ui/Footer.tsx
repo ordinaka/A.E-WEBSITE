@@ -13,7 +13,7 @@ function Footer() {
                 Work together seamlessly with real-time updates and
                 communication.
               </p>
-              <p className="font-semibold text-white/75 text-sm md:text-[18px]">
+              <p className="font-semibold text-white text-sm md:text-[18px]">
                 Team Conditional & Policy
               </p>
             </div>
@@ -24,17 +24,17 @@ function Footer() {
                 Pages
               </h4>
               <ul className="space-y-2 md:space-y-4 text-xs md:text-sm">
-                <li className="text-white/75 hover:text-white cursor-pointer">
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
                   Home
                 </li>
-                <li className="text-white/75 hover:text-white cursor-pointer">
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
                   Projects
                 </li>
-                <li className="text-white/75 hover:text-white cursor-pointer">
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
                   AE News
                 </li>
-                <li className="text-white/75 hover:text-white cursor-pointer">
-                  Eco Team
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
+                  Exco Team
                 </li>
               </ul>
             </div>
@@ -45,16 +45,16 @@ function Footer() {
                 Company
               </h4>
               <ul className="space-y-2 md:space-y-4 text-xs md:text-sm">
-                <li className="text-white hover:text-white cursor-pointer">
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
                   Customer
                 </li>
-                <li className="text-white/75 hover:text-white cursor-pointer">
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
                   Enterprise
                 </li>
-                <li className="text-white/75 hover:text-white cursor-pointer">
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
                   Partners
                 </li>
-                <li className="text-white/75 hover:text-white cursor-pointer">
+                <li className="text-white hover:text-[var(--ae-periwinkle)] cursor-pointer">
                   Job
                 </li>
               </ul>

@@ -125,7 +125,7 @@ export default function CohortsSection() {
 
               <Link
                 to="/signup"
-                className="mt-5 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] bg-linear-to-r from-[var(--ae-lavender)] from-0% to-[#1C044E] to-100% px-3.5 text-[16px] font-normal leading-6 tracking-[-0.4px] text-white shadow-[inset_0_0_25.025px_rgba(0,121,221,0.7)] transition-transform hover:scale-[1.03] sm:mt-8.5 sm:h-19.25 sm:w-[220.73px] sm:gap-[12.83px] sm:rounded-[19.25px] sm:px-[12.83px] sm:text-[25.6714px] sm:leading-8 sm:tracking-[-0.641785px]"
+                className="ae-brand-button mt-5 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] px-3.5 text-[16px] font-normal leading-6 tracking-[-0.4px] text-white transition-transform hover:scale-[1.03] sm:mt-8.5 sm:h-19.25 sm:w-[220.73px] sm:gap-[12.83px] sm:rounded-[19.25px] sm:px-[12.83px] sm:text-[25.6714px] sm:leading-8 sm:tracking-[-0.641785px]"
               >
                 Enroll now
                 <ArrowRight className="h-4 w-4 -rotate-45 stroke-[2.08807px] sm:h-[16.33px] sm:w-[16.33px]" />

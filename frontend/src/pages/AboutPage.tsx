@@ -110,7 +110,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-4 italic">Our Mission</h2>
                 <p className="text-white/70 leading-relaxed text-lg">
-                  To democratize access to advanced technology education. We believe that by building an engaging, project-based platform, we can empower individuals worldwide to become creators, not just consumers, of the algorithms that shape our future.
+                  To provide the right mentorship, training, and collaborative environment that helps aspiring AI enthusiasts move from curiosity to contribution.
                 </p>
               </div>
             </FadeInWhenVisible>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-4 italic">Our Vision</h2>
                 <p className="text-white/70 leading-relaxed text-lg">
-                  We envision a world where anyone with an internet connection can acquire world-class algorithmic and software engineering skills. We are building the foundational learning OS for the AI-driven tech economy.
+                  To raise a global generation of AI experts and innovators who will transform industries, lead meaningful research, and build products that make the world smarter, safer, and more connected.
                 </p>
               </div>
             </FadeInWhenVisible>

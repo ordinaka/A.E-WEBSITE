@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
       <div className="w-full max-w-7xl flex items-center justify-between px-6 py-3 rounded-full ae-brand-card relative">
 
         {/* LOGO */}
-        <img src={favicon} alt="logo" className="w-10 h-10 rounded-full" />
+        <img src={favicon} alt="logo" className="w-auto h-10 object-contain rounded-full" />
 
         {/* NAV LINKS */}
         <nav className="hidden md:flex gap-8 text-sm">

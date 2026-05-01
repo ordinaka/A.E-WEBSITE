@@ -70,10 +70,10 @@ export default function CommunitySection(){
             <motion.button
               whileHover={{ scale: 1.05 }}
               onClick={() => window.open(COMMUNITY_LINK, "_blank", "noreferrer")}
-              className="flex h-14 w-full items-center justify-center gap-2.5 rounded-[15px] bg-[linear-gradient(270deg,var(--ae-blue)_0%,var(--ae-bg)_100%)] px-2.5 py-2.5 text-white shadow-[inset_0_0_19.5px_rgba(0,121,221,0.7)] sm:h-15 sm:w-53.75"
+              className="ae-brand-button flex h-14 w-full items-center justify-center gap-2.5 rounded-[15px] px-2.5 py-2.5 text-white sm:h-15 sm:w-53.75 transition-transform hover:scale-[1.03]"
             >
               <ArrowUpRight size={20} className="inline-block" />
-              <span className="h-6.25 text-base leading-6.25 tracking-[-0.500092px] text-white sm:text-[20.0037px]">
+              <span className="h-6.25 text-base leading-6.25 font-semibold text-white sm:text-[20px]">
                 Join Community
               </span>
             </motion.button>
@@ -92,18 +92,18 @@ export default function CommunitySection(){
         <p className="text-gray-300 mt-2 text-xl lg:text-2xl">Stay updated with the latest news, tips, and updates.</p>
 
         <div className="mt-6 w-full max-w-145 mx-auto">
-          <div className="flex w-full flex-col gap-3 md:h- md:flex-row md:items-center md:gap-4">
-            <div className=" w-full rounded-[13px] border border-white/15 bg-white/15 md:h-14 md:w-100">
+          <div className="flex w-full flex-col gap-4 md:flex-row md:items-center">
+            <div className="h-14 w-full rounded-[13px] border border-white/15 bg-[#251d3f]/50 md:flex-grow">
               <input
                 type="email"
                 placeholder="Enter your email..."
-                className="h-full w-full bg-transparent px-5 text-base font-['Inter'] font-normal leading-[122%] text-white outline-none placeholder:text-white/50 md:px-8 md:text-lg"
+                className="h-full w-full bg-transparent px-5 text-base font-normal text-white outline-none placeholder:text-white/50 md:px-8"
               />
             </div>
 
             <motion.button
               whileHover={{ scale: 1.04 }}
-              className="md:h-14 w-full rounded-[13px] bg-[var(--ae-blue)] text-center text-[20px] font-['Inter'] font-medium leading-[122%] tracking-normal text-white shadow-xl md:w-61.75"
+              className="h-14 w-full rounded-[13px] bg-[var(--ae-blue)] hover:bg-[var(--ae-blue)]/80 transition-colors text-center text-lg font-medium text-white md:w-48"
             >
               Subscribe
             </motion.button>
