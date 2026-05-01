@@ -7,7 +7,7 @@ const Guru = () => {
     <>
       <GuriCircle />
 
-      <main className="min-h-screen bg-linear-to-br from-[var(--ae-bg)] via-[var(--ae-bg-deep)] to-[var(--ae-plum)] text-white px-6 py-10">
+      <main className="min-h-screen ae-brand-page text-white px-6 py-10">
         <div className="max-w-281.5 mx-auto ">
           <h1 className="text-white font-bold text-3xl my-5 text-center md:text-left">
             The <span className="text-[var(--ae-blue)]">Guru</span> Circle

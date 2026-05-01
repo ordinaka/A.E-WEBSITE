@@ -9,10 +9,10 @@ const GHANA = "ghana 1.png";
 
 export default function CommunitySection(){
   return (
-    <section className="relative h-fit p-5 bg-[var(--ae-bg-deep)] text-white overflow-hidden flex flex-col items-center">
+    <section className="relative h-fit p-5 bg-transparent text-white overflow-hidden flex flex-col items-center">
       {/* Title Section */}
-      <div className="mt-20 text-center">
-        <h1 className="text-7xl lg:text-[87.11px] font-semibold tracking-tight">Our Community</h1>
+      <div className="mt-20 text-center px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[87.11px] font-semibold tracking-tight">Our Community</h1>
         <div className="flex justify-center mt-4">
           <div className="relative flex h-10 lg:h-12 w-56.25 items-center justify-center rounded-[9.90566px] bg-[linear-gradient(90deg,var(--ae-plum-deep)_-14.09%,rgba(0,86,157,0.32)_100%)] px-[33.4057px] text-white shadow-[0_0_20px_rgba(123,75,255,0.18)]">
             <div className="relative flex h-12 min-w-[188.21px] items-center justify-start">

@@ -68,8 +68,8 @@ export default function GuruCircle() {
 
   return (
     <div
+      className="ae-brand-page"
       style={{
-        background: "linear-gradient(155deg,var(--ae-bg-deep) 0%,var(--ae-bg-deep) 55%,var(--ae-plum-deep) 100%)",
         fontFamily: "'Sora','DM Sans',sans-serif",
         color: "white",
         display: "flex",
@@ -356,7 +356,7 @@ export default function GuruCircle() {
       </div>
 
       {/* ── GET STARTED SECTION ── */}
-      <div className="w-full bg-[var(--ae-bg-deep)] py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden">
+      <div className="w-full bg-transparent py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden">
         {/* Decorative glow */}
         <div className="absolute -top-40 -right-1/3 w-96 h-96 rounded-full bg-[rgba(135,75,255,0.12)] blur-[120px] pointer-events-none" />
         <div className="absolute -bottom-40 -left-1/4 w-96 h-96 rounded-full bg-[rgba(79,39,245,0.08)] blur-[100px] pointer-events-none" />
