@@ -90,17 +90,17 @@ const Login = (): ReactElement => {
           {/* Logo / Brand */}
           <div className="mb-10">
             <div className="inline-flex items-center gap-3 mb-2">
-              <div className="w-9 h-9 rounded-xl bg-[var(--ae-peach)] flex items-center justify-center shadow-lg shadow-[rgba(245,164,135,0.25)]">
+              <div className="w-9 h-9 rounded-xl bg-[var(--ae-blue)] flex items-center justify-center shadow-lg shadow-[rgba(51,65,143,0.25)]">
                 <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
               </div>
-              <span className="text-white font-bold text-lg tracking-tight">A.E Platform</span>
+              <span className="text-[var(--ae-plum-deep)] font-bold text-lg tracking-tight">A.E Platform</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--ae-plum-deep)] mt-6 leading-tight">
               Welcome back
             </h1>
-            <p className="text-[var(--ae-muted)] mt-2 text-sm">Sign in to continue your learning journey.</p>
+            <p className="text-slate-500 mt-2 text-sm">Sign in to continue your learning journey.</p>
           </div>
 
           {/* ── Social Buttons ── */}
@@ -108,49 +108,49 @@ const Login = (): ReactElement => {
             {/* Google — real OAuth */}
             <a
               href={`${API_BASE}/auth/google`}
-              className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm px-4 py-3 transition-all duration-200 group"
+              className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 px-4 py-3 transition-all duration-200 shadow-sm group"
             >
               <span className="w-5 h-5 flex items-center justify-center text-lg">
                 <FaGoogle className="text-[#EA4335]" />
               </span>
-              <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Google</span>
+              <span className="text-sm font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">Google</span>
             </a>
-            {/* Facebook — placeholder until FB keys added */}
+            {/* Facebook — placeholder */}
             <button
               type="button"
               onClick={() => setError("Facebook login coming soon! Use Google or email for now.")}
-              className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm px-4 py-3 transition-all duration-200 group"
+              className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 px-4 py-3 transition-all duration-200 shadow-sm group"
             >
               <span className="w-5 h-5 flex items-center justify-center text-lg">
                 <FaFacebook className="text-[#0866FF]" />
               </span>
-              <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Facebook</span>
+              <span className="text-sm font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">Facebook</span>
             </button>
             {/* Microsoft — placeholder */}
             <button
               type="button"
               onClick={() => setError("Microsoft login coming soon! Use Google or email for now.")}
-              className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm px-4 py-3 transition-all duration-200 group"
+              className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 px-4 py-3 transition-all duration-200 shadow-sm group"
             >
               <span className="w-5 h-5 flex items-center justify-center text-lg">
                 <FaMicrosoft className="text-[#00A4EF]" />
               </span>
-              <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Microsoft</span>
+              <span className="text-sm font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">Microsoft</span>
             </button>
           </div>
 
           {/* ── Divider ── */}
           <div className="flex items-center gap-4 mb-8">
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-xs font-medium text-[var(--ae-periwinkle)] uppercase tracking-widest whitespace-nowrap">or sign in with email</span>
-            <div className="flex-1 h-px bg-white/10" />
+            <div className="flex-1 h-px bg-slate-200" />
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">or sign in with email</span>
+            <div className="flex-1 h-px bg-slate-200" />
           </div>
 
           {/* ── Error Alert ── */}
           {error && (
-            <div className="flex items-center gap-3 bg-rose-500/10 border border-rose-500/20 rounded-2xl px-4 py-3 mb-6">
-              <FiAlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
-              <p className="text-sm text-rose-300">{error}</p>
+            <div className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-2xl px-4 py-3 mb-6">
+              <FiAlertCircle className="w-5 h-5 text-red-500 shrink-0" />
+              <p className="text-sm text-red-700 font-medium">{error}</p>
             </div>
           )}
 
@@ -158,7 +158,7 @@ const Login = (): ReactElement => {
           <form onSubmit={handleLogin} className="space-y-5">
             {/* Username / Email */}
             <div className="space-y-1.5">
-              <label htmlFor="username" className="block text-xs font-semibold text-[var(--ae-periwinkle)] uppercase tracking-wider">
+              <label htmlFor="username" className="block text-xs font-bold text-slate-600 uppercase tracking-wider">
                 Email or Username
               </label>
               <input
@@ -168,17 +168,17 @@ const Login = (): ReactElement => {
                 placeholder="Enter your email or username"
                 value={data.username}
                 onChange={handleInputChange("username")}
-                className="w-full rounded-2xl bg-white/10 border border-[var(--ae-border)] focus:border-[var(--ae-peach)] focus:bg-white/15 focus:ring-2 focus:ring-[rgba(245,164,135,0.22)] outline-none px-4 py-3.5 text-white placeholder:text-white/40 transition-all text-sm"
+                className="w-full rounded-2xl bg-slate-50 border border-slate-200 focus:border-[var(--ae-blue)] focus:bg-white focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] outline-none px-4 py-3.5 text-slate-900 placeholder:text-slate-400 transition-all font-medium text-sm shadow-sm"
               />
             </div>
 
             {/* Password */}
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-xs font-semibold text-[var(--ae-periwinkle)] uppercase tracking-wider">
+                <label htmlFor="password" className="block text-xs font-bold text-slate-600 uppercase tracking-wider">
                   Password
                 </label>
-                <Link to="/forgot-password" className="text-xs ae-brand-link transition-colors font-medium">
+                <Link to="/forgot-password" className="text-xs ae-brand-link transition-colors font-semibold">
                   Forgot password?
                 </Link>
               </div>
@@ -190,15 +190,15 @@ const Login = (): ReactElement => {
                   placeholder="••••••••"
                   value={data.password}
                   onChange={handleInputChange("password")}
-                  className="w-full rounded-2xl bg-white/10 border border-[var(--ae-border)] focus:border-[var(--ae-peach)] focus:bg-white/15 focus:ring-2 focus:ring-[rgba(245,164,135,0.22)] outline-none px-4 py-3.5 pr-12 text-white placeholder:text-white/40 transition-all text-sm"
+                  className="w-full rounded-2xl bg-slate-50 border border-slate-200 focus:border-[var(--ae-blue)] focus:bg-white focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] outline-none px-4 py-3.5 pr-12 text-slate-900 placeholder:text-slate-400 transition-all font-medium text-sm shadow-sm"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[var(--ae-blue)] transition-colors"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
-                  {showPassword ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
+                  {showPassword ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
                 </button>
               </div>
             </div>
@@ -207,11 +207,11 @@ const Login = (): ReactElement => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-2xl ae-brand-button font-bold py-4 mt-2 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+              className="w-full rounded-2xl ae-brand-button font-bold py-4 mt-2 transition-all duration-200 hover:shadow-lg active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 text-base"
             >
               {loading ? (
                 <>
-                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
@@ -224,9 +224,9 @@ const Login = (): ReactElement => {
           </form>
 
           {/* ── Footer ── */}
-          <p className="mt-8 text-center text-sm text-[var(--ae-muted)]">
+          <p className="mt-8 text-center text-sm text-slate-600 font-medium">
             Don&apos;t have an account?{" "}
-            <Link to="/signup" className="ae-brand-link font-semibold transition-colors">
+            <Link to="/signup" className="ae-brand-link font-bold transition-colors">
               Create one free
             </Link>
           </p>
@@ -236,10 +236,10 @@ const Login = (): ReactElement => {
       {/* ── Right: Image Panel ── */}
       <div className="hidden lg:block relative w-[45%] xl:w-[50%] shrink-0">
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ae-bg)] via-[var(--ae-bg)]/30 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30 to-transparent z-10 pointer-events-none" />
         {/* Top & bottom fades */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[var(--ae-bg)] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--ae-bg)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
 
         <img
           src={loginImg}

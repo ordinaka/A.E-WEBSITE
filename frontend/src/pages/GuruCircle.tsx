@@ -71,7 +71,7 @@ export default function GuruCircle() {
       className="ae-brand-page"
       style={{
         fontFamily: "'Sora','DM Sans',sans-serif",
-        color: "white",
+        color: "var(--ae-plum-deep)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -92,7 +92,7 @@ export default function GuruCircle() {
           maxHeight: "900px",
           borderRadius: "50%",
           pointerEvents: "none",
-          background: "radial-gradient(circle,rgba(100,55,230,0.2) 0%,transparent 62%)",
+          background: "radial-gradient(circle,rgba(51,65,143,0.1) 0%,transparent 62%)",
         }}
       />
 
@@ -215,14 +215,14 @@ export default function GuruCircle() {
             left: `${pol(332, ringR[3]).x}%`,
             top: `${pol(332, ringR[3]).y}%`,
             transform: "translate(-50%,-50%)",
-            background: "rgba(255,255,255,0.09)",
-            backdropFilter: "blur(10px)",
-            border: "1px solid rgba(255,255,255,0.18)",
+            background: "white",
+            border: "1px solid var(--ae-border)",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
             borderRadius: "20px",
             padding: "4px 11px",
             fontSize: "12px",
             fontWeight: 700,
-            color: "white",
+            color: "var(--ae-plum-deep)",
             display: "flex",
             alignItems: "center",
             gap: "4px",
@@ -250,14 +250,14 @@ export default function GuruCircle() {
               margin: 0,
             }}
           >
-            <span style={{ color: "var(--ae-lavender)" }}>Welcome To The</span>
+            <span style={{ color: "var(--ae-plum-deep)" }}>Welcome To The</span>
             <br />
             <span style={{ color: "var(--ae-blue)" }}>Guru Circle</span>
           </h1>
           <p
             className="text-[clamp(0.7rem,1.15vw,0.8rem)] md:text-[clamp(0.58rem,1.15vw,0.8rem)]"
             style={{
-              color: "rgba(200,190,255,0.65)",
+              color: "rgba(37,29,63,0.7)",
               lineHeight: 1.6,
               margin: 0,
             }}
@@ -282,9 +282,9 @@ export default function GuruCircle() {
             </button>
             <button className="px-8 py-3 w-full sm:w-auto"
               style={{
-                background: "var(--ae-bg-deep)",
-                color: "white",
-                border: "1px solid rgba(255,255,255,0.15)",
+                background: "var(--ae-surface)",
+                color: "var(--ae-plum-deep)",
+                border: "1px solid var(--ae-border)",
                 borderRadius: "7px",
                 fontWeight: 700,
                 fontSize: "clamp(0.65rem,1.05vw,0.78rem)",
@@ -308,20 +308,20 @@ export default function GuruCircle() {
             <div
               key={i}
               style={{
-                background: "rgba(8,6,28,0.92)",
-                border: "1px solid rgba(120,80,255,0.22)",
+                background: "white",
+                border: "1px solid var(--ae-border)",
                 borderRadius: "12px",
                 padding: "clamp(10px,1.6vw,18px) clamp(9px,1.3vw,14px)",
-                backdropFilter: "blur(16px)",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
               }}
             >
-              <div style={{ fontSize: "13px", color: "var(--ae-periwinkle)", marginBottom: "6px" }}>
+              <div style={{ fontSize: "13px", color: "var(--ae-blue)", marginBottom: "6px" }}>
                 {f.icon}
               </div>
-              <p style={{ fontWeight: 700, fontSize: "clamp(10px,1.45vw,14px)", marginBottom: "5px" }}>
+              <p style={{ fontWeight: 700, fontSize: "clamp(10px,1.45vw,14px)", marginBottom: "5px", color: "var(--ae-plum-deep)" }}>
                 {f.title}
               </p>
-              <p style={{ fontSize: "clamp(9px,1.05vw,11px)", color: "rgba(180,170,220,0.65)", lineHeight: 1.55 }}>
+              <p style={{ fontSize: "clamp(9px,1.05vw,11px)", color: "rgba(37,29,63,0.65)", lineHeight: 1.55 }}>
                 {f.desc}
               </p>
             </div>
@@ -338,13 +338,13 @@ export default function GuruCircle() {
       >
         {stats.map((s, i) => (
           <div key={i} style={{ display: "flex", alignItems: "baseline", gap: "7px" }}>
-            <span style={{ fontSize: "clamp(1.5rem,4.5vw,2.6rem)", fontWeight: 800, color: "white" }}>
+            <span style={{ fontSize: "clamp(1.5rem,4.5vw,2.6rem)", fontWeight: 800, color: "var(--ae-plum-deep)" }}>
               {s.value}
             </span>
             <span
               style={{
                 fontSize: "clamp(9px,1.2vw,12px)",
-                color: "rgba(180,170,220,0.6)",
+                color: "rgba(37,29,63,0.6)",
                 lineHeight: 1.4,
                 whiteSpace: "pre-line",
               }}
@@ -358,17 +358,17 @@ export default function GuruCircle() {
       {/* ── GET STARTED SECTION ── */}
       <div className="w-full bg-transparent py-20 md:py-28 px-4 sm:px-6 relative overflow-hidden">
         {/* Decorative glow */}
-        <div className="absolute -top-40 -right-1/3 w-96 h-96 rounded-full bg-[rgba(135,75,255,0.12)] blur-[120px] pointer-events-none" />
-        <div className="absolute -bottom-40 -left-1/4 w-96 h-96 rounded-full bg-[rgba(79,39,245,0.08)] blur-[100px] pointer-events-none" />
+        <div className="absolute -top-40 -right-1/3 w-96 h-96 rounded-full bg-[rgba(51,65,143,0.06)] blur-[120px] pointer-events-none" />
+        <div className="absolute -bottom-40 -left-1/4 w-96 h-96 rounded-full bg-[rgba(245,164,135,0.06)] blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--ae-plum-deep)] mb-4 leading-tight">
             Ready to Join the Circle?
           </h2>
           
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-white/70 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-[var(--ae-plum-deep)]/70 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
             Connect with experts, collaborate with learners, and unlock exclusive opportunities in our thriving community.
           </p>
 
@@ -376,14 +376,14 @@ export default function GuruCircle() {
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
             {/* Primary Button */}
             <button 
-              className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[var(--ae-blue)] to-[var(--ae-plum)] text-white font-bold rounded-lg hover:scale-105 transition-transform duration-200 shadow-lg text-base md:text-lg"
+              className="w-full sm:w-auto px-10 py-4 bg-[var(--ae-plum-deep)] text-white font-bold rounded-lg hover:scale-105 transition-transform duration-200 shadow-xl shadow-[rgba(37,29,63,0.15)] text-base md:text-lg"
             >
               Get Started Now
             </button>
             
             {/* Secondary Button */}
             <button 
-              className="w-full sm:w-auto px-10 py-4 border-2 border-white/20 text-white font-bold rounded-lg hover:bg-white/5 transition-colors duration-200 text-base md:text-lg"
+              className="w-full sm:w-auto px-10 py-4 border-2 border-[var(--ae-border)] text-[var(--ae-plum-deep)] font-bold rounded-lg hover:bg-[var(--ae-border)]/20 transition-colors duration-200 text-base md:text-lg"
             >
               Explore as Guest
             </button>
@@ -391,14 +391,14 @@ export default function GuruCircle() {
 
           {/* Email Signup */}
           <div className="mt-12 md:mt-16">
-            <p className="text-white/60 text-sm md:text-base mb-4">Or stay in the loop with our newsletter</p>
+            <p className="text-[var(--ae-plum-deep)]/60 text-sm md:text-base mb-4 font-semibold">Or stay in the loop with our newsletter</p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email..."
-                className="flex-1 px-5 py-3 md:py-4 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--ae-blue)] focus:bg-white/15 transition-all"
+                className="flex-1 px-5 py-3 md:py-4 bg-white border border-[var(--ae-border)] rounded-lg text-[var(--ae-plum-deep)] placeholder:text-[var(--ae-plum-deep)]/40 focus:outline-none focus:ring-2 focus:ring-[var(--ae-blue)] shadow-sm transition-all"
               />
-              <button className="px-8 py-3 md:py-4 bg-gradient-to-r from-[var(--ae-blue)] to-[var(--ae-plum)] text-white font-semibold rounded-lg hover:shadow-lg transition-all whitespace-nowrap">
+              <button className="px-8 py-3 md:py-4 bg-[var(--ae-plum-deep)] text-white font-semibold rounded-lg hover:shadow-lg transition-all whitespace-nowrap">
                 Subscribe
               </button>
             </div>

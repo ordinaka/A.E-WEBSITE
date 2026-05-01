@@ -3,8 +3,6 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { Star, MessageSquareQuote, Send, Loader2, AlertCircle, User } from "lucide-react";
 import { apiFetch } from "../lib/api";
 
-const bgPath = "/background.jpg";
-
 const FadeInWhenVisible = ({
   children,
   delay = 0,
@@ -114,25 +112,18 @@ export default function TestimonialsPage() {
 
   return (
     <div className="relative overflow-hidden ae-brand-page min-h-screen">
-      <div
-        className="w-full relative overflow-hidden min-h-screen"
-        style={{
-          backgroundImage: `url('${bgPath}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
+      <div className="w-full relative overflow-hidden min-h-screen bg-slate-50">
+        {/* Subtle decorative background Elements */}
+        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[var(--ae-blue)]/5 to-transparent pointer-events-none" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
 
           <FadeInWhenVisible>
             <div className="text-center max-w-3xl mx-auto mb-20">
-              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-[0_8px_40px_rgba(120,40,255,0.25)] mb-6">
+              <h1 className="text-[var(--ae-plum-deep)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6">
                 Community Voices
               </h1>
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed">
+              <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
                 Read what thousands of engineers are saying about their journey with Algorithmic Explorers.
               </p>
             </div>
@@ -144,8 +135,8 @@ export default function TestimonialsPage() {
             <div className="lg:col-span-2">
               {isLoading && (
                 <div className="flex flex-col items-center justify-center py-24 gap-4">
-                  <Loader2 className="w-9 h-9 text-purple-400 animate-spin" />
-                  <p className="text-white/50 text-sm">Loading reviews…</p>
+                  <Loader2 className="w-9 h-9 text-[var(--ae-blue)] animate-spin" />
+                  <p className="text-slate-500 text-sm">Loading reviews…</p>
                 </div>
               )}
 
@@ -163,8 +154,8 @@ export default function TestimonialsPage() {
 
               {!isLoading && !fetchError && testimonials.length === 0 && (
                 <div className="text-center py-24">
-                  <MessageSquareQuote className="w-12 h-12 text-gray-600 mx-auto mb-4 opacity-50" />
-                  <p className="text-white/40">No reviews yet. Be the first to share your experience!</p>
+                  <MessageSquareQuote className="w-12 h-12 text-slate-300 mx-auto mb-4" />
+                  <p className="text-slate-500">No reviews yet. Be the first to share your experience!</p>
                 </div>
               )}
 
@@ -172,21 +163,21 @@ export default function TestimonialsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {testimonials.map((t, idx) => (
                     <FadeInWhenVisible delay={0.08 * idx} key={t.id}>
-                      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col group">
-                        <MessageSquareQuote size={28} className="text-[var(--ae-blue)]/40 mb-4" />
+                      <div className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col group">
+                        <MessageSquareQuote size={28} className="text-[var(--ae-blue)]/60 mb-4" />
 
-                        <p className="text-white/80 text-base leading-relaxed flex-grow italic mb-6">
+                        <p className="text-slate-700 text-base leading-relaxed flex-grow italic mb-6">
                           "{t.content}"
                         </p>
 
                         <div className="flex items-center gap-3 mt-auto">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center shrink-0">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--ae-blue)] to-[var(--ae-plum)] flex items-center justify-center shrink-0 shadow-inner">
                             <User className="w-5 h-5 text-white" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-white font-semibold text-sm truncate">{t.name}</h4>
+                            <h4 className="text-[var(--ae-plum-deep)] font-bold text-sm truncate">{t.name}</h4>
                             {(t.title || t.company) && (
-                              <p className="text-white/40 text-xs truncate">
+                              <p className="text-slate-500 text-xs truncate font-medium">
                                 {[t.title, t.company].filter(Boolean).join(" · ")}
                               </p>
                             )}
@@ -199,7 +190,7 @@ export default function TestimonialsPage() {
                               <Star
                                 key={i}
                                 size={13}
-                                className={i < (t.rating ?? 0) ? "text-yellow-400 fill-yellow-400" : "text-white/20"}
+                                className={i < (t.rating ?? 0) ? "text-yellow-400 fill-yellow-400" : "text-slate-200"}
                               />
                             ))}
                           </div>
@@ -214,64 +205,64 @@ export default function TestimonialsPage() {
             {/* Submission Form (Right) */}
             <div className="lg:col-span-1">
               <FadeInWhenVisible delay={0.4}>
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 sticky top-32">
-                  <h3 className="text-2xl font-semibold text-white mb-1">Share Your Story</h3>
-                  <p className="text-white/50 text-sm mb-7">Your feedback gets reviewed and might be featured on our wall of love.</p>
+                <div className="bg-white border border-slate-200 rounded-2xl p-8 sticky top-32 shadow-sm">
+                  <h3 className="text-2xl font-bold text-[var(--ae-plum-deep)] mb-1">Share Your Story</h3>
+                  <p className="text-slate-500 text-sm mb-7">Your feedback gets reviewed and might be featured on our wall of love.</p>
 
                   {isSubmitted ? (
-                    <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-6 text-center">
-                      <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <Send className="text-emerald-400" size={20} />
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center">
+                      <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Send className="text-emerald-500" size={20} />
                       </div>
-                      <h4 className="text-white font-semibold mb-2">Submitted! 🎉</h4>
-                      <p className="text-emerald-300/70 text-sm">Thank you — it'll be reviewed and published if approved.</p>
+                      <h4 className="text-emerald-900 font-bold mb-2">Submitted! 🎉</h4>
+                      <p className="text-emerald-700/80 text-sm">Thank you — it'll be reviewed and published if approved.</p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-4">
                       {submitError && (
-                        <div className="flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 rounded-xl px-4 py-3">
-                          <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
-                          <p className="text-rose-300 text-sm">{submitError}</p>
+                        <div className="flex items-center gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                          <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+                          <p className="text-red-700 text-sm font-medium">{submitError}</p>
                         </div>
                       )}
 
                       <div>
-                        <label className="block text-white/70 text-xs font-semibold uppercase tracking-wider mb-2">Name *</label>
+                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Name *</label>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => { setSubmitError(null); setFormData({ ...formData, name: e.target.value }); }}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--ae-blue)] focus:ring-1 focus:ring-[var(--ae-blue)]/30 transition-colors placeholder:text-gray-600 text-sm"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all placeholder:text-slate-400 text-sm font-medium shadow-sm"
                           placeholder="Jane Doe"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-white/70 text-xs font-semibold uppercase tracking-wider mb-2">Role & Company</label>
+                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Role & Company</label>
                         <input
                           type="text"
                           value={formData.role}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--ae-blue)] focus:ring-1 focus:ring-[var(--ae-blue)]/30 transition-colors placeholder:text-gray-600 text-sm"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all placeholder:text-slate-400 text-sm font-medium shadow-sm"
                           placeholder="Software Engineer at ACME"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-white/70 text-xs font-semibold uppercase tracking-wider mb-2">Your Review *</label>
+                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Your Review *</label>
                         <textarea
                           required
                           rows={4}
                           value={formData.content}
                           onChange={(e) => { setSubmitError(null); setFormData({ ...formData, content: e.target.value }); }}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--ae-blue)] focus:ring-1 focus:ring-[var(--ae-blue)]/30 transition-colors resize-none placeholder:text-gray-600 text-sm"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all resize-none placeholder:text-slate-400 text-sm font-medium shadow-sm"
                           placeholder="How did AE help you?"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-white/70 text-xs font-semibold uppercase tracking-wider mb-2">Rating</label>
+                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Rating</label>
                         <div className="flex gap-1.5">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <button
@@ -280,7 +271,7 @@ export default function TestimonialsPage() {
                               onClick={() => setFormData({ ...formData, rating: star })}
                               className="focus:outline-none hover:scale-110 transition-transform"
                             >
-                              <Star size={22} className={star <= formData.rating ? "text-yellow-400 fill-yellow-400" : "text-white/20"} />
+                              <Star size={22} className={star <= formData.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-200"} />
                             </button>
                           ))}
                         </div>
@@ -289,7 +280,7 @@ export default function TestimonialsPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full mt-2 py-3.5 rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-[var(--ae-blue)] to-[var(--ae-plum)] text-white font-semibold shadow-[0_0_20px_rgba(120,40,255,0.3)] hover:shadow-[0_0_30px_rgba(120,40,255,0.5)] transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                        className="w-full mt-2 py-4 rounded-xl flex items-center justify-center gap-2 bg-[var(--ae-plum-deep)] text-white font-bold transition-all shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>
