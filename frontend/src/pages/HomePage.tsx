@@ -90,17 +90,17 @@ const Card = ({
         />
       )}
 
-      <h3 className="text-white text-lg sm:text-xl font-semibold mb-2 text-start">{title}</h3>
+      <h3 className="text-[var(--ae-plum-deep)] text-lg sm:text-xl font-semibold mb-2 text-start">{title}</h3>
       {subtitle && first && (
-        <p className="text-white/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
+        <p className="text-[var(--ae-plum-deep)]/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
       )}
       {subtitle && center && (
-        <p className="text-white/60 text-base sm:text-lg bottom-25 absolute leading-relaxed">
+        <p className="text-[var(--ae-plum-deep)]/60 text-base sm:text-lg bottom-25 absolute leading-relaxed">
           {subtitle}
         </p>
       )}
       {subtitle && !first && !center && (
-        <p className="text-white/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
+        <p className="text-[var(--ae-plum-deep)]/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
       )}
     </div>
 
@@ -118,8 +118,8 @@ const Card = ({
           </button>
         )}
         {comment && commentLink && (
-          <p className="text-white/60 text-start text-sm leading-relaxed">
-            <a href="" className="text-[var(--ae-blue)] text-md mr-2">
+          <p className="text-[var(--ae-plum-deep)]/60 text-start text-sm leading-relaxed">
+            <a href="" className="text-[var(--ae-blue)] font-semibold text-md mr-2">
               {commentLink}
             </a>
             {comment}
@@ -154,17 +154,17 @@ const HomePage = () => {
       {/* Enhanced overlay for better blending */}
     
       {/* Additional soft overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(37,29,63,0.72)] via-[rgba(51,65,143,0.44)] to-[rgba(37,29,63,0.9)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.85)] via-[rgba(255,255,255,0.7)] to-[#F8FAFC] pointer-events-none" />
 
       {/* centered hero */}
       <header className="relative z-20 flex items-center justify-center min-h-screen pt-80 lg:pt-70 lg:pb-12 h-screen">
         <div className="max-w-3xl text-center px-4 sm:px-6">
           <FadeInWhenVisible>
-            <p className="text-[var(--ae-peach)] font-bold tracking-widest text-xs sm:text-sm md:text-base mb-3 md:mb-4">
+            <p className="text-[var(--ae-blue)] font-bold tracking-widest text-xs sm:text-sm md:text-base mb-3 md:mb-4">
               Welcome to AE.
             </p>
 
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight drop-shadow-[0_8px_40px_rgba(37,29,63,0.35)]">
+            <h1 className="text-[var(--ae-plum-deep)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight drop-shadow-sm">
               Gear Up For The
               <br />
               <span className="text-[var(--ae-peach)]">Future.</span>
@@ -231,7 +231,7 @@ const HomePage = () => {
           {" "}
           {/* removed top padding, minimal bottom */}
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-lg sm:text-4xl md:text-5xl text-white font-semibold">
+            <h1 className="text-lg sm:text-4xl md:text-5xl text-[var(--ae-plum-deep)] font-semibold">
               Trusted by 25,000+ Teams Worldwide
             </h1>
           </div>
@@ -294,19 +294,19 @@ const HomePage = () => {
         <section className="relative z-20 min-h-80 overflow-visible px-4 py-12 sm:px-6 sm:py-16 md:py-10">
           {/* decorative purple radial glow in center (enhances the blob) */}
           <div
-            className="pointer-events-none absolute -bottom-30 left-15 z-0 h-131.25 w-131.25 rounded-full bg-[rgba(244,160,255,0.15)] blur-[125px]"
+            className="pointer-events-none absolute -bottom-30 left-15 z-0 h-131.25 w-131.25 rounded-full bg-[var(--ae-lavender)]/20 blur-[125px]"
           />
 
           <div
-            className="pointer-events-none absolute -top-55 -right-28 z-0 h-131.25 w-131.25 rounded-full bg-[rgba(244,160,255,0.15)] blur-[125px]"
+            className="pointer-events-none absolute -top-55 -right-28 z-0 h-131.25 w-131.25 rounded-full bg-[var(--ae-lavender)]/20 blur-[125px]"
           />
 
           <div className="relative z-10 mx-auto max-w-7xl">
-            <h2 className="text-4xl md:text-6xl text-start text-white font-semibold sm:text-3xl mb-6 sm:mb-8 md:mb-10">
+            <h2 className="text-4xl md:text-6xl text-start text-[var(--ae-plum-deep)] font-semibold sm:text-3xl mb-6 sm:mb-8 md:mb-10">
               The Guru Circle
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 md:flex-row gap-6 md:gap-0 py-2">
-              <div className="w-full md:w-149 h-full  md:h-144 p-4 sm:p-6 transition-all duration-700 hover:scale-105 rounded-3xl bg-white/10">
+              <div className="w-full md:w-149 h-full  md:h-144 p-4 sm:p-6 transition-all duration-700 hover:scale-105 rounded-3xl bg-black/5">
                 <img
                   src="/guru-preview.png"
                   className="rounded-2xl h-full w-full object-cover shadow-lg border-3 border-white/10"
@@ -314,7 +314,7 @@ const HomePage = () => {
                 />
               </div>
               <div className="w-full p-3 sm:p-5 h-full flex flex-col justify-center">
-                <div className="py-6 sm:py-8 md:py-10 text-white/75 text-base font-normal leading-relaxed lg:text-2xl text-justify">
+                <div className="py-6 sm:py-8 md:py-10 text-[var(--ae-plum-deep)]/75 text-base font-normal leading-relaxed lg:text-2xl text-justify">
                   <p className="mb-4 sm:mb-5">
                     An exclusive forum section where members who have advanced
                     in their AI journey (Gurus) can share their knowledge,
@@ -327,10 +327,8 @@ const HomePage = () => {
                   </p>
                 </div>
                 <div className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5 w-full">
-                  <button className="flex flex-row justify-center items-center w-[172px] h-[60px] p-[10px] gap [10px] rounded-[15px] 
-                  bg-[linear-gradient(270deg,var(--ae-lavender)_0%,var(--ae-bg-deep)_100%)] shadow-[inset_0_0_19.5px_rgba(0,121,221,0.7)] text-white 
-                  text-base lg:text-xl font-normal transition-all duration-500 hover:-translate-y-1">
-                    <ArrowUpRight size={15} className="sm:w-4 sm:h-4" />
+                  <button className="flex flex-row justify-center items-center w-[172px] h-[60px] p-[10px] gap [10px] rounded-[15px] ae-brand-button transition-all duration-500 hover:-translate-y-1">
+                    <ArrowUpRight size={15} className="sm:w-4 sm:h-4 mr-2" />
                     Read More
                   </button>
 

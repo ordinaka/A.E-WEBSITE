@@ -197,10 +197,10 @@ export default function ModuleDetailPage() {
   }, [moduleDetail]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white">
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-[var(--ae-plum-deep)]">
       <div className="max-w-5xl mx-auto space-y-6">
         {isLoading ? (
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">Loading module...</div>
+          <div className="bg-white border border-[var(--ae-border)] shadow-sm rounded-2xl p-8">Loading module...</div>
         ) : null}
 
         {!isLoading && error ? (
@@ -218,18 +218,18 @@ export default function ModuleDetailPage() {
 
         {!isLoading && !error && moduleDetail ? (
           <>
-            <section className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h1 className="text-3xl font-bold text-[var(--ae-lavender)] mb-2">{moduleDetail.title}</h1>
+            <section className="bg-white border border-[var(--ae-border)] shadow-sm rounded-2xl p-6">
+              <h1 className="text-3xl font-bold text-[var(--ae-blue)] mb-2">{moduleDetail.title}</h1>
               {moduleDetail.shortDescription ? (
-                <p className="text-gray-200 mb-2">{moduleDetail.shortDescription}</p>
+                <p className="text-gray-600 mb-2">{moduleDetail.shortDescription}</p>
               ) : null}
-              <p className="text-gray-300">{moduleDetail.description}</p>
+              <p className="text-gray-700">{moduleDetail.description}</p>
 
               <div className="mt-6">
                 {quizTarget ? (
                   <Link
                     to={quizTarget}
-                    className="inline-flex items-center px-5 py-2.5 bg-[var(--ae-blue)] hover:bg-[var(--ae-blue)]/80 rounded-lg font-semibold"
+                    className="inline-flex items-center px-5 py-2.5 ae-brand-button hover:scale-[1.02] transition-transform rounded-lg font-semibold"
                   >
                     Start Quiz
                   </Link>
@@ -237,7 +237,7 @@ export default function ModuleDetailPage() {
                   <button
                     type="button"
                     disabled
-                    className="inline-flex items-center px-5 py-2.5 bg-gray-600/70 rounded-lg font-semibold cursor-not-allowed"
+                    className="inline-flex items-center px-5 py-2.5 bg-gray-200 text-gray-500 rounded-lg font-semibold cursor-not-allowed"
                   >
                     Quiz Not Available
                   </button>
@@ -245,14 +245,14 @@ export default function ModuleDetailPage() {
               </div>
             </section>
 
-            <section className="bg-white/5 border border-white/10 rounded-2xl p-6">
+            <section className="bg-white border border-[var(--ae-border)] shadow-sm rounded-2xl p-6">
               <h2 className="text-2xl font-semibold mb-4">Resources</h2>
               {moduleDetail.resources.length === 0 ? (
-                <p className="text-gray-300">No resources available for this module yet.</p>
+                <p className="text-gray-600">No resources available for this module yet.</p>
               ) : (
                 <div className="space-y-3">
                   {moduleDetail.resources.map((resource) => (
-                    <article key={resource.id} className="bg-white/5 border border-white/10 rounded-xl p-4">
+                    <article key={resource.id} className="bg-gray-50 border border-[var(--ae-border)] rounded-xl p-4">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <h3 className="text-lg font-medium">{resource.title}</h3>
                         <span
@@ -278,7 +278,7 @@ export default function ModuleDetailPage() {
                       ) : null}
 
                       {resource.content ? (
-                        <p className="text-gray-200 mt-2 whitespace-pre-line">{resource.content}</p>
+                        <p className="text-gray-700 mt-2 whitespace-pre-line">{resource.content}</p>
                       ) : null}
                     </article>
                   ))}

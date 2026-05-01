@@ -40,15 +40,15 @@ const cohorts = [
 
 export default function CohortsSection() {
   return (
-    <section className="relative z-20 px-4 sm:px-6 pt-12 pb-6 sm:pt-16 md:pt-24 text-white">
+    <section className="relative z-20 px-4 sm:px-6 pt-12 pb-6 sm:pt-16 md:pt-24 text-[var(--ae-plum-deep)]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <FadeInWhenVisible delay={0.2}>
           <header className="text-center mb-10 sm:mb-12 md:mb-16">
-            <h1 className="mx-auto mb-4 sm:mb-6 w-full max-w-134.5 text-center font-semibold text-4xl sm:text-5xl md:text-[72.8527px] md:leading-23 md:tracking-[-4.40297px] bg-[linear-gradient(270deg,var(--ae-blue)_0%,var(--ae-bg)_147.96%)] bg-clip-text text-transparent">
+            <h1 className="mx-auto mb-4 sm:mb-6 w-full max-w-134.5 text-center font-semibold text-4xl sm:text-5xl md:text-[72.8527px] md:leading-23 md:tracking-[-4.40297px] bg-[linear-gradient(270deg,var(--ae-blue)_0%,var(--ae-plum-deep)_147.96%)] bg-clip-text text-transparent">
               Learning Cohorts
             </h1>
-            <p className="text-white/90 text-xs sm:text-base md:text-xl max-w-2xl mx-auto leading-relaxed px-4">
+            <p className="text-[var(--ae-plum-deep)]/80 text-xs sm:text-base md:text-xl max-w-2xl mx-auto leading-relaxed px-4">
               Phasellus accumsan imperdiet tempor. <br />
               Cras tincidunt, arcu nec eleifend porttitor, orci est vehicula
             </p>
@@ -70,8 +70,9 @@ export default function CohortsSection() {
           pr-2.5 sm:pr-2.5
           pl-4 sm:pl-6.75
           rounded-[15px]
-          bg-linear-to-r from-[var(--ae-plum-deep)] from-[-14.09%] to-[var(--ae-plum)] to-100%
-          shadow-[inset_0_0_17.2px_var(--ae-blue)]
+          bg-white
+          shadow-sm
+          border border-[var(--ae-border)]
         "
             >
               <input
@@ -81,8 +82,8 @@ export default function CohortsSection() {
             flex-1
             bg-transparent
             text-sm sm:text-base
-            text-white
-            placeholder-white/40
+            text-[var(--ae-plum-deep)]
+            placeholder-gray-400
             focus:outline-none
             pr-4
           "
@@ -97,8 +98,7 @@ export default function CohortsSection() {
             rounded-[15px]
             flex items-center justify-center
           
-          bg-[linear-gradient(90deg,var(--ae-plum-deep)_-14.09%,var(--ae-plum)_100%)]
-          shadow-[inset_0_0_17.2px_var(--ae-blue)]
+          ae-brand-button
           "
               >
                 <Search className="w-5 h-5 text-white" />
@@ -162,11 +162,11 @@ export default function CohortsSection() {
                     key={index}
                     className="flex items-center justify-center"
                   >
-                    <div className="flex flex-col items-center opacity-50">
-                      <div className="w-16 h-16 sm:w-17 sm:h-17 md:w-18 md:h-18 lg:w-19 lg:h-19 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 flex items-center justify-center mb-2 sm:mb-3">
-                        <Icon className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-white/70" />
+                    <div className="flex flex-col items-center opacity-70">
+                      <div className="w-16 h-16 sm:w-17 sm:h-17 md:w-18 md:h-18 lg:w-19 lg:h-19 rounded-full bg-[var(--ae-blue)]/5 backdrop-blur-lg border border-[var(--ae-blue)]/10 flex items-center justify-center mb-2 sm:mb-3">
+                        <Icon className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-[var(--ae-blue)]" />
                       </div>
-                      <p className="text-center text-[10px] sm:text-xs md:text-sm text-white/60 max-w-20 sm:max-w-25 md:max-w-30 leading-tight">
+                      <p className="text-center text-[10px] sm:text-xs md:text-sm text-[var(--ae-plum-deep)]/80 font-medium max-w-20 sm:max-w-25 md:max-w-30 leading-tight">
                         {item.title}
                       </p>
                     </div>

@@ -21,19 +21,19 @@ export default function CTAFooter() {
           </div>
 
           {/* TEXT (tight beside image) */}
-          <div className="max-w-md ml-0">
-            <h3 className="text-xl font-semibold mb-3 text-left">
+          <div className="max-w-md ml-0 bg-[#F8FAFC] p-8 rounded-2xl border border-gray-100 shadow-sm">
+            <h3 className="text-xl font-semibold mb-3 text-left text-[var(--ae-plum-deep)]">
               Become an Instructor
             </h3>
 
-            <p className="text-gray-400 text-sm mb-5 leading-relaxed text-left">
+            <p className="text-gray-600 text-sm mb-5 leading-relaxed text-left">
               Instructors from around the world teach millions of students on Byway.
               We provide the tools and skills to teach what you love.
             </p>
 
             <div className="flex justify-start">
-              <button className="px-5 py-2 rounded-lg bg-[var(--ae-blue)] text-sm font-medium hover:opacity-90 transition">
-                Start Your Instructor Journey <img src= {arrow}/>
+              <button className="ae-brand-button px-5 py-2.5 rounded-lg text-sm transition border-none flex items-center justify-center gap-2">
+                Start Your Instructor Journey <img src={arrow} className="w-5 h-5"/>
               </button>
             </div>
           </div>
@@ -44,19 +44,19 @@ export default function CTAFooter() {
         <div className="grid md:grid-cols-2 items-center">
 
           {/* TEXT */}
-          <div className="max-w-md mr-6 ml-50 order-2 md:order-1">
-            <h3 className="text-xl font-semibold mb-3 text-left">
+          <div className="max-w-md mr-6 ml-50 order-2 md:order-1 bg-[#F8FAFC] p-8 rounded-2xl border border-gray-100 shadow-sm">
+            <h3 className="text-xl font-semibold mb-3 text-left text-[var(--ae-plum-deep)]">
               Transform your life through education
             </h3>
 
-            <p className="text-gray-400 text-sm mb-5 leading-relaxed text-left">
+            <p className="text-gray-600 text-sm mb-5 leading-relaxed text-left">
               Learners around the world are launching new careers, advancing in
               their fields, and enriching their lives.
             </p>
 
             <div className="flex justify-start">
-              <button className="px-6 py-2 rounded-lg bg-[var(--ae-blue)] text-sm font-medium hover:opacity-90 transition">
-                Checkout Courses <img src= {arrow}/>
+              <button className="ae-brand-button px-6 py-2.5 rounded-lg text-sm transition border-none flex items-center justify-center gap-2">
+                Checkout Courses <img src={arrow} className="w-5 h-5"/>
               </button>
             </div>
           </div>
@@ -74,47 +74,47 @@ export default function CTAFooter() {
         </div>
 
         {/* ================= FOOTER ================= */}
-        <footer className="pt-16 border-t border-white/10">
+        <footer className="pt-16 border-t border-gray-200">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
 
             {/* LEFT */}
             <div>
-              <h2 className="text-lg font-semibold mb-4 text-left">
+              <h2 className="text-lg font-semibold mb-4 text-left text-[var(--ae-plum-deep)]">
                 Algorithmic Explorers.
               </h2>
-              <p className="text-gray-400 text-sm mb-4 leading-relaxed text-left">
+              <p className="text-gray-600 text-sm mb-4 leading-relaxed text-left">
                 Work together seamlessly with real-time updates and communication.
               </p>
-              <p className="text-white text-sm text-left font-semibold">
+              <p className="text-[var(--ae-plum-deep)] text-sm text-left font-semibold">
                 Team Conditional & Policy
               </p>
             </div>
 
             {/* PAGES */}
             <div>
-              <h3 className="font-medium mb-4 text-left">Pages</h3>
-              <ul className="space-y-2 text-sm text-white/90 text-left">
-                <li className="hover:text-white cursor-pointer">Home</li>
-                <li className="hover:text-white cursor-pointer">Projects</li>
-                <li className="hover:text-white cursor-pointer">AE News</li>
-                <li className="hover:text-white cursor-pointer">Exco Team</li>
+              <h3 className="font-medium mb-4 text-left text-[var(--ae-plum-deep)]">Pages</h3>
+              <ul className="space-y-2 text-sm text-gray-600 text-left">
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">Home</li>
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">Projects</li>
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">AE News</li>
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">Exco Team</li>
               </ul>
             </div>
 
             {/* COMPANY */}
             <div>
-              <h3 className="font-medium mb-4 text-left">Company</h3>
-              <ul className="space-y-2 text-sm text-white/90 text-left">
-                <li className="hover:text-white cursor-pointer">Customer</li>
-                <li className="hover:text-white cursor-pointer">Enterprise</li>
-                <li className="hover:text-white cursor-pointer">Partners</li>
-                <li className="hover:text-white cursor-pointer">Job</li>
+              <h3 className="font-medium mb-4 text-left text-[var(--ae-plum-deep)]">Company</h3>
+              <ul className="space-y-2 text-sm text-gray-600 text-left">
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">Customer</li>
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">Enterprise</li>
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">Partners</li>
+                <li className="hover:text-[var(--ae-blue)] cursor-pointer transition-colors">Job</li>
               </ul>
             </div>
 
             {/* BUTTON */}
             <div className="flex md:justify-end items-start">
-              <button className="px-6 py-2 rounded-full bg-[var(--ae-blue)] text-sm font-medium">
+              <button className="ae-brand-button px-6 py-2 rounded-full text-sm border-none">
                 Log Out
               </button>
             </div>
@@ -122,7 +122,7 @@ export default function CTAFooter() {
           </div>
 
           {/* BOTTOM */}
-          <div className="mt-12 pt-6 border-t border-white/10 text-center text-sm text-gray-500">
+          <div className="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
             @ae. all right reserve
           </div>
         </footer>

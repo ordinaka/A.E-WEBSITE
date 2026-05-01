@@ -32,8 +32,8 @@ function Navbar() {
               onClick={() => setActive(link)}
               className={`cursor-pointer transition-all duration-200 ${
                 active === link
-                  ? "text-white font-semibold"
-                  : "text-gray-300 hover:text-white"
+                  ? "text-[var(--ae-blue)] font-semibold"
+                  : "text-gray-600 hover:text-[var(--ae-blue)]"
               }`}
             >
               {link}
@@ -43,11 +43,11 @@ function Navbar() {
 
         {/* AUTH BUTTONS */}
         <div className="flex items-center gap-3">
-          <button className="cursor-pointer px-4 py-2 text-sm text-white bg-white/10 hover:bg-white/20 rounded-full transition">
+          <button className="cursor-pointer px-4 py-2 text-sm text-[var(--ae-plum-deep)] bg-gray-100 hover:bg-gray-200 rounded-full transition">
             Sign Up
           </button>
 
-          <button className="cursor-pointer px-5 py-2 text-sm text-white bg-purple-600 hover:bg-purple-700 rounded-full transition">
+          <button className="ae-brand-button px-5 py-2 text-sm rounded-full transition border-none">
             Log In
           </button>
         </div>

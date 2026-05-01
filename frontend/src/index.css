@@ -15,8 +15,8 @@
   --ae-lavender: #e3b5ee;
   --ae-bg: #251d3f;
   --ae-bg-deep: #1e1735;
-  --ae-surface: #332754;
-  --ae-border: rgba(154, 168, 231, 0.24);
+  --ae-surface: #ffffff;
+  --ae-border: rgba(154, 168, 231, 0.40);
   --ae-muted: #cbd3f4;
 
   font: 18px/145% var(--sans);
@@ -82,12 +82,8 @@
 }
 
 body {
-  color: white;
-  background:
-    linear-gradient(135deg, rgba(37, 29, 63, 0.98) 0%, rgba(51, 39, 84, 0.96) 42%, rgba(51, 65, 143, 0.82) 100%),
-    repeating-linear-gradient(90deg, rgba(154, 168, 231, 0.08) 0 1px, transparent 1px 80px),
-    var(--ae-bg);
-  background-attachment: fixed;
+  color: var(--ae-plum-deep);
+  background: #FFFFFF;
   margin: 0;
   overflow-x: hidden;
   font-family: var(--sans);
@@ -99,46 +95,46 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ae-brand-page {
-  background:
-    linear-gradient(135deg, rgba(37, 29, 63, 0.98) 0%, rgba(51, 39, 84, 0.96) 42%, rgba(51, 65, 143, 0.82) 100%),
-    repeating-linear-gradient(90deg, rgba(154, 168, 231, 0.08) 0 1px, transparent 1px 80px);
+  background: #FFFFFF;
 }
 
 .ae-brand-band {
-  background:
-    linear-gradient(120deg, rgba(154, 168, 231, 0.18), rgba(245, 164, 135, 0.14)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  background: #F8FAFC;
   border: 1px solid var(--ae-border);
 }
 
 .ae-brand-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(154, 168, 231, 0.08));
+  background: #FFFFFF;
   border: 1px solid var(--ae-border);
-  box-shadow: 0 24px 80px rgba(30, 23, 53, 0.36);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .ae-auth-card {
-  background: linear-gradient(160deg, rgba(51, 39, 84, 0.78), rgba(30, 23, 53, 0.76));
+  background: #FFFFFF;
   border: 1px solid var(--ae-border);
-  box-shadow: 0 30px 90px rgba(30, 23, 53, 0.45);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
 }
 
 .ae-brand-button {
-  background: linear-gradient(135deg, var(--ae-peach), var(--ae-lavender) 52%, var(--ae-periwinkle));
-  color: var(--ae-plum-deep);
-  box-shadow: 0 18px 40px rgba(245, 164, 135, 0.22);
+  background: var(--ae-blue);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
 .ae-brand-button:hover {
-  filter: brightness(1.04);
+  background: var(--ae-plum-deep);
 }
 
 .ae-brand-link {
-  color: var(--ae-lavender);
+  color: var(--ae-blue);
+  font-weight: 500;
 }
 
 .ae-brand-link:hover {
-  color: var(--ae-peach);
+  color: var(--ae-plum-deep);
 }
 
 .marquee-edge-left,
@@ -155,9 +151,9 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   background: linear-gradient(
     to right,
-    rgba(37, 29, 63, 0.98) 0%,
-    rgba(37, 29, 63, 0.82) 35%,
-    rgba(37, 29, 63, 0) 100%
+    #FFFFFF 0%,
+    rgba(255, 255, 255, 0.82) 35%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 
@@ -165,9 +161,9 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   background: linear-gradient(
     to left,
-    rgba(37, 29, 63, 0.98) 0%,
-    rgba(37, 29, 63, 0.82) 35%,
-    rgba(37, 29, 63, 0) 100%
+    #FFFFFF 0%,
+    rgba(255, 255, 255, 0.82) 35%,
+    rgba(255, 255, 255, 0) 100%
   );
 
 }

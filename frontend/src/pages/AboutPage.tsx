@@ -83,17 +83,17 @@ export default function AboutPage() {
         }}
       >
         {/* Soft overlay for depth */}
-        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-white/80 pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
           
           {/* Header Section */}
           <FadeInWhenVisible>
             <div className="text-center max-w-3xl mx-auto mb-20">
-              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-[0_8px_40px_rgba(120,40,255,0.25)] mb-6 italic">
+              <h1 className="text-[var(--ae-plum-deep)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6 italic">
                 About AE
               </h1>
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed">
+              <p className="text-[var(--ae-plum-deep)]/80 text-lg md:text-xl leading-relaxed">
                 Empowering the next generation of algorithmic thinkers and builders.
               </p>
             </div>
@@ -102,29 +102,29 @@ export default function AboutPage() {
           {/* Mission & Vision */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             <FadeInWhenVisible delay={0.1}>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 lg:p-12 h-full shadow-2xl">
+              <div className="bg-white border border-[var(--ae-border)] rounded-2xl p-8 lg:p-12 h-full shadow-sm">
                 <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[var(--ae-blue)] to-[var(--ae-plum)] flex items-center justify-center mb-6">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-4 italic">Our Mission</h2>
-                <p className="text-white/70 leading-relaxed text-lg">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--ae-plum-deep)] mb-4 italic">Our Mission</h2>
+                <p className="text-[var(--ae-plum-deep)]/80 leading-relaxed text-lg">
                   To provide the right mentorship, training, and collaborative environment that helps aspiring AI enthusiasts move from curiosity to contribution.
                 </p>
               </div>
             </FadeInWhenVisible>
 
             <FadeInWhenVisible delay={0.2}>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 lg:p-12 h-full shadow-2xl">
+              <div className="bg-white border border-[var(--ae-border)] rounded-2xl p-8 lg:p-12 h-full shadow-sm">
                 <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[#FF28B5] to-[var(--ae-blue)] flex items-center justify-center mb-6">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-4 italic">Our Vision</h2>
-                <p className="text-white/70 leading-relaxed text-lg">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--ae-plum-deep)] mb-4 italic">Our Vision</h2>
+                <p className="text-[var(--ae-plum-deep)]/80 leading-relaxed text-lg">
                   To raise a global generation of AI experts and innovators who will transform industries, lead meaningful research, and build products that make the world smarter, safer, and more connected.
                 </p>
               </div>
@@ -134,14 +134,14 @@ export default function AboutPage() {
           {/* Team Section */}
           <FadeInWhenVisible delay={0.3}>
             <div className="text-center mb-16 px-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-linear-to-r from-[var(--ae-blue)]/20 to-[var(--ae-plum)]/20 border border-[var(--ae-blue)]/30 mb-4">
-                <Users className="w-4 h-4 text-purple-400" />
-                <span className="text-xs font-bold text-purple-300 uppercase tracking-widest">Our Team</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--ae-blue)]/10 border border-[var(--ae-blue)]/30 mb-4">
+                <Users className="w-4 h-4 text-purple-700" />
+                <span className="text-xs font-bold text-purple-700 uppercase tracking-widest">Our Team</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 italic tracking-tight">
-                Meet the <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Innovators</span>
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-[var(--ae-plum-deep)] mb-6 italic tracking-tight">
+                Meet the <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Innovators</span>
               </h2>
-              <p className="text-white/60 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              <p className="text-[var(--ae-plum-deep)]/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                 The passionate individuals working tirelessly behind the scenes to democratize technology education worldwide.
               </p>
             </div>
@@ -149,11 +149,11 @@ export default function AboutPage() {
   
           {loading ? (
             <div className="flex flex-col items-center justify-center py-32">
-               <div className="w-12 h-12 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin mb-4 shadow-[0_0_20px_rgba(168,85,247,0.4)]"></div>
-               <p className="text-purple-300/50 font-medium animate-pulse">Loading core team...</p>
+               <div className="w-12 h-12 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin mb-4 shadow-sm"></div>
+               <p className="text-purple-700/70 font-medium animate-pulse">Loading core team...</p>
             </div>
           ) : teamMembers.length === 0 ? (
-            <div className="text-center text-white/30 py-32 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-sm mx-4">
+            <div className="text-center text-gray-500 py-32 bg-white border border-[var(--ae-border)] rounded-3xl shadow-sm mx-4">
                <Users className="w-12 h-12 mx-auto mb-4 opacity-20" />
                <p className="italic text-lg font-light tracking-wide">No team members listed yet. Check back soon!</p>
             </div>
@@ -163,10 +163,10 @@ export default function AboutPage() {
                 <FadeInWhenVisible delay={0.4 + idx * 0.1} key={member.id}>
                   <div 
                     onClick={() => setSelectedMember(member)}
-                    className="group relative ae-brand-card backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-purple-500/10 hover:border-purple-500/30 cursor-pointer"
+                    className="group relative bg-white border border-[var(--ae-border)] rounded-[2rem] overflow-hidden hover:bg-gray-50 transition-all duration-500 shadow-sm hover:shadow-xl cursor-pointer"
                   >
                     {/* Image Container */}
-                    <div className="relative aspect-square md:aspect-[4/5] overflow-hidden border-b border-white/5">
+                    <div className="relative aspect-square md:aspect-[4/5] overflow-hidden border-b border-[var(--ae-border)]">
                       {member.imageUrl ? (
                         <img 
                           src={member.imageUrl} 
@@ -174,14 +174,14 @@ export default function AboutPage() {
                           className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-out"
                         />
                       ) : (
-                        <div className="w-full h-full bg-linear-to-br from-purple-500/10 via-blue-500/10 to-[var(--ae-bg)] flex items-center justify-center">
-                           <span className="text-5xl font-black text-white/10 select-none">{member.fullName.charAt(0)}</span>
+                        <div className="w-full h-full bg-linear-to-br from-purple-100 via-blue-100 to-white flex items-center justify-center">
+                           <span className="text-5xl font-black text-gray-300 select-none">{member.fullName.charAt(0)}</span>
                         </div>
                       )}
                       
                       {/* Hover Overlay */}
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--ae-bg)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 translate-y-4 group-hover:translate-y-0 transition-transform z-10">
-                          <span className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full text-white text-sm font-semibold tracking-wide border border-white/20 shadow-[0_10px_30px_rgba(120,40,255,0.3)] hover:bg-white/20 transition-colors">
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/90 via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 translate-y-4 group-hover:translate-y-0 transition-transform z-10">
+                          <span className="px-5 py-2.5 bg-white shadow-sm rounded-full text-[var(--ae-plum-deep)] text-sm font-semibold tracking-wide border border-[var(--ae-border)] hover:bg-gray-50 transition-colors">
                             View Profile
                           </span>
                       </div>
@@ -189,10 +189,10 @@ export default function AboutPage() {
 
                     {/* Content Container */}
                     <div className="p-6 md:p-8 relative text-center">
-                      <p className="text-blue-400 font-bold text-[10px] uppercase tracking-[0.2em] mb-2 font-outfit drop-shadow-[0_0_10px_rgba(15,128,221,0.5)]">
+                      <p className="text-blue-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-2 font-outfit">
                         {member.roleTitle}
                       </p>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white leading-none italic flex justify-center items-center gap-2">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--ae-plum-deep)] leading-none italic flex justify-center items-center gap-2">
                         {member.fullName}
                       </h3>
                     </div>
@@ -214,19 +214,19 @@ export default function AboutPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedMember(null)}
-              className="absolute inset-0 bg-[rgba(37,29,63,0.90)] backdrop-blur-md cursor-pointer"
+              className="absolute inset-0 bg-gray-900/40 backdrop-blur-sm cursor-pointer"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-gradient-to-br from-[#120A38] to-[#0A0520] border border-white/10 rounded-[2rem] shadow-[0_30px_100px_rgba(120,40,255,0.4)] flex flex-col md:flex-row z-10"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white border border-[var(--ae-border)] rounded-[2rem] shadow-2xl flex flex-col md:flex-row z-10"
             >
               {/* Close Button */}
               <button 
                 onClick={() => setSelectedMember(null)}
-                className="absolute top-4 right-4 p-2 bg-white/5 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-colors z-20"
+                className="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-400 hover:text-black transition-colors z-20"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -240,8 +240,8 @@ export default function AboutPage() {
                     className="w-full h-full object-cover object-top"
                   />
                 ) : (
-                  <div className="w-full h-full bg-linear-to-br from-purple-500/20 via-blue-500/20 to-[var(--ae-bg)] flex items-center justify-center">
-                     <span className="text-8xl font-black text-white/10 select-none">{selectedMember.fullName.charAt(0)}</span>
+                  <div className="w-full h-full bg-linear-to-br from-purple-100 via-blue-100 to-white flex items-center justify-center">
+                     <span className="text-8xl font-black text-gray-200 select-none">{selectedMember.fullName.charAt(0)}</span>
                   </div>
                 )}
                 <div className="absolute inset-0 border-r border-white/5 pointer-events-none hidden md:block" />
@@ -249,28 +249,28 @@ export default function AboutPage() {
 
               {/* Modal Content */}
               <div className="w-full md:w-3/5 p-8 md:p-10 lg:p-12 flex flex-col overflow-y-auto">
-                <p className="text-blue-400 font-bold text-xs uppercase tracking-[0.2em] mb-2 font-outfit drop-shadow-[0_0_10px_rgba(15,128,221,0.5)]">
+                <p className="text-blue-600 font-bold text-xs uppercase tracking-[0.2em] mb-2 font-outfit">
                   {selectedMember.roleTitle}
                 </p>
-                <h3 className="text-3xl sm:text-4xl font-extrabold text-white leading-none italic mb-8 flex items-center gap-3">
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-[var(--ae-plum-deep)] leading-none italic mb-8 flex items-center gap-3">
                   {selectedMember.fullName}
-                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.8)]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-sm" />
                 </h3>
                 
-                <div className="prose prose-invert max-w-none mb-10 overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                  <p className="text-white/70 text-base md:text-lg leading-relaxed font-light whitespace-pre-wrap">
+                <div className="prose max-w-none mb-10 overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
+                  <p className="text-[var(--ae-plum-deep)]/80 text-base md:text-lg leading-relaxed font-light whitespace-pre-wrap">
                     {selectedMember.bio}
                   </p>
                 </div>
 
-                <div className="mt-auto pt-6 border-t border-white/10 flex items-center gap-4">
-                  <span className="text-xs text-white/40 uppercase font-medium tracking-widest mr-2">Connect</span>
+                <div className="mt-auto pt-6 border-t border-[var(--ae-border)] flex items-center gap-4">
+                  <span className="text-xs text-gray-400 uppercase font-medium tracking-widest mr-2">Connect</span>
                   {selectedMember.linkedinUrl && (
                     <a 
                       href={selectedMember.linkedinUrl} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-[#0077b5] hover:border-[#0077b5] hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                      className="p-3.5 bg-gray-100 border border-[var(--ae-border)] rounded-xl hover:bg-[#0077b5] hover:border-[#0077b5] hover:scale-105 hover:text-white transition-all shadow-sm flex items-center justify-center text-gray-500"
                     >
                       <FaLinkedin className="w-5 h-5" />
                     </a>
@@ -280,7 +280,7 @@ export default function AboutPage() {
                       href={selectedMember.twitterUrl} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-black hover:border-black hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                      className="p-3.5 bg-gray-100 border border-[var(--ae-border)] rounded-xl hover:bg-black hover:border-black hover:scale-105 hover:text-white transition-all shadow-sm flex items-center justify-center text-gray-500"
                     >
                       <FaTwitter className="w-5 h-5" />
                     </a>
@@ -290,7 +290,7 @@ export default function AboutPage() {
                       href={selectedMember.whatsappUrl} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-[#25D366] hover:border-[#25D366] hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                      className="p-3.5 bg-gray-100 border border-[var(--ae-border)] rounded-xl hover:bg-[#25D366] hover:border-[#25D366] hover:scale-105 hover:text-white transition-all shadow-sm flex items-center justify-center text-gray-500"
                     >
                       <FaWhatsapp className="w-5 h-5" />
                     </a>
@@ -298,13 +298,13 @@ export default function AboutPage() {
                   {selectedMember.emailAddress && (
                     <a 
                       href={selectedMember.emailAddress.startsWith('mailto:') ? selectedMember.emailAddress : `mailto:${selectedMember.emailAddress}`} 
-                      className="p-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:bg-rose-500 hover:border-rose-500 hover:scale-105 text-white transition-all shadow-lg flex items-center justify-center"
+                      className="p-3.5 bg-gray-100 border border-[var(--ae-border)] rounded-xl hover:bg-rose-500 hover:border-rose-500 hover:scale-105 hover:text-white transition-all shadow-sm flex items-center justify-center text-gray-500"
                     >
                       <FaEnvelope className="w-5 h-5" />
                     </a>
                   )}
                   {!selectedMember.linkedinUrl && !selectedMember.twitterUrl && !selectedMember.whatsappUrl && !selectedMember.emailAddress && (
-                    <span className="text-white/30 text-sm italic">No active links</span>
+                    <span className="text-gray-400 text-sm italic">No active links</span>
                   )}
                 </div>
               </div>

@@ -19,17 +19,17 @@ function Hero() {
     <section className="w-full pt-48 pb-16 relative overflow-hidden flex flex-col items-center ae-brand-page">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-purple-700/25 blur-[220px] rounded-full" />
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-transparent" />
+        <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[var(--ae-lavender)]/20 blur-[220px] rounded-full" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC] via-transparent to-transparent" />
       </div>
 
       <div className="relative w-full max-w-7xl px-6 text-center">
         {/* Title */}
-        <h1 className="text-5xl md:text-7xl font-semibold leading-tight pb-2 mb-4 bg-gradient-to-r from-white via-purple-200 to-[var(--ae-blue)] text-transparent bg-clip-text">
+        <h1 className="text-5xl md:text-7xl font-semibold leading-tight pb-2 mb-4 text-[var(--ae-plum-deep)]">
           Learning Cohorts
         </h1>
 
-        <p className="text-gray-400 text-base mb-10 max-w-lg mx-auto leading-relaxed">
+        <p className="text-[var(--ae-plum-deep)]/80 text-base mb-10 max-w-lg mx-auto leading-relaxed">
           Structured paths designed to take you from beginner to engineering expert. Choose your track and start learning today.
         </p>
 
@@ -38,19 +38,16 @@ function Hero() {
           <input
             placeholder="Search for a course or cohort..."
             className="w-full max-w-[480px] px-6 py-4 rounded-2xl
-              bg-gradient-to-r from-[var(--ae-plum-deep)] to-[var(--ae-plum)]
-              border border-purple-500/20
-              text-white placeholder:text-[var(--ae-periwinkle)]
+              bg-white
+              border border-[var(--ae-border)]
+              text-[var(--ae-plum-deep)] placeholder:text-gray-400
               outline-none
-              shadow-[inset_0_0_20px_rgba(2,48,83,0.8)]
-              focus:border-purple-500/50 transition-colors"
+              shadow-sm
+              focus:border-[var(--ae-blue)]/50 transition-colors"
           />
           <button className="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center
-            bg-gradient-to-br from-[#1b0c3b] to-[#0b0620]
-            border border-purple-500/20
-            shadow-[inset_0_0_20px_rgba(2,48,83,0.8)]
-            hover:border-purple-500/40 transition-colors">
-            <FiSearch className="text-purple-300 text-lg" />
+            ae-brand-button">
+            <FiSearch className="text-white text-lg" />
           </button>
         </div>
       </div>
@@ -71,7 +68,7 @@ function Hero() {
 
           <Link
             to="/signup"
-            className="mt-5 sm:mt-8 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] bg-gradient-to-r from-[var(--ae-lavender)] to-[#1C044E] px-4 text-base font-medium text-white shadow-[inset_0_0_25px_rgba(0,121,221,0.7)] transition-transform hover:scale-[1.03] sm:h-[72px] sm:w-[220px] sm:rounded-[19px] sm:text-xl"
+            className="ae-brand-button mt-5 sm:mt-8 flex h-[54px] w-[176px] items-center justify-center gap-2.5 rounded-[16px] px-4 text-base font-medium transition-transform hover:scale-[1.03] sm:h-[72px] sm:w-[220px] sm:rounded-[19px] sm:text-xl"
           >
             Enroll now
             <ArrowRight className="h-4 w-4 -rotate-45" />
@@ -105,11 +102,11 @@ function Hero() {
             const Icon = item.icon;
             return (
               <SwiperSlide key={index} className="flex items-center justify-center">
-                <div className="flex flex-col items-center opacity-50">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 flex items-center justify-center mb-3">
-                    <Icon className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-white/70" />
+                <div className="flex flex-col items-center opacity-70">
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-[var(--ae-blue)]/5 backdrop-blur-lg border border-[var(--ae-blue)]/10 flex items-center justify-center mb-3">
+                    <Icon className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-[var(--ae-blue)]" />
                   </div>
-                  <p className="text-center text-[10px] sm:text-xs md:text-sm text-white/60 max-w-[80px] sm:max-w-[100px] leading-tight">
+                  <p className="text-center text-[10px] sm:text-xs md:text-sm text-[var(--ae-plum-deep)]/80 font-medium max-w-[80px] sm:max-w-[100px] leading-tight">
                     {item.title}
                   </p>
                 </div>

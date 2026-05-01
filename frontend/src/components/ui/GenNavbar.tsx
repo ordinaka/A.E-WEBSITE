@@ -37,8 +37,8 @@ const Navbar: React.FC = () => {
               onClick={() => setActive(link)}
               className={`cursor-pointer transition-all duration-200 ${
                 active === link
-                  ? "text-white font-semibold"
-                  : "text-gray-300 hover:text-white"
+                  ? "text-[var(--ae-blue)] font-semibold"
+                  : "text-gray-600 hover:text-[var(--ae-blue)]"
               }`}
             >
               {link}
@@ -50,19 +50,19 @@ const Navbar: React.FC = () => {
         <div className="relative">
           <button
             onClick={toggleProfile}
-            className="cursor-pointer w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center hover:bg-purple-700 transition"
+            className="ae-brand-button cursor-pointer w-10 h-10 rounded-full flex items-center justify-center transition border-none"
           >
             👤
           </button>
 
           {openProfile && (
-            <div className="absolute right-0 mt-3 w-40 bg-white/10 backdrop-blur-xl border border-white/10 rounded-xl shadow-lg overflow-hidden">
+            <div className="absolute right-0 mt-3 w-40 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden">
 
-              <button className="cursor-pointer w-full text-left px-4 py-2 text-sm text-white hover:bg-white/10">
+              <button className="cursor-pointer w-full text-left px-4 py-2 text-sm text-[var(--ae-plum-deep)] hover:bg-gray-50">
                 Log In
               </button>
 
-              <button className="cursor-pointer w-full text-left px-4 py-2 text-sm text-white hover:bg-white/10">
+              <button className="cursor-pointer w-full text-left px-4 py-2 text-sm text-[var(--ae-plum-deep)] hover:bg-gray-50">
                 Sign Up
               </button>
 
