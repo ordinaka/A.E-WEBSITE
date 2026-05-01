@@ -4,7 +4,6 @@ import { Lock, BookOpen, Clock, Loader2, AlertCircle, ChevronRight } from "lucid
 import { Link } from "react-router-dom";
 import { apiFetch } from "../lib/api";
 
-const bgPath = "/background.jpg";
 
 interface PublicModule {
   id: string;
@@ -86,19 +85,11 @@ export default function ModulesPage() {
   }, [loadModules]);
 
   return (
-    <div className="relative overflow-hidden ae-brand-page min-h-screen">
-      <div
-        className="w-full relative overflow-hidden min-h-screen"
-        style={{
-          backgroundImage: `url('${bgPath}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="absolute inset-0 bg-[#F8FAFC]/90 pointer-events-none fixed" />
+    <div className="relative overflow-hidden bg-slate-50 min-h-screen">
+      <div className="w-full relative overflow-hidden min-h-screen">
+        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-br from-slate-50 to-slate-100 pointer-events-none fixed" />
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-24">
 
           <FadeInWhenVisible>
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -125,14 +116,14 @@ export default function ModulesPage() {
           {!isLoading && error && (
             <FadeInWhenVisible>
               <div className="flex flex-col items-center gap-4 py-16 text-center">
-                <div className="w-14 h-14 rounded-full bg-rose-500/15 border border-rose-500/20 flex items-center justify-center">
-                  <AlertCircle className="w-7 h-7 text-rose-400" />
+                <div className="w-14 h-14 rounded-full bg-red-100 border border-red-200 flex items-center justify-center">
+                  <AlertCircle className="w-7 h-7 text-red-500" />
                 </div>
-                <p className="text-rose-300">{error}</p>
+                <p className="text-red-800 font-medium">{error}</p>
                 <button
                   type="button"
                   onClick={() => void loadModules()}
-                  className="px-6 py-2.5 bg-rose-500 hover:bg-rose-400 transition-colors rounded-xl font-medium text-white"
+                  className="px-6 py-2.5 bg-red-500 hover:bg-red-600 transition-colors rounded-xl font-bold text-white shadow-sm"
                 >
                   Try Again
                 </button>
@@ -201,7 +192,7 @@ export default function ModulesPage() {
                         <Link
                           to="/login"
                           className="relative w-full py-3.5 rounded-2xl flex items-center justify-center gap-2.5 font-bold transition-all duration-300 overflow-hidden group/btn
-                            ae-brand-button hover:scale-[1.02] active:scale-[0.98] text-white text-sm"
+                            bg-[var(--ae-plum-deep)] text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 text-sm"
                         >
                           {/* Shine sweep */}
                           <span className="absolute inset-0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
@@ -209,7 +200,7 @@ export default function ModulesPage() {
                           <span>Login to Start</span>
                           <ChevronRight size={15} className="ml-auto group-hover/btn:translate-x-1 transition-transform duration-200" />
                         </Link>
-                        <p className="text-center text-[11px] text-gray-400 tracking-wide">
+                        <p className="text-center text-[11px] font-bold tracking-wide uppercase text-slate-400">
                           Free to join · No credit card needed
                         </p>
                       </div>

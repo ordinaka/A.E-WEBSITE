@@ -170,10 +170,6 @@ const HomePage = () => {
               <span className="text-[var(--ae-peach)]">Future.</span>
             </h1>
 
-            <p className="text-[var(--ae-muted)] mt-4 sm:mt-6 max-w-xl mx-auto text-sm sm:text-base">
-              Lorem ipsum dolor sit amet, consectetur <span className="block">adipiscin</span>
-            </p>
-
             {/* circular indicator + down arrow */}
             <div className="flex flex-col items-center gap-3 mt-8">
               <div className="w-10 h-10 rounded-full border border-[var(--ae-peach)]/40 bg-[var(--ae-peach)]/10 flex items-center justify-center text-[var(--ae-peach)]">
@@ -241,7 +237,7 @@ const HomePage = () => {
       <FadeInWhenVisible delay={0.5} y={20}>
         <section className="relative z-20 pt-0 pb-6 sm:pb-8 px-4 sm:px-6">
           {/* removed top padding */}
-          <div className="max-w-7xl mx-auto w-full overflow-hidden rounded-xl shadow-[inset_0_25px_80px_rgba(0,0,0,0.55)]">
+          <div className="max-w-7xl mx-auto w-full overflow-hidden rounded-xl">
             <div className="relative">
               <Swiper
                 className="marquee-swiper pointer-events-none"

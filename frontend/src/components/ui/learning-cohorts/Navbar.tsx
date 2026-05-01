@@ -53,9 +53,9 @@ function Navbar() {
           </Link>
 
           {/* DESKTOP NAV LINKS */}
-          <nav className="hidden lg:flex gap-8 text-sm text-[var(--ae-muted)]">
+          <nav className="hidden lg:flex gap-8 text-sm text-slate-600 font-medium tracking-wide">
             {navLinks.map((link) => (
-              <Link key={link.to} to={link.to} className="hover:text-[var(--ae-peach)] transition-colors">
+              <Link key={link.to} to={link.to} className="hover:text-[var(--ae-blue)] transition-colors">
                 {link.label}
               </Link>
             ))}
@@ -66,21 +66,21 @@ function Navbar() {
             <div className="hidden sm:flex gap-4 items-center">
               {!isLoggedIn ? (
                 <>
-                  <Link to="/login" className="text-sm text-[var(--ae-muted)] hover:text-[var(--ae-peach)] transition-colors">
+                  <Link to="/login" className="text-sm font-bold text-slate-500 hover:text-[var(--ae-blue)] transition-colors">
                     Login
                   </Link>
-                  <Link to="/signup" className="text-sm ae-brand-button px-4 py-2 rounded-full transition-colors">
+                  <Link to="/signup" className="text-sm ae-brand-button px-4 py-2 font-bold text-white rounded-full transition-colors">
                     Sign Up
                   </Link>
                 </>
               ) : (
                 <>
-                  <Link to={dashboardPath} className="text-sm text-[var(--ae-muted)] hover:text-[var(--ae-peach)] transition-colors">
+                  <Link to={dashboardPath} className="text-sm font-bold text-slate-500 hover:text-[var(--ae-blue)] transition-colors">
                     {isAdmin ? "Admin Dashboard" : "Dashboard"}
                   </Link>
                   <button
                     onClick={logout}
-                    className="text-sm text-red-400 hover:text-red-300 transition-colors"
+                    className="text-sm font-bold text-red-500 hover:text-red-700 transition-colors"
                   >
                     Logout
                   </button>
@@ -90,14 +90,14 @@ function Navbar() {
 
             {/* MOBILE TOGGLE */}
             <button 
-              className="lg:hidden text-2xl text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+              className="lg:hidden text-2xl text-[var(--ae-plum-deep)] p-2 hover:bg-slate-100 rounded-full transition-colors"
               onClick={toggleMenu}
             >
               {isMenuOpen ? <HiX /> : <HiMenu />}
             </button>
 
             {isLoggedIn && (
-              <Link to={dashboardPath} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full bg-[var(--ae-peach)] text-[var(--ae-plum-deep)] items-center justify-center cursor-pointer hover:brightness-105 transition-colors">
+              <Link to={dashboardPath} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full bg-slate-100 text-[var(--ae-plum-deep)] items-center justify-center cursor-pointer hover:bg-slate-200 transition-colors">
                 👤
               </Link>
             )}
@@ -106,33 +106,33 @@ function Navbar() {
 
         {/* MOBILE MENU DROPDOWN */}
         {isMenuOpen && (
-          <div className="absolute top-20 left-0 w-full ae-brand-card backdrop-blur-2xl rounded-3xl p-8 lg:hidden flex flex-col gap-6 text-lg text-[var(--ae-muted)] animate-in fade-in slide-in-from-top-4 duration-300 z-40">
+          <div className="absolute top-20 left-0 w-full bg-white border border-slate-200 shadow-xl rounded-3xl p-8 lg:hidden flex flex-col gap-6 text-lg text-slate-800 font-medium animate-in fade-in slide-in-from-top-4 duration-300 z-40">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={closeMenu}
-                className="hover:text-white transition-colors"
+                className="hover:text-[var(--ae-blue)] transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             
-            <hr className="border-white/10" />
+            <hr className="border-slate-200" />
             
             {!isLoggedIn ? (
               <div className="flex flex-col gap-4">
-                <Link to="/login" onClick={closeMenu} className="hover:text-white transition-colors">Login</Link>
-                <Link to="/signup" onClick={closeMenu} className="bg-white/10 text-center text-white py-3 rounded-xl hover:bg-white/20 transition-colors border border-white/10">Sign Up</Link>
+                <Link to="/login" onClick={closeMenu} className="hover:text-[var(--ae-blue)] transition-colors">Login</Link>
+                <Link to="/signup" onClick={closeMenu} className="bg-[var(--ae-blue)] text-center text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-colors">Sign Up</Link>
               </div>
             ) : (
               <div className="flex flex-col gap-4">
-                <Link to={dashboardPath} onClick={closeMenu} className="hover:text-white transition-colors">
+                <Link to={dashboardPath} onClick={closeMenu} className="hover:text-[var(--ae-blue)] transition-colors">
                   {isAdmin ? "Admin Dashboard" : "Dashboard"}
                 </Link>
                 <button
                   onClick={() => { logout(); closeMenu(); }}
-                  className="text-left text-red-400 hover:text-red-300 transition-colors"
+                  className="text-left text-red-500 font-bold hover:text-red-700 transition-colors"
                 >
                   Logout
                 </button>

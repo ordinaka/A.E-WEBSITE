@@ -141,15 +141,15 @@ const isModuleDetailData = (value: unknown): value is ModuleDetailData => {
 
 const getResourceBadgeStyle = (type: ResourceType): string => {
   if (type === "VIDEO") {
-    return "bg-red-500/15 text-red-300 border border-red-400/30";
+    return "bg-red-50 text-red-600 border border-red-200 font-bold tracking-wider";
   }
   if (type === "LINK") {
-    return "bg-cyan-500/15 text-cyan-300 border border-cyan-400/30";
+    return "bg-cyan-50 text-cyan-700 border border-cyan-200 font-bold tracking-wider";
   }
   if (type === "DOCUMENT") {
-    return "bg-sky-500/15 text-sky-300 border border-sky-400/30";
+    return "bg-sky-50 text-sky-700 border border-sky-200 font-bold tracking-wider";
   }
-  return "bg-[var(--ae-periwinkle)]/15 text-[var(--ae-periwinkle)] border border-[var(--ae-periwinkle)]/30";
+  return "bg-[var(--ae-blue)]/10 text-[var(--ae-blue)] border border-[var(--ae-blue)]/20 font-bold tracking-wider";
 };
 
 export default function ModuleDetailPage() {
@@ -197,19 +197,19 @@ export default function ModuleDetailPage() {
   }, [moduleDetail]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen ae-brand-page text-[var(--ae-plum-deep)]">
+    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20">
       <div className="max-w-5xl mx-auto space-y-6">
         {isLoading ? (
-          <div className="bg-white border border-[var(--ae-border)] shadow-sm rounded-2xl p-8">Loading module...</div>
+          <div className="bg-white border border-slate-200 shadow-sm rounded-3xl p-12 text-center text-slate-600 font-medium">Loading module...</div>
         ) : null}
 
         {!isLoading && error ? (
-          <div className="bg-rose-500/10 border border-rose-400/30 rounded-2xl p-6">
-            <p className="text-rose-200 mb-4">{error}</p>
+          <div className="bg-red-50 border border-red-200 rounded-3xl p-8 flex flex-col items-center justify-center text-center">
+            <p className="text-red-800 font-bold mb-4">{error}</p>
             <button
               type="button"
               onClick={() => void fetchModuleDetail()}
-              className="px-4 py-2 bg-rose-500 hover:bg-rose-400 rounded-lg font-medium"
+              className="px-6 py-2.5 bg-red-500 hover:bg-red-600 transition-colors rounded-xl font-bold text-white shadow-sm"
             >
               Retry
             </button>
@@ -218,18 +218,18 @@ export default function ModuleDetailPage() {
 
         {!isLoading && !error && moduleDetail ? (
           <>
-            <section className="bg-white border border-[var(--ae-border)] shadow-sm rounded-2xl p-6">
-              <h1 className="text-3xl font-bold text-[var(--ae-blue)] mb-2">{moduleDetail.title}</h1>
+            <section className="bg-white border border-slate-200 shadow-sm rounded-3xl p-8">
+              <h1 className="text-4xl font-black text-[var(--ae-plum-deep)] mb-4">{moduleDetail.title}</h1>
               {moduleDetail.shortDescription ? (
-                <p className="text-gray-600 mb-2">{moduleDetail.shortDescription}</p>
+                <p className="text-slate-600 font-bold text-lg mb-4">{moduleDetail.shortDescription}</p>
               ) : null}
-              <p className="text-gray-700">{moduleDetail.description}</p>
+              <p className="text-slate-700 font-medium mb-6 leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-100">{moduleDetail.description}</p>
 
               <div className="mt-6">
                 {quizTarget ? (
                   <Link
                     to={quizTarget}
-                    className="inline-flex items-center px-5 py-2.5 ae-brand-button hover:scale-[1.02] transition-transform rounded-lg font-semibold"
+                    className="inline-flex items-center px-8 py-3.5 bg-[var(--ae-plum-deep)] hover:bg-[var(--ae-plum-deep)]/90 text-white transition-all rounded-2xl font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-2"
                   >
                     Start Quiz
                   </Link>
@@ -237,7 +237,7 @@ export default function ModuleDetailPage() {
                   <button
                     type="button"
                     disabled
-                    className="inline-flex items-center px-5 py-2.5 bg-gray-200 text-gray-500 rounded-lg font-semibold cursor-not-allowed"
+                    className="inline-flex items-center px-8 py-3.5 bg-slate-100 border border-slate-200 text-slate-400 rounded-2xl font-bold cursor-not-allowed mt-2"
                   >
                     Quiz Not Available
                   </button>
@@ -245,18 +245,18 @@ export default function ModuleDetailPage() {
               </div>
             </section>
 
-            <section className="bg-white border border-[var(--ae-border)] shadow-sm rounded-2xl p-6">
-              <h2 className="text-2xl font-semibold mb-4">Resources</h2>
+            <section className="bg-white border border-slate-200 shadow-sm rounded-3xl p-8">
+              <h2 className="text-2xl font-black text-[var(--ae-plum-deep)] mb-6">Resources</h2>
               {moduleDetail.resources.length === 0 ? (
-                <p className="text-gray-600">No resources available for this module yet.</p>
+                <p className="text-slate-500 font-medium">No resources available for this module yet.</p>
               ) : (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {moduleDetail.resources.map((resource) => (
-                    <article key={resource.id} className="bg-gray-50 border border-[var(--ae-border)] rounded-xl p-4">
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <h3 className="text-lg font-medium">{resource.title}</h3>
+                    <article key={resource.id} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 overflow-hidden">
+                      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                        <h3 className="text-xl font-bold text-[var(--ae-plum-deep)]">{resource.title}</h3>
                         <span
-                          className={`text-xs px-2.5 py-1 rounded-full ${getResourceBadgeStyle(resource.type)}`}
+                          className={`text-[10px] px-3 py-1 rounded-md uppercase ${getResourceBadgeStyle(resource.type)}`}
                         >
                           {resource.type}
                         </span>
@@ -264,13 +264,15 @@ export default function ModuleDetailPage() {
 
                       {resource.url ? (
                         resource.type === "VIDEO" ? (
-                          <VideoEmbed url={resource.url} />
+                          <div className="mt-4 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                            <VideoEmbed url={resource.url} />
+                          </div>
                         ) : (
                           <a
                             href={resource.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-cyan-300 underline break-all"
+                            className="text-[var(--ae-blue)] font-bold underline hover:text-[var(--ae-plum-deep)] transition-colors break-all inline-block mt-2"
                           >
                             {resource.url}
                           </a>
@@ -278,7 +280,7 @@ export default function ModuleDetailPage() {
                       ) : null}
 
                       {resource.content ? (
-                        <p className="text-gray-700 mt-2 whitespace-pre-line">{resource.content}</p>
+                        <p className="text-slate-700 font-medium mt-4 whitespace-pre-line bg-white p-4 rounded-xl border border-slate-100 shadow-sm">{resource.content}</p>
                       ) : null}
                     </article>
                   ))}

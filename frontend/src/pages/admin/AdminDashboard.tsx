@@ -185,7 +185,7 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20 overflow-hidden relative">
       {/* Background decorations for Admin Theme */}
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
@@ -197,41 +197,41 @@ export default function AdminDashboard() {
         animate="visible"
       >
         <motion.section variants={itemVariants} className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-blue-500/20 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] border border-blue-500/30">
-            <LayoutDashboard className="w-8 h-8 text-blue-400" />
+          <div className="p-3 bg-blue-50 rounded-xl shadow-sm border border-blue-100">
+            <LayoutDashboard className="w-8 h-8 text-blue-600" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl font-black text-[var(--ae-plum-deep)]">
               Command Center
             </h1>
-            <p className="text-gray-400 text-sm md:text-base mt-2">
+            <p className="text-slate-500 font-bold text-sm md:text-base mt-2">
               System overview and quick access to management tools.
             </p>
           </div>
         </motion.section>
 
         {isLoading ? (
-          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center p-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl">
-            <Loader2 className="w-10 h-10 text-blue-500 animate-spin mb-4" />
-            <p className="text-blue-200">Loading system overview...</p>
+          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center p-12 bg-white border border-slate-200 rounded-3xl shadow-sm">
+            <Loader2 className="w-10 h-10 text-[var(--ae-blue)] animate-spin mb-4" />
+            <p className="text-slate-600 font-bold">Loading system overview...</p>
           </motion.div>
         ) : null}
 
         {!isLoading && error ? (
-          <motion.div variants={itemVariants} className="bg-rose-500/10 backdrop-blur-md border border-rose-500/20 rounded-3xl p-8 flex items-center justify-between">
+          <motion.div variants={itemVariants} className="bg-red-50 border border-red-200 rounded-3xl p-8 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-rose-500/20 flex items-center justify-center">
-                <AlertCircle className="w-6 h-6 text-rose-400" />
+              <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+                <AlertCircle className="w-6 h-6 text-red-500" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-rose-200 mb-1">Failed to connect</h3>
-                <p className="text-rose-300/70">{error}</p>
+                <h3 className="text-lg font-bold text-red-900 mb-1">Failed to connect</h3>
+                <p className="text-red-700 font-medium">{error}</p>
               </div>
             </div>
             <button
               type="button"
               onClick={() => void loadSummary()}
-              className="px-6 py-2.5 bg-rose-500 hover:bg-rose-400 transition-colors rounded-xl font-medium text-white shadow-lg shadow-rose-500/20"
+              className="px-6 py-2.5 bg-red-500 hover:bg-red-600 transition-colors rounded-xl font-bold text-white shadow-sm"
             >
               Retry
             </button>
@@ -248,23 +248,23 @@ export default function AdminDashboard() {
                     key={card.label}
                     variants={itemVariants}
                     whileHover={{ y: -4 }}
-                    className={`ae-brand-card backdrop-blur-xl border border-white/[0.08] rounded-3xl p-6 shadow-xl transition-all duration-300 group ${card.border}`}
+                    className={`bg-white border border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 group`}
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className={`p-3 rounded-xl transition-colors ${card.bg}`}>
                         <Icon className={`w-6 h-6 ${card.color}`} />
                       </div>
                     </div>
-                    <p className="text-sm font-medium text-gray-400 mb-1 tracking-wide uppercase">{card.label}</p>
-                    <p className="text-4xl font-bold text-white mb-2">{card.value}</p>
-                    <p className="text-sm text-gray-500">{card.sub}</p>
+                    <p className="text-xs font-bold text-slate-400 mb-1 tracking-wider uppercase">{card.label}</p>
+                    <p className="text-4xl font-black text-[var(--ae-plum-deep)] mb-2">{card.value}</p>
+                    <p className="text-sm font-bold text-slate-500">{card.sub}</p>
                   </motion.article>
                 );
               })}
             </motion.section>
 
-            <motion.section variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.05] rounded-3xl p-8 mt-8 shadow-2xl">
-              <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
+            <motion.section variants={itemVariants} className="bg-white border border-slate-200 rounded-3xl p-8 mt-8 shadow-sm">
+              <h2 className="text-2xl font-black text-[var(--ae-plum-deep)] mb-6">Quick Actions</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {quickActions.map((action) => {
                   const Icon = action.icon;
@@ -272,21 +272,18 @@ export default function AdminDashboard() {
                     <Link 
                       key={action.path}
                       to={action.path} 
-                      className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/40 p-5 transition-all duration-300 hover:bg-white/10 flex items-center justify-between"
+                      className="group relative overflow-hidden rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 p-5 transition-all duration-300 hover:bg-slate-100 flex items-center justify-between shadow-sm"
                     >
-                      {/* Hover Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-indigo-500/0 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                      
                       <div className="flex items-center gap-4 relative z-10">
-                        <div className="p-2.5 bg-white/5 rounded-lg group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
-                           <Icon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                        <div className="p-2.5 bg-white border border-slate-200 rounded-lg group-hover:bg-[var(--ae-blue)]/10 group-hover:border-[var(--ae-blue)]/20 transition-colors">
+                           <Icon className="w-5 h-5 text-slate-500 group-hover:text-[var(--ae-blue)] transition-colors" />
                         </div>
-                        <span className="font-semibold text-gray-200 group-hover:text-white transition-colors">
+                        <span className="font-bold text-slate-700 group-hover:text-[var(--ae-plum-deep)] transition-colors">
                           {action.label}
                         </span>
                       </div>
                       
-                      <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors group-hover:translate-x-1 duration-300 relative z-10" />
+                      <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-[var(--ae-blue)] transition-colors group-hover:translate-x-1 duration-300 relative z-10" />
                     </Link>
                   );
                 })}

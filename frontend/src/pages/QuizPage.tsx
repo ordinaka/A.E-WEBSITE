@@ -218,19 +218,22 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white">
-      <div className="max-w-5xl mx-auto space-y-6">
+    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20">
+      <div className="max-w-4xl mx-auto space-y-6">
         {isLoading ? (
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">Loading quiz...</div>
+          <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center text-slate-600 font-medium shadow-sm">Loading quiz...</div>
         ) : null}
 
         {!isLoading && error ? (
-          <div className="bg-rose-500/10 border border-rose-400/30 rounded-2xl p-6">
-            <p className="text-rose-200 mb-4">{error}</p>
+          <div className="bg-red-50 border border-red-200 rounded-3xl p-8 flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-bold text-red-900 mb-1">Failed to load</h3>
+              <p className="text-red-800 font-medium">{error}</p>
+            </div>
             <button
               type="button"
               onClick={() => void loadQuiz()}
-              className="px-4 py-2 bg-rose-500 hover:bg-rose-400 rounded-lg font-medium"
+              className="px-6 py-2.5 bg-red-500 hover:bg-red-600 transition-colors rounded-xl font-bold text-white shadow-sm"
             >
               Retry
             </button>
@@ -239,86 +242,93 @@ export default function QuizPage() {
 
         {!isLoading && !error && quiz ? (
           <>
-            <section className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h1 className="text-3xl font-bold text-purple-300 mb-2">{quiz.title}</h1>
-              <p className="text-gray-300 mb-2">Module: {quiz.module.title}</p>
-              {quiz.instructions ? <p className="text-gray-200 mb-4">{quiz.instructions}</p> : null}
+            <section className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+              <h1 className="text-3xl font-black text-[var(--ae-plum-deep)] mb-2">{quiz.title}</h1>
+              <p className="text-slate-600 font-medium mb-4">Module: <span className="font-bold text-[var(--ae-blue)]">{quiz.module.title}</span></p>
+              {quiz.instructions ? <p className="text-slate-700 font-medium mb-6 bg-slate-50 p-4 rounded-xl border border-slate-100">{quiz.instructions}</p> : null}
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="bg-white/5 border border-white/10 rounded-lg p-3">
-                  <p className="text-xs uppercase text-gray-400">Questions</p>
-                  <p className="text-xl font-semibold">{quiz.questions.length}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                  <p className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-1">Questions</p>
+                  <p className="text-2xl font-black text-[var(--ae-plum-deep)]">{quiz.questions.length}</p>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-3">
-                  <p className="text-xs uppercase text-gray-400">Passing Score</p>
-                  <p className="text-xl font-semibold">{quiz.passingScore}%</p>
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                  <p className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-1">Passing Score</p>
+                  <p className="text-2xl font-black text-[var(--ae-plum-deep)]">{quiz.passingScore}%</p>
                 </div>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-3">
-                  <p className="text-xs uppercase text-gray-400">Time Limit</p>
-                  <p className="text-xl font-semibold">
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                  <p className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-1">Time Limit</p>
+                  <p className="text-2xl font-black text-[var(--ae-plum-deep)]">
                     {quiz.timeLimitMinutes ? `${quiz.timeLimitMinutes} min` : "No limit"}
                   </p>
                 </div>
               </div>
 
               {quiz.latestAttempt ? (
-                <div className="mt-4 bg-white/5 border border-white/10 rounded-lg p-3">
-                  <p className="text-sm text-gray-300">
-                    Last attempt: {quiz.latestAttempt.score}% ({quiz.latestAttempt.correctAnswers}/
-                    {quiz.latestAttempt.totalQuestions})
-                  </p>
+                <div className="mt-6 bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-1">Last Attempt</p>
+                    <p className="text-lg font-black text-[var(--ae-plum-deep)]">
+                      {quiz.latestAttempt.score}% <span className="text-slate-500 font-medium text-base ml-2">({quiz.latestAttempt.correctAnswers}/{quiz.latestAttempt.totalQuestions})</span>
+                    </p>
+                  </div>
                 </div>
               ) : null}
             </section>
 
             {result ? (
-              <section className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                <h2 className="text-2xl font-semibold mb-2">Quiz Result</h2>
-                <p className="text-lg mb-2">
-                  Score: <span className="font-bold">{result.score}%</span>
-                </p>
-                <p className="text-gray-300 mb-2">
-                  Correct: {result.correctAnswers}/{result.totalQuestions}
-                </p>
-                <p className={result.passed ? "text-emerald-300" : "text-amber-300"}>
-                  {result.passed
-                    ? "Passed. Great work."
-                    : `Not passed yet. You need ${result.passingScore}% to pass.`}
-                </p>
-                <div className="mt-4 flex gap-3">
+              <section className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+                <h2 className="text-2xl font-black text-[var(--ae-plum-deep)] mb-4">Quiz Result</h2>
+                
+                <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 mb-6">
+                  <p className="text-lg font-medium text-slate-600 mb-2">
+                    Score: <span className="font-black text-2xl text-[var(--ae-plum-deep)] ml-2">{result.score}%</span>
+                  </p>
+                  <p className="text-slate-600 font-medium mb-4">
+                    Correct: <span className="font-bold text-[var(--ae-plum-deep)]">{result.correctAnswers}</span> / {result.totalQuestions}
+                  </p>
+                  
+                  <div className={`p-4 rounded-xl font-bold flex items-center ${result.passed ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
+                    {result.passed
+                      ? "✓ Passed. Great work!"
+                      : `⚠ Not passed yet. You need ${result.passingScore}% to pass.`}
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
                   <button
                     type="button"
                     onClick={() => void loadQuiz()}
-                    className="px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg font-medium"
+                    className="flex-1 py-3.5 bg-[var(--ae-blue)] hover:bg-[var(--ae-blue)]/90 rounded-2xl font-bold text-white shadow-md transition-colors text-center"
                   >
                     Retake Quiz
                   </button>
                   <Link
                     to={`/modules/${quiz.module.slug}`}
-                    className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg font-medium"
+                    className="flex-1 py-3.5 bg-white border border-slate-200 hover:bg-slate-50 rounded-2xl font-bold text-slate-700 shadow-sm transition-colors text-center"
                   >
                     Back To Module
                   </Link>
                 </div>
               </section>
             ) : (
-              <section className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+              <section className="space-y-6">
                 {quiz.questions.map((question, index) => (
-                  <article key={question.id} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                    <p className="font-medium mb-3">
-                      {index + 1}. {question.prompt}
+                  <article key={question.id} className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <p className="font-bold text-lg text-[var(--ae-plum-deep)] mb-4">
+                      <span className="text-[var(--ae-blue)] mr-2">{index + 1}.</span> {question.prompt}
                     </p>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       {question.options.map((option) => {
                         const isSelected = selectedAnswers[question.id] === option.id;
                         return (
                           <label
                             key={option.id}
-                            className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition ${
+                            className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                               isSelected
-                                ? "border-purple-400 bg-purple-500/20"
-                                : "border-white/10 bg-white/5 hover:bg-white/10"
+                                ? "border-[var(--ae-blue)] bg-[var(--ae-blue)]/5 font-bold text-[var(--ae-blue)] shadow-sm"
+                                : "border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 font-medium text-slate-700"
                             }`}
                           >
                             <input
@@ -327,9 +337,9 @@ export default function QuizPage() {
                               value={option.id}
                               checked={isSelected}
                               onChange={() => handleSelectAnswer(question.id, option.id)}
-                              className="accent-purple-500"
+                              className="w-5 h-5 accent-[var(--ae-blue)] cursor-pointer"
                             />
-                            <span>{option.label}</span>
+                            <span className="text-base">{option.label}</span>
                           </label>
                         );
                       })}
@@ -337,16 +347,21 @@ export default function QuizPage() {
                   </article>
                 ))}
 
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <p className="text-sm text-gray-300 mb-3">
-                    Answered {answeredCount} of {quiz.questions.length}
-                  </p>
-                  {submitError ? <p className="text-sm text-rose-200 mb-3">{submitError}</p> : null}
+                <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1">
+                      Progress
+                    </p>
+                    <p className="font-medium text-slate-700">
+                      Answered <span className="font-bold text-[var(--ae-blue)]">{answeredCount}</span> of {quiz.questions.length}
+                    </p>
+                    {submitError ? <p className="text-sm font-medium text-red-600 mt-2">{submitError}</p> : null}
+                  </div>
                   <button
                     type="button"
                     onClick={() => void handleSubmit()}
                     disabled={isSubmitting}
-                    className="px-5 py-2.5 bg-purple-600 hover:bg-purple-500 disabled:bg-purple-800/70 disabled:cursor-not-allowed rounded-lg font-semibold"
+                    className="px-8 py-3.5 bg-[var(--ae-plum-deep)] hover:bg-[var(--ae-plum-deep)]/90 disabled:opacity-50 disabled:cursor-not-allowed rounded-2xl font-bold text-white shadow-md transition-all text-center"
                   >
                     {isSubmitting ? "Submitting..." : "Submit Quiz"}
                   </button>
