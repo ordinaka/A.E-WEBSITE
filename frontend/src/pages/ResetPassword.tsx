@@ -50,7 +50,7 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#050020] flex items-center justify-center px-4 py-20 font-outfit">
+    <div className="min-h-screen w-full ae-brand-page flex items-center justify-center px-4 py-20 font-outfit">
       <div className="w-full max-w-md">
         {/* Brand */}
         <div className="flex justify-center mb-10">
@@ -64,7 +64,7 @@ export default function ResetPassword() {
           </div>
         </div>
 
-        <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-xl shadow-2xl">
+        <div className="ae-brand-card border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-xl shadow-2xl">
           {!done ? (
             <>
               {/* Header */}

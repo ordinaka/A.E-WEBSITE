@@ -7,7 +7,7 @@ function Stats() {
   ];
 
   return (
-    <section className="w-full bg-[#050030] border-t border-white/10 flex justify-center">
+    <section className="w-full ae-brand-page border-t border-white/10 flex justify-center">
 
       <div className="w-full max-w-7xl px-6 py-12 grid grid-cols-2 md:grid-cols-4 text-center">
 

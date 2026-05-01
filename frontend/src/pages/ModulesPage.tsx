@@ -86,7 +86,7 @@ export default function ModulesPage() {
   }, [loadModules]);
 
   return (
-    <div className="relative overflow-hidden bg-[#050020] min-h-screen">
+    <div className="relative overflow-hidden ae-brand-page min-h-screen">
       <div
         className="w-full relative overflow-hidden min-h-screen"
         style={{
@@ -96,7 +96,7 @@ export default function ModulesPage() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-[#050020]/60 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
 
@@ -158,7 +158,7 @@ export default function ModulesPage() {
                   <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full shadow-xl hover:shadow-[0_8px_30px_rgba(120,40,255,0.15)]">
 
                     {/* Gradient banner */}
-                    <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-[#7928FF]/30 via-[#4C00FF]/20 to-[#050020]">
+                    <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-[var(--ae-blue)]/30 via-[var(--ae-plum)]/20 to-[var(--ae-bg)]">
                       {/* Order badge */}
                       <div className="absolute top-4 left-4 bg-white/10 backdrop-blur-sm border border-white/20 py-1 px-3 rounded-full flex items-center gap-1.5">
                         <span className="text-white/80 text-xs font-bold">#{String(mod.order).padStart(2, "0")}</span>
@@ -170,7 +170,7 @@ export default function ModulesPage() {
                         </div>
                       )}
 
-                      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#050020] to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[var(--ae-bg)] to-transparent" />
                     </div>
 
                     {/* Content */}

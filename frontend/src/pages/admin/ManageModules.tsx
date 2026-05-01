@@ -444,7 +444,7 @@ export default function ManageModules() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[#050020] text-white overflow-hidden relative font-outfit">
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white overflow-hidden relative font-outfit">
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -626,7 +626,7 @@ export default function ManageModules() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     key={resource.key} 
-                    className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 space-y-4 hover:border-white/20 transition-colors"
+                    className="rounded-2xl border border-white/10 ae-brand-card p-5 space-y-4 hover:border-white/20 transition-colors"
                   >
                     <div className="flex items-center justify-between pb-2 border-b border-white/5">
                       <p className="text-xs uppercase tracking-widest font-bold text-gray-500 flex items-center gap-2">
@@ -733,7 +733,7 @@ export default function ManageModules() {
           </form>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-3xl p-6 md:p-8 shadow-2xl">
+        <motion.section variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.05] rounded-3xl p-6 md:p-8 shadow-2xl">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <BookOpen className="w-6 h-6 text-indigo-400" />
@@ -782,7 +782,7 @@ export default function ManageModules() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     key={moduleItem.id}
-                    className={`group bg-white/[0.02] border border-white/[0.08] hover:border-indigo-500/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between ${editingModuleId === moduleItem.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[#050020]' : ''}`}
+                    className={`group ae-brand-card border border-white/[0.08] hover:border-indigo-500/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between ${editingModuleId === moduleItem.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/0 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                     

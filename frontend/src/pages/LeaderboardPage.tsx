@@ -109,7 +109,7 @@ export default function LeaderboardPage() {
   const topThree = useMemo(() => entries.filter((entry) => entry.rank <= 3), [entries]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[#050020] text-white overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white overflow-hidden relative">
       {/* Background decorations */}
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-amber-600/10 rounded-full blur-[120px] pointer-events-none" />
@@ -161,7 +161,7 @@ export default function LeaderboardPage() {
         ) : null}
 
         {!isLoading && !error && entries.length === 0 ? (
-          <motion.div variants={itemVariants} className="bg-white/[0.02] border border-white/5 rounded-3xl p-12 text-center text-gray-400">
+          <motion.div variants={itemVariants} className="ae-brand-card border border-white/5 rounded-3xl p-12 text-center text-gray-400">
              <Trophy className="w-12 h-12 mx-auto text-gray-600 mb-4 opacity-50" />
              <p>No leaderboard data yet. Be the first to start learning!</p>
           </motion.div>
@@ -190,7 +190,7 @@ export default function LeaderboardPage() {
                     variants={itemVariants}
                     whileHover={{ y: -8, scale: 1.02 }}
                     key={entry.userId} 
-                    className={`relative bg-white/[0.03] backdrop-blur-xl border rounded-3xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-300 ${bgGlow} ${entry.rank === 1 ? 'md:-mt-8 shadow-2xl shadow-amber-500/10' : ''}`}
+                    className={`relative ae-brand-card backdrop-blur-xl border rounded-3xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-300 ${bgGlow} ${entry.rank === 1 ? 'md:-mt-8 shadow-2xl shadow-amber-500/10' : ''}`}
                   >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
                     
@@ -224,7 +224,7 @@ export default function LeaderboardPage() {
               })}
             </motion.section>
 
-            <motion.section variants={itemVariants} className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-3xl p-1 md:p-4 mt-12 shadow-xl">
+            <motion.section variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.05] rounded-3xl p-1 md:p-4 mt-12 shadow-xl">
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] text-left border-collapse">
                   <thead>

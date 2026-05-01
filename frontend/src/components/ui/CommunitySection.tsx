@@ -9,12 +9,12 @@ const GHANA = "ghana 1.png";
 
 export default function CommunitySection(){
   return (
-    <section className="relative h-fit p-5 bg-[#070014] text-white overflow-hidden flex flex-col items-center">
+    <section className="relative h-fit p-5 bg-transparent text-white overflow-hidden flex flex-col items-center">
       {/* Title Section */}
-      <div className="mt-20 text-center">
-        <h1 className="text-7xl lg:text-[87.11px] font-semibold tracking-tight">Our Community</h1>
+      <div className="mt-20 text-center px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[87.11px] font-semibold tracking-tight">Our Community</h1>
         <div className="flex justify-center mt-4">
-          <div className="relative flex h-10 lg:h-12 w-56.25 items-center justify-center rounded-[9.90566px] bg-[linear-gradient(90deg,#001F38_-14.09%,rgba(0,86,157,0.32)_100%)] px-[33.4057px] text-white shadow-[0_0_20px_rgba(123,75,255,0.18)]">
+          <div className="relative flex h-10 lg:h-12 w-56.25 items-center justify-center rounded-[9.90566px] bg-[linear-gradient(90deg,var(--ae-plum-deep)_-14.09%,rgba(0,86,157,0.32)_100%)] px-[33.4057px] text-white shadow-[0_0_20px_rgba(123,75,255,0.18)]">
             <div className="relative flex h-12 min-w-[188.21px] items-center justify-start">
              <img src="/btn-members.png" alt="" className="h-7" />
             </div>
@@ -28,7 +28,7 @@ export default function CommunitySection(){
           <motion.button
             key={i}
             whileHover={{ scale: 1.05 }}
-            className="relative flex h-10 lg:h-12 items-center justify-center rounded-[9.90566px] bg-[linear-gradient(90deg,#001F38_-14.09%,rgba(0,86,157,0.40)_100%)] px-8 lg:px-10 text-white shadow-[0_0_20px_rgba(123,75,255,0.18)] font-normal text-lg lg:text-2xl"
+            className="relative flex h-10 lg:h-12 items-center justify-center rounded-[9.90566px] bg-[linear-gradient(90deg,var(--ae-plum-deep)_-14.09%,rgba(0,86,157,0.40)_100%)] px-8 lg:px-10 text-white shadow-[0_0_20px_rgba(123,75,255,0.18)] font-normal text-lg lg:text-2xl"
           >
             <img src={GHANA} alt='ghana' className="inline-block w-4 h-4 mr-2 align-middle" /> 
             {c}
@@ -50,10 +50,10 @@ export default function CommunitySection(){
         {/* Search Bar */}
         <div className="mt-6 w-full max-w-161.75 px-4">
           <div className="flex flex-col items-stretch gap-3 p-0 sm:h-15 sm:flex-row sm:items-center sm:gap-2.75">
-            <div className="flex h-14 w-full items-center gap-3 rounded-[15px] bg-[linear-gradient(90deg,#050020_-14.09%,#5F00FF_100%)] px-4 py-2.5 shadow-[inset_0_0_17.2px_#023053] sm:h-15 sm:w-105.25 sm:gap-3.25 sm:px-6.75">
+            <div className="flex h-14 w-full items-center gap-3 rounded-[15px] bg-[linear-gradient(90deg,var(--ae-bg)_-14.09%,var(--ae-blue)_100%)] px-4 py-2.5 shadow-[inset_0_0_17.2px_var(--ae-blue)] sm:h-15 sm:w-105.25 sm:gap-3.25 sm:px-6.75">
               <input
                 placeholder="Select your country"
-                className="h-6.25 w-full min-w-0 bg-transparent text-base leading-6.25 tracking-[-0.500092px] text-[#407199] outline-none placeholder:text-[#407199] sm:w-43.75 sm:text-[20.0037px]"
+                className="h-6.25 w-full min-w-0 bg-transparent text-base leading-6.25 tracking-[-0.500092px] text-[var(--ae-periwinkle)] outline-none placeholder:text-[var(--ae-periwinkle)] sm:w-43.75 sm:text-[20.0037px]"
               />
               <svg
                 width="12"
@@ -63,14 +63,14 @@ export default function CommunitySection(){
                 xmlns="http://www.w3.org/2000/svg"
                 className="shrink-0"
               >
-                <path d="M1 1L6 5L11 1" stroke="#407199" strokeWidth="2" />
+                <path d="M1 1L6 5L11 1" stroke="var(--ae-periwinkle)" strokeWidth="2" />
               </svg>
             </div>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               onClick={() => window.open(COMMUNITY_LINK, "_blank", "noreferrer")}
-              className="flex h-14 w-full items-center justify-center gap-2.5 rounded-[15px] bg-[linear-gradient(270deg,#7422FF_0%,#050020_100%)] px-2.5 py-2.5 text-white shadow-[inset_0_0_19.5px_rgba(0,121,221,0.7)] sm:h-15 sm:w-53.75"
+              className="flex h-14 w-full items-center justify-center gap-2.5 rounded-[15px] bg-[linear-gradient(270deg,var(--ae-blue)_0%,var(--ae-bg)_100%)] px-2.5 py-2.5 text-white shadow-[inset_0_0_19.5px_rgba(0,121,221,0.7)] sm:h-15 sm:w-53.75"
             >
               <ArrowUpRight size={20} className="inline-block" />
               <span className="h-6.25 text-base leading-6.25 tracking-[-0.500092px] text-white sm:text-[20.0037px]">
@@ -103,7 +103,7 @@ export default function CommunitySection(){
 
             <motion.button
               whileHover={{ scale: 1.04 }}
-              className="md:h-14 w-full rounded-[13px] bg-[#5F00FF] text-center text-[20px] font-['Inter'] font-medium leading-[122%] tracking-normal text-white shadow-xl md:w-61.75"
+              className="md:h-14 w-full rounded-[13px] bg-[var(--ae-blue)] text-center text-[20px] font-['Inter'] font-medium leading-[122%] tracking-normal text-white shadow-xl md:w-61.75"
             >
               Subscribe
             </motion.button>

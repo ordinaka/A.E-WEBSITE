@@ -297,7 +297,7 @@ export default function ManageTeam() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[#050020] text-white overflow-hidden relative font-outfit">
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white overflow-hidden relative font-outfit">
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -527,7 +527,7 @@ export default function ManageTeam() {
           </form>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-3xl p-6 md:p-8 shadow-2xl">
+        <motion.section variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.05] rounded-3xl p-6 md:p-8 shadow-2xl">
            <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <Users className="w-6 h-6 text-blue-400" />
@@ -576,7 +576,7 @@ export default function ManageTeam() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     key={member.id}
-                    className={`group bg-white/[0.02] border border-white/[0.08] hover:border-blue-500/30 rounded-2xl p-5 transition-all duration-300 flex flex-col md:flex-row gap-6 items-center justify-between ${editingMemberId === member.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[#050020]' : ''}`}
+                    className={`group ae-brand-card border border-white/[0.08] hover:border-blue-500/30 rounded-2xl p-5 transition-all duration-300 flex flex-col md:flex-row gap-6 items-center justify-between ${editingMemberId === member.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
                   >
                     <div className="flex items-center gap-6 w-full">
                       <div className="relative shrink-0">
@@ -592,7 +592,7 @@ export default function ManageTeam() {
                           </div>
                         )}
                         {!member.isVisible && (
-                          <div className="absolute -top-1 -right-1 p-1 bg-rose-500 rounded-full border border-[#050020]" title="Hidden Profile">
+                          <div className="absolute -top-1 -right-1 p-1 bg-rose-500 rounded-full border border-[var(--ae-bg)]" title="Hidden Profile">
                             <EyeOff className="w-2.5 h-2.5 text-white" />
                           </div>
                         )}

@@ -43,7 +43,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#050020] min-h-screen">
+    <div className="relative overflow-hidden ae-brand-page min-h-screen">
       <div
         className="w-full relative overflow-hidden min-h-screen"
         style={{
@@ -53,7 +53,7 @@ export default function ContactPage() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-[#050020]/60 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
           
@@ -78,23 +78,23 @@ export default function ContactPage() {
                 <div className="space-y-8 mb-12">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center shrink-0 border border-white/20">
-                      <Mail className="text-[#0F80DD]" size={24} />
+                      <Mail className="text-[var(--ae-blue)]" size={24} />
                     </div>
                     <div>
                       <h4 className="text-white text-lg font-medium mb-1">Email Us</h4>
                       <p className="text-white/60 mb-2">Our friendly team is here to help.</p>
-                      <a href="mailto:hello@algorithmicexplorers.com" className="text-[#0F80DD] hover:text-white transition-colors">hello@algorithmicexplorers.com</a>
+                      <a href="mailto:hello@algorithmicexplorers.com" className="text-[var(--ae-blue)] hover:text-white transition-colors">hello@algorithmicexplorers.com</a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center shrink-0 border border-white/20">
-                      <MapPin className="text-[#7928FF]" size={24} />
+                      <MapPin className="text-[var(--ae-blue)]" size={24} />
                     </div>
                     <div>
                       <h4 className="text-white text-lg font-medium mb-1">Global HQ</h4>
                       <p className="text-white/60 mb-2">Based in SF, operating globally.</p>
-                      <p className="text-[#0F80DD]">123 Innovation Drive, CA 94103</p>
+                      <p className="text-[var(--ae-blue)]">123 Innovation Drive, CA 94103</p>
                     </div>
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#7928FF] transition-colors"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[var(--ae-blue)] transition-colors"
                           placeholder="John Doe"
                         />
                       </div>
@@ -170,7 +170,7 @@ export default function ContactPage() {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#7928FF] transition-colors"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[var(--ae-blue)] transition-colors"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -182,14 +182,14 @@ export default function ContactPage() {
                           rows={5}
                           value={formData.message}
                           onChange={(e) => setFormData({...formData, message: e.target.value})}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#7928FF] transition-colors resize-none"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[var(--ae-blue)] transition-colors resize-none"
                           placeholder="Please describe your inquiry..."
                         />
                       </div>
 
                       <button 
                         type="submit"
-                        className="w-full py-4 rounded-xl flex items-center justify-center gap-2 bg-linear-to-r from-[#7928FF] to-[#4C00FF] text-white font-semibold shadow-[0_0_20px_rgba(120,40,255,0.3)] hover:shadow-[0_0_30px_rgba(120,40,255,0.5)] transition-all hover:-translate-y-0.5"
+                        className="w-full py-4 rounded-xl flex items-center justify-center gap-2 bg-linear-to-r from-[var(--ae-blue)] to-[var(--ae-plum)] text-white font-semibold shadow-[0_0_20px_rgba(120,40,255,0.3)] hover:shadow-[0_0_30px_rgba(120,40,255,0.5)] transition-all hover:-translate-y-0.5"
                       >
                         <Send size={18} />
                         Send Message

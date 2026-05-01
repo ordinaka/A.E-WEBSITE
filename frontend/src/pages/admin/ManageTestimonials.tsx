@@ -233,7 +233,7 @@ export default function ManageTestimonials() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[#050020] text-white overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen ae-brand-page text-white overflow-hidden relative">
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -258,7 +258,7 @@ export default function ManageTestimonials() {
         </motion.section>
 
         <motion.section variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <motion.div variants={itemVariants} className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-amber-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.08] hover:border-amber-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-amber-500/10 rounded-2xl border border-amber-500/20">
                 <Clock className="w-8 h-8 text-amber-400" />
              </div>
@@ -268,7 +268,7 @@ export default function ManageTestimonials() {
              </div>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-emerald-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.08] hover:border-emerald-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">
                 <ThumbsUp className="w-8 h-8 text-emerald-400" />
              </div>
@@ -278,7 +278,7 @@ export default function ManageTestimonials() {
              </div>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-rose-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.08] hover:border-rose-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-rose-500/10 rounded-2xl border border-rose-500/20">
                 <ThumbsDown className="w-8 h-8 text-rose-400" />
              </div>
@@ -289,7 +289,7 @@ export default function ManageTestimonials() {
           </motion.div>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-2xl rounded-3xl p-6 md:p-8 relative">
+        <motion.section variants={itemVariants} className="ae-brand-card backdrop-blur-xl border border-white/[0.05] shadow-2xl rounded-3xl p-6 md:p-8 relative">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <Quote className="w-6 h-6 text-indigo-400" />
@@ -365,7 +365,7 @@ export default function ManageTestimonials() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.98 }}
                       key={testimonial.id}
-                      className={`group bg-white/[0.02] border border-white/[0.08] hover:border-indigo-500/30 rounded-2xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col gap-4 ${isBusy ? 'opacity-50 pointer-events-none' : ''}`}
+                      className={`group ae-brand-card border border-white/[0.08] hover:border-indigo-500/30 rounded-2xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col gap-4 ${isBusy ? 'opacity-50 pointer-events-none' : ''}`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                       

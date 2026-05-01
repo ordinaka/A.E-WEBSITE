@@ -7,6 +7,17 @@
 :root {
   --sans: 'Inter', 'Segoe UI', Roboto, sans-serif;
   --heading: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+  --ae-plum: #332754;
+  --ae-plum-deep: #251d3f;
+  --ae-blue: #33418f;
+  --ae-periwinkle: #9aa8e7;
+  --ae-peach: #f5a487;
+  --ae-lavender: #e3b5ee;
+  --ae-bg: #251d3f;
+  --ae-bg-deep: #1e1735;
+  --ae-surface: #332754;
+  --ae-border: rgba(154, 168, 231, 0.24);
+  --ae-muted: #cbd3f4;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -18,6 +29,45 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
+
+@theme {
+  --color-purple-50: #fbf5fd;
+  --color-purple-100: #f3dcf7;
+  --color-purple-200: #e3b5ee;
+  --color-purple-300: #c7b8ee;
+  --color-purple-400: #9aa8e7;
+  --color-purple-500: #6f7fd0;
+  --color-purple-600: #33418f;
+  --color-purple-700: #332754;
+  --color-purple-800: #2b2249;
+  --color-purple-900: #251d3f;
+  --color-purple-950: #1e1735;
+
+  --color-violet-50: #fbf5fd;
+  --color-violet-100: #f3dcf7;
+  --color-violet-200: #e3b5ee;
+  --color-violet-300: #c7b8ee;
+  --color-violet-400: #9aa8e7;
+  --color-violet-500: #6f7fd0;
+  --color-violet-600: #33418f;
+  --color-violet-700: #332754;
+  --color-violet-800: #2b2249;
+  --color-violet-900: #251d3f;
+  --color-violet-950: #1e1735;
+
+  --color-fuchsia-400: #e3b5ee;
+  --color-fuchsia-500: #d49ae3;
+  --color-fuchsia-600: #b579c8;
+  --color-pink-400: #f5a487;
+  --color-pink-500: #ef9273;
+  --color-pink-600: #d9795f;
+  --color-blue-400: #9aa8e7;
+  --color-blue-500: #6679d0;
+  --color-blue-600: #33418f;
+  --color-indigo-400: #9aa8e7;
+  --color-indigo-500: #6679d0;
+  --color-indigo-600: #33418f;
 }
 
 #root {
@@ -33,6 +83,11 @@
 
 body {
   color: white;
+  background:
+    linear-gradient(135deg, rgba(37, 29, 63, 0.98) 0%, rgba(51, 39, 84, 0.96) 42%, rgba(51, 65, 143, 0.82) 100%),
+    repeating-linear-gradient(90deg, rgba(154, 168, 231, 0.08) 0 1px, transparent 1px 80px),
+    var(--ae-bg);
+  background-attachment: fixed;
   margin: 0;
   overflow-x: hidden;
   font-family: var(--sans);
@@ -41,6 +96,49 @@ body {
 /* Apply heading font to all headings globally */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading);
+}
+
+.ae-brand-page {
+  background:
+    linear-gradient(135deg, rgba(37, 29, 63, 0.98) 0%, rgba(51, 39, 84, 0.96) 42%, rgba(51, 65, 143, 0.82) 100%),
+    repeating-linear-gradient(90deg, rgba(154, 168, 231, 0.08) 0 1px, transparent 1px 80px);
+}
+
+.ae-brand-band {
+  background:
+    linear-gradient(120deg, rgba(154, 168, 231, 0.18), rgba(245, 164, 135, 0.14)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--ae-border);
+}
+
+.ae-brand-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(154, 168, 231, 0.08));
+  border: 1px solid var(--ae-border);
+  box-shadow: 0 24px 80px rgba(30, 23, 53, 0.36);
+}
+
+.ae-auth-card {
+  background: linear-gradient(160deg, rgba(51, 39, 84, 0.78), rgba(30, 23, 53, 0.76));
+  border: 1px solid var(--ae-border);
+  box-shadow: 0 30px 90px rgba(30, 23, 53, 0.45);
+}
+
+.ae-brand-button {
+  background: linear-gradient(135deg, var(--ae-peach), var(--ae-lavender) 52%, var(--ae-periwinkle));
+  color: var(--ae-plum-deep);
+  box-shadow: 0 18px 40px rgba(245, 164, 135, 0.22);
+}
+
+.ae-brand-button:hover {
+  filter: brightness(1.04);
+}
+
+.ae-brand-link {
+  color: var(--ae-lavender);
+}
+
+.ae-brand-link:hover {
+  color: var(--ae-peach);
 }
 
 .marquee-edge-left,
@@ -57,9 +155,9 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   background: linear-gradient(
     to right,
-    rgba(5, 0, 32, 0.98) 0%,
-    rgba(5, 0, 32, 0.82) 35%,
-    rgba(5, 0, 32, 0) 100%
+    rgba(37, 29, 63, 0.98) 0%,
+    rgba(37, 29, 63, 0.82) 35%,
+    rgba(37, 29, 63, 0) 100%
   );
 }
 
@@ -67,9 +165,9 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   background: linear-gradient(
     to left,
-    rgba(5, 0, 32, 0.98) 0%,
-    rgba(5, 0, 32, 0.82) 35%,
-    rgba(5, 0, 32, 0) 100%
+    rgba(37, 29, 63, 0.98) 0%,
+    rgba(37, 29, 63, 0.82) 35%,
+    rgba(37, 29, 63, 0) 100%
   );
 
 }

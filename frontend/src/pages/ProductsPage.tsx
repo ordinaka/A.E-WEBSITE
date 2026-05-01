@@ -56,7 +56,7 @@ const placeholderProducts = [
 
 export default function ProductsPage() {
   return (
-    <div className="relative overflow-hidden bg-[#050020] min-h-screen">
+    <div className="relative overflow-hidden ae-brand-page min-h-screen">
       <div
         className="w-full relative overflow-hidden min-h-screen"
         style={{
@@ -66,7 +66,7 @@ export default function ProductsPage() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-[#050020]/60 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
           
@@ -95,7 +95,7 @@ export default function ProductsPage() {
                     />
                     
                     {product.badge && (
-                      <div className="absolute top-4 left-4 bg-linear-to-r from-[#7928FF] to-[#0F80DD] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-white/20">
+                      <div className="absolute top-4 left-4 bg-linear-to-r from-[var(--ae-blue)] to-[var(--ae-blue)] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-white/20">
                         {product.badge}
                       </div>
                     )}
@@ -104,7 +104,7 @@ export default function ProductsPage() {
                   {/* Content area */}
                   <div className="p-6 md:p-8 flex flex-col flex-grow">
                     <div className="flex items-center gap-2 mb-3">
-                      <ShoppingBag size={18} className="text-[#0F80DD]" />
+                      <ShoppingBag size={18} className="text-[var(--ae-blue)]" />
                       <h2 className="text-xl font-semibold text-white">
                         {product.name}
                       </h2>

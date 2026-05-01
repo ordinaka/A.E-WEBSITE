@@ -113,7 +113,7 @@ export default function TestimonialsPage() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#050020] min-h-screen">
+    <div className="relative overflow-hidden ae-brand-page min-h-screen">
       <div
         className="w-full relative overflow-hidden min-h-screen"
         style={{
@@ -123,7 +123,7 @@ export default function TestimonialsPage() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-[#050020]/60 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[rgba(37,29,63,0.60)] pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
 
@@ -173,7 +173,7 @@ export default function TestimonialsPage() {
                   {testimonials.map((t, idx) => (
                     <FadeInWhenVisible delay={0.08 * idx} key={t.id}>
                       <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col group">
-                        <MessageSquareQuote size={28} className="text-[#7928FF]/40 mb-4" />
+                        <MessageSquareQuote size={28} className="text-[var(--ae-blue)]/40 mb-4" />
 
                         <p className="text-white/80 text-base leading-relaxed flex-grow italic mb-6">
                           "{t.content}"
@@ -242,7 +242,7 @@ export default function TestimonialsPage() {
                           required
                           value={formData.name}
                           onChange={(e) => { setSubmitError(null); setFormData({ ...formData, name: e.target.value }); }}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#7928FF] focus:ring-1 focus:ring-[#7928FF]/30 transition-colors placeholder:text-gray-600 text-sm"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--ae-blue)] focus:ring-1 focus:ring-[var(--ae-blue)]/30 transition-colors placeholder:text-gray-600 text-sm"
                           placeholder="Jane Doe"
                         />
                       </div>
@@ -253,7 +253,7 @@ export default function TestimonialsPage() {
                           type="text"
                           value={formData.role}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#7928FF] focus:ring-1 focus:ring-[#7928FF]/30 transition-colors placeholder:text-gray-600 text-sm"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--ae-blue)] focus:ring-1 focus:ring-[var(--ae-blue)]/30 transition-colors placeholder:text-gray-600 text-sm"
                           placeholder="Software Engineer at ACME"
                         />
                       </div>
@@ -265,7 +265,7 @@ export default function TestimonialsPage() {
                           rows={4}
                           value={formData.content}
                           onChange={(e) => { setSubmitError(null); setFormData({ ...formData, content: e.target.value }); }}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#7928FF] focus:ring-1 focus:ring-[#7928FF]/30 transition-colors resize-none placeholder:text-gray-600 text-sm"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[var(--ae-blue)] focus:ring-1 focus:ring-[var(--ae-blue)]/30 transition-colors resize-none placeholder:text-gray-600 text-sm"
                           placeholder="How did AE help you?"
                         />
                       </div>
@@ -289,7 +289,7 @@ export default function TestimonialsPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full mt-2 py-3.5 rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-[#7928FF] to-[#4C00FF] text-white font-semibold shadow-[0_0_20px_rgba(120,40,255,0.3)] hover:shadow-[0_0_30px_rgba(120,40,255,0.5)] transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                        className="w-full mt-2 py-3.5 rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-[var(--ae-blue)] to-[var(--ae-plum)] text-white font-semibold shadow-[0_0_20px_rgba(120,40,255,0.3)] hover:shadow-[0_0_30px_rgba(120,40,255,0.5)] transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                       >
                         {isSubmitting ? (
                           <>
