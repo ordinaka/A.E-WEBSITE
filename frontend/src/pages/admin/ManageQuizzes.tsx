@@ -543,7 +543,7 @@ export default function ManageQuizzes() {
             <FileText className="w-8 h-8 text-blue-400" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-4xl font-black text-[var(--ae-plum-deep)]">
+            <h1 className="text-3xl md:text-4xl font-black text-[var(--text-color)]">
               Manage Quizzes
             </h1>
             <p className="text-[var(--muted-text)] font-medium text-sm md:text-base mt-2">
