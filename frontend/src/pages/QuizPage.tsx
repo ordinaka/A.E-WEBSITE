@@ -218,10 +218,10 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] pb-20">
       <div className="max-w-4xl mx-auto space-y-6">
         {isLoading ? (
-          <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center text-slate-600 font-medium shadow-sm">Loading quiz...</div>
+          <div className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-12 text-center text-[var(--text-color)]/70 font-medium shadow-sm">Loading quiz...</div>
         ) : null}
 
         {!isLoading && error ? (
@@ -242,23 +242,23 @@ export default function QuizPage() {
 
         {!isLoading && !error && quiz ? (
           <>
-            <section className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-              <h1 className="text-3xl font-black text-[var(--ae-plum-deep)] mb-2">{quiz.title}</h1>
-              <p className="text-slate-600 font-medium mb-4">Module: <span className="font-bold text-[var(--ae-blue)]">{quiz.module.title}</span></p>
-              {quiz.instructions ? <p className="text-slate-700 font-medium mb-6 bg-slate-50 p-4 rounded-xl border border-slate-100">{quiz.instructions}</p> : null}
+            <section className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-8 shadow-sm">
+              <h1 className="text-3xl font-black text-[var(--text-color)] mb-2">{quiz.title}</h1>
+              <p className="text-[var(--text-color)]/70 font-medium mb-4">Module: <span className="font-bold text-[var(--ae-blue)]">{quiz.module.title}</span></p>
+              {quiz.instructions ? <p className="text-[var(--text-color)] font-medium mb-6 bg-[var(--card-bg)] p-4 rounded-xl border border-[var(--ae-border)]">{quiz.instructions}</p> : null}
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-                  <p className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-1">Questions</p>
-                  <p className="text-2xl font-black text-[var(--ae-plum-deep)]">{quiz.questions.length}</p>
+                <div className="bg-[var(--card-bg)] border border-[var(--ae-border)] rounded-2xl p-4">
+                  <p className="text-xs uppercase font-bold tracking-wider text-[var(--text-color)]/50 mb-1">Questions</p>
+                  <p className="text-2xl font-black text-[var(--text-color)]">{quiz.questions.length}</p>
                 </div>
-                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-                  <p className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-1">Passing Score</p>
-                  <p className="text-2xl font-black text-[var(--ae-plum-deep)]">{quiz.passingScore}%</p>
+                <div className="bg-[var(--card-bg)] border border-[var(--ae-border)] rounded-2xl p-4">
+                  <p className="text-xs uppercase font-bold tracking-wider text-[var(--text-color)]/50 mb-1">Passing Score</p>
+                  <p className="text-2xl font-black text-[var(--text-color)]">{quiz.passingScore}%</p>
                 </div>
-                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-                  <p className="text-xs uppercase font-bold tracking-wider text-slate-500 mb-1">Time Limit</p>
-                  <p className="text-2xl font-black text-[var(--ae-plum-deep)]">
+                <div className="bg-[var(--card-bg)] border border-[var(--ae-border)] rounded-2xl p-4">
+                  <p className="text-xs uppercase font-bold tracking-wider text-[var(--text-color)]/50 mb-1">Time Limit</p>
+                  <p className="text-2xl font-black text-[var(--text-color)]">
                     {quiz.timeLimitMinutes ? `${quiz.timeLimitMinutes} min` : "No limit"}
                   </p>
                 </div>
@@ -277,15 +277,15 @@ export default function QuizPage() {
             </section>
 
             {result ? (
-              <section className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-                <h2 className="text-2xl font-black text-[var(--ae-plum-deep)] mb-4">Quiz Result</h2>
+              <section className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-8 shadow-sm">
+                <h2 className="text-2xl font-black text-[var(--text-color)] mb-4">Quiz Result</h2>
                 
-                <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 mb-6">
-                  <p className="text-lg font-medium text-slate-600 mb-2">
-                    Score: <span className="font-black text-2xl text-[var(--ae-plum-deep)] ml-2">{result.score}%</span>
+                <div className="bg-[var(--card-bg)] border border-[var(--ae-border)] rounded-2xl p-6 mb-6">
+                  <p className="text-lg font-medium text-[var(--text-color)]/70 mb-2">
+                    Score: <span className="font-black text-2xl text-[var(--text-color)] ml-2">{result.score}%</span>
                   </p>
-                  <p className="text-slate-600 font-medium mb-4">
-                    Correct: <span className="font-bold text-[var(--ae-plum-deep)]">{result.correctAnswers}</span> / {result.totalQuestions}
+                  <p className="text-[var(--text-color)]/60 font-medium mb-4">
+                    Correct: <span className="font-bold text-[var(--text-color)]">{result.correctAnswers}</span> / {result.totalQuestions}
                   </p>
                   
                   <div className={`p-4 rounded-xl font-bold flex items-center ${result.passed ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
@@ -305,7 +305,7 @@ export default function QuizPage() {
                   </button>
                   <Link
                     to={`/modules/${quiz.module.slug}`}
-                    className="flex-1 py-3.5 bg-white border border-slate-200 hover:bg-slate-50 rounded-2xl font-bold text-slate-700 shadow-sm transition-colors text-center"
+                    className="flex-1 py-3.5 bg-[var(--card-bg)] border border-[var(--ae-border)] hover:opacity-90 rounded-2xl font-bold text-[var(--text-color)] shadow-sm transition-colors text-center"
                   >
                     Back To Module
                   </Link>
@@ -314,8 +314,8 @@ export default function QuizPage() {
             ) : (
               <section className="space-y-6">
                 {quiz.questions.map((question, index) => (
-                  <article key={question.id} className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
-                    <p className="font-bold text-lg text-[var(--ae-plum-deep)] mb-4">
+                  <article key={question.id} className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-6 shadow-sm">
+                    <p className="font-bold text-lg text-[var(--text-color)] mb-4">
                       <span className="text-[var(--ae-blue)] mr-2">{index + 1}.</span> {question.prompt}
                     </p>
 
@@ -328,7 +328,7 @@ export default function QuizPage() {
                             className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                               isSelected
                                 ? "border-[var(--ae-blue)] bg-[var(--ae-blue)]/5 font-bold text-[var(--ae-blue)] shadow-sm"
-                                : "border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 font-medium text-slate-700"
+                                : "border-[var(--ae-border)] bg-[var(--card-bg)] hover:border-slate-300 font-medium text-[var(--text-color)]/70"
                             }`}
                           >
                             <input
@@ -347,12 +347,12 @@ export default function QuizPage() {
                   </article>
                 ))}
 
-                <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
                     <p className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1">
                       Progress
                     </p>
-                    <p className="font-medium text-slate-700">
+                    <p className="font-medium text-[var(--text-color)]/70">
                       Answered <span className="font-bold text-[var(--ae-blue)]">{answeredCount}</span> of {quiz.questions.length}
                     </p>
                     {submitError ? <p className="text-sm font-medium text-red-600 mt-2">{submitError}</p> : null}

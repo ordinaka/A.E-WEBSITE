@@ -28,7 +28,7 @@ const TopCategories: FC = () => {
       <div className="flex justify-between items-center mb-10">
         <div>
           <h2 className="text-[var(--text-color)] text-2xl font-bold">Top Categories</h2>
-          <p className="text-gray-500 text-sm mt-1">Browse by what interests you most</p>
+          <p className="text-[var(--text-color)]/60 text-sm mt-1">Browse by what interests you most</p>
         </div>
         <button className="text-sm text-purple-400 hover:text-purple-300 transition-colors font-medium flex items-center gap-1">
           See All →
@@ -59,7 +59,7 @@ const TopCategories: FC = () => {
               </div>
               <div className="text-center">
                 <h3 className="text-[var(--text-color)] font-semibold text-sm group-hover:text-[var(--ae-blue)] transition-colors">{cat.title}</h3>
-                <p className="text-gray-500 text-xs mt-0.5">{cat.courses}</p>
+                <p className="text-[var(--text-color)]/50 text-xs mt-0.5">{cat.courses}</p>
               </div>
             </motion.div>
           );

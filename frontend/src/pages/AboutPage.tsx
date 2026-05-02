@@ -83,17 +83,17 @@ export default function AboutPage() {
         }}
       >
         {/* Soft overlay for depth */}
-        <div className="absolute inset-0 bg-white/80 pointer-events-none fixed" />
+        <div className="absolute inset-0 bg-[var(--bg-color)]/80 pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-40 pb-24">
           
           {/* Header Section */}
           <FadeInWhenVisible>
             <div className="text-center max-w-3xl mx-auto mb-20">
-              <h1 className="text-[var(--ae-plum-deep)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6 italic">
+              <h1 className="text-[var(--text-color)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6 italic">
                 About AE
               </h1>
-              <p className="text-[var(--ae-plum-deep)]/80 text-lg md:text-xl leading-relaxed">
+              <p className="text-[var(--text-color)]/80 text-lg md:text-xl leading-relaxed">
                 Empowering the next generation of algorithmic thinkers and builders.
               </p>
             </div>
@@ -102,29 +102,29 @@ export default function AboutPage() {
           {/* Mission & Vision */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             <FadeInWhenVisible delay={0.1}>
-              <div className="bg-white border border-[var(--ae-border)] rounded-2xl p-8 lg:p-12 h-full shadow-sm">
+              <div className="ae-brand-card border border-[var(--ae-border)] rounded-2xl p-8 lg:p-12 h-full shadow-sm">
                 <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[var(--ae-blue)] to-[var(--ae-plum)] flex items-center justify-center mb-6">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--ae-plum-deep)] mb-4 italic">Our Mission</h2>
-                <p className="text-[var(--ae-plum-deep)]/80 leading-relaxed text-lg">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--text-color)] mb-4 italic">Our Mission</h2>
+                <p className="text-[var(--text-color)]/80 leading-relaxed text-lg">
                   To provide the right mentorship, training, and collaborative environment that helps aspiring AI enthusiasts move from curiosity to contribution.
                 </p>
               </div>
             </FadeInWhenVisible>
 
             <FadeInWhenVisible delay={0.2}>
-              <div className="bg-white border border-[var(--ae-border)] rounded-2xl p-8 lg:p-12 h-full shadow-sm">
+              <div className="ae-brand-card border border-[var(--ae-border)] rounded-2xl p-8 lg:p-12 h-full shadow-sm">
                 <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[#FF28B5] to-[var(--ae-blue)] flex items-center justify-center mb-6">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--ae-plum-deep)] mb-4 italic">Our Vision</h2>
-                <p className="text-[var(--ae-plum-deep)]/80 leading-relaxed text-lg">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--text-color)] mb-4 italic">Our Vision</h2>
+                <p className="text-[var(--text-color)]/80 leading-relaxed text-lg">
                   To raise a global generation of AI experts and innovators who will transform industries, lead meaningful research, and build products that make the world smarter, safer, and more connected.
                 </p>
               </div>
@@ -138,10 +138,10 @@ export default function AboutPage() {
                 <Users className="w-4 h-4 text-purple-700" />
                 <span className="text-xs font-bold text-purple-700 uppercase tracking-widest">Our Team</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-[var(--ae-plum-deep)] mb-6 italic tracking-tight">
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-[var(--text-color)] mb-6 italic tracking-tight">
                 Meet the <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Innovators</span>
               </h2>
-              <p className="text-[var(--ae-plum-deep)]/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              <p className="text-[var(--text-color)]/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                 The passionate individuals working tirelessly behind the scenes to democratize technology education worldwide.
               </p>
             </div>
@@ -153,7 +153,7 @@ export default function AboutPage() {
                <p className="text-purple-700/70 font-medium animate-pulse">Loading core team...</p>
             </div>
           ) : teamMembers.length === 0 ? (
-            <div className="text-center text-gray-500 py-32 bg-white border border-[var(--ae-border)] rounded-3xl shadow-sm mx-4">
+            <div className="text-center text-gray-500 py-32 ae-brand-card border border-[var(--ae-border)] rounded-3xl shadow-sm mx-4">
                <Users className="w-12 h-12 mx-auto mb-4 opacity-20" />
                <p className="italic text-lg font-light tracking-wide">No team members listed yet. Check back soon!</p>
             </div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 <FadeInWhenVisible delay={0.4 + idx * 0.1} key={member.id}>
                   <div 
                     onClick={() => setSelectedMember(member)}
-                    className="group relative bg-white border border-[var(--ae-border)] rounded-[2rem] overflow-hidden hover:bg-gray-50 transition-all duration-500 shadow-sm hover:shadow-xl cursor-pointer"
+                    className="group relative ae-brand-card border border-[var(--ae-border)] rounded-[2rem] overflow-hidden hover:opacity-90 transition-all duration-500 shadow-sm hover:shadow-xl cursor-pointer"
                   >
                     {/* Image Container */}
                     <div className="relative aspect-square md:aspect-[4/5] overflow-hidden border-b border-[var(--ae-border)]">
@@ -192,7 +192,7 @@ export default function AboutPage() {
                       <p className="text-blue-600 font-bold text-[10px] uppercase tracking-[0.2em] mb-2 font-outfit">
                         {member.roleTitle}
                       </p>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--ae-plum-deep)] leading-none italic flex justify-center items-center gap-2">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-color)] leading-none italic flex justify-center items-center gap-2">
                         {member.fullName}
                       </h3>
                     </div>
@@ -221,7 +221,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white border border-[var(--ae-border)] rounded-[2rem] shadow-2xl flex flex-col md:flex-row z-10"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-[var(--bg-color)] border border-[var(--ae-border)] rounded-[2rem] shadow-2xl flex flex-col md:flex-row z-10"
             >
               {/* Close Button */}
               <button 
@@ -252,13 +252,13 @@ export default function AboutPage() {
                 <p className="text-blue-600 font-bold text-xs uppercase tracking-[0.2em] mb-2 font-outfit">
                   {selectedMember.roleTitle}
                 </p>
-                <h3 className="text-3xl sm:text-4xl font-extrabold text-[var(--ae-plum-deep)] leading-none italic mb-8 flex items-center gap-3">
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-color)] leading-none italic mb-8 flex items-center gap-3">
                   {selectedMember.fullName}
                   <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-sm" />
                 </h3>
                 
                 <div className="prose max-w-none mb-10 overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
-                  <p className="text-[var(--ae-plum-deep)]/80 text-base md:text-lg leading-relaxed font-light whitespace-pre-wrap">
+                  <p className="text-[var(--text-color)]/80 text-base md:text-lg leading-relaxed font-light whitespace-pre-wrap">
                     {selectedMember.bio}
                   </p>
                 </div>

@@ -112,7 +112,7 @@ export default function TestimonialsPage() {
 
   return (
     <div className="relative overflow-hidden ae-brand-page min-h-screen">
-      <div className="w-full relative overflow-hidden min-h-screen bg-slate-50">
+      <div className="w-full relative overflow-hidden min-h-screen bg-[var(--bg-color)]">
         {/* Subtle decorative background Elements */}
         <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[var(--ae-blue)]/5 to-transparent pointer-events-none" />
 
@@ -120,10 +120,10 @@ export default function TestimonialsPage() {
 
           <FadeInWhenVisible>
             <div className="text-center max-w-3xl mx-auto mb-20">
-              <h1 className="text-[var(--ae-plum-deep)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6">
+              <h1 className="text-[var(--text-color)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6">
                 Community Voices
               </h1>
-              <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+              <p className="text-[var(--text-color)]/70 text-lg md:text-xl leading-relaxed">
                 Read what thousands of engineers are saying about their journey with Algorithmic Explorers.
               </p>
             </div>
@@ -136,7 +136,7 @@ export default function TestimonialsPage() {
               {isLoading && (
                 <div className="flex flex-col items-center justify-center py-24 gap-4">
                   <Loader2 className="w-9 h-9 text-[var(--ae-blue)] animate-spin" />
-                  <p className="text-slate-500 text-sm">Loading reviews…</p>
+                  <p className="text-[var(--text-color)]/50 text-sm">Loading reviews…</p>
                 </div>
               )}
 
@@ -145,7 +145,7 @@ export default function TestimonialsPage() {
                   <div className="w-14 h-14 rounded-full bg-rose-500/15 border border-rose-500/20 flex items-center justify-center">
                     <AlertCircle className="w-7 h-7 text-rose-400" />
                   </div>
-                  <p className="text-rose-300">{fetchError}</p>
+                  <p className="text-[var(--text-color)]/60 font-medium">{fetchError}</p>
                   <button type="button" onClick={() => void loadTestimonials()} className="px-6 py-2.5 bg-rose-500 hover:bg-rose-400 rounded-xl font-medium text-white transition-colors">
                     Try Again
                   </button>
@@ -154,8 +154,8 @@ export default function TestimonialsPage() {
 
               {!isLoading && !fetchError && testimonials.length === 0 && (
                 <div className="text-center py-24">
-                  <MessageSquareQuote className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-                  <p className="text-slate-500">No reviews yet. Be the first to share your experience!</p>
+                  <MessageSquareQuote className="w-12 h-12 text-[var(--text-color)]/20 mx-auto mb-4" />
+                  <p className="text-[var(--text-color)]/40 font-medium">No reviews yet. Be the first to share your experience!</p>
                 </div>
               )}
 
@@ -163,10 +163,11 @@ export default function TestimonialsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {testimonials.map((t, idx) => (
                     <FadeInWhenVisible delay={0.08 * idx} key={t.id}>
-                      <div className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col group">
+                      <div className="ae-brand-card border border-[var(--ae-border)] rounded-2xl p-8 hover:border-[var(--ae-blue)]/50 shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col group relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--ae-blue)]/5 rounded-bl-[4rem] -mr-12 -mt-12 group-hover:scale-110 transition-transform duration-700" />
                         <MessageSquareQuote size={28} className="text-[var(--ae-blue)]/60 mb-4" />
 
-                        <p className="text-slate-700 text-base leading-relaxed flex-grow italic mb-6">
+                        <p className="text-[var(--text-color)]/80 text-base leading-relaxed flex-grow italic mb-6">
                           "{t.content}"
                         </p>
 
@@ -175,9 +176,9 @@ export default function TestimonialsPage() {
                             <User className="w-5 h-5 text-white" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-[var(--ae-plum-deep)] font-bold text-sm truncate">{t.name}</h4>
+                            <h4 className="text-[var(--text-color)] font-bold text-sm truncate">{t.name}</h4>
                             {(t.title || t.company) && (
-                              <p className="text-slate-500 text-xs truncate font-medium">
+                              <p className="text-[var(--text-color)]/50 text-xs truncate font-medium">
                                 {[t.title, t.company].filter(Boolean).join(" · ")}
                               </p>
                             )}
@@ -190,7 +191,7 @@ export default function TestimonialsPage() {
                               <Star
                                 key={i}
                                 size={13}
-                                className={i < (t.rating ?? 0) ? "text-yellow-400 fill-yellow-400" : "text-slate-200"}
+                                className={i < (t.rating ?? 0) ? "text-yellow-400 fill-yellow-400" : "text-[var(--ae-border)]"}
                               />
                             ))}
                           </div>
@@ -205,9 +206,9 @@ export default function TestimonialsPage() {
             {/* Submission Form (Right) */}
             <div className="lg:col-span-1">
               <FadeInWhenVisible delay={0.4}>
-                <div className="bg-white border border-slate-200 rounded-2xl p-8 sticky top-32 shadow-sm">
-                  <h3 className="text-2xl font-bold text-[var(--ae-plum-deep)] mb-1">Share Your Story</h3>
-                  <p className="text-slate-500 text-sm mb-7">Your feedback gets reviewed and might be featured on our wall of love.</p>
+                <div className="ae-brand-card border border-[var(--ae-border)] rounded-2xl p-8 sticky top-32 shadow-sm">
+                  <h3 className="text-2xl font-bold text-[var(--text-color)] mb-1">Share Your Story</h3>
+                  <p className="text-[var(--text-color)]/60 text-sm mb-7 font-light">Your feedback gets reviewed and might be featured on our wall of love.</p>
 
                   {isSubmitted ? (
                     <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center">
@@ -227,42 +228,42 @@ export default function TestimonialsPage() {
                       )}
 
                       <div>
-                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Name *</label>
+                        <label className="block text-[var(--text-color)]/40 text-xs font-bold uppercase tracking-wider mb-2 italic">Name *</label>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => { setSubmitError(null); setFormData({ ...formData, name: e.target.value }); }}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all placeholder:text-slate-400 text-sm font-medium shadow-sm"
+                          className="w-full bg-[var(--card-bg)] border border-[var(--ae-border)] rounded-xl px-4 py-3 text-[var(--text-color)] focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all placeholder:text-[var(--text-color)]/30 text-sm font-medium shadow-sm"
                           placeholder="Jane Doe"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Role & Company</label>
+                        <label className="block text-[var(--text-color)]/40 text-xs font-bold uppercase tracking-wider mb-2 italic">Role & Company</label>
                         <input
                           type="text"
                           value={formData.role}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all placeholder:text-slate-400 text-sm font-medium shadow-sm"
+                          className="w-full bg-[var(--bg-color)]/50 border border-[var(--ae-border)] rounded-xl px-4 py-3 text-[var(--text-color)] focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all placeholder:text-[var(--text-color)]/20 text-sm font-medium shadow-sm"
                           placeholder="Software Engineer at ACME"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Your Review *</label>
+                        <label className="block text-[var(--text-color)]/40 text-xs font-bold uppercase tracking-wider mb-2 italic">Your Review *</label>
                         <textarea
                           required
                           rows={4}
                           value={formData.content}
                           onChange={(e) => { setSubmitError(null); setFormData({ ...formData, content: e.target.value }); }}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all resize-none placeholder:text-slate-400 text-sm font-medium shadow-sm"
+                          className="w-full bg-[var(--bg-color)]/50 border border-[var(--ae-border)] rounded-xl px-4 py-3 text-[var(--text-color)] focus:outline-none focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] transition-all resize-none placeholder:text-[var(--text-color)]/20 text-sm font-medium shadow-sm"
                           placeholder="How did AE help you?"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">Rating</label>
+                        <label className="block text-[var(--text-color)]/40 text-xs font-bold uppercase tracking-wider mb-2 italic">Rating</label>
                         <div className="flex gap-1.5">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <button

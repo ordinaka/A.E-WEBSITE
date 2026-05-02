@@ -444,7 +444,7 @@ export default function ManageModules() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20 overflow-hidden relative font-outfit">
+    <div className="pt-32 px-6 min-h-screen ae-brand-page text-[var(--text-color)] pb-20 overflow-hidden relative font-outfit">
       
 
       <motion.div 
@@ -467,7 +467,7 @@ export default function ManageModules() {
           </div>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 relative">
+        <motion.section variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 relative">
           <AnimatePresence>
             {submitError && (
               <motion.div 
@@ -514,7 +514,7 @@ export default function ManageModules() {
                       handleChange("slug", slugify(form.title));
                     }
                   }}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--text-color)]/30"
                   placeholder="e.g. Introduction to React"
                 />
               </div>
@@ -527,7 +527,7 @@ export default function ManageModules() {
                   type="text"
                   value={form.slug}
                   onChange={(event) => handleChange("slug", slugify(event.target.value))}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--text-color)]/30"
                   placeholder="e.g. intro-to-react"
                 />
               </div>
@@ -542,7 +542,7 @@ export default function ManageModules() {
                 rows={2}
                 value={form.shortDescription}
                 onChange={(event) => handleChange("shortDescription", event.target.value)}
-                className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 resize-none font-outfit"
+                className="w-full rounded-xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--text-color)]/30 resize-none font-outfit"
                 placeholder="Brief summary for list views..."
               />
             </div>
@@ -556,7 +556,7 @@ export default function ManageModules() {
                 rows={4}
                 value={form.description}
                 onChange={(event) => handleChange("description", event.target.value)}
-                className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 resize-none font-outfit"
+                className="w-full rounded-xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--text-color)]/30 resize-none font-outfit"
                 placeholder="Detailed explanation of the module contents..."
               />
             </div>
@@ -571,7 +571,7 @@ export default function ManageModules() {
                   type="number"
                   value={form.order}
                   onChange={(event) => handleChange("order", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--text-color)]/30"
                   placeholder="0"
                 />
               </div>
@@ -584,7 +584,7 @@ export default function ManageModules() {
                   type="number"
                   value={form.estimatedMinutes}
                   onChange={(event) => handleChange("estimatedMinutes", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--text-color)]/30"
                   placeholder="e.g. 120"
                 />
               </div>
@@ -625,7 +625,7 @@ export default function ManageModules() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     key={resource.key} 
-                    className="rounded-2xl border border-slate-200 bg-white border border-slate-200 shadow-sm p-5 space-y-4 hover:border-white/20 transition-colors"
+                    className="rounded-2xl border border-[var(--ae-border)] ae-brand-card shadow-sm p-5 space-y-4 hover:border-[var(--ae-blue)]/30 transition-colors"
                   >
                     <div className="flex items-center justify-between pb-2 border-b border-white/5">
                       <p className="text-xs uppercase tracking-widest font-bold text-slate-500 font-medium flex items-center gap-2">
@@ -732,7 +732,7 @@ export default function ManageModules() {
           </form>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl">
+        <motion.section variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <BookOpen className="w-6 h-6 text-indigo-400" />
@@ -781,7 +781,7 @@ export default function ManageModules() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     key={moduleItem.id}
-                    className={`group bg-white border border-slate-200 shadow-sm hover:border-indigo-500/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between ${editingModuleId === moduleItem.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
+                    className={`group ae-brand-card border border-[var(--ae-border)] shadow-sm hover:border-[var(--ae-blue)]/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between ${editingModuleId === moduleItem.id ? 'ring-2 ring-[var(--ae-blue)] ring-offset-2 ring-offset-[var(--bg-color)]' : ''}`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/0 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                     

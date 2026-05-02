@@ -71,7 +71,7 @@ export default function GuruCircle() {
       className="ae-brand-page"
       style={{
         fontFamily: "'Sora','DM Sans',sans-serif",
-        color: "var(--ae-plum-deep)",
+        color: "var(--text-color)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -222,7 +222,7 @@ export default function GuruCircle() {
             padding: "4px 11px",
             fontSize: "12px",
             fontWeight: 700,
-            color: "var(--ae-plum-deep)",
+            color: "var(--text-color)",
             display: "flex",
             alignItems: "center",
             gap: "4px",
@@ -250,14 +250,14 @@ export default function GuruCircle() {
               margin: 0,
             }}
           >
-            <span style={{ color: "var(--ae-plum-deep)" }}>Welcome To The</span>
+            <span style={{ color: "var(--text-color)" }}>Welcome To The</span>
             <br />
             <span style={{ color: "var(--ae-blue)" }}>Guru Circle</span>
           </h1>
           <p
             className="text-[clamp(0.7rem,1.15vw,0.8rem)] md:text-[clamp(0.58rem,1.15vw,0.8rem)]"
             style={{
-              color: "rgba(37,29,63,0.7)",
+              color: "var(--text-color)",
               lineHeight: 1.6,
               margin: 0,
             }}
@@ -283,7 +283,7 @@ export default function GuruCircle() {
             <button className="px-8 py-3 w-full sm:w-auto"
               style={{
                 background: "var(--ae-surface)",
-                color: "var(--ae-plum-deep)",
+                color: "var(--text-color)",
                 border: "1px solid var(--ae-border)",
                 borderRadius: "7px",
                 fontWeight: 700,
@@ -308,7 +308,7 @@ export default function GuruCircle() {
             <div
               key={i}
               style={{
-                background: "white",
+                background: "var(--card-bg)",
                 border: "1px solid var(--ae-border)",
                 borderRadius: "12px",
                 padding: "clamp(10px,1.6vw,18px) clamp(9px,1.3vw,14px)",
@@ -318,10 +318,10 @@ export default function GuruCircle() {
               <div style={{ fontSize: "13px", color: "var(--ae-blue)", marginBottom: "6px" }}>
                 {f.icon}
               </div>
-              <p style={{ fontWeight: 700, fontSize: "clamp(10px,1.45vw,14px)", marginBottom: "5px", color: "var(--ae-plum-deep)" }}>
+              <p style={{ fontWeight: 700, fontSize: "clamp(10px,1.45vw,14px)", marginBottom: "5px", color: "var(--text-color)" }}>
                 {f.title}
               </p>
-              <p style={{ fontSize: "clamp(9px,1.05vw,11px)", color: "rgba(37,29,63,0.65)", lineHeight: 1.55 }}>
+              <p style={{ fontSize: "clamp(9px,1.05vw,11px)", color: "var(--text-color)", lineHeight: 1.55 }}>
                 {f.desc}
               </p>
             </div>
@@ -338,13 +338,13 @@ export default function GuruCircle() {
       >
         {stats.map((s, i) => (
           <div key={i} style={{ display: "flex", alignItems: "baseline", gap: "7px" }}>
-            <span style={{ fontSize: "clamp(1.5rem,4.5vw,2.6rem)", fontWeight: 800, color: "var(--ae-plum-deep)" }}>
+            <span style={{ fontSize: "clamp(1.5rem,4.5vw,2.6rem)", fontWeight: 800, color: "var(--text-color)" }}>
               {s.value}
             </span>
             <span
               style={{
                 fontSize: "clamp(9px,1.2vw,12px)",
-                color: "rgba(37,29,63,0.6)",
+                color: "var(--text-color)",
                 lineHeight: 1.4,
                 whiteSpace: "pre-line",
               }}
@@ -363,12 +363,12 @@ export default function GuruCircle() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--ae-plum-deep)] mb-4 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-color)] mb-4 leading-tight">
             Ready to Join the Circle?
           </h2>
           
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-[var(--ae-plum-deep)]/70 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-[var(--text-color)]/70 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
             Connect with experts, collaborate with learners, and unlock exclusive opportunities in our thriving community.
           </p>
 
@@ -383,7 +383,7 @@ export default function GuruCircle() {
             
             {/* Secondary Button */}
             <button 
-              className="w-full sm:w-auto px-10 py-4 border-2 border-[var(--ae-border)] text-[var(--ae-plum-deep)] font-bold rounded-lg hover:bg-[var(--ae-border)]/20 transition-colors duration-200 text-base md:text-lg"
+              className="w-full sm:w-auto px-10 py-4 border-2 border-[var(--ae-border)] text-[var(--text-color)] font-bold rounded-lg hover:bg-[var(--ae-border)]/20 transition-colors duration-200 text-base md:text-lg"
             >
               Explore as Guest
             </button>
@@ -391,12 +391,12 @@ export default function GuruCircle() {
 
           {/* Email Signup */}
           <div className="mt-12 md:mt-16">
-            <p className="text-[var(--ae-plum-deep)]/60 text-sm md:text-base mb-4 font-semibold">Or stay in the loop with our newsletter</p>
+            <p className="text-[var(--text-color)]/60 text-sm md:text-base mb-4 font-semibold">Or stay in the loop with our newsletter</p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email..."
-                className="flex-1 px-5 py-3 md:py-4 bg-white border border-[var(--ae-border)] rounded-lg text-[var(--ae-plum-deep)] placeholder:text-[var(--ae-plum-deep)]/40 focus:outline-none focus:ring-2 focus:ring-[var(--ae-blue)] shadow-sm transition-all"
+                className="flex-1 px-5 py-3 md:py-4 bg-[var(--card-bg)] border border-[var(--ae-border)] rounded-lg text-[var(--text-color)] placeholder:text-[var(--text-color)]/40 focus:outline-none focus:ring-2 focus:ring-[var(--ae-blue)] shadow-sm transition-all"
               />
               <button className="px-8 py-3 md:py-4 bg-[var(--ae-plum-deep)] text-white font-semibold rounded-lg hover:shadow-lg transition-all whitespace-nowrap">
                 Subscribe

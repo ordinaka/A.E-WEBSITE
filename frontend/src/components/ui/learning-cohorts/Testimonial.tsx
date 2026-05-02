@@ -42,7 +42,7 @@ export default function Testimonial() {
 
         {/* ✅ TITLE (FORCED LEFT ALIGN) */}
         <div className="max-w-2xl mb-20 text-left">
-          <h2 className="text-5xl md:text-6xl font-semibold leading-tight">
+          <h2 className="text-5xl md:text-6xl font-semibold leading-tight text-[var(--text-color)]">
             What our{" "}
             <span className="bg-gradient-to-r from-purple-600 to-purple-800 text-transparent bg-clip-text">
               Explorers
@@ -58,8 +58,8 @@ export default function Testimonial() {
           {/* LEFT */}
           <div className="hidden md:flex flex-1 justify-end">
             <div className="w-[90%] opacity-30 scale-[0.97] blur-[0.5px] transition-all duration-500">
-              <div className="ae-brand-page p-5 rounded-xl backdrop-blur-sm">
-                <p className="text-sm text-gray-300 line-clamp-4">
+              <div className="p-5 rounded-xl backdrop-blur-sm border border-[var(--ae-border)]">
+                <p className="text-sm text-[var(--text-color)]/30 line-clamp-4">
                   {testimonials[prev].text}
                 </p>
               </div>
@@ -72,7 +72,7 @@ export default function Testimonial() {
             {/* Glow */}
             <div className="absolute inset-0 bg-purple-600 blur-[90px] opacity-40 rounded-2xl"></div>
 
-            <div className="relative bg-gradient-to-br from-[var(--ae-bg)] to-[var(--ae-blue)] p-7 rounded-2xl border border-cyan-400/40 shadow-[0_0_30px_rgba(34,211,238,0.25)]">
+            <div className="relative bg-gradient-to-br from-[var(--bg-color)] to-[var(--ae-blue)]/20 p-7 rounded-2xl border border-[var(--ae-blue)]/40 shadow-[0_0_30px_rgba(34,211,238,0.15)]">
 
               <p className="text-base leading-relaxed text-white text-center mb-6">
                 {testimonials[index].text}
@@ -87,7 +87,7 @@ export default function Testimonial() {
                   <p className="text-sm font-medium text-white">
                     {testimonials[index].name}
                   </p>
-                  <p className="text-xs text-cyan-300">
+                  <p className="text-xs text-[var(--ae-blue)]">
                     {testimonials[index].role}
                   </p>
                 </div>
@@ -99,8 +99,8 @@ export default function Testimonial() {
           {/* RIGHT */}
           <div className="hidden md:flex flex-1 justify-start">
             <div className="w-[90%] opacity-30 scale-[0.97] blur-[0.5px] transition-all duration-500">
-              <div className="bg-purple-900/30 p-5 rounded-xl backdrop-blur-sm">
-                <p className="text-sm text-gray-300 line-clamp-4">
+              <div className="p-5 rounded-xl backdrop-blur-sm border border-[var(--ae-border)]">
+                <p className="text-sm text-[var(--text-color)]/30 line-clamp-4">
                   {testimonials[next].text}
                 </p>
               </div>
@@ -117,8 +117,8 @@ export default function Testimonial() {
               onClick={() => setIndex(i)}
               className={`h-[3px] rounded-full cursor-pointer transition-all duration-300 ${
                 i === index
-                  ? "w-8 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]"
-                  : "w-3 bg-gray-600"
+                  ? "w-8 bg-[var(--ae-blue)] shadow-[0_0_10px_rgba(var(--ae-blue-rgb),0.8)]"
+                  : "w-3 bg-[var(--ae-border)]"
               }`}
             />
           ))}

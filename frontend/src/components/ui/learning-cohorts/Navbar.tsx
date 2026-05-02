@@ -11,6 +11,7 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -59,26 +60,36 @@ function Navbar() {
         <div className={`w-full flex items-center justify-between px-6 py-3 rounded-full border transition-all duration-300 ${
           isScrolled 
             ? "bg-[var(--nav-bg)] backdrop-blur-md border-[var(--ae-blue)]/20 shadow-lg" 
-            : "ae-brand-card backdrop-blur-xl border-transparent"
+            : "ae-brand-card backdrop-blur-xl border-transparent shadow-md"
         }`}>
 
           {/* LOGO */}
-          <Link to="/" onClick={closeMenu}>
+          <Link to="/" onClick={closeMenu} className="shrink-0">
             <img src={favicon} className="w-10 h-10 rounded-full" alt="Logo" />
           </Link>
 
           {/* DESKTOP NAV LINKS */}
-          <nav className="hidden lg:flex gap-8 text-sm text-slate-600 font-medium tracking-wide">
+          <nav className="hidden lg:flex gap-8 text-sm font-medium tracking-wide">
             {navLinks.map((link) => (
-              <Link key={link.to} to={link.to} className="hover:text-[var(--ae-blue)] transition-colors">
+              <NavLink 
+                key={link.to} 
+                to={link.to} 
+                className={({ isActive }) => 
+                  `transition-colors duration-200 relative py-1 ${
+                    isActive 
+                      ? "text-[var(--ae-blue)] font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[var(--ae-blue)]" 
+                      : "text-[var(--text-color)]/60 hover:text-[var(--ae-blue)]"
+                  }`
+                }
+              >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
 
           {/* PROFILE / LOGIN / HAMBURGER */}
           <div className="flex gap-4 items-center">
-            <div className="hidden sm:flex gap-4 items-center">
+            <div className="hidden sm:flex gap-6 items-center">
               {!isLoggedIn ? (
                 <>
                   <NavLink 
@@ -87,7 +98,7 @@ function Navbar() {
                       `text-sm font-bold transition-all duration-300 relative px-1 ${
                         isActive 
                           ? "text-[var(--ae-blue)] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-[var(--ae-blue)]" 
-                          : "text-slate-500 hover:text-[var(--ae-blue)]"
+                          : "text-[var(--text-color)]/60 hover:text-[var(--ae-blue)]"
                       }`
                     }
                   >
@@ -96,9 +107,9 @@ function Navbar() {
                   <NavLink 
                     to="/signup" 
                     className={({ isActive }) => 
-                      `text-sm px-5 py-2.5 font-bold rounded-full transition-all duration-300 shadow-sm ${
+                      `text-sm px-6 py-2.5 font-bold rounded-full transition-all duration-300 shadow-sm ${
                         isActive 
-                          ? "bg-[var(--ae-plum-deep)] text-white ring-2 ring-[var(--ae-blue)]/50 ring-offset-2" 
+                          ? "bg-[var(--ae-blue)] text-white ring-2 ring-[var(--ae-blue)]/30 ring-offset-2" 
                           : "ae-brand-button text-white hover:shadow-lg"
                       }`
                     }
@@ -108,9 +119,16 @@ function Navbar() {
                 </>
               ) : (
                 <>
-                  <Link to={dashboardPath} className="text-sm font-bold text-slate-500 hover:text-[var(--ae-blue)] transition-colors">
+                  <NavLink 
+                    to={dashboardPath} 
+                    className={({ isActive }) => 
+                      `text-sm font-bold transition-all duration-300 ${
+                        isActive ? "text-[var(--ae-blue)]" : "text-[var(--text-color)]/60 hover:text-[var(--ae-blue)]"
+                      }`
+                    }
+                  >
                     {isAdmin ? "Admin Dashboard" : "Dashboard"}
-                  </Link>
+                  </NavLink>
                   <button
                     onClick={logout}
                     className="text-sm font-bold text-red-500 hover:text-red-700 transition-colors"
@@ -123,7 +141,7 @@ function Navbar() {
 
             {/* MOBILE TOGGLE */}
             <button 
-              className="lg:hidden text-2xl text-[var(--ae-plum-deep)] p-2 hover:bg-slate-100 rounded-full transition-colors"
+              className="lg:hidden text-2xl text-[var(--text-color)] p-2 hover:bg-[var(--bg-color)]/40 rounded-full transition-colors"
               onClick={toggleMenu}
             >
               {isMenuOpen ? <HiX /> : <HiMenu />}
@@ -132,14 +150,14 @@ function Navbar() {
             {/* THEME TOGGLE */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full ae-brand-card hover:shadow-md transition-all text-xl flex items-center justify-center text-[var(--ae-blue)]"
+              className="p-2 rounded-full border border-[var(--ae-border)] bg-[var(--bg-color)]/50 backdrop-blur-sm hover:shadow-md transition-all text-xl flex items-center justify-center text-[var(--ae-blue)]"
               aria-label="Toggle theme"
             >
               {theme === "light" ? <HiMoon /> : <HiSun className="text-yellow-400" />}
             </button>
 
             {isLoggedIn && (
-              <Link to={dashboardPath} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full bg-slate-100 text-[var(--ae-plum-deep)] items-center justify-center cursor-pointer hover:bg-slate-200 transition-colors">
+              <Link to={dashboardPath} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full ae-brand-card border border-[var(--ae-border)] text-[var(--text-color)] items-center justify-center cursor-pointer hover:bg-[var(--bg-color)]/80 transition-colors shadow-sm">
                 👤
               </Link>
             )}
@@ -148,36 +166,32 @@ function Navbar() {
 
         {/* MOBILE MENU DROPDOWN */}
         {isMenuOpen && (
-          <div className="absolute top-20 left-0 w-full bg-white border border-slate-200 shadow-xl rounded-3xl p-8 lg:hidden flex flex-col gap-6 text-lg text-slate-800 font-medium animate-in fade-in slide-in-from-top-4 duration-300 z-40">
+          <div className="absolute top-20 left-0 w-full bg-[var(--bg-color)] border border-[var(--ae-border)] shadow-2xl rounded-3xl p-8 lg:hidden flex flex-col gap-6 text-lg text-[var(--text-color)] font-medium animate-in fade-in slide-in-from-top-4 duration-300 z-40 backdrop-blur-xl">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.to}
                 to={link.to}
                 onClick={closeMenu}
-                className="hover:text-[var(--ae-blue)] transition-colors"
+                className={({ isActive }) => 
+                  `transition-colors ${isActive ? "text-[var(--ae-blue)] font-bold" : "text-[var(--text-color)]/70 hover:text-[var(--ae-blue)]"}`
+                }
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
             
-            <hr className="border-slate-200" />
+            <hr className="border-[var(--ae-border)]" />
             
             {!isLoggedIn ? (
               <div className="flex flex-col gap-4">
                 <Link to="/login" onClick={closeMenu} className="hover:text-[var(--ae-blue)] transition-colors">Login</Link>
-                <Link to="/signup" onClick={closeMenu} className="bg-[var(--ae-blue)] text-center text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-colors">Sign Up</Link>
+                <Link to="/signup" onClick={closeMenu} className="ae-brand-button text-center text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-colors">Sign Up</Link>
               </div>
             ) : (
               <div className="flex flex-col gap-4">
                 <Link to={dashboardPath} onClick={closeMenu} className="hover:text-[var(--ae-blue)] transition-colors">
                   {isAdmin ? "Admin Dashboard" : "Dashboard"}
                 </Link>
-                <button
-                  onClick={() => { logout(); closeMenu(); }}
-                  className="text-left text-red-500 font-bold hover:text-red-700 transition-colors"
-                >
-                  Logout
-                </button>
               </div>
             )}
           </div>

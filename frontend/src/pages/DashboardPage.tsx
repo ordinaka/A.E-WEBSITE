@@ -157,27 +157,27 @@ export default function DashboardPage() {
   }, [loadDashboard]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] overflow-hidden relative">
       <motion.div 
         className="max-w-6xl mx-auto relative z-10 pb-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-10 bg-white border border-slate-200 shadow-sm rounded-[28px] p-6 md:p-8">
+        <motion.div variants={itemVariants} className="mb-10 ae-brand-card border border-[var(--ae-border)] shadow-sm rounded-[28px] p-6 md:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--ae-blue)] mb-3">
             Algorithmic Explorers Dashboard
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 text-[var(--ae-plum-deep)]">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 text-[var(--text-color)]">
             Welcome back, {user?.firstName || "Student"}!
           </h1>
-          <p className="text-slate-600 text-lg max-w-2xl font-medium">
+          <p className="text-[var(--text-color)]/70 text-lg max-w-2xl font-medium">
             Track your module progress, continue your learning, and stay on top.
           </p>
         </motion.div>
 
         {isLoading ? (
-          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center p-12 bg-white border border-slate-200 rounded-3xl shadow-sm">
+          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center p-12 ae-brand-card border border-[var(--ae-border)] rounded-3xl shadow-sm">
             <Loader2 className="w-10 h-10 text-[var(--ae-blue)] animate-spin mb-4" />
             <p className="text-slate-600 font-medium">Loading your learning workspace...</p>
           </motion.div>
@@ -208,47 +208,47 @@ export default function DashboardPage() {
           <div className="space-y-8">
             <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {/* Stat Cards */}
-              <motion.div whileHover={{ y: -4 }} className="bg-white border border-slate-200 hover:border-purple-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-purple-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-purple-50 rounded-xl group-hover:bg-purple-100 transition-colors">
                     <BookOpen className="w-6 h-6 text-purple-600" />
                   </div>
                 </div>
                 <p className="text-sm font-bold text-slate-500 mb-1">Total Modules</p>
-                <p className="text-3xl font-black text-[var(--ae-plum-deep)]">{dashboard.summary.totalModules}</p>
+                <p className="text-3xl font-black text-[var(--text-color)]">{dashboard.summary.totalModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-white border border-slate-200 hover:border-emerald-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-emerald-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-emerald-50 rounded-xl group-hover:bg-emerald-100 transition-colors">
                     <CheckCircle className="w-6 h-6 text-emerald-600" />
                   </div>
                 </div>
                 <p className="text-sm font-bold text-slate-500 mb-1">Completed</p>
-                <p className="text-3xl font-black text-[var(--ae-plum-deep)]">{dashboard.summary.completedModules}</p>
+                <p className="text-3xl font-black text-[var(--text-color)]">{dashboard.summary.completedModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-white border border-slate-200 hover:border-amber-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-amber-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-amber-50 rounded-xl group-hover:bg-amber-100 transition-colors">
                     <PlayCircle className="w-6 h-6 text-amber-600" />
                   </div>
                 </div>
                 <p className="text-sm font-bold text-slate-500 mb-1">In Progress</p>
-                <p className="text-3xl font-black text-[var(--ae-plum-deep)]">{dashboard.summary.inProgressModules}</p>
+                <p className="text-3xl font-black text-[var(--text-color)]">{dashboard.summary.inProgressModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-white border border-slate-200 hover:border-slate-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-slate-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-slate-100 transition-colors">
                     <Clock className="w-6 h-6 text-slate-600" />
                   </div>
                 </div>
                 <p className="text-sm font-bold text-slate-500 mb-1">Not Started</p>
-                <p className="text-3xl font-black text-[var(--ae-plum-deep)]">{dashboard.summary.notStartedModules}</p>
+                <p className="text-3xl font-black text-[var(--text-color)]">{dashboard.summary.notStartedModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="bg-white border border-slate-200 hover:border-[var(--ae-blue)]/50 rounded-2xl p-6 shadow-sm hover:shadow-md relative overflow-hidden group transition-all">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-[var(--ae-blue)]/50 rounded-2xl p-6 shadow-sm hover:shadow-md relative overflow-hidden group transition-all">
                 <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--ae-blue)] via-[var(--ae-lavender)] to-[var(--ae-peach)]" />
                 <div className="flex items-start justify-between mb-4 relative z-10 pt-2">
                   <div className="p-3 bg-[var(--ae-blue)]/10 rounded-xl group-hover:bg-[var(--ae-blue)]/20 transition-colors">
@@ -257,7 +257,7 @@ export default function DashboardPage() {
                 </div>
                 <div className="relative z-10">
                   <p className="text-sm font-bold text-slate-500 mb-1">Overall Progress</p>
-                  <p className="text-3xl font-black text-[var(--ae-plum-deep)]">
+                  <p className="text-3xl font-black text-[var(--text-color)]">
                     {Math.max(0, Math.min(100, Math.round(dashboard.summary.overallProgressPercent)))}%
                   </p>
                 </div>
@@ -266,10 +266,10 @@ export default function DashboardPage() {
 
             {/* Main Progress Tracker */}
             {/* Main Progress Tracker */}
-            <motion.div variants={itemVariants} className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
+            <motion.div variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-6 md:p-8 shadow-sm">
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
                  <div>
-                    <h2 className="text-2xl font-black text-[var(--ae-plum-deep)] mb-2">Learning Tracker</h2>
+                    <h2 className="text-2xl font-black text-[var(--text-color)] mb-2">Learning Tracker</h2>
                     <p className="text-slate-500 font-medium text-sm">Your journey relative to the total curriculum.</p>
                  </div>
                  <div className="text-right">
@@ -291,11 +291,11 @@ export default function DashboardPage() {
             {/* Modules List */}
             <motion.div variants={itemVariants} className="space-y-4">
               <div className="flex items-center justify-between mb-6 px-2">
-                <h2 className="text-2xl font-black text-[var(--ae-plum-deep)]">Your Modules</h2>
+                <h2 className="text-2xl font-black text-[var(--text-color)]">Your Modules</h2>
               </div>
 
               {dashboard.modules.length === 0 ? (
-                <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center text-slate-500 shadow-sm">
+                <div className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-12 text-center text-slate-500 shadow-sm">
                   <BookOpen className="w-12 h-12 mx-auto text-slate-300 mb-4" />
                   <p className="font-medium">No modules available yet.</p>
                 </div>
@@ -310,7 +310,7 @@ export default function DashboardPage() {
                       <motion.div
                         variants={itemVariants}
                         whileHover={{ scale: 1.01, x: 5 }}
-                        className="bg-white border border-slate-200 hover:border-[var(--ae-blue)]/50 rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all shadow-sm hover:shadow-md relative overflow-hidden"
+                        className="ae-brand-card border border-[var(--ae-border)] hover:border-[var(--ae-blue)]/50 rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all shadow-sm hover:shadow-md relative overflow-hidden"
                       >
                         <div className="flex-1 min-w-0 z-10">
                           <div className="flex items-center gap-3 mb-2">
@@ -324,7 +324,7 @@ export default function DashboardPage() {
                               </span>
                             )}
                           </div>
-                          <h3 className="text-lg md:text-xl font-black text-[var(--ae-plum-deep)] group-hover:text-[var(--ae-blue)] transition-colors truncate">
+                          <h3 className="text-lg md:text-xl font-black text-[var(--text-color)] group-hover:text-[var(--ae-blue)] transition-colors truncate">
                             {module.title}
                           </h3>
                         </div>

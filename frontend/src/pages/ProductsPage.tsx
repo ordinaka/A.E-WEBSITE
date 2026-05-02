@@ -55,7 +55,7 @@ const placeholderProducts = [
 export default function ProductsPage() {
   return (
     <div className="relative overflow-hidden ae-brand-page min-h-screen">
-      <div className="w-full relative overflow-hidden min-h-screen bg-slate-50">
+      <div className="w-full relative overflow-hidden min-h-screen bg-[var(--bg-color)]">
         {/* Subtle decorative background Elements */}
         <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[var(--ae-blue)]/5 to-transparent pointer-events-none" />
 
@@ -63,10 +63,10 @@ export default function ProductsPage() {
           
           <FadeInWhenVisible>
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-[var(--ae-plum-deep)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6">
+              <h1 className="text-[var(--text-color)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6">
                 AE Store
               </h1>
-              <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+              <p className="text-[var(--text-color)]/70 text-lg md:text-xl leading-relaxed">
                 Premium tools, resources, and merch crafted specifically for the AE community.
               </p>
             </div>
@@ -75,7 +75,7 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {placeholderProducts.map((product, idx) => (
               <FadeInWhenVisible delay={0.1 * idx} key={product.id}>
-                <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-[var(--ae-blue)]/30 transition-all duration-300 group flex flex-col h-full shadow-sm hover:shadow-xl hover:-translate-y-2">
+                <div className="ae-brand-card border border-[var(--ae-border)] rounded-2xl overflow-hidden hover:border-[var(--ae-blue)]/30 transition-all duration-300 group flex flex-col h-full shadow-sm hover:shadow-xl hover:-translate-y-2">
                   
                   {/* Thumbnail area */}
                   <div className="relative h-56 w-full overflow-hidden bg-slate-100">
@@ -96,19 +96,19 @@ export default function ProductsPage() {
                   <div className="p-6 md:p-8 flex flex-col flex-grow">
                     <div className="flex items-center gap-2 mb-3">
                       <ShoppingBag size={18} className="text-[var(--ae-blue)]" />
-                      <h2 className="text-xl font-semibold text-[var(--ae-plum-deep)]">
+                      <h2 className="text-xl font-semibold text-[var(--text-color)]">
                         {product.name}
                       </h2>
                     </div>
                     
-                    <p className="text-slate-600 text-base leading-relaxed mb-8 flex-grow">
+                    <p className="text-[var(--text-color)]/70 text-base leading-relaxed mb-8 flex-grow">
                       {product.description}
                     </p>
 
                     {/* CTA Button */}
                     <a 
                       href={product.link}
-                      className="w-full py-3 rounded-xl flex items-center justify-center gap-2 font-semibold transition-all duration-300 bg-slate-50 text-[var(--ae-plum-deep)] hover:bg-slate-100 border border-slate-200"
+                      className="w-full py-3 rounded-xl flex items-center justify-center gap-2 font-semibold transition-all duration-300 bg-[var(--card-bg)] text-[var(--text-color)] hover:opacity-90 border border-[var(--ae-border)]"
                     >
                       <ExternalLink size={18} />
                       Get it Now

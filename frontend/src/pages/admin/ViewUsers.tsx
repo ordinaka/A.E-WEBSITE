@@ -186,7 +186,7 @@ export default function ViewUsers() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20 overflow-hidden relative">
+    <div className="pt-32 px-6 min-h-screen ae-brand-page text-[var(--text-color)] pb-20 overflow-hidden relative font-outfit">
       
 
       <motion.div 
@@ -203,14 +203,14 @@ export default function ViewUsers() {
             <h1 className="text-3xl md:text-4xl font-black text-[var(--ae-plum-deep)]">
               View Users
             </h1>
-            <p className="text-slate-500 font-medium text-sm md:text-base mt-2">
+            <p className="text-[var(--text-color)]/60 font-medium text-sm md:text-base mt-2">
               Inspect registered users and manage role/status access.
             </p>
           </div>
         </motion.section>
 
         <motion.section variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <motion.div variants={itemVariants} className="bg-white border border-slate-200 shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-blue-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] shadow-sm backdrop-blur-xl hover:border-[var(--ae-blue)]/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-blue-500/10 rounded-2xl">
                 <Users className="w-8 h-8 text-blue-400" />
              </div>
@@ -220,7 +220,7 @@ export default function ViewUsers() {
              </div>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="bg-white border border-slate-200 shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-emerald-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] shadow-sm backdrop-blur-xl hover:border-[var(--ae-blue)]/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-emerald-500/10 rounded-2xl">
                 <UserCheck className="w-8 h-8 text-emerald-600 font-bold" />
              </div>
@@ -230,7 +230,7 @@ export default function ViewUsers() {
              </div>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="bg-white border border-slate-200 shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-purple-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] shadow-sm backdrop-blur-xl hover:border-[var(--ae-blue)]/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-purple-500/10 rounded-2xl">
                 <ShieldAlert className="w-8 h-8 text-purple-400" />
              </div>
@@ -241,7 +241,7 @@ export default function ViewUsers() {
           </motion.div>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl relative">
+        <motion.section variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl relative">
           <AnimatePresence>
             {actionError && (
               <motion.div 
@@ -303,7 +303,7 @@ export default function ViewUsers() {
                   <motion.article
                     key={user.id}
                     variants={itemVariants}
-                    className="group bg-white border border-slate-200 shadow-sm hover:border-blue-500/30 rounded-2xl p-5 md:p-6 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between"
+                    className="group ae-brand-card border border-[var(--ae-border)] shadow-sm hover:border-[var(--ae-blue)]/30 rounded-2xl p-5 md:p-6 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                     
@@ -319,16 +319,16 @@ export default function ViewUsers() {
                       <h3 className="text-lg md:text-xl font-bold text-slate-900 font-bold group-hover:text-blue-300 transition-colors">
                         {user.firstName} {user.lastName}
                       </h3>
-                      <p className="text-sm text-slate-500 font-medium mt-1">
+                      <p className="text-sm text-[var(--text-color)]/60 font-medium mt-1">
                         @{user.username} • {user.email}
                       </p>
-                      <div className="flex items-center gap-4 mt-3 text-xs text-slate-500 font-medium font-medium">
+                      <div className="flex items-center gap-4 mt-3 text-xs text-[var(--text-color)]/50 font-medium">
                         <span>Joined: {new Date(user.createdAt).toLocaleDateString()}</span>
                         <span>Last Login: {user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleDateString() : "Never"}</span>
                       </div>
                     </div>
 
-                    <div className="w-full md:w-auto grid grid-cols-2 gap-3 z-10 shrink-0 bg-black/20 p-3 rounded-xl border border-slate-100">
+                    <div className="w-full md:w-auto grid grid-cols-2 gap-3 z-10 shrink-0 ae-brand-card p-3 rounded-xl border border-[var(--ae-border)]">
                       <div>
                         <label className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 font-medium mb-1" htmlFor={`role-${user.id}`}>
                           Access Role
@@ -344,7 +344,7 @@ export default function ViewUsers() {
                             )
                           }
                           disabled={isUpdating}
-                          className="w-full rounded-lg bg-white/10 hover:bg-white/15 focus:ring-2 focus:ring-blue-500 outline-none border border-white/20 px-3 py-2 text-sm text-slate-900 font-bold disabled:opacity-50 transition-all appearance-none cursor-pointer"
+                          className="w-full rounded-lg bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 focus:ring-2 focus:ring-[var(--ae-blue)] outline-none border border-[var(--ae-border)] px-3 py-2 text-sm text-[var(--text-color)] font-bold disabled:opacity-50 transition-all appearance-none cursor-pointer"
                           style={{ backgroundImage: `url('data:image/svg+xml;utf8,<svg fill="none" stroke="%239CA3AF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>')`, backgroundPosition: 'right 0.5rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1em 1em', paddingRight: '2rem' }}
                         >
                           {ROLES.map((role) => (
@@ -370,7 +370,7 @@ export default function ViewUsers() {
                             )
                           }
                           disabled={isUpdating}
-                          className="w-full rounded-lg bg-white/10 hover:bg-white/15 focus:ring-2 focus:ring-blue-500 outline-none border border-white/20 px-3 py-2 text-sm text-slate-900 font-bold disabled:opacity-50 transition-all appearance-none cursor-pointer"
+                          className="w-full rounded-lg bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 focus:ring-2 focus:ring-[var(--ae-blue)] outline-none border border-[var(--ae-border)] px-3 py-2 text-sm text-[var(--text-color)] font-bold disabled:opacity-50 transition-all appearance-none cursor-pointer"
                           style={{ backgroundImage: `url('data:image/svg+xml;utf8,<svg fill="none" stroke="%239CA3AF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>')`, backgroundPosition: 'right 0.5rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1em 1em', paddingRight: '2rem' }}
                         >
                           {STATUSES.map((status) => (

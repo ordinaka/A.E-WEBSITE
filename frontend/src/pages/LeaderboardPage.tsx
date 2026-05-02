@@ -109,7 +109,7 @@ export default function LeaderboardPage() {
   const topThree = useMemo(() => entries.filter((entry) => entry.rank <= 3), [entries]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] overflow-hidden relative">
 
       <motion.div 
         className="max-w-6xl mx-auto relative z-10 pb-20 space-y-8"
@@ -121,16 +121,16 @@ export default function LeaderboardPage() {
           <div className="inline-flex items-center justify-center p-4 bg-purple-100 rounded-full mb-4 shadow-sm">
             <Trophy className="w-10 h-10 text-[var(--ae-plum-deep)]" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black mb-3 text-[var(--ae-plum-deep)]">
+          <h1 className="text-4xl md:text-5xl font-black mb-3 text-[var(--text-color)]">
             Global Leaderboard
           </h1>
-          <p className="text-slate-600 font-medium text-lg max-w-2xl mx-auto">
+          <p className="text-[var(--text-color)]/70 font-medium text-lg max-w-2xl mx-auto">
             Ranked by average score, then total quiz attempts. Compete with others and secure your spot!
           </p>
         </motion.section>
 
         {isLoading ? (
-          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center p-12 bg-white border border-slate-200 rounded-3xl shadow-sm">
+          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center p-12 ae-brand-card border border-[var(--ae-border)] rounded-3xl shadow-sm">
             <Loader2 className="w-10 h-10 text-[var(--ae-blue)] animate-spin mb-4" />
             <p className="text-slate-600 font-medium">Loading leaderboard...</p>
           </motion.div>
@@ -158,7 +158,7 @@ export default function LeaderboardPage() {
         ) : null}
 
         {!isLoading && !error && entries.length === 0 ? (
-          <motion.div variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-12 text-center text-slate-500">
+          <motion.div variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] shadow-sm rounded-3xl p-12 text-center text-slate-500">
              <Trophy className="w-12 h-12 mx-auto text-slate-300 mb-4" />
              <p className="font-medium">No leaderboard data yet. Be the first to start learning!</p>
           </motion.div>
@@ -187,7 +187,7 @@ export default function LeaderboardPage() {
                     variants={itemVariants}
                     whileHover={{ y: -8, scale: 1.02 }}
                     key={entry.userId} 
-                    className={`relative bg-white shadow-sm border rounded-3xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-300 ${bgGlow} ${entry.rank === 1 ? 'md:-mt-8 border-amber-200 hover:border-amber-400/30 shadow-md shadow-amber-500/5' : ''}`}
+                    className={`relative ae-brand-card shadow-sm border rounded-3xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-300 ${bgGlow} ${entry.rank === 1 ? 'md:-mt-8 border-amber-200 hover:border-amber-400/30 shadow-md shadow-amber-500/5' : ''}`}
                   >
                     
                     <div className="mb-4">
@@ -198,7 +198,7 @@ export default function LeaderboardPage() {
                       Rank #{entry.rank}
                     </span>
                     
-                    <h2 className="text-2xl font-black text-[var(--ae-plum-deep)] mb-6 truncate w-full">{entry.username}</h2>
+                    <h2 className="text-2xl font-black text-[var(--text-color)] mb-6 truncate w-full">{entry.username}</h2>
                     
                     <div className="text-left w-full space-y-4">
                       <div className="flex justify-between items-center bg-slate-50 border border-slate-100 rounded-xl p-3">
@@ -211,7 +211,7 @@ export default function LeaderboardPage() {
                          <div className="flex items-center text-slate-500 font-bold text-xs uppercase tracking-wider">
                             <Activity className="w-4 h-4 mr-2" /> Completed
                          </div>
-                         <span className="font-black text-[var(--ae-plum-deep)]">{entry.modulesCompleted}</span>
+                         <span className="font-black text-[var(--text-color)]">{entry.modulesCompleted}</span>
                       </div>
                     </div>
                   </motion.article>
@@ -219,7 +219,7 @@ export default function LeaderboardPage() {
               })}
             </motion.section>
 
-            <motion.section variants={itemVariants} className="bg-white border border-slate-200 rounded-3xl p-1 md:p-4 mt-12 shadow-sm">
+            <motion.section variants={itemVariants} className="ae-brand-card border border-[var(--ae-border)] rounded-3xl p-1 md:p-4 mt-12 shadow-sm">
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] text-left border-collapse">
                   <thead>
@@ -245,7 +245,7 @@ export default function LeaderboardPage() {
                             #{entry.rank}
                           </span>
                         </td>
-                        <td className="px-6 py-4 font-black text-[var(--ae-plum-deep)] group-hover:text-[var(--ae-blue)] transition-colors">
+                        <td className="px-6 py-4 font-black text-[var(--text-color)] group-hover:text-[var(--ae-blue)] transition-colors">
                           {entry.username}
                         </td>
                         <td className="px-6 py-4">
@@ -256,7 +256,7 @@ export default function LeaderboardPage() {
                                   style={{ width: `${Math.round(entry.averageScore)}%` }}
                                />
                              </div>
-                             <span className="font-bold text-[var(--ae-plum-deep)]">{Math.round(entry.averageScore)}%</span>
+                             <span className="font-bold text-[var(--text-color)]">{Math.round(entry.averageScore)}%</span>
                            </div>
                         </td>
                         <td className="px-6 py-4 text-slate-500 font-bold">
