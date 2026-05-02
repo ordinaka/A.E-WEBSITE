@@ -12,7 +12,7 @@ export default function CTAFooter() {
 
           {/* IMAGE (closer to edge) */}
           <div className="flex justify-start">
-            <div className="w-[400px] h-[425px] rounded-[40px] overflow-hidden">
+            <div className="w-full max-w-[400px] aspect-[400/425] rounded-[40px] overflow-hidden mb-8 md:mb-0">
               <img
                 src= {pic1}
                 className="object-cover w-full h-full"
@@ -44,8 +44,8 @@ export default function CTAFooter() {
         <div className="grid md:grid-cols-2 items-center">
 
           {/* TEXT */}
-          <div className="max-w-md bg-[#F8FAFC] p-8 rounded-2xl border border-gray-100 shadow-sm order-2 md:order-1">
-            <h3 className="text-xl font-semibold mb-3 text-left text-[var(--ae-plum-deep)]">
+          <div className="bg-[#F8FAFC] p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm order-2 md:order-1 flex flex-col items-start w-full md:max-w-md">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-left text-[var(--ae-plum-deep)]">
               Transform your life through education
             </h3>
 
@@ -62,8 +62,8 @@ export default function CTAFooter() {
           </div>
 
           {/* IMAGE (closer to right edge) */}
-          <div className="flex justify-end order-1 md:order-2">
-            <div className="w-[471.5px] h-[385px] rounded-[40px] overflow-hidden">
+          <div className="flex justify-center md:justify-end order-1 md:order-2 w-full mb-8 md:mb-0">
+            <div className="w-full max-w-[471.5px] aspect-[471.5/385] rounded-[40px] overflow-hidden">
               <img
                 src= {pic2}
                 className="object-cover w-full h-full"
