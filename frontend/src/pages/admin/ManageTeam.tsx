@@ -297,7 +297,7 @@ export default function ManageTeam() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20 overflow-hidden relative font-outfit">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] pb-20 overflow-hidden relative font-outfit">
       
 
       <motion.div 
@@ -314,13 +314,13 @@ export default function ManageTeam() {
             <h1 className="text-3xl md:text-4xl font-black text-[var(--ae-plum-deep)] italic">
               Manage Team
             </h1>
-            <p className="text-slate-500 font-medium text-sm md:text-base mt-2 font-outfit">
+            <p className="text-[var(--muted-text)] font-medium text-sm md:text-base mt-2 font-outfit">
               Curate the public profiles of the core individuals driving our mission.
             </p>
           </div>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 relative">
+        <motion.section variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 relative">
           <AnimatePresence>
             {submitError && (
               <motion.div 
@@ -354,7 +354,7 @@ export default function ManageTeam() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="team-full-name">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="team-full-name">
                   Full Name
                 </label>
                 <input
@@ -362,12 +362,12 @@ export default function ManageTeam() {
                   type="text"
                   value={form.fullName}
                   onChange={(event) => handleField("fullName", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-outfit"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit"
                   placeholder="e.g. Jane Doe"
                 />
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="team-role-title">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="team-role-title">
                   Role Title
                 </label>
                 <input
@@ -375,14 +375,14 @@ export default function ManageTeam() {
                   type="text"
                   value={form.roleTitle}
                   onChange={(event) => handleField("roleTitle", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-outfit"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit"
                   placeholder="e.g. Lead Instructor"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="team-bio">
+              <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="team-bio">
                 Biography
               </label>
               <textarea
@@ -390,15 +390,15 @@ export default function ManageTeam() {
                 rows={4}
                 value={form.bio}
                 onChange={(event) => handleField("bio", event.target.value)}
-                className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 resize-none font-outfit"
+                className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 resize-none font-outfit"
                 placeholder="Brief professional background..."
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2 flex items-center gap-2" htmlFor="team-image-url">
-                  <ImageIcon className="w-4 h-4 text-slate-500 font-medium" /> Image URL
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2 flex items-center gap-2" htmlFor="team-image-url">
+                  <ImageIcon className="w-4 h-4 text-[var(--muted-text)] font-medium" /> Image URL
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -406,10 +406,10 @@ export default function ManageTeam() {
                     type="url"
                     value={form.imageUrl}
                     onChange={(event) => handleField("imageUrl", event.target.value)}
-                    className="flex-1 rounded-xl bg-white border border-slate-200 focus:border-blue-500/50 focus:bg-white/10 outline-none px-4 py-3 transition-colors placeholder:text-slate-400 font-outfit text-sm"
+                    className="flex-1 rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-blue-500/50 focus:bg-[var(--card-bg)]/10 outline-none px-4 py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit text-sm"
                     placeholder="https://..."
                   />
-                  <label className="flex items-center justify-center px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all">
+                  <label className="flex items-center justify-center px-4 rounded-xl border border-[var(--ae-border)] bg-[var(--card-bg)] hover:bg-[var(--bg-color)] cursor-pointer transition-all">
                      <Upload className="w-4 h-4 text-blue-400" />
                      <input type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
                   </label>
@@ -417,28 +417,28 @@ export default function ManageTeam() {
                 {file && <p className="text-[10px] text-blue-400 mt-1 truncate">Selected: {file.name}</p>}
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2 flex items-center gap-2" htmlFor="team-linkedin">
-                  <FaLinkedin className="w-4 h-4 text-slate-500 font-medium" /> LinkedIn
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2 flex items-center gap-2" htmlFor="team-linkedin">
+                  <FaLinkedin className="w-4 h-4 text-[var(--muted-text)] font-medium" /> LinkedIn
                 </label>
                 <input
                   id="team-linkedin"
                   type="url"
                   value={form.linkedinUrl}
                   onChange={(event) => handleField("linkedinUrl", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-outfit text-sm"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit text-sm"
                   placeholder="https://..."
                 />
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2 flex items-center gap-2" htmlFor="team-twitter">
-                  <FaTwitter className="w-4 h-4 text-slate-500 font-medium" /> Twitter / X
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2 flex items-center gap-2" htmlFor="team-twitter">
+                  <FaTwitter className="w-4 h-4 text-[var(--muted-text)] font-medium" /> Twitter / X
                 </label>
                 <input
                   id="team-twitter"
                   type="url"
                   value={form.twitterUrl}
                   onChange={(event) => handleField("twitterUrl", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-outfit text-sm"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit text-sm"
                   placeholder="https://..."
                 />
               </div>
@@ -446,7 +446,7 @@ export default function ManageTeam() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2 flex items-center gap-2" htmlFor="team-whatsapp">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2 flex items-center gap-2" htmlFor="team-whatsapp">
                   <FaWhatsapp className="w-4 h-4 text-emerald-600 font-bold" /> WhatsApp Link
                 </label>
                 <input
@@ -454,20 +454,20 @@ export default function ManageTeam() {
                   type="text"
                   value={form.whatsappUrl}
                   onChange={(event) => handleField("whatsappUrl", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-outfit text-sm"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit text-sm"
                   placeholder="https://wa.me/..."
                 />
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2 flex items-center gap-2" htmlFor="team-email">
-                  <FaEnvelope className="w-4 h-4 text-slate-500 font-medium" /> Contact Email
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2 flex items-center gap-2" htmlFor="team-email">
+                  <FaEnvelope className="w-4 h-4 text-[var(--muted-text)] font-medium" /> Contact Email
                 </label>
                 <input
                   id="team-email"
                   type="text"
                   value={form.emailAddress}
                   onChange={(event) => handleField("emailAddress", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-outfit text-sm"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit text-sm"
                   placeholder="name@example.com or mailto:..."
                 />
               </div>
@@ -475,7 +475,7 @@ export default function ManageTeam() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="team-sort-order">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="team-sort-order">
                   Sort Order
                 </label>
                 <input
@@ -483,7 +483,7 @@ export default function ManageTeam() {
                   type="number"
                   value={form.sortOrder}
                   onChange={(event) => handleField("sortOrder", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-outfit"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-outfit"
                   placeholder="0"
                 />
               </div>
@@ -495,13 +495,13 @@ export default function ManageTeam() {
                     onChange={(event) => handleField("isVisible", event.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
-                  <span className="ml-3 text-sm font-medium text-slate-600 font-medium group-hover:text-slate-900 font-bold transition-colors">Visible on platform</span>
+                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[var(--card-bg)] after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                  <span className="ml-3 text-sm font-medium text-[var(--muted-text)] font-medium group-hover:text-[var(--text-color)] font-bold transition-colors">Visible on platform</span>
                 </label>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-4 border-t border-slate-200">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-[var(--ae-border)]">
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -517,7 +517,7 @@ export default function ManageTeam() {
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition-all font-bold text-slate-700 text-slate-900 font-bold"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--card-bg)] hover:bg-[var(--bg-color)] border border-[var(--ae-border)] transition-all font-bold text-[var(--label-text)] text-[var(--text-color)] font-bold"
                 >
                   <X className="w-5 h-5" /> Cancel Edit
                 </button>
@@ -526,13 +526,13 @@ export default function ManageTeam() {
           </form>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl">
+        <motion.section variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl">
            <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <Users className="w-6 h-6 text-blue-400" />
               Core Team Members
             </h2>
-            <span className="bg-white/10 text-slate-900 font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+            <span className="bg-[var(--card-bg)]/10 text-[var(--text-color)] font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
                {members.length} Members
             </span>
           </div>
@@ -560,8 +560,8 @@ export default function ManageTeam() {
 
           {!isLoading && !error && members.length === 0 ? (
             <div className="text-center py-12">
-               <Users className="w-12 h-12 mx-auto text-slate-500 font-medium mb-4 opacity-50" />
-               <p className="text-slate-500 font-medium">The team is currently empty. Add your first member!</p>
+               <Users className="w-12 h-12 mx-auto text-[var(--muted-text)] font-medium mb-4 opacity-50" />
+               <p className="text-[var(--muted-text)] font-medium">The team is currently empty. Add your first member!</p>
             </div>
           ) : null}
 
@@ -575,7 +575,7 @@ export default function ManageTeam() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     key={member.id}
-                    className={`group bg-white border border-slate-200 shadow-sm hover:border-blue-500/30 rounded-2xl p-5 transition-all duration-300 flex flex-col md:flex-row gap-6 items-center justify-between ${editingMemberId === member.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
+                    className={`group bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm hover:border-blue-500/30 rounded-2xl p-5 transition-all duration-300 flex flex-col md:flex-row gap-6 items-center justify-between ${editingMemberId === member.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
                   >
                     <div className="flex items-center gap-6 w-full">
                       <div className="relative shrink-0">
@@ -583,24 +583,24 @@ export default function ManageTeam() {
                           <img
                             src={member.imageUrl}
                             alt={member.fullName}
-                            className="w-16 h-16 rounded-2xl object-cover border-2 border-slate-200 group-hover:border-blue-500/40 transition-all shadow-xl shadow-black/40"
+                            className="w-16 h-16 rounded-2xl object-cover border-2 border-[var(--ae-border)] group-hover:border-blue-500/40 transition-all shadow-xl shadow-black/40"
                           />
                         ) : (
-                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/10 to-indigo-500/20 border-2 border-slate-200 flex items-center justify-center font-bold text-2xl text-blue-300">
+                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/10 to-indigo-500/20 border-2 border-[var(--ae-border)] flex items-center justify-center font-bold text-2xl text-blue-300">
                             {member.fullName.charAt(0)}
                           </div>
                         )}
                         {!member.isVisible && (
                           <div className="absolute -top-1 -right-1 p-1 bg-rose-500 rounded-full border border-[var(--ae-bg)]" title="Hidden Profile">
-                            <EyeOff className="w-2.5 h-2.5 text-slate-900 font-bold" />
+                            <EyeOff className="w-2.5 h-2.5 text-[var(--text-color)] font-bold" />
                           </div>
                         )}
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-lg font-bold text-slate-900 font-bold group-hover:text-blue-400 transition-colors truncate italic">
+                        <h3 className="text-lg font-bold text-[var(--text-color)] font-bold group-hover:text-blue-400 transition-colors truncate italic">
                           {member.fullName}
                         </h3>
-                        <p className="text-xs uppercase tracking-widest text-slate-500 font-medium font-bold mt-0.5">
+                        <p className="text-xs uppercase tracking-widest text-[var(--muted-text)] font-medium font-bold mt-0.5">
                           {member.roleTitle}
                         </p>
                       </div>
@@ -618,7 +618,7 @@ export default function ManageTeam() {
                       <button
                         type="button"
                         onClick={() => void handleDelete(member)}
-                        className="flex items-center justify-center p-3 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-slate-900 font-bold transition-all shadow-lg group/btn"
+                        className="flex items-center justify-center p-3 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-[var(--text-color)] font-bold transition-all shadow-lg group/btn"
                         title="Remove Member"
                       >
                         <Trash2 className="w-5 h-5 group-hover/btn:scale-110 transition-transform" />

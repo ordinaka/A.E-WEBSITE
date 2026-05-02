@@ -255,7 +255,7 @@ export default function ManageProducts() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20 overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] pb-20 overflow-hidden relative">
       
 
       <motion.div 
@@ -272,13 +272,13 @@ export default function ManageProducts() {
             <h1 className="text-3xl md:text-4xl font-black text-[var(--ae-plum-deep)]">
               Manage Products
             </h1>
-            <p className="text-slate-500 font-medium text-sm md:text-base mt-2">
+            <p className="text-[var(--muted-text)] font-medium text-sm md:text-base mt-2">
               Create and organize digital entries displayed on public pages.
             </p>
           </div>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 relative">
+        <motion.section variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 relative">
           <AnimatePresence>
             {submitError && (
               <motion.div 
@@ -312,7 +312,7 @@ export default function ManageProducts() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="product-name">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="product-name">
                   Product Name
                 </label>
                 <input
@@ -325,12 +325,12 @@ export default function ManageProducts() {
                       handleField("slug", slugify(form.name));
                     }
                   }}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60"
                   placeholder="e.g. Master React Course"
                 />
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="product-slug">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="product-slug">
                   Slug (URL-friendly)
                 </label>
                 <input
@@ -338,14 +338,14 @@ export default function ManageProducts() {
                   type="text"
                   value={form.slug}
                   onChange={(event) => handleField("slug", slugify(event.target.value))}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60"
                   placeholder="e.g. master-react"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="product-description">
+              <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="product-description">
                 Description
               </label>
               <textarea
@@ -353,14 +353,14 @@ export default function ManageProducts() {
                 rows={4}
                 value={form.description}
                 onChange={(event) => handleField("description", event.target.value)}
-                className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 resize-none"
+                className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 resize-none"
                 placeholder="Product description visible to users..."
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="product-link">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="product-link">
                   Checkout / Product Link
                 </label>
                 <input
@@ -368,12 +368,12 @@ export default function ManageProducts() {
                   type="url"
                   value={form.link}
                   onChange={(event) => handleField("link", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60"
                   placeholder="https://..."
                 />
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="product-image-url">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="product-image-url">
                   Banner Image URL (Optional)
                 </label>
                 <input
@@ -381,7 +381,7 @@ export default function ManageProducts() {
                   type="url"
                   value={form.imageUrl}
                   onChange={(event) => handleField("imageUrl", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60"
                   placeholder="https://..."
                 />
               </div>
@@ -395,12 +395,12 @@ export default function ManageProducts() {
                   onChange={(event) => handleField("isPublished", event.target.checked)}
                   className="sr-only peer"
                 />
-                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
-                <span className="ml-3 text-sm font-medium text-slate-600 font-medium group-hover:text-slate-900 font-bold transition-colors">Publish Publicly</span>
+                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[var(--card-bg)] after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                <span className="ml-3 text-sm font-medium text-[var(--muted-text)] font-medium group-hover:text-[var(--text-color)] font-bold transition-colors">Publish Publicly</span>
               </label>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-6 border-t border-slate-200">
+            <div className="flex flex-wrap gap-4 pt-6 border-t border-[var(--ae-border)]">
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -416,7 +416,7 @@ export default function ManageProducts() {
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition-all font-bold text-slate-700 text-slate-900 font-bold"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--card-bg)] hover:bg-[var(--bg-color)] border border-[var(--ae-border)] transition-all font-bold text-[var(--label-text)] text-[var(--text-color)] font-bold"
                 >
                   <X className="w-5 h-5" /> Cancel Edit
                 </button>
@@ -425,13 +425,13 @@ export default function ManageProducts() {
           </form>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl mt-8">
+        <motion.section variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl mt-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <PackageSearch className="w-6 h-6 text-indigo-400" />
               Existing Products
             </h2>
-            <span className="bg-white/10 text-slate-900 font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+            <span className="bg-[var(--card-bg)]/10 text-[var(--text-color)] font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
                {products.length} Total
             </span>
           </div>
@@ -457,8 +457,8 @@ export default function ManageProducts() {
           ) : null}
           {!isLoading && !error && products.length === 0 ? (
             <div className="text-center py-12">
-               <PackageSearch className="w-12 h-12 mx-auto text-slate-500 font-medium mb-4 opacity-50" />
-               <p className="text-slate-500 font-medium">No products found. Add one above.</p>
+               <PackageSearch className="w-12 h-12 mx-auto text-[var(--muted-text)] font-medium mb-4 opacity-50" />
+               <p className="text-[var(--muted-text)] font-medium">No products found. Add one above.</p>
             </div>
           ) : null}
 
@@ -472,7 +472,7 @@ export default function ManageProducts() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     key={product.id}
-                    className={`group bg-white border border-slate-200 shadow-sm hover:border-indigo-500/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full ${editingProductId === product.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
+                    className={`group bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm hover:border-indigo-500/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full ${editingProductId === product.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                     
@@ -487,11 +487,11 @@ export default function ManageProducts() {
                           {product.isPublished ? "Published" : "Draft"}
                         </span>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 font-bold group-hover:text-indigo-300 transition-colors line-clamp-2">
+                      <h3 className="text-lg font-bold text-[var(--text-color)] font-bold group-hover:text-indigo-300 transition-colors line-clamp-2">
                         {product.name}
                       </h3>
-                      <p className="text-xs text-slate-500 font-medium mt-1 mb-2">/{product.slug}</p>
-                      <p className="text-sm text-slate-500 font-medium line-clamp-3">
+                      <p className="text-xs text-[var(--muted-text)] font-medium mt-1 mb-2">/{product.slug}</p>
+                      <p className="text-sm text-[var(--muted-text)] font-medium line-clamp-3">
                          {product.description}
                       </p>
                     </div>
@@ -508,7 +508,7 @@ export default function ManageProducts() {
                       <button
                         type="button"
                         onClick={() => void handleDelete(product.id)}
-                        className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-slate-900 font-bold transition-all group/btn font-medium text-sm"
+                        className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-[var(--text-color)] font-bold transition-all group/btn font-medium text-sm"
                       >
                         <Trash2 className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
                         Delete

@@ -529,7 +529,7 @@ export default function ManageQuizzes() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20 overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] pb-20 overflow-hidden relative">
       
 
       <motion.div 
@@ -546,13 +546,13 @@ export default function ManageQuizzes() {
             <h1 className="text-3xl md:text-4xl font-black text-[var(--ae-plum-deep)]">
               Manage Quizzes
             </h1>
-            <p className="text-slate-500 font-medium text-sm md:text-base mt-2">
+            <p className="text-[var(--muted-text)] font-medium text-sm md:text-base mt-2">
               Create assessments, add options, and test your users' knowledge.
             </p>
           </div>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 relative">
+        <motion.section variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 relative">
           <AnimatePresence>
             {submitError && (
               <motion.div 
@@ -586,28 +586,28 @@ export default function ManageQuizzes() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="quiz-module">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="quiz-module">
                   Target Module
                 </label>
                 <select
                   id="quiz-module"
                   value={form.moduleId}
                   onChange={(event) => handleQuizField("moduleId", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors text-slate-900 font-bold appearance-none cursor-pointer"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors text-[var(--text-color)] font-bold appearance-none cursor-pointer"
                   style={{ backgroundImage: `url('data:image/svg+xml;utf8,<svg fill="none" stroke="%239CA3AF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>')`, backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1.2em 1.2em', paddingRight: '3rem' }}
                 >
-                  <option value="" className="text-slate-800 bg-white">
+                  <option value="" className="text-[var(--text-color)] bg-[var(--card-bg)]">
                     Select a module
                   </option>
                   {modules.map((moduleItem) => (
-                    <option key={moduleItem.id} value={moduleItem.id} className="text-slate-800 bg-white">
+                    <option key={moduleItem.id} value={moduleItem.id} className="text-[var(--text-color)] bg-[var(--card-bg)]">
                       {moduleItem.title}
                     </option>
                   ))}
                 </select>
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="quiz-title">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="quiz-title">
                   Quiz Title
                 </label>
                 <input
@@ -615,14 +615,14 @@ export default function ManageQuizzes() {
                   type="text"
                   value={form.title}
                   onChange={(event) => handleQuizField("title", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60"
                   placeholder="e.g. End of Chapter 1 Quiz"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="quiz-instructions">
+              <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="quiz-instructions">
                 Instructions (Optional)
               </label>
               <textarea
@@ -630,14 +630,14 @@ export default function ManageQuizzes() {
                 rows={3}
                 value={form.instructions}
                 onChange={(event) => handleQuizField("instructions", event.target.value)}
-                className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 resize-none"
+                className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 resize-none"
                 placeholder="Specific instructions for the user..."
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="quiz-passing-score">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="quiz-passing-score">
                   Passing Score (%)
                 </label>
                 <input
@@ -645,12 +645,12 @@ export default function ManageQuizzes() {
                   type="number"
                   value={form.passingScore}
                   onChange={(event) => handleQuizField("passingScore", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60"
                   placeholder="e.g. 75"
                 />
               </div>
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-500 font-medium mb-2" htmlFor="quiz-time-limit">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-2" htmlFor="quiz-time-limit">
                   Time Limit (Minutes)
                 </label>
                 <input
@@ -658,7 +658,7 @@ export default function ManageQuizzes() {
                   type="number"
                   value={form.timeLimitMinutes}
                   onChange={(event) => handleQuizField("timeLimitMinutes", event.target.value)}
-                  className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400"
+                  className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60"
                   placeholder="e.g. 30"
                 />
               </div>
@@ -670,13 +670,13 @@ export default function ManageQuizzes() {
                     onChange={(event) => handleQuizField("isPublished", event.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
-                  <span className="ml-3 text-sm font-medium text-slate-600 font-medium group-hover:text-slate-900 font-bold transition-colors">Publish Directly</span>
+                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[var(--card-bg)] after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                  <span className="ml-3 text-sm font-medium text-[var(--muted-text)] font-medium group-hover:text-[var(--text-color)] font-bold transition-colors">Publish Directly</span>
                 </label>
               </div>
             </div>
 
-            <div className="space-y-4 pt-6 border-t border-slate-200">
+            <div className="space-y-4 pt-6 border-t border-[var(--ae-border)]">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <h3 className="text-xl font-bold flex items-center gap-2">
                   <HelpCircle className="w-5 h-5 text-indigo-400" />
@@ -699,17 +699,17 @@ export default function ManageQuizzes() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     key={question.key}
-                    className="rounded-2xl border border-slate-200 bg-white border border-slate-200 shadow-sm p-5 space-y-4 hover:border-white/20 transition-colors"
+                    className="rounded-2xl border border-[var(--ae-border)] bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm p-5 space-y-4 hover:border-white/20 transition-colors"
                   >
                     <div className="flex items-center justify-between pb-2 border-b border-white/5">
-                      <p className="text-xs uppercase tracking-widest font-bold text-slate-500 font-medium flex items-center gap-2">
+                      <p className="text-xs uppercase tracking-widest font-bold text-[var(--muted-text)] font-medium flex items-center gap-2">
                         Question #{qIndex + 1}
                       </p>
                       <button
                         type="button"
                         onClick={() => removeQuestion(qIndex)}
                         disabled={form.questions.length === 1}
-                        className="p-1.5 rounded-lg bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-slate-900 font-bold disabled:opacity-30 disabled:hover:bg-rose-500/10 disabled:hover:text-red-500 font-bold transition-colors"
+                        className="p-1.5 rounded-lg bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-[var(--text-color)] font-bold disabled:opacity-30 disabled:hover:bg-rose-500/10 disabled:hover:text-red-500 font-bold transition-colors"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -720,7 +720,7 @@ export default function ManageQuizzes() {
                       placeholder="Enter the question prompt here..."
                       value={question.prompt}
                       onChange={(event) => handleQuestionField(qIndex, "prompt", event.target.value)}
-                      className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 font-medium"
+                      className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 font-medium"
                     />
 
                     <textarea
@@ -730,7 +730,7 @@ export default function ManageQuizzes() {
                       onChange={(event) =>
                         handleQuestionField(qIndex, "explanation", event.target.value)
                       }
-                      className="w-full rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-3 transition-colors placeholder:text-slate-400 resize-none text-sm"
+                      className="w-full rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-3 transition-colors placeholder:text-[var(--muted-text)]/60 resize-none text-sm"
                     />
 
                     <div className="flex items-center gap-4">
@@ -739,13 +739,13 @@ export default function ManageQuizzes() {
                         placeholder="Sort Order"
                         value={question.sortOrder}
                         onChange={(event) => handleQuestionField(qIndex, "sortOrder", event.target.value)}
-                        className="w-32 rounded-xl bg-white border border-slate-200 focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-slate-900 font-medium py-2 transition-colors placeholder:text-slate-400 text-sm"
+                        className="w-32 rounded-xl bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-[var(--ae-blue)]/20 outline-none px-4 text-[var(--text-color)] font-medium py-2 transition-colors placeholder:text-[var(--muted-text)]/60 text-sm"
                       />
                     </div>
 
-                    <div className="mt-4 pt-4 border-t border-slate-200 bg-black/10 rounded-xl p-4">
+                    <div className="mt-4 pt-4 border-t border-[var(--ae-border)] bg-black/10 rounded-xl p-4">
                       <div className="flex items-center justify-between mb-3">
-                        <p className="text-xs uppercase tracking-wider font-bold text-slate-500 font-medium">Answer Options</p>
+                        <p className="text-xs uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium">Answer Options</p>
                         <button
                           type="button"
                           onClick={() => addOption(qIndex)}
@@ -759,7 +759,7 @@ export default function ManageQuizzes() {
                         {question.options.map((option, oIndex) => (
                           <div
                             key={option.key}
-                            className={`flex flex-col md:flex-row gap-3 items-center rounded-xl p-2 border ${option.isCorrect ? 'border-emerald-500/50 bg-emerald-500/5' : 'border-white/5 bg-white'}`}
+                            className={`flex flex-col md:flex-row gap-3 items-center rounded-xl p-2 border ${option.isCorrect ? 'border-emerald-500/50 bg-emerald-500/5' : 'border-white/5 bg-[var(--card-bg)]'}`}
                           >
                             <input
                               type="text"
@@ -768,11 +768,11 @@ export default function ManageQuizzes() {
                               onChange={(event) =>
                                 handleOptionField(qIndex, oIndex, "label", event.target.value)
                               }
-                              className="flex-1 w-full rounded-lg bg-transparent focus:bg-white border border-transparent focus:border-slate-200 outline-none px-3 py-1.5 transition-colors placeholder:text-slate-400"
+                              className="flex-1 w-full rounded-lg bg-transparent focus:bg-[var(--card-bg)] border border-transparent focus:border-[var(--ae-border)] outline-none px-3 py-1.5 transition-colors placeholder:text-[var(--muted-text)]/60"
                             />
                             
                             <div className="flex items-center gap-3 w-full md:w-auto shrink-0 px-2 justify-between">
-                              <label className="flex items-center gap-2 cursor-pointer group pr-4 md:border-r border-slate-200">
+                              <label className="flex items-center gap-2 cursor-pointer group pr-4 md:border-r border-[var(--ae-border)]">
                                 <div className="relative flex items-center justify-center">
                                   <input
                                     type="radio"
@@ -781,9 +781,9 @@ export default function ManageQuizzes() {
                                     onChange={() => handleOptionField(qIndex, oIndex, "isCorrect", true)}
                                     className="peer appearance-none w-5 h-5 rounded-full border-2 border-gray-500 checked:border-emerald-500 checked:bg-emerald-500 transition-colors cursor-pointer"
                                   />
-                                  <Check className="w-3 h-3 text-slate-900 font-bold absolute opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
+                                  <Check className="w-3 h-3 text-[var(--text-color)] font-bold absolute opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
                                 </div>
-                                <span className={`text-sm font-bold ${option.isCorrect ? 'text-emerald-600 font-bold' : 'text-slate-500 font-medium group-hover:text-slate-600 font-medium'}`}>Correct Answer</span>
+                                <span className={`text-sm font-bold ${option.isCorrect ? 'text-emerald-600 font-bold' : 'text-[var(--muted-text)] font-medium group-hover:text-[var(--muted-text)] font-medium'}`}>Correct Answer</span>
                               </label>
 
                               <input
@@ -793,14 +793,14 @@ export default function ManageQuizzes() {
                                 onChange={(event) =>
                                   handleOptionField(qIndex, oIndex, "sortOrder", event.target.value)
                                 }
-                                className="w-16 rounded-lg bg-white border border-slate-200 focus:border-blue-500/50 outline-none px-2 py-1.5 transition-colors text-center text-sm placeholder:text-slate-400"
+                                className="w-16 rounded-lg bg-[var(--card-bg)] border border-[var(--ae-border)] focus:border-blue-500/50 outline-none px-2 py-1.5 transition-colors text-center text-sm placeholder:text-[var(--muted-text)]/60"
                               />
 
                               <button
                                 type="button"
                                 onClick={() => removeOption(qIndex, oIndex)}
                                 disabled={question.options.length <= 2}
-                                className="p-1.5 rounded-lg text-slate-500 font-medium hover:text-red-500 font-bold hover:bg-rose-500/10 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-slate-500 font-medium transition-colors"
+                                className="p-1.5 rounded-lg text-[var(--muted-text)] font-medium hover:text-red-500 font-bold hover:bg-rose-500/10 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[var(--muted-text)] font-medium transition-colors"
                               >
                                 <X className="w-4 h-4" />
                               </button>
@@ -830,7 +830,7 @@ export default function ManageQuizzes() {
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition-all font-bold text-slate-700 text-slate-900 font-bold"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--card-bg)] hover:bg-[var(--bg-color)] border border-[var(--ae-border)] transition-all font-bold text-[var(--label-text)] text-[var(--text-color)] font-bold"
                 >
                   <X className="w-5 h-5" /> Cancel Edit
                 </button>
@@ -839,13 +839,13 @@ export default function ManageQuizzes() {
           </form>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl">
+        <motion.section variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm rounded-3xl p-6 md:p-8 shadow-2xl">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <ListVideo className="w-6 h-6 text-indigo-400" />
               Existing Quizzes
             </h2>
-            <span className="bg-white/10 text-slate-900 font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+            <span className="bg-[var(--card-bg)]/10 text-[var(--text-color)] font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
                {quizzes.length} Total
             </span>
           </div>
@@ -871,8 +871,8 @@ export default function ManageQuizzes() {
           ) : null}
           {!isLoading && !error && quizzes.length === 0 ? (
             <div className="text-center py-12">
-               <HelpCircle className="w-12 h-12 mx-auto text-slate-500 font-medium mb-4 opacity-50" />
-               <p className="text-slate-500 font-medium">No quizzes found. Create one above.</p>
+               <HelpCircle className="w-12 h-12 mx-auto text-[var(--muted-text)] font-medium mb-4 opacity-50" />
+               <p className="text-[var(--muted-text)] font-medium">No quizzes found. Create one above.</p>
             </div>
           ) : null}
 
@@ -886,7 +886,7 @@ export default function ManageQuizzes() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     key={quiz.id}
-                    className={`group bg-white border border-slate-200 shadow-sm hover:border-indigo-500/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between ${editingQuizId === quiz.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
+                    className={`group bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm hover:border-indigo-500/30 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row gap-6 md:items-center justify-between ${editingQuizId === quiz.id ? 'ring-2 ring-blue-500 ring-offset-2 ring-offset-[var(--ae-bg)]' : ''}`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/0 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                     
@@ -895,17 +895,17 @@ export default function ManageQuizzes() {
                         <span className={`text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md ${quiz.isPublished ? 'bg-emerald-500/10 text-emerald-600 font-bold border border-emerald-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'}`}>
                           {quiz.isPublished ? "Published" : "Draft"}
                         </span>
-                        <span className="text-xs text-slate-500 font-medium font-medium whitespace-nowrap bg-white px-2 py-1 rounded-md">
+                        <span className="text-xs text-[var(--muted-text)] font-medium font-medium whitespace-nowrap bg-[var(--card-bg)] px-2 py-1 rounded-md">
                            {quiz.questionCount} Questions
                         </span>
-                        <span className="text-xs text-slate-500 font-medium font-medium whitespace-nowrap bg-white px-2 py-1 rounded-md">
+                        <span className="text-xs text-[var(--muted-text)] font-medium font-medium whitespace-nowrap bg-[var(--card-bg)] px-2 py-1 rounded-md">
                            {quiz.attemptCount} Attempts
                         </span>
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold text-slate-900 font-bold group-hover:text-indigo-300 transition-colors truncate">
+                      <h3 className="text-lg md:text-xl font-bold text-[var(--text-color)] font-bold group-hover:text-indigo-300 transition-colors truncate">
                         {quiz.title}
                       </h3>
-                      <p className="text-sm text-slate-500 font-medium mt-1 truncate">
+                      <p className="text-sm text-[var(--muted-text)] font-medium mt-1 truncate">
                         Module: {quiz.module.title} • Pass Score: {quiz.passingScore}%
                       </p>
                     </div>
@@ -922,7 +922,7 @@ export default function ManageQuizzes() {
                       <button
                         type="button"
                         onClick={() => void handleDelete(quiz.id)}
-                        className="flex items-center justify-center p-3 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-slate-900 font-bold transition-all shadow-lg hover:shadow-rose-500/30 group/btn"
+                        className="flex items-center justify-center p-3 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-[var(--text-color)] font-bold transition-all shadow-lg hover:shadow-rose-500/30 group/btn"
                         title="Delete Quiz"
                       >
                         <Trash2 className="w-5 h-5 group-hover/btn:scale-110 transition-transform" />

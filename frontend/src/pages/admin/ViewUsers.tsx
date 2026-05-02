@@ -215,8 +215,8 @@ export default function ViewUsers() {
                 <Users className="w-8 h-8 text-blue-400" />
              </div>
              <div>
-                <p className="text-xs uppercase font-medium tracking-wide text-slate-500 font-medium">Total Users</p>
-                <p className="text-3xl font-bold text-slate-900 font-bold mt-1">{stats.total}</p>
+                <p className="text-xs uppercase font-medium tracking-wide text-[var(--muted-text)] font-medium">Total Users</p>
+                <p className="text-3xl font-bold text-[var(--text-color)] font-bold mt-1">{stats.total}</p>
              </div>
           </motion.div>
           
@@ -225,8 +225,8 @@ export default function ViewUsers() {
                 <UserCheck className="w-8 h-8 text-emerald-600 font-bold" />
              </div>
              <div>
-                <p className="text-xs uppercase font-medium tracking-wide text-slate-500 font-medium">Active</p>
-                <p className="text-3xl font-bold text-slate-900 font-bold mt-1">{stats.active}</p>
+                <p className="text-xs uppercase font-medium tracking-wide text-[var(--muted-text)] font-medium">Active</p>
+                <p className="text-3xl font-bold text-[var(--text-color)] font-bold mt-1">{stats.active}</p>
              </div>
           </motion.div>
           
@@ -235,8 +235,8 @@ export default function ViewUsers() {
                 <ShieldAlert className="w-8 h-8 text-purple-400" />
              </div>
              <div>
-                <p className="text-xs uppercase font-medium tracking-wide text-slate-500 font-medium">Admins</p>
-                <p className="text-3xl font-bold text-slate-900 font-bold mt-1">{stats.admins}</p>
+                <p className="text-xs uppercase font-medium tracking-wide text-[var(--muted-text)] font-medium">Admins</p>
+                <p className="text-3xl font-bold text-[var(--text-color)] font-bold mt-1">{stats.admins}</p>
              </div>
           </motion.div>
         </motion.section>
@@ -290,8 +290,8 @@ export default function ViewUsers() {
 
           {!isLoading && !error && users.length === 0 ? (
             <div className="text-center py-12">
-               <Users className="w-12 h-12 mx-auto text-slate-500 font-medium mb-4 opacity-50" />
-               <p className="text-slate-500 font-medium">No users found in the system.</p>
+               <Users className="w-12 h-12 mx-auto text-[var(--muted-text)] font-medium mb-4 opacity-50" />
+               <p className="text-[var(--muted-text)] font-medium">No users found in the system.</p>
             </div>
           ) : null}
 
@@ -312,11 +312,11 @@ export default function ViewUsers() {
                         <span className={`text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md ${getStatusStyle(user.status)}`}>
                           {user.status}
                         </span>
-                        <span className="text-xs text-slate-500 font-medium font-medium bg-white px-2 py-1 rounded-md mb-[2px]">
+                        <span className="text-xs text-[var(--muted-text)] font-medium font-medium bg-[var(--card-bg)] px-2 py-1 rounded-md mb-[2px]">
                            {user.role}
                         </span>
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold text-slate-900 font-bold group-hover:text-blue-300 transition-colors">
+                      <h3 className="text-lg md:text-xl font-bold text-[var(--text-color)] font-bold group-hover:text-blue-300 transition-colors">
                         {user.firstName} {user.lastName}
                       </h3>
                       <p className="text-sm text-[var(--text-color)]/60 font-medium mt-1">
@@ -330,7 +330,7 @@ export default function ViewUsers() {
 
                     <div className="w-full md:w-auto grid grid-cols-2 gap-3 z-10 shrink-0 ae-brand-card p-3 rounded-xl border border-[var(--ae-border)]">
                       <div>
-                        <label className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 font-medium mb-1" htmlFor={`role-${user.id}`}>
+                        <label className="block text-[10px] uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-1" htmlFor={`role-${user.id}`}>
                           Access Role
                         </label>
                         <select
@@ -348,7 +348,7 @@ export default function ViewUsers() {
                           style={{ backgroundImage: `url('data:image/svg+xml;utf8,<svg fill="none" stroke="%239CA3AF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>')`, backgroundPosition: 'right 0.5rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1em 1em', paddingRight: '2rem' }}
                         >
                           {ROLES.map((role) => (
-                            <option key={role} value={role} className="text-slate-800 bg-white">
+                            <option key={role} value={role} className="text-[var(--text-color)] bg-[var(--card-bg)]">
                               {role}
                             </option>
                           ))}
@@ -356,7 +356,7 @@ export default function ViewUsers() {
                       </div>
 
                       <div>
-                        <label className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 font-medium mb-1" htmlFor={`status-${user.id}`}>
+                        <label className="block text-[10px] uppercase tracking-wider font-bold text-[var(--muted-text)] font-medium mb-1" htmlFor={`status-${user.id}`}>
                           Account Status
                         </label>
                         <select
@@ -374,7 +374,7 @@ export default function ViewUsers() {
                           style={{ backgroundImage: `url('data:image/svg+xml;utf8,<svg fill="none" stroke="%239CA3AF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>')`, backgroundPosition: 'right 0.5rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1em 1em', paddingRight: '2rem' }}
                         >
                           {STATUSES.map((status) => (
-                            <option key={status} value={status} className="text-slate-800 bg-white">
+                            <option key={status} value={status} className="text-[var(--text-color)] bg-[var(--card-bg)]">
                               {status}
                             </option>
                           ))}

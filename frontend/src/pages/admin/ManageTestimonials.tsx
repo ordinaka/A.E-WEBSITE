@@ -233,7 +233,7 @@ export default function ManageTestimonials() {
   };
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-slate-50 text-slate-900 pb-20 overflow-hidden relative">
+    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] pb-20 overflow-hidden relative">
       
 
       <motion.div 
@@ -250,51 +250,51 @@ export default function ManageTestimonials() {
             <h1 className="text-3xl md:text-4xl font-black text-[var(--ae-plum-deep)]">
               Manage Testimonials
             </h1>
-            <p className="text-slate-500 font-medium text-sm md:text-base mt-2">
+            <p className="text-[var(--muted-text)] font-medium text-sm md:text-base mt-2">
               Review user feedback, moderate submissions, and highlight the best stories.
             </p>
           </div>
         </motion.section>
 
         <motion.section variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <motion.div variants={itemVariants} className="bg-white border border-slate-200 shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-amber-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-amber-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-amber-500/10 rounded-2xl border border-amber-500/20">
                 <Clock className="w-8 h-8 text-amber-400" />
              </div>
              <div>
-                <p className="text-xs uppercase font-medium tracking-wide text-slate-500 font-medium">Needs Review</p>
-                <p className="text-3xl font-bold text-slate-900 font-bold mt-1">{stats.pending}</p>
+                <p className="text-xs uppercase font-medium tracking-wide text-[var(--muted-text)] font-medium">Needs Review</p>
+                <p className="text-3xl font-bold text-[var(--text-color)] font-bold mt-1">{stats.pending}</p>
              </div>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="bg-white border border-slate-200 shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-emerald-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-emerald-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">
                 <ThumbsUp className="w-8 h-8 text-emerald-600 font-bold" />
              </div>
              <div>
-                <p className="text-xs uppercase font-medium tracking-wide text-slate-500 font-medium">Approved</p>
-                <p className="text-3xl font-bold text-slate-900 font-bold mt-1">{stats.approved}</p>
+                <p className="text-xs uppercase font-medium tracking-wide text-[var(--muted-text)] font-medium">Approved</p>
+                <p className="text-3xl font-bold text-[var(--text-color)] font-bold mt-1">{stats.approved}</p>
              </div>
           </motion.div>
           
-          <motion.div variants={itemVariants} className="bg-white border border-slate-200 shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-rose-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
+          <motion.div variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm backdrop-blur-xl border border-white/[0.08] hover:border-rose-500/30 transition-colors rounded-3xl p-6 shadow-xl flex items-center gap-4">
              <div className="p-4 bg-rose-500/10 rounded-2xl border border-rose-500/20">
                 <ThumbsDown className="w-8 h-8 text-red-500 font-bold" />
              </div>
              <div>
-                <p className="text-xs uppercase font-medium tracking-wide text-slate-500 font-medium">Rejected</p>
-                <p className="text-3xl font-bold text-slate-900 font-bold mt-1">{stats.rejected}</p>
+                <p className="text-xs uppercase font-medium tracking-wide text-[var(--muted-text)] font-medium">Rejected</p>
+                <p className="text-3xl font-bold text-[var(--text-color)] font-bold mt-1">{stats.rejected}</p>
              </div>
           </motion.div>
         </motion.section>
 
-        <motion.section variants={itemVariants} className="bg-white border border-slate-200 shadow-sm shadow-2xl rounded-3xl p-6 md:p-8 relative">
+        <motion.section variants={itemVariants} className="bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm shadow-2xl rounded-3xl p-6 md:p-8 relative">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <Quote className="w-6 h-6 text-indigo-400" />
               Submission Queue
             </h2>
-            <span className="bg-white/10 text-slate-900 font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+            <span className="bg-[var(--card-bg)]/10 text-[var(--text-color)] font-bold px-3 py-1 rounded-full text-xs font-bold tracking-wider">
                {testimonials.length} Total
             </span>
           </div>
@@ -347,8 +347,8 @@ export default function ManageTestimonials() {
           
           {!isLoading && !error && testimonials.length === 0 ? (
             <div className="text-center py-12">
-               <ShieldAlert className="w-12 h-12 mx-auto text-slate-500 font-medium mb-4 opacity-50" />
-               <p className="text-slate-500 font-medium">No testimonials submitted yet.</p>
+               <ShieldAlert className="w-12 h-12 mx-auto text-[var(--muted-text)] font-medium mb-4 opacity-50" />
+               <p className="text-[var(--muted-text)] font-medium">No testimonials submitted yet.</p>
             </div>
           ) : null}
 
@@ -364,7 +364,7 @@ export default function ManageTestimonials() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.98 }}
                       key={testimonial.id}
-                      className={`group bg-white border border-slate-200 shadow-sm hover:border-indigo-500/30 rounded-2xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col gap-4 ${isBusy ? 'opacity-50 pointer-events-none' : ''}`}
+                      className={`group bg-[var(--card-bg)] border border-[var(--ae-border)] shadow-sm hover:border-indigo-500/30 rounded-2xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col gap-4 ${isBusy ? 'opacity-50 pointer-events-none' : ''}`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                       
@@ -377,7 +377,7 @@ export default function ManageTestimonials() {
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 z-10">
                         <div className="flex-1">
                           <div className="flex flex-wrap items-center gap-2 mb-2">
-                            <h3 className="text-xl font-bold text-slate-900 font-bold group-hover:text-indigo-300 transition-colors">{testimonial.name}</h3>
+                            <h3 className="text-xl font-bold text-[var(--text-color)] font-bold group-hover:text-indigo-300 transition-colors">{testimonial.name}</h3>
                             <span className={`text-[10px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-md ${getStatusStyle(testimonial.status)}`}>
                               {testimonial.status}
                             </span>
@@ -387,14 +387,14 @@ export default function ManageTestimonials() {
                               </span>
                             ) : null}
                           </div>
-                          <p className="text-sm text-slate-500 font-medium mb-1">
+                          <p className="text-sm text-[var(--muted-text)] font-medium mb-1">
                             {testimonial.title || "No Title"}
                             {testimonial.company ? ` @ ${testimonial.company}` : ""}
                           </p>
-                          <div className="flex items-center gap-4 text-xs font-medium text-slate-500 font-medium">
+                          <div className="flex items-center gap-4 text-xs font-medium text-[var(--muted-text)] font-medium">
                              <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {new Date(testimonial.createdAt).toLocaleDateString()}</span>
                              {testimonial.user && (
-                                <span className="bg-white px-2 py-1 rounded-md text-slate-500 font-medium">Account: @{testimonial.user.username}</span>
+                                <span className="bg-[var(--card-bg)] px-2 py-1 rounded-md text-[var(--muted-text)] font-medium">Account: @{testimonial.user.username}</span>
                              )}
                           </div>
                         </div>
@@ -404,25 +404,25 @@ export default function ManageTestimonials() {
                               {[1, 2, 3, 4, 5].map((star) => (
                                 <Star
                                   key={star}
-                                  className={`w-4 h-4 ${star <= (testimonial.rating || 0) ? 'fill-amber-400 text-amber-400' : 'text-slate-400'}`}
+                                  className={`w-4 h-4 ${star <= (testimonial.rating || 0) ? 'fill-amber-400 text-amber-400' : 'text-[var(--muted-text)]/60'}`}
                                 />
                               ))}
                            </div>
                         ) : null}
                       </div>
 
-                      <div className="relative p-6 bg-black/20 rounded-xl border border-slate-100 mt-2 z-10 italic text-slate-600 font-medium leading-relaxed font-serif">
+                      <div className="relative p-6 bg-black/20 rounded-xl border border-slate-100 mt-2 z-10 italic text-[var(--muted-text)] font-medium leading-relaxed font-serif">
                          <Quote className="w-8 h-8 text-indigo-500/20 absolute top-2 left-2 rotate-180" />
                          <p className="relative z-10 pt-2 pl-4 text-lg">"{testimonial.content}"</p>
                       </div>
 
-                      <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-200 z-10">
+                      <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-[var(--ae-border)] z-10">
                         {testimonial.status !== "APPROVED" && (
                            <button
                              type="button"
                              disabled={isBusy}
                              onClick={() => void updateStatus(testimonial, "APPROVED", false)}
-                             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 text-emerald-600 font-bold hover:bg-emerald-500 hover:text-slate-900 font-bold transition-all font-medium text-sm group/btn border border-emerald-500/20"
+                             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 text-emerald-600 font-bold hover:bg-emerald-500 hover:text-[var(--text-color)] font-bold transition-all font-medium text-sm group/btn border border-emerald-500/20"
                            >
                              <Check className="w-4 h-4 group-hover/btn:scale-110 transition-transform" /> Approve
                            </button>
@@ -433,7 +433,7 @@ export default function ManageTestimonials() {
                              type="button"
                              disabled={isBusy}
                              onClick={() => void updateStatus(testimonial, "REJECTED", false)}
-                             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-slate-900 font-bold transition-all font-medium text-sm group/btn border border-rose-500/20"
+                             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-rose-500/10 text-red-500 font-bold hover:bg-rose-500 hover:text-[var(--text-color)] font-bold transition-all font-medium text-sm group/btn border border-rose-500/20"
                            >
                              <X className="w-4 h-4 group-hover/btn:scale-110 transition-transform" /> Reject
                            </button>
@@ -444,7 +444,7 @@ export default function ManageTestimonials() {
                              type="button"
                              disabled={isBusy}
                              onClick={() => void updateStatus(testimonial, testimonial.status, !testimonial.isFeatured)}
-                             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-slate-900 font-bold transition-all font-medium text-sm group/btn border border-purple-500/20"
+                             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-[var(--text-color)] font-bold transition-all font-medium text-sm group/btn border border-purple-500/20"
                            >
                              <Star className={`w-4 h-4 group-hover/btn:scale-110 transition-transform ${testimonial.isFeatured ? 'fill-current' : ''}`} /> 
                              {testimonial.isFeatured ? "Remove Featured" : "Make Featured"}
