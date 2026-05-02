@@ -44,7 +44,7 @@ export default function CTAFooter() {
         <div className="grid md:grid-cols-2 items-center">
 
           {/* TEXT */}
-          <div className="max-w-md mr-6 ml-50 order-2 md:order-1 bg-[#F8FAFC] p-8 rounded-2xl border border-gray-100 shadow-sm">
+          <div className="max-w-md bg-[#F8FAFC] p-8 rounded-2xl border border-gray-100 shadow-sm order-2 md:order-1">
             <h3 className="text-xl font-semibold mb-3 text-left text-[var(--ae-plum-deep)]">
               Transform your life through education
             </h3>
@@ -112,12 +112,7 @@ export default function CTAFooter() {
               </ul>
             </div>
 
-            {/* BUTTON */}
-            <div className="flex md:justify-end items-start">
-              <button className="ae-brand-button px-6 py-2 rounded-full text-sm border-none">
-                Log Out
-              </button>
-            </div>
+
 
           </div>
 

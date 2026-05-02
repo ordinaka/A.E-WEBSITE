@@ -60,13 +60,7 @@ function Footer() {
               </ul>
             </div>
 
-            {/* Button */}
-            {/* Button */}
-            <div className="flex md:justify-end mt-4 md:mt-0">
-              <button className="ae-brand-button px-6 py-2 md:px-7 md:py-3 rounded-full text-xs md:text-sm transition border-none">
-                Log Out
-              </button>
-            </div>
+
           </div>
           <div className="line max-w-250 mx-auto my-14 w-full h-0.5 bg-gray-200"></div>
 

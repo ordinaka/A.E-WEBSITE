@@ -20,7 +20,7 @@ const TopCourses = () => {
     <section className="mt-24">
 
       <div className="flex justify-between items-center mb-10">
-        <h2 className="text-white text-xl font-semibold">Top Courses</h2>
+        <h2 className="text-[var(--ae-plum-deep)] text-xl font-semibold">Top Courses</h2>
         <span className="text-sm text-gray-400 cursor-pointer">See All</span>
       </div>
 

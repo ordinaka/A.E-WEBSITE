@@ -69,8 +69,10 @@ function Navbar() {
                   <NavLink 
                     to="/login" 
                     className={({ isActive }) => 
-                      `text-sm font-bold transition-colors ${
-                        isActive ? "text-[var(--ae-blue)]" : "text-slate-500 hover:text-[var(--ae-blue)]"
+                      `text-sm font-bold transition-all duration-300 relative px-1 ${
+                        isActive 
+                          ? "text-[var(--ae-blue)] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-[var(--ae-blue)]" 
+                          : "text-slate-500 hover:text-[var(--ae-blue)]"
                       }`
                     }
                   >
@@ -79,8 +81,10 @@ function Navbar() {
                   <NavLink 
                     to="/signup" 
                     className={({ isActive }) => 
-                      `text-sm px-4 py-2 font-bold text-white rounded-full transition-colors ${
-                        isActive ? "bg-[var(--ae-blue)] text-white shadow-lg" : "ae-brand-button"
+                      `text-sm px-5 py-2.5 font-bold rounded-full transition-all duration-300 shadow-sm ${
+                        isActive 
+                          ? "bg-[var(--ae-plum-deep)] text-white ring-2 ring-[var(--ae-blue)]/50 ring-offset-2" 
+                          : "ae-brand-button text-white hover:shadow-lg"
                       }`
                     }
                   >

@@ -14,7 +14,7 @@ const TopInstructors = () => {
     <section className="mt-24">
 
       <div className="flex justify-between items-center mb-10">
-        <h2 className="text-white text-xl font-semibold">Top Instructors</h2>
+        <h2 className="text-[var(--ae-plum-deep)] text-xl font-semibold">Top Instructors</h2>
         <span className="text-sm text-gray-400 cursor-pointer">See All</span>
       </div>
 
@@ -26,7 +26,7 @@ const TopInstructors = () => {
               className="w-full h-32 object-cover rounded-lg mb-3"
             />
 
-            <h3 className="text-white text-sm font-medium">
+            <h3 className="text-[var(--ae-plum-deep)] text-sm font-medium">
               {inst.name}
             </h3>
 

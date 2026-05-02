@@ -27,7 +27,7 @@ const TopCategories: FC = () => {
     <section>
       <div className="flex justify-between items-center mb-10">
         <div>
-          <h2 className="text-white text-2xl font-bold">Top Categories</h2>
+          <h2 className="text-[var(--ae-plum-deep)] text-2xl font-bold">Top Categories</h2>
           <p className="text-gray-500 text-sm mt-1">Browse by what interests you most</p>
         </div>
         <button className="text-sm text-purple-400 hover:text-purple-300 transition-colors font-medium flex items-center gap-1">
@@ -58,7 +58,7 @@ const TopCategories: FC = () => {
                 <Icon className="w-7 h-7 text-white/80" />
               </div>
               <div className="text-center">
-                <h3 className="text-white font-semibold text-sm group-hover:text-white transition-colors">{cat.title}</h3>
+                <h3 className="text-[var(--ae-plum-deep)] font-semibold text-sm group-hover:text-[var(--ae-blue)] transition-colors">{cat.title}</h3>
                 <p className="text-gray-500 text-xs mt-0.5">{cat.courses}</p>
               </div>
             </motion.div>
