@@ -46,7 +46,7 @@ const InputField = ({
   extra?: React.ReactNode;
 }) => (
   <div className="space-y-1.5">
-    <label htmlFor={id} className="block text-xs font-bold text-slate-600 uppercase tracking-wider">
+    <label htmlFor={id} className="block text-xs font-bold text-[var(--text-color)]/60 uppercase tracking-wider italic">
       {label}
     </label>
     <div className="relative">
@@ -57,7 +57,7 @@ const InputField = ({
         value={value}
         onChange={onChange}
         autoComplete={id}
-        className="w-full rounded-2xl bg-slate-50 border border-slate-200 focus:border-[var(--ae-blue)] focus:bg-white focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] outline-none px-4 py-3.5 text-slate-900 placeholder:text-slate-400 transition-all font-medium text-sm shadow-sm pr-12"
+        className="w-full rounded-2xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] outline-none px-4 py-3.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/30 transition-all font-medium text-sm shadow-sm pr-12"
       />
       {extra}
     </div>
@@ -150,7 +150,7 @@ const Signup = (): ReactElement => {
     <button
       type="button"
       onClick={onToggle}
-      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+      className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-color)]/30 hover:text-[var(--ae-blue)] transition-colors"
       aria-label={show ? "Hide password" : "Show password"}
     >
       {show ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
@@ -158,25 +158,26 @@ const Signup = (): ReactElement => {
   );
 
   return (
-    <div className="min-h-screen w-full flex items-stretch overflow-hidden bg-slate-50">
+    <div className="min-h-screen w-full flex items-stretch overflow-hidden ae-brand-page font-outfit">
       {/* ── Left: Form Panel ── */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24 z-10 bg-slate-50">
-        <div className="w-full max-w-xl bg-white shadow-[0_8px_40px_rgba(37,29,63,0.05)] border border-slate-200 rounded-[28px] p-6 sm:p-8 md:p-10">
+      <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24 z-10">
+        <div className="w-full max-w-xl ae-brand-card shadow-2xl border border-[var(--ae-border)] rounded-[2.5rem] p-6 sm:p-8 md:p-10 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--ae-blue)]/5 rounded-bl-[4rem] -mr-16 -mt-16 pointer-events-none" />
 
           {/* Brand */}
           <div className="mb-8">
             <div className="inline-flex items-center gap-3 mb-2">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--ae-blue)] to-[var(--ae-plum)] flex items-center justify-center shadow-md">
+              <div className="w-9 h-9 rounded-xl ae-brand-button flex items-center justify-center shadow-lg">
                 <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
               </div>
-              <span className="text-[var(--ae-plum-deep)] font-extrabold text-lg tracking-tight">A.E Platform</span>
+              <span className="text-[var(--text-color)] font-black text-lg tracking-tight uppercase">A.E Platform</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--ae-plum-deep)] mt-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl font-black text-[var(--text-color)] mt-6 leading-tight italic tracking-tight">
               Create your account ✨
             </h1>
-            <p className="text-slate-600 font-medium mt-2 text-sm">Join thousands of learners today. It's free.</p>
+            <p className="text-[var(--text-color)]/60 font-medium mt-2 text-sm italic">Join thousands of learners today. It's free.</p>
           </div>
 
           {/* ── Success State ── */}
@@ -185,9 +186,9 @@ const Signup = (): ReactElement => {
               <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mb-4">
                 <FiCheckCircle className="w-8 h-8 text-emerald-400" />
               </div>
-              <h2 className="text-xl font-bold text-white mb-2">Account Created! 🎉</h2>
-              <p className="text-gray-400 text-sm mb-1">Please check your email to verify your account.</p>
-              <p className="text-gray-600 text-xs">Redirecting to login…</p>
+              <h2 className="text-xl font-bold text-[var(--text-color)] mb-2">Account Created! 🎉</h2>
+              <p className="text-[var(--text-color)]/60 text-sm mb-1 font-light">Please check your email to verify your account.</p>
+              <p className="text-[var(--text-color)]/40 text-xs animate-pulse font-medium">Redirecting to login…</p>
             </div>
           ) : (
             <>
@@ -196,43 +197,43 @@ const Signup = (): ReactElement => {
                 {/* Google — real OAuth */}
                 <a
                   href={`${API_BASE}/auth/google`}
-                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-4 py-3 transition-colors group"
+                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-[var(--ae-border)] bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 shadow-sm px-4 py-3 transition-all group"
                 >
                   <FaGoogle className="text-[#EA4335]" />
-                  <span className="text-sm font-bold text-slate-700 transition-colors">Google</span>
+                  <span className="text-sm font-bold text-[var(--text-color)]/80 transition-colors">Google</span>
                 </a>
                 {/* Facebook — coming soon */}
                 <button
                   type="button"
                   onClick={() => setError("Facebook login coming soon! Use Google or email for now.")}
-                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-4 py-3 transition-colors group"
+                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-[var(--ae-border)] bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 shadow-sm px-4 py-3 transition-all group"
                 >
                   <FaFacebook className="text-[#0866FF]" />
-                  <span className="text-sm font-bold text-slate-700 transition-colors">Facebook</span>
+                  <span className="text-sm font-bold text-[var(--text-color)]/80 transition-colors">Facebook</span>
                 </button>
                 {/* Microsoft — coming soon */}
                 <button
                   type="button"
                   onClick={() => setError("Microsoft login coming soon! Use Google or email for now.")}
-                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 shadow-sm px-4 py-3 transition-colors group"
+                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-[var(--ae-border)] bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 shadow-sm px-4 py-3 transition-all group"
                 >
                   <FaMicrosoft className="text-[#00A4EF]" />
-                  <span className="text-sm font-bold text-slate-700 transition-colors">Microsoft</span>
+                  <span className="text-sm font-bold text-[var(--text-color)]/80 transition-colors">Microsoft</span>
                 </button>
               </div>
 
               {/* ── Divider ── */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="flex-1 h-px bg-slate-200" />
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">or register with email</span>
-                <div className="flex-1 h-px bg-slate-200" />
+                <div className="flex-1 h-px bg-[var(--ae-border)]" />
+                <span className="text-xs font-bold text-[var(--text-color)]/30 uppercase tracking-widest whitespace-nowrap italic">or register with email</span>
+                <div className="flex-1 h-px bg-[var(--ae-border)]" />
               </div>
 
               {/* ── Error Alert ── */}
               {error && (
-                <div className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-2xl px-4 py-3 mb-5">
+                <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 rounded-2xl px-4 py-3 mb-5">
                   <FiAlertCircle className="w-5 h-5 text-red-500 shrink-0" />
-                  <p className="text-sm font-medium text-red-800">{error}</p>
+                  <p className="text-sm font-medium text-red-500">{error}</p>
                 </div>
               )}
 
@@ -244,7 +245,7 @@ const Signup = (): ReactElement => {
                     id="firstName"
                     label="First Name"
                     type="text"
-                    placeholder="Enter your first name"
+                    placeholder="Enter first name"
                     value={data.firstName}
                     onChange={handleInputChange("firstName")}
                   />
@@ -252,7 +253,7 @@ const Signup = (): ReactElement => {
                     id="lastName"
                     label="Last Name"
                     type="text"
-                    placeholder="Enter your last name"
+                    placeholder="Enter last name"
                     value={data.lastName}
                     onChange={handleInputChange("lastName")}
                   />
@@ -263,7 +264,7 @@ const Signup = (): ReactElement => {
                   id="username"
                   label="Username"
                   type="text"
-                  placeholder="Enter your username"
+                  placeholder="Choose username"
                   value={data.username}
                   onChange={handleInputChange("username")}
                 />
@@ -273,7 +274,7 @@ const Signup = (): ReactElement => {
                   id="email"
                   label="Email Address"
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder="Enter email address"
                   value={data.email}
                   onChange={handleInputChange("email")}
                 />
@@ -308,14 +309,11 @@ const Signup = (): ReactElement => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-2xl bg-[var(--ae-plum-deep)] text-white shadow-md hover:shadow-lg font-bold py-4 mt-2 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full rounded-2xl ae-brand-button text-white shadow-xl hover:shadow-2xl font-bold py-4 mt-2 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:-translate-y-1 active:translate-y-0"
                 >
                   {loading ? (
                     <>
-                      <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       Creating Account…
                     </>
                   ) : (
@@ -325,9 +323,9 @@ const Signup = (): ReactElement => {
               </form>
 
               {/* Footer */}
-              <p className="mt-8 text-center text-sm font-medium text-slate-600">
+              <p className="mt-8 text-center text-sm font-medium text-[var(--text-color)]/60 italic">
                 Already have an account?{" "}
-                <Link to="/login" className="text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] font-bold transition-colors">
+                <Link to="/login" className="text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] font-black transition-colors">
                   Sign in
                 </Link>
               </p>
@@ -339,40 +337,38 @@ const Signup = (): ReactElement => {
       {/* ── Right: Image Panel ── */}
       <div className="hidden lg:block relative w-[42%] xl:w-[48%] shrink-0">
         {/* Gradient overlays */}
-        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-slate-50 via-slate-50/50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-[var(--bg-color)] via-[var(--bg-color)]/50 to-transparent z-10 pointer-events-none" />
 
         <img
           src={classImg}
           alt="Students learning"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover grayscale-[0.2]"
         />
 
         {/* Floating stats card */}
         <div className="absolute top-12 right-10 z-20">
-          <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-white p-5 shadow-xl min-w-[180px]">
-            <p className="text-4xl font-black text-[var(--ae-plum-deep)]">2.4k+</p>
-            <p className="text-slate-600 font-medium text-sm mt-1">Active learners</p>
+          <div className="ae-brand-card backdrop-blur-md rounded-3xl border border-[var(--ae-border)] p-6 shadow-2xl min-w-[200px] hover:scale-105 transition-transform">
+            <p className="text-4xl font-black text-[var(--ae-blue)] italic tracking-tighter">2.4k+</p>
+            <p className="text-[var(--text-color)]/60 font-bold text-xs uppercase tracking-widest mt-1">Active learners</p>
             <div className="flex items-center gap-1 mt-3">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 24 24">
+                <svg key={i} className="w-4 h-4 text-amber-500 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
               ))}
-              <span className="text-slate-700 font-bold text-xs ml-1">5.0</span>
+              <span className="text-[var(--text-color)] font-black text-xs ml-1 font-outfit">5.0 Rating</span>
             </div>
           </div>
         </div>
 
         {/* Floating bottom badge */}
-        <div className="absolute bottom-12 right-10 z-20 max-w-[220px]">
-          <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-white p-5 shadow-xl">
-            <div className="w-10 h-10 rounded-xl bg-[var(--ae-blue)]/10 border border-[var(--ae-blue)]/20 flex items-center justify-center mb-3">
-              <svg className="w-5 h-5 text-[var(--ae-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-              </svg>
+        <div className="absolute bottom-12 right-10 z-20 max-w-[240px]">
+          <div className="ae-brand-card backdrop-blur-md rounded-3xl border border-[var(--ae-border)] p-6 shadow-2xl hover:scale-105 transition-transform">
+            <div className="w-12 h-12 rounded-xl bg-[var(--ae-blue)]/10 border border-[var(--ae-blue)]/20 flex items-center justify-center mb-4">
+              <FiCheckCircle size={24} className="text-[var(--ae-blue)]" />
             </div>
-            <p className="text-[var(--ae-plum-deep)] font-bold text-sm">Certified Learning</p>
-            <p className="text-slate-600 font-medium text-xs mt-1">Earn certificates upon completion</p>
+            <p className="text-[var(--text-color)] font-black text-lg italic tracking-tight mb-1">Certified Growth</p>
+            <p className="text-[var(--text-color)]/60 font-medium text-xs leading-relaxed">Earn blockchain-verified certificates upon cohort completion</p>
           </div>
         </div>
       </div>
