@@ -6,23 +6,16 @@ const InternshipModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Check if the user has already seen and dismissed the modal
-    const hasSeenModal = localStorage.getItem('hasSeenInternship2026Modal');
-    
-    if (!hasSeenModal) {
-      // Show the modal after a 2-second delay
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 2000);
+    // Show the modal after a 2-second delay on every visit as requested
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 2000);
 
-      return () => clearTimeout(timer);
-    }
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
     setIsOpen(false);
-    // Mark as seen so it doesn't show again in this session/browser
-    localStorage.setItem('hasSeenInternship2026Modal', 'true');
   };
 
   return (
