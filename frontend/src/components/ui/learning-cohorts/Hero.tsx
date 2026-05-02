@@ -14,13 +14,28 @@ const cohorts = [
   { title: "Algorithm Basics", icon: Binary },
 ];
 
+const bgPath = "/background.jpg";
+
 function Hero() {
   return (
-    <section className="w-full pt-48 pb-16 relative overflow-hidden flex flex-col items-center ae-brand-page font-outfit">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[var(--ae-blue)]/10 blur-[220px] rounded-full" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-color)] via-transparent to-transparent" />
+    <section className="w-full pt-48 pb-16 relative overflow-hidden flex flex-col items-center font-outfit min-h-screen">
+      {/* ── Rich Background (Same as About Page) ── */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url('${bgPath}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <div className="absolute inset-0 bg-[var(--bg-color)]/90 pointer-events-none" />
+      </div>
+
+      {/* ── Brand Glows ── */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[var(--ae-blue)]/20 blur-[220px] rounded-full" />
+        <div className="absolute bottom-0 left-0 w-full h-[50%] bg-gradient-to-t from-[var(--bg-color)] to-transparent" />
       </div>
 
       <div className="relative w-full max-w-5xl px-6 text-center z-10">
@@ -62,7 +77,7 @@ function Hero() {
       </div>
 
       {/* ── Animated Swiper Carousel ── */}
-      <div className="relative w-full flex justify-center items-center min-h-[300px] sm:min-h-[500px]">
+      <div className="relative w-full flex justify-center items-center min-h-[300px] sm:min-h-[500px] z-10">
         {/* Center fixed AE logo */}
         <div className="absolute z-20 top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
           <div className="relative flex h-[180px] w-[180px] items-center justify-center rounded-full bg-[var(--ae-blue)] shadow-[0_0_56px_rgba(51,65,143,0.3)] sm:h-[245px] sm:w-[245px] md:h-72 md:w-72">
