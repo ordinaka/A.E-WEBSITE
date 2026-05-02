@@ -298,7 +298,7 @@ const HomePage = () => {
           />
 
           <div className="relative z-10 mx-auto max-w-7xl">
-            <h2 className="text-4xl md:text-6xl text-start text-[var(--ae-plum-deep)] font-semibold sm:text-3xl mb-6 sm:mb-8 md:mb-10">
+            <h2 className="text-4xl md:text-6xl text-start text-[var(--text-color)] font-semibold sm:text-3xl mb-6 sm:mb-8 md:mb-10">
               The Guru Circle
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 md:flex-row gap-6 md:gap-0 py-2">
@@ -310,7 +310,7 @@ const HomePage = () => {
                 />
               </div>
               <div className="w-full p-3 sm:p-5 h-full flex flex-col justify-center">
-                <div className="py-6 sm:py-8 md:py-10 text-[var(--ae-plum-deep)]/75 text-base font-normal leading-relaxed lg:text-2xl text-justify">
+                <div className="py-6 sm:py-8 md:py-10 text-[var(--text-color)]/80 text-base font-normal leading-relaxed lg:text-2xl text-justify">
                   <p className="mb-4 sm:mb-5">
                     An exclusive forum section where members who have advanced
                     in their AI journey (Gurus) can share their knowledge,

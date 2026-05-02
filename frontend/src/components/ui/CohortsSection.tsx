@@ -79,7 +79,7 @@ export default function CohortsSection() {
             {/* Center fixed person */}
             <div className="absolute z-20 top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center px-3 sm:px-0">
               <div className="relative flex h-[140px] w-[140px] items-center justify-center rounded-full bg-[var(--ae-blue)] shadow-[0_0_40px_var(--ae-lavender)] sm:h-[180px] sm:w-[180px] md:h-[245px] md:w-[245px] md:shadow-[0_0_56px_var(--ae-lavender)] lg:h-72.75 lg:w-72.75 lg:shadow-[0_0_94px_var(--ae-lavender)]">
-                <div className="relative flex h-[110px] w-[110px] items-center justify-center overflow-hidden rounded-full bg-white shadow-[0_0_24px_rgba(0,19,34,0.08)] sm:h-[145px] sm:w-[145px] md:h-[205px] md:w-[205px] md:shadow-[0_0_32px_rgba(0,19,34,0.08)] lg:h-61.25 lg:w-61.25 lg:shadow-[0_0_51.2px_rgba(0,19,34,0.08)]">
+                <div className="relative flex h-[110px] w-[110px] items-center justify-center overflow-hidden rounded-full ae-brand-card shadow-[0_0_24px_rgba(0,19,34,0.08)] sm:h-[145px] sm:w-[145px] md:h-[205px] md:w-[205px] md:shadow-[0_0_32px_rgba(0,19,34,0.08)] lg:h-61.25 lg:w-61.25 lg:shadow-[0_0_51.2px_rgba(0,19,34,0.08)]">
                   <img
                     src="/favicon.png"
                     alt="center-person"

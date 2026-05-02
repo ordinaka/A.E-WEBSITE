@@ -38,13 +38,13 @@ const InternshipModal: React.FC = () => {
             {/* Close Button */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 z-10 p-2 text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors md:text-[var(--text-color)] md:bg-transparent md:hover:bg-slate-100/10"
+              className="absolute top-4 right-4 z-10 p-2 text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors md:text-[var(--text-color)] md:bg-transparent md:hover:bg-[var(--ae-blue)]/10"
             >
               <X size={24} />
             </button>
 
             {/* Image Side */}
-            <div className="w-full md:w-1/2 h-[200px] md:h-auto overflow-hidden bg-slate-100">
+            <div className="w-full md:w-1/2 h-[200px] md:h-auto overflow-hidden bg-[var(--bg-color)]/50">
               <img
                 src="/internship-2026.jpg"
                 alt="AE 2026 Internship"
@@ -60,17 +60,17 @@ const InternshipModal: React.FC = () => {
             <div className="w-full md:w-1/2 p-5 md:p-12 flex flex-col justify-center overflow-y-auto md:overflow-y-visible">
               <div className="space-y-4 md:space-y-6">
                 <div>
-                  <span className="inline-block px-3 py-1 text-xs font-bold tracking-wider text-[var(--ae-blue)] uppercase bg-blue-50 rounded-full mb-2 md:mb-3">
+                  <span className="inline-block px-3 py-1 text-xs font-bold tracking-wider text-[var(--ae-blue)] uppercase bg-[var(--ae-blue)]/10 rounded-full mb-2 md:mb-3">
                     Applications Open
                   </span>
-                  <h2 className="text-2xl md:text-4xl font-black text-[var(--ae-plum-deep)] leading-tight">
+                  <h2 className="text-2xl md:text-4xl font-black text-[var(--text-color)] leading-tight">
                     AE 2026 <span className="text-[var(--ae-peach)]">Internship</span>
                   </h2>
                 </div>
 
-                <div className="space-y-3 md:space-y-4 text-slate-600">
+                <div className="space-y-3 md:space-y-4 text-[var(--text-color)]/70">
                   <p className="font-medium text-sm md:text-lg">
-                    Level up your skills in <span className="text-slate-900 font-bold">Full Stack Web Dev</span> and <span className="text-slate-900 font-bold">Artificial Intelligence</span>.
+                    Level up your skills in <span className="text-[var(--text-color)] font-bold">Full Stack Web Dev</span> and <span className="text-[var(--text-color)] font-bold">Artificial Intelligence</span>.
                   </p>
                   
                   <ul className="space-y-1.5 md:space-y-2">
@@ -100,7 +100,7 @@ const InternshipModal: React.FC = () => {
                   </a>
                   <button
                     onClick={handleClose}
-                    className="flex-1 inline-flex items-center justify-center px-4 md:px-6 py-3.5 md:py-4 text-slate-500 font-bold text-xs sm:text-sm md:text-base hover:bg-slate-50 rounded-xl transition-colors border border-slate-100 min-h-[44px] md:min-h-auto"
+                    className="flex-1 inline-flex items-center justify-center px-4 md:px-6 py-3.5 md:py-4 text-[var(--text-color)]/60 font-bold text-xs sm:text-sm md:text-base hover:bg-[var(--ae-blue)]/5 rounded-xl transition-colors border border-[var(--ae-border)] min-h-[44px] md:min-h-auto"
                   >
                     Later
                   </button>

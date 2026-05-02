@@ -134,7 +134,7 @@ export default function ModulesPage() {
           {/* Empty */}
           {!isLoading && !error && modules.length === 0 && (
             <FadeInWhenVisible>
-              <div className="text-center py-24 bg-white border border-[var(--ae-border)] rounded-2xl shadow-sm">
+              <div className="text-center py-24 ae-brand-card border border-[var(--ae-border)] rounded-2xl shadow-sm">
                 <BookOpen className="w-12 h-12 text-gray-400 mx-auto mb-4 opacity-50" />
                 <p className="text-gray-500">No modules published yet. Check back soon.</p>
               </div>
@@ -146,12 +146,12 @@ export default function ModulesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {modules.map((mod, idx) => (
                 <FadeInWhenVisible delay={0.08 * idx} key={mod.id}>
-                  <div className="bg-white border border-[var(--ae-border)] rounded-2xl overflow-hidden hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full shadow-sm hover:shadow-lg">
+                  <div className="ae-brand-card border border-[var(--ae-border)] rounded-2xl overflow-hidden hover:bg-[var(--ae-blue)]/5 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full shadow-sm hover:shadow-lg">
 
                     {/* Gradient banner */}
                     <div className="relative h-40 w-full overflow-hidden bg-[var(--ae-blue)]/5">
                       {/* Order badge */}
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm border border-[var(--ae-border)] py-1 px-3 rounded-full flex items-center gap-1.5 shadow-sm">
+                      <div className="absolute top-4 left-4 ae-brand-card border border-[var(--ae-border)] py-1 px-3 rounded-full flex items-center gap-1.5 shadow-sm">
                         <span className="text-[var(--text-color)] text-xs font-bold">#{String(mod.order).padStart(2, "0")}</span>
                       </div>
 
@@ -161,7 +161,7 @@ export default function ModulesPage() {
                         </div>
                       )}
 
-                      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-white to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[var(--bg-color)] to-transparent" />
                     </div>
 
                     {/* Content */}
@@ -174,7 +174,7 @@ export default function ModulesPage() {
                       </p>
 
                       {/* Stats row */}
-                      <div className="flex items-center gap-4 text-xs text-gray-500 mb-6">
+                      <div className="flex items-center gap-4 text-xs text-[var(--text-color)]/50 mb-6">
                         {mod.estimatedMinutes && (
                           <span className="flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5" />
