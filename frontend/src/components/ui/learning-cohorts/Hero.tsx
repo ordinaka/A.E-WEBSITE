@@ -47,7 +47,7 @@ function Hero() {
 
         {/* Title */}
         <h1 className="text-5xl md:text-8xl font-black leading-[0.9] mb-8 text-[var(--text-color)] italic tracking-tighter uppercase">
-          Elite <span className="text-[var(--ae-blue)]">Cohorts</span>
+          Learning <span className="text-[var(--ae-blue)]">Cohorts</span>
         </h1>
 
         <p className="text-[var(--text-color)]/60 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-medium italic">
