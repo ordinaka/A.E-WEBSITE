@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
-import { Search, ArrowRight, Palette, Server, Code, Brain, BarChart3, Binary, Rocket } from "lucide-react";
+import { Search, Palette, Server, Code, Brain, BarChart3, Binary, Rocket } from "lucide-react";
 
 const FadeInWhenVisible = ({
   children,
