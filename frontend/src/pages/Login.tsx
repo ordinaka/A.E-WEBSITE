@@ -4,7 +4,7 @@ import { useAuth } from "../context/useAuth";
 import { apiFetch } from "../lib/api";
 import loginImg from "/login_mage.png";
 import { FaGoogle, FaFacebook, FaMicrosoft } from "react-icons/fa";
-import { FiEye, FiEyeOff, FiAlertCircle, FiCheckCircle } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiAlertCircle } from "react-icons/fi";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
@@ -168,7 +168,7 @@ const Login = (): ReactElement => {
                 <label htmlFor="password" className="block text-xs font-bold text-[var(--text-color)]/60 uppercase tracking-wider italic">
                   Password
                 </label>
-                <Link to="/forgot-password" size="sm" className="text-xs text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors font-bold italic">
+                <Link to="/forgot-password" className="text-xs text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors font-bold italic">
                   Forgot password?
                 </Link>
               </div>

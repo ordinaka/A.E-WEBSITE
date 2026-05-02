@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ae-auth-card {
-  background: #FFFFFF;
+  background: var(--card-bg);
   border: 1px solid var(--ae-border);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
@@ -165,9 +165,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   background: linear-gradient(
     to right,
-    #FFFFFF 0%,
-    rgba(255, 255, 255, 0.82) 35%,
-    rgba(255, 255, 255, 0) 100%
+    var(--bg-color) 0%,
+    transparent 100%
   );
 }
 
@@ -175,9 +174,8 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   background: linear-gradient(
     to left,
-    #FFFFFF 0%,
-    rgba(255, 255, 255, 0.82) 35%,
-    rgba(255, 255, 255, 0) 100%
+    var(--bg-color) 0%,
+    transparent 100%
   );
 
 }
