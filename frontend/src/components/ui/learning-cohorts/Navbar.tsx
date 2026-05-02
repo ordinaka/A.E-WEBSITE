@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import favicon from "../learning-cohorts/images/favicon.png";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/useAuth";
@@ -7,6 +7,15 @@ import { HiMenu, HiX } from "react-icons/hi";
 function Navbar() {
   const { isLoggedIn, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -43,9 +52,13 @@ function Navbar() {
   const navLinks = !isLoggedIn ? publicLinks : isAdmin ? adminLinks : authenticatedLinks;
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-4">
+    <header className={`fixed top-0 left-0 w-full z-50 flex justify-center px-4 transition-all duration-300 ${isScrolled ? "pt-2" : "pt-4"}`}>
       <div className="w-full max-w-7xl relative">
-        <div className="w-full flex items-center justify-between px-6 py-3 rounded-full ae-brand-card backdrop-blur-xl">
+        <div className={`w-full flex items-center justify-between px-6 py-3 rounded-full border transition-all duration-300 ${
+          isScrolled 
+            ? "bg-white/90 backdrop-blur-md border-[var(--ae-blue)]/20 shadow-lg" 
+            : "ae-brand-card backdrop-blur-xl border-transparent"
+        }`}>
 
           {/* LOGO */}
           <Link to="/" onClick={closeMenu}>

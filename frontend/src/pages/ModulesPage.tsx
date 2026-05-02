@@ -198,7 +198,7 @@ export default function ModulesPage() {
                           <span className="absolute inset-0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
                           <Lock size={15} className="shrink-0 opacity-80" />
                           <span>Login to Start</span>
-                          <ChevronRight size={15} className="ml-auto group-hover/btn:translate-x-1 transition-transform duration-200" />
+                          <ChevronRight size={15} className="absolute right-5 group-hover/btn:translate-x-1 transition-transform duration-200" />
                         </Link>
                         <p className="text-center text-[11px] font-bold tracking-wide uppercase text-slate-400">
                           Free to join · No credit card needed
