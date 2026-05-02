@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { FiSearch } from "react-icons/fi";
-import { Palette, Server, Code, Brain, BarChart3, Binary, ArrowRight, Rocket } from "lucide-react";
+import { Palette, Server, Code, Brain, BarChart3, Binary, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import favicon from "../learning-cohorts/images/favicon.png";
 
