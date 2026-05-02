@@ -93,10 +93,10 @@ export default function ModulesPage() {
 
           <FadeInWhenVisible>
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h1 className="text-[var(--ae-plum-deep)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6">
+              <h1 className="text-[var(--text-color)] text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight drop-shadow-sm mb-6">
                 Learning Modules
               </h1>
-              <p className="text-[var(--ae-plum-deep)]/80 text-lg md:text-xl leading-relaxed">
+              <p className="text-[var(--text-color)]/80 text-lg md:text-xl leading-relaxed">
                 Explore our comprehensive curriculum designed to take you from beginner to engineering expert.
               </p>
             </div>
@@ -152,7 +152,7 @@ export default function ModulesPage() {
                     <div className="relative h-40 w-full overflow-hidden bg-[var(--ae-blue)]/5">
                       {/* Order badge */}
                       <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm border border-[var(--ae-border)] py-1 px-3 rounded-full flex items-center gap-1.5 shadow-sm">
-                        <span className="text-[var(--ae-plum-deep)] text-xs font-bold">#{String(mod.order).padStart(2, "0")}</span>
+                        <span className="text-[var(--text-color)] text-xs font-bold">#{String(mod.order).padStart(2, "0")}</span>
                       </div>
 
                       {mod.hasPublishedQuiz && (
@@ -166,10 +166,10 @@ export default function ModulesPage() {
 
                     {/* Content */}
                     <div className="p-6 flex flex-col flex-grow">
-                      <h2 className="text-xl font-semibold text-[var(--ae-plum-deep)] mb-3 group-hover:text-[var(--ae-blue)] transition-colors line-clamp-2">
+                      <h2 className="text-xl font-semibold text-[var(--text-color)] mb-3 group-hover:text-[var(--ae-blue)] transition-colors line-clamp-2">
                         {mod.title}
                       </h2>
-                      <p className="text-[var(--ae-plum-deep)]/70 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                      <p className="text-[var(--text-color)]/70 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
                         {mod.shortDescription}
                       </p>
 

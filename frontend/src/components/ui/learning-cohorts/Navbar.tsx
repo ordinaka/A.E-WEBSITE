@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import favicon from "../learning-cohorts/images/favicon.png";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/useAuth";
-import { HiMenu, HiX } from "react-icons/hi";
+import { useTheme } from "../../../context/ThemeContext";
+import { HiMenu, HiX, HiSun, HiMoon } from "react-icons/hi";
 
 function Navbar() {
   const { isLoggedIn, user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -125,6 +127,15 @@ function Navbar() {
               onClick={toggleMenu}
             >
               {isMenuOpen ? <HiX /> : <HiMenu />}
+            </button>
+
+            {/* THEME TOGGLE */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full ae-brand-card hover:shadow-md transition-all text-xl flex items-center justify-center text-[var(--ae-blue)]"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? <HiMoon /> : <HiSun className="text-yellow-400" />}
             </button>
 
             {isLoggedIn && (
