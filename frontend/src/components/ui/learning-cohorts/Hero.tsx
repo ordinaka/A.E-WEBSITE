@@ -20,16 +20,16 @@ function Hero() {
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[var(--ae-lavender)]/20 blur-[220px] rounded-full" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--secondary-bg)] via-transparent to-transparent" />
       </div>
 
       <div className="relative w-full max-w-7xl px-6 text-center">
         {/* Title */}
-        <h1 className="text-5xl md:text-7xl font-semibold leading-tight pb-2 mb-4 text-[var(--ae-plum-deep)]">
+        <h1 className="text-5xl md:text-7xl font-semibold leading-tight pb-2 mb-4 text-[var(--text-color)]">
           Learning Cohorts
         </h1>
 
-        <p className="text-[var(--ae-plum-deep)]/80 text-base mb-10 max-w-lg mx-auto leading-relaxed">
+        <p className="text-[var(--text-color)]/80 text-base mb-10 max-w-lg mx-auto leading-relaxed">
           Structured paths designed to take you from beginner to engineering expert. Choose your track and start learning today.
         </p>
 
@@ -38,9 +38,9 @@ function Hero() {
           <input
             placeholder="Search for a course or cohort..."
             className="w-full max-w-[480px] px-6 py-4 rounded-2xl
-              bg-white
+              ae-brand-card
               border border-[var(--ae-border)]
-              text-[var(--ae-plum-deep)] placeholder:text-gray-400
+              text-[var(--text-color)] placeholder:text-gray-400
               outline-none
               shadow-sm
               focus:border-[var(--ae-blue)]/50 transition-colors"

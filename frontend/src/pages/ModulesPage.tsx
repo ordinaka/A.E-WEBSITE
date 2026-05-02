@@ -87,7 +87,7 @@ export default function ModulesPage() {
   return (
     <div className="relative overflow-hidden bg-slate-50 min-h-screen">
       <div className="w-full relative overflow-hidden min-h-screen">
-        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-br from-slate-50 to-slate-100 pointer-events-none fixed" />
+        <div className="absolute inset-x-0 inset-y-0 bg-[var(--bg-color)] pointer-events-none fixed" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-24">
 

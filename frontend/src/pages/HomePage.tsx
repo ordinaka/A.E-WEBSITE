@@ -91,17 +91,17 @@ const Card = ({
         />
       )}
 
-      <h3 className="text-[var(--ae-plum-deep)] text-lg sm:text-xl font-semibold mb-2 text-start">{title}</h3>
+      <h3 className="text-[var(--text-color)] text-lg sm:text-xl font-semibold mb-2 text-start">{title}</h3>
       {subtitle && first && (
-        <p className="text-[var(--ae-plum-deep)]/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
+        <p className="text-[var(--text-color)]/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
       )}
       {subtitle && center && (
-        <p className="text-[var(--ae-plum-deep)]/60 text-base sm:text-lg bottom-25 absolute leading-relaxed">
+        <p className="text-[var(--text-color)]/60 text-base sm:text-lg bottom-25 absolute leading-relaxed">
           {subtitle}
         </p>
       )}
       {subtitle && !first && !center && (
-        <p className="text-[var(--ae-plum-deep)]/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
+        <p className="text-[var(--text-color)]/80 text-lg sm:text-xl leading-relaxed text-start">{subtitle}</p>
       )}
     </div>
 
@@ -119,7 +119,7 @@ const Card = ({
           </button>
         )}
         {comment && commentLink && (
-          <p className="text-[var(--ae-plum-deep)]/60 text-start text-sm leading-relaxed">
+          <p className="text-[var(--text-color)]/60 text-start text-sm leading-relaxed">
             <a href="" className="text-[var(--ae-blue)] font-semibold text-md mr-2">
               {commentLink}
             </a>
@@ -155,7 +155,7 @@ const HomePage = () => {
       {/* Enhanced overlay for better blending */}
     
       {/* Additional soft overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(255,255,255,0.85)] via-[rgba(255,255,255,0.7)] to-[#F8FAFC] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--nav-bg)] via-[var(--bg-color)]/70 to-[var(--bg-color)] pointer-events-none" />
 
       {/* centered hero */}
       <header className="relative z-20 flex items-center justify-center min-h-screen pt-80 lg:pt-70 lg:pb-12 h-screen">
@@ -165,7 +165,7 @@ const HomePage = () => {
               Welcome to AE.
             </p>
 
-            <h1 className="text-[var(--ae-plum-deep)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight drop-shadow-sm">
+            <h1 className="text-[var(--text-color)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight drop-shadow-sm">
               Gear Up For The
               <br />
               <span className="text-[var(--ae-peach)]">Future.</span>

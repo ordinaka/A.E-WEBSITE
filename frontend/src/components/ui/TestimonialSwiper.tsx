@@ -116,7 +116,7 @@ export default function TestimonialSwiper() {
                 <SwiperSlide key={t.id}>
                   <div className="relative w-full">
                     <article
-                      className="relative grid grid-cols-1 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] items-stretch gap-5 md:gap-20 rounded-4xl bg-white shadow-sm border border-[var(--ae-border)] min-h-80 sm:min-h-136 md:min-h-136 p-4 sm:p-8 md:p-10 w-full mx-auto"
+                      className="relative grid grid-cols-1 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] items-stretch gap-5 md:gap-20 rounded-4xl ae-brand-card shadow-sm border border-[var(--ae-border)] min-h-80 sm:min-h-136 md:min-h-136 p-4 sm:p-8 md:p-10 w-full mx-auto"
                     >
                       {/* Left image column */}
                       <div className="relative w-full lg:w-83 h-full shrink-0 self-stretch">
@@ -132,7 +132,7 @@ export default function TestimonialSwiper() {
                       </div>
 
                       {/* Right text column */}
-                      <div className="relative w-full h-full self-stretch grid min-h-full grid-rows-[auto_1fr_auto] text-start text-[var(--ae-plum-deep)]">
+                      <div className="relative w-full h-full self-stretch grid min-h-full grid-rows-[auto_1fr_auto] text-start text-[var(--text-color)]">
                         {/* Large quote mark */}
                         <div className="mb-4">
                           <img src="/quotes.png" alt="" className="w-8.5 h-8.5 rotate-180"/>
@@ -140,7 +140,7 @@ export default function TestimonialSwiper() {
 
                         {/* paragraph text */}
                         <div className="flex w-full flex-col justify-center space-y-3 md:space-y-5 lg:max-w-2xl">
-                          <p className="text-xl lg:text-2xl font-normal leading-loose text-gray-600">
+                          <p className="text-xl lg:text-2xl font-normal leading-loose text-[var(--text-color)]/70">
                             {t.text}
                           </p>
                         </div>
@@ -149,10 +149,10 @@ export default function TestimonialSwiper() {
                         <div className="w-full lg:max-w-3xl pt-4 md:pt-6">
                           <div className="flex items-center justify-between">
                             <div className="space-y-2">
-                              <div className="font-semibold text-[var(--ae-plum-deep)] text-xl sm:text-2xl lg:text-3xl">
+                              <div className="font-semibold text-[var(--text-color)] text-xl sm:text-2xl lg:text-3xl">
                                 {t.name}
                               </div>
-                              <div className="text-[10px] font-medium sm:text-base md:text-lg text-[var(--ae-plum-deep)]/70">
+                              <div className="text-[10px] font-medium sm:text-base md:text-lg text-[var(--text-color)]/70">
                                 {t.title}
                               </div>
                             </div>

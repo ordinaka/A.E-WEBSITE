@@ -33,12 +33,12 @@ const InternshipModal: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-4xl overflow-hidden bg-white shadow-2xl rounded-3xl flex flex-col md:flex-row max-h-[90vh] md:max-h-none"
+            className="relative w-full max-w-4xl overflow-hidden ae-brand-card shadow-2xl rounded-3xl flex flex-col md:flex-row max-h-[90vh] md:max-h-none"
           >
             {/* Close Button */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 z-10 p-2 text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors md:text-slate-400 md:bg-transparent md:hover:bg-slate-100"
+              className="absolute top-4 right-4 z-10 p-2 text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors md:text-[var(--text-color)] md:bg-transparent md:hover:bg-slate-100/10"
             >
               <X size={24} />
             </button>

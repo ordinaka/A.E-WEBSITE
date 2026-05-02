@@ -58,7 +58,7 @@ function Navbar() {
       <div className="w-full max-w-7xl relative">
         <div className={`w-full flex items-center justify-between px-6 py-3 rounded-full border transition-all duration-300 ${
           isScrolled 
-            ? "bg-white/90 backdrop-blur-md border-[var(--ae-blue)]/20 shadow-lg" 
+            ? "bg-[var(--nav-bg)] backdrop-blur-md border-[var(--ae-blue)]/20 shadow-lg" 
             : "ae-brand-card backdrop-blur-xl border-transparent"
         }`}>
 

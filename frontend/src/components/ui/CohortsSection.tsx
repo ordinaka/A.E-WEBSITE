@@ -40,7 +40,7 @@ const cohorts = [
 
 export default function CohortsSection() {
   return (
-    <section className="relative z-20 px-4 sm:px-6 pt-12 pb-6 sm:pt-16 md:pt-24 text-[var(--ae-plum-deep)]">
+    <section className="relative z-20 px-4 sm:px-6 pt-12 pb-6 sm:pt-16 md:pt-24 text-[var(--text-color)]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <FadeInWhenVisible delay={0.2}>
@@ -48,7 +48,7 @@ export default function CohortsSection() {
             <h1 className="mx-auto mb-3 sm:mb-4 md:mb-6 w-full max-w-134.5 text-center font-semibold text-2xl sm:text-3xl md:text-5xl lg:text-[72.8527px] md:leading-23 md:tracking-[-4.40297px] bg-[linear-gradient(270deg,var(--ae-blue)_0%,var(--ae-plum-deep)_147.96%)] bg-clip-text text-transparent leading-tight">
               Learning Cohorts
             </h1>
-            <p className="text-[var(--ae-plum-deep)]/80 text-xs sm:text-sm md:text-base lg:text-xl max-w-2xl mx-auto leading-relaxed px-2 sm:px-4">
+            <p className="text-[var(--text-color)]/80 text-xs sm:text-sm md:text-base lg:text-xl max-w-2xl mx-auto leading-relaxed px-2 sm:px-4">
               Master industry-leading skills with expert guidance and hands-on projects through our specialized learning cohorts.
             </p>
           </header>
@@ -58,11 +58,11 @@ export default function CohortsSection() {
         <FadeInWhenVisible delay={0.3}>
           <div className="w-full flex justify-center px-2 sm:px-0 mb-8 sm:mb-10 md:mb-12">
             <div className="flex w-full max-w-xl sm:max-w-2xl gap-2">
-              <div className="flex flex-row items-center w-full py-2 sm:py-2.5 pr-2 sm:pr-2.5 pl-3 sm:pl-6 rounded-2xl sm:rounded-[15px] bg-white shadow-sm border border-[var(--ae-border)]">
+              <div className="flex flex-row items-center w-full py-2 sm:py-2.5 pr-2 sm:pr-2.5 pl-3 sm:pl-6 rounded-2xl sm:rounded-[15px] ae-brand-card shadow-sm border border-[var(--ae-border)]">
                 <input
                   type="text"
                   placeholder="Search for a course"
-                  className="flex-1 bg-transparent text-xs sm:text-sm md:text-base text-[var(--ae-plum-deep)] placeholder-gray-400 focus:outline-none pr-3"
+                  className="flex-1 bg-transparent text-xs sm:text-sm md:text-base text-[var(--text-color)] placeholder-gray-400 focus:outline-none pr-3"
                 />
               </div>
               {/* Search Icon Bubble */}

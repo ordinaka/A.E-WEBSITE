@@ -20,6 +20,8 @@
   --bg-color: #FFFFFF;
   --text-color: var(--ae-plum-deep);
   --card-bg: #FFFFFF;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --secondary-bg: #F8FAFC;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -34,10 +36,12 @@
 }
 
 [data-theme='dark'] {
-  --bg-color: var(--ae-plum-deep);
-  --text-color: #FFFFFF;
-  --card-bg: var(--ae-bg-deep);
-  --ae-border: rgba(255, 255, 255, 0.15);
+  --bg-color: #0F172A; /* Deep professional slate blue */
+  --text-color: #F8FAFC;
+  --card-bg: #1E293B;
+  --ae-border: rgba(148, 163, 184, 0.1);
+  --nav-bg: rgba(15, 23, 42, 0.85);
+  --secondary-bg: #1E293B;
 }
 
 @theme {
@@ -109,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ae-brand-band {
-  background: #F8FAFC;
+  background: var(--secondary-bg);
   border: 1px solid var(--ae-border);
 }
 
