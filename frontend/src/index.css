@@ -24,6 +24,17 @@
   --secondary-bg: #F8FAFC;
   --ae-border: rgba(51, 65, 143, 0.08); /* Very subtle brand-tinted border */
 
+  /* Auth page tokens */
+  --auth-form-bg: #F5F6FA;
+  --input-bg: #FFFFFF;
+  --input-border: #e2e8f0;
+  --input-text: #1e293b;
+  --input-placeholder: rgba(100, 116, 139, 0.6);
+  --label-text: #475569;
+  --muted-text: #64748b;
+  --social-btn-bg: #FFFFFF;
+  --divider-color: #e2e8f0;
+
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   font-synthesis: none;
@@ -43,6 +54,17 @@
   --ae-border: rgba(148, 163, 184, 0.1);
   --nav-bg: rgba(15, 23, 42, 0.85);
   --secondary-bg: #1E293B;
+
+  /* Auth page tokens - dark overrides */
+  --auth-form-bg: #0F172A;
+  --input-bg: #1E293B;
+  --input-border: rgba(148, 163, 184, 0.15);
+  --input-text: #F1F5F9;
+  --input-placeholder: rgba(148, 163, 184, 0.4);
+  --label-text: #94A3B8;
+  --muted-text: #94A3B8;
+  --social-btn-bg: #1E293B;
+  --divider-color: rgba(148, 163, 184, 0.12);
 }
 
 @theme {

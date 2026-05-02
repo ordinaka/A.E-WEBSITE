@@ -53,7 +53,7 @@ const Login = (): ReactElement => {
   return (
     <div className="min-h-screen w-full flex overflow-hidden" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
 
-      {/* ── Left: Decorative Brand Panel ── */}
+      {/* ── Left: Decorative Brand Panel (always dark) ── */}
       <div
         className="hidden lg:flex flex-col justify-between w-[45%] xl:w-[50%] shrink-0 relative overflow-hidden p-12"
         style={{ background: "linear-gradient(135deg, #1e1735 0%, #251d3f 40%, #33418f 100%)" }}
@@ -61,7 +61,6 @@ const Login = (): ReactElement => {
         {/* Decorative blobs */}
         <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full opacity-20" style={{ background: "radial-gradient(circle, #9aa8e7, transparent)" }} />
         <div className="absolute bottom-[-80px] right-[-80px] w-[300px] h-[300px] rounded-full opacity-15" style={{ background: "radial-gradient(circle, #e3b5ee, transparent)" }} />
-        <div className="absolute top-[40%] left-[60%] w-[200px] h-[200px] rounded-full opacity-10" style={{ background: "radial-gradient(circle, #f5a487, transparent)" }} />
 
         {/* Brand mark */}
         <div className="relative z-10">
@@ -84,8 +83,6 @@ const Login = (): ReactElement => {
           <p className="text-[#9aa8e7] text-sm font-semibold tracking-widest uppercase">
             — Accelerated Engineers
           </p>
-
-          {/* Stats row */}
           <div className="flex gap-8 mt-12">
             {[
               { n: "2.4k+", l: "Members" },
@@ -100,7 +97,6 @@ const Login = (): ReactElement => {
           </div>
         </div>
 
-        {/* Bottom tagline */}
         <div className="relative z-10">
           <p className="text-white/30 text-xs tracking-widest uppercase">
             Join the next generation of algorithmic thinkers
@@ -108,10 +104,10 @@ const Login = (): ReactElement => {
         </div>
       </div>
 
-      {/* ── Right: Form Panel ── */}
+      {/* ── Right: Form Panel (theme-aware) ── */}
       <div
         className="flex-1 flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 xl:px-20 overflow-y-auto"
-        style={{ background: "#F5F6FA" }}
+        style={{ background: "var(--auth-form-bg)" }}
       >
         <div className="w-full max-w-md mx-auto">
 
@@ -122,15 +118,15 @@ const Login = (): ReactElement => {
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
               </svg>
             </div>
-            <span className="font-black text-[#251d3f] text-lg tracking-tight uppercase">A.E Platform</span>
+            <span className="font-black text-[var(--text-color)] text-lg tracking-tight uppercase">A.E Platform</span>
           </div>
 
           {/* Heading */}
           <div className="mb-8">
-            <h1 className="text-3xl sm:text-4xl font-black text-[#251d3f] leading-tight tracking-tight mb-2">
+            <h1 className="text-3xl sm:text-4xl font-black leading-tight tracking-tight mb-2" style={{ color: "var(--text-color)" }}>
               Welcome back 👋
             </h1>
-            <p className="text-[#6b7280] text-sm font-medium">
+            <p className="text-sm font-medium" style={{ color: "var(--muted-text)" }}>
               Sign in to continue your learning journey
             </p>
           </div>
@@ -147,10 +143,10 @@ const Login = (): ReactElement => {
                   key={label}
                   href={href}
                   className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-2 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
-                  style={{ background: "#fff", border: "1.5px solid #e5e7eb", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+                  style={{ background: "var(--social-btn-bg)", border: "1.5px solid var(--input-border)" }}
                 >
                   {icon}
-                  <span className="text-[10px] font-bold text-[#374151] uppercase tracking-wider">{label}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "var(--label-text)" }}>{label}</span>
                 </a>
               ) : (
                 <button
@@ -158,10 +154,10 @@ const Login = (): ReactElement => {
                   type="button"
                   onClick={onClick}
                   className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-2 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
-                  style={{ background: "#fff", border: "1.5px solid #e5e7eb", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+                  style={{ background: "var(--social-btn-bg)", border: "1.5px solid var(--input-border)" }}
                 >
                   {icon}
-                  <span className="text-[10px] font-bold text-[#374151] uppercase tracking-wider">{label}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "var(--label-text)" }}>{label}</span>
                 </button>
               )
             )}
@@ -169,23 +165,23 @@ const Login = (): ReactElement => {
 
           {/* Divider */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="flex-1 h-px" style={{ background: "#e5e7eb" }} />
-            <span className="text-[11px] font-semibold text-[#9ca3af] uppercase tracking-widest">or continue with email</span>
-            <div className="flex-1 h-px" style={{ background: "#e5e7eb" }} />
+            <div className="flex-1 h-px" style={{ background: "var(--divider-color)" }} />
+            <span className="text-[11px] font-semibold uppercase tracking-widest whitespace-nowrap" style={{ color: "var(--muted-text)" }}>or continue with email</span>
+            <div className="flex-1 h-px" style={{ background: "var(--divider-color)" }} />
           </div>
 
           {/* Error */}
           {error && (
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl mb-5 border-l-4 border-red-500" style={{ background: "#fef2f2" }}>
+            <div className="flex items-center gap-3 px-4 py-3 rounded-xl mb-5 border-l-4 border-red-500" style={{ background: "rgba(239,68,68,0.08)" }}>
               <FiAlertCircle className="w-4 h-4 text-red-500 shrink-0" />
-              <p className="text-sm font-semibold text-red-600">{error}</p>
+              <p className="text-sm font-semibold text-red-500">{error}</p>
             </div>
           )}
 
           {/* Form */}
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-xs font-bold text-[#374151] uppercase tracking-wider mb-2">
+              <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "var(--label-text)" }}>
                 Email Address
               </label>
               <input
@@ -194,22 +190,21 @@ const Login = (): ReactElement => {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-xl px-4 py-3.5 text-sm font-medium text-[#111827] transition-all outline-none focus:ring-2"
+                className="w-full rounded-xl px-4 py-3.5 text-sm font-medium transition-all outline-none focus:ring-2 focus:ring-[#33418f]/20"
                 style={{
-                  background: "#fff",
-                  border: "1.5px solid #e5e7eb",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
-                  "--tw-ring-color": "#33418f40",
-                } as React.CSSProperties}
+                  background: "var(--input-bg)",
+                  border: "1.5px solid var(--input-border)",
+                  color: "var(--input-text)",
+                }}
               />
             </div>
 
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label htmlFor="password" className="block text-xs font-bold text-[#374151] uppercase tracking-wider">
+                <label htmlFor="password" className="block text-xs font-bold uppercase tracking-wider" style={{ color: "var(--label-text)" }}>
                   Password
                 </label>
-                <Link to="/forgot-password" className="text-xs font-bold text-[#33418f] hover:text-[#251d3f] transition-colors">
+                <Link to="/forgot-password" className="text-xs font-bold text-[#33418f] hover:text-[var(--ae-plum-deep)] transition-colors">
                   Forgot password?
                 </Link>
               </div>
@@ -220,18 +215,18 @@ const Login = (): ReactElement => {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-xl px-4 py-3.5 pr-12 text-sm font-medium text-[#111827] transition-all outline-none focus:ring-2"
+                  className="w-full rounded-xl px-4 py-3.5 pr-12 text-sm font-medium transition-all outline-none focus:ring-2 focus:ring-[#33418f]/20"
                   style={{
-                    background: "#fff",
-                    border: "1.5px solid #e5e7eb",
-                    boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
-                    "--tw-ring-color": "#33418f40",
-                  } as React.CSSProperties}
+                    background: "var(--input-bg)",
+                    border: "1.5px solid var(--input-border)",
+                    color: "var(--input-text)",
+                  }}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#33418f] transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 hover:text-[#33418f] transition-colors"
+                  style={{ color: "var(--muted-text)" }}
                 >
                   {showPassword ? <FiEyeOff size={17} /> : <FiEye size={17} />}
                 </button>
@@ -258,9 +253,9 @@ const Login = (): ReactElement => {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-sm text-[#6b7280]">
+          <p className="mt-8 text-center text-sm" style={{ color: "var(--muted-text)" }}>
             Don&apos;t have an account?{" "}
-            <Link to="/signup" className="font-bold text-[#33418f] hover:text-[#251d3f] transition-colors underline underline-offset-2">
+            <Link to="/signup" className="font-bold text-[#33418f] hover:text-[var(--ae-plum-deep)] transition-colors underline underline-offset-2">
               Create one
             </Link>
           </p>
