@@ -51,7 +51,7 @@ const Login = (): ReactElement => {
   };
 
   return (
-    <div className="min-h-screen w-full flex overflow-hidden" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div className="min-h-screen w-full flex overflow-hidden">
 
       {/* ── Left: Decorative Brand Panel (always dark) ── */}
       <div
