@@ -80,7 +80,7 @@ export default function ForgotPassword() {
                     placeholder="name@example.com"
                     value={email}
                     onChange={(e) => { setError(null); setEmail(e.target.value); }}
-                    className="w-full rounded-2xl bg-[var(--bg-color)]/60 border border-transparent focus:border-[var(--ae-blue)]/30 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-5 py-4 text-[var(--text-color)] placeholder:text-[var(--text-color)]/20 transition-all font-semibold text-sm shadow-sm"
+                    className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
                   />
                 </div>
 

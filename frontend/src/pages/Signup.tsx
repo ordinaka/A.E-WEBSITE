@@ -45,8 +45,8 @@ const InputField = ({
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   extra?: React.ReactNode;
 }) => (
-  <div className="space-y-1.5">
-    <label htmlFor={id} className="block text-[10px] font-black text-[var(--text-color)]/40 uppercase tracking-[0.15em] ml-1">
+  <div className="space-y-2">
+    <label htmlFor={id} className="block text-[10px] font-black text-[var(--text-color)]/30 uppercase tracking-[0.2em] ml-1">
       {label}
     </label>
     <div className="relative group">
@@ -57,7 +57,7 @@ const InputField = ({
         value={value}
         onChange={onChange}
         autoComplete={id}
-        className="w-full rounded-2xl bg-[var(--bg-color)]/60 border border-transparent focus:border-[var(--ae-blue)]/30 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-5 py-4 text-[var(--text-color)] placeholder:text-[var(--text-color)]/20 transition-all font-semibold text-sm shadow-sm pr-12 group-hover:bg-[var(--bg-color)]"
+        className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] pr-14"
       />
       {extra}
     </div>
@@ -192,29 +192,37 @@ const Signup = (): ReactElement => {
           ) : (
             <>
               {/* ── Social Buttons ── */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
                 <a
                   href={`${API_BASE}/auth/google`}
-                  className="flex-1 flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/50 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group border border-transparent hover:border-[var(--ae-blue)]/10"
+                  className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
                 >
                   <FaGoogle className="text-[#EA4335] text-lg" />
-                  <span className="text-sm font-black text-[var(--text-color)]/60 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-wider">Google</span>
+                  <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Google</span>
                 </a>
                 <button
                   type="button"
                   onClick={() => setError("Facebook login coming soon!")}
-                  className="flex-1 flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/50 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group border border-transparent hover:border-[var(--ae-blue)]/10"
+                  className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
                 >
                   <FaFacebook className="text-[#0866FF] text-lg" />
-                  <span className="text-sm font-black text-[var(--text-color)]/60 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-wider">Facebook</span>
+                  <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Facebook</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setError("Microsoft login coming soon!")}
+                  className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
+                >
+                  <FaMicrosoft className="text-[#00A4EF] text-lg" />
+                  <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Microsoft</span>
                 </button>
               </div>
 
               {/* ── Divider ── */}
               <div className="flex items-center gap-6 mb-8">
-                <div className="flex-1 h-px bg-[var(--ae-border)]" />
-                <span className="text-[10px] font-black text-[var(--text-color)]/20 uppercase tracking-[0.3em] whitespace-nowrap">Secure Registration</span>
-                <div className="flex-1 h-px bg-[var(--ae-border)]" />
+                <div className="flex-1 h-px bg-[var(--ae-border)] opacity-50" />
+                <span className="text-[10px] font-black text-[var(--text-color)]/20 uppercase tracking-[0.3em] whitespace-nowrap">OR REGISTER WITH EMAIL</span>
+                <div className="flex-1 h-px bg-[var(--ae-border)] opacity-50" />
               </div>
 
               {/* ── Error Alert ── */}
@@ -305,7 +313,7 @@ const Signup = (): ReactElement => {
                       Initializing...
                     </>
                   ) : (
-                    "Authorize Account →"
+                    "Create Account →"
                   )}
                 </button>
               </form>

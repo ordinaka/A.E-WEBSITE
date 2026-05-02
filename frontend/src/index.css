@@ -121,22 +121,23 @@ h1, h2, h3, h4, h5, h6 {
 .ae-brand-card {
   background: var(--card-bg);
   border: 1px solid var(--ae-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
 }
 
 .ae-auth-card {
   background: var(--card-bg);
-  border: 1px solid var(--ae-border);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
+  border: none;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border-radius: 2.5rem;
 }
 
 .ae-brand-button {
   background: var(--ae-blue);
   color: white;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .ae-brand-button:hover {

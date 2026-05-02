@@ -99,7 +99,7 @@ export default function ResetPassword() {
                       placeholder="Min. 8 characters"
                       value={password}
                       onChange={(e) => { setError(null); setPassword(e.target.value); }}
-                      className="w-full rounded-2xl bg-[var(--bg-color)]/60 border border-transparent focus:border-[var(--ae-blue)]/30 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-5 py-4 pr-14 text-[var(--text-color)] placeholder:text-[var(--text-color)]/20 transition-all font-semibold text-sm shadow-sm group-hover:bg-[var(--bg-color)]"
+                      className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 pr-14 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] group-hover:bg-[var(--bg-color)]"
                     />
                     <button type="button" onClick={() => setShowPw(v => !v)} className="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--text-color)]/20 hover:text-[var(--ae-blue)] transition-colors">
                       {showPw ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
@@ -119,7 +119,7 @@ export default function ResetPassword() {
                       placeholder="Repeat your key"
                       value={confirm}
                       onChange={(e) => { setError(null); setConfirm(e.target.value); }}
-                      className="w-full rounded-2xl bg-[var(--bg-color)]/60 border border-transparent focus:border-[var(--ae-blue)]/30 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-5 py-4 pr-14 text-[var(--text-color)] placeholder:text-[var(--text-color)]/20 transition-all font-semibold text-sm shadow-sm group-hover:bg-[var(--bg-color)]"
+                      className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 pr-14 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] group-hover:bg-[var(--bg-color)]"
                     />
                     <button type="button" onClick={() => setShowConfirm(v => !v)} className="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--text-color)]/20 hover:text-[var(--ae-blue)] transition-colors">
                       {showConfirm ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}

@@ -74,20 +74,27 @@ const Login = (): ReactElement => {
           </div>
 
           {/* ── Social Login ── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          <div className="grid grid-cols-3 gap-3 mb-10">
             <a
               href={`${API_BASE}/auth/google`}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/50 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group border border-transparent hover:border-[var(--ae-blue)]/10"
+              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
             >
               <FaGoogle className="text-[#EA4335] text-lg" />
-              <span className="text-sm font-black text-[var(--text-color)]/60 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-wider">Google</span>
+              <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Google</span>
             </a>
             <button
               onClick={() => setError("Facebook login coming soon!")}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/50 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group border border-transparent hover:border-[var(--ae-blue)]/10"
+              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
             >
               <FaFacebook className="text-[#0866FF] text-lg" />
-              <span className="text-sm font-black text-[var(--text-color)]/60 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-wider">Facebook</span>
+              <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Facebook</span>
+            </button>
+            <button
+              onClick={() => setError("Microsoft login coming soon!")}
+              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
+            >
+              <FaMicrosoft className="text-[#00A4EF] text-lg" />
+              <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Microsoft</span>
             </button>
           </div>
 
@@ -117,7 +124,7 @@ const Login = (): ReactElement => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-2xl bg-[var(--bg-color)]/60 border border-transparent focus:border-[var(--ae-blue)]/30 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-5 py-4 text-[var(--text-color)] placeholder:text-[var(--text-color)]/20 transition-all font-semibold text-sm shadow-sm"
+                className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
               />
             </div>
 
@@ -126,7 +133,7 @@ const Login = (): ReactElement => {
                 <label htmlFor="password" className="block text-[10px] font-black text-[var(--text-color)]/40 uppercase tracking-[0.15em]">
                   Password
                 </label>
-                <Link to="/forgot-password" size="sm" className="text-[10px] text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors font-black uppercase tracking-wider italic">
+                <Link to="/forgot-password" className="text-[10px] text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors font-black uppercase tracking-wider italic">
                   Forgot?
                 </Link>
               </div>
@@ -137,7 +144,7 @@ const Login = (): ReactElement => {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-2xl bg-[var(--bg-color)]/60 border border-transparent focus:border-[var(--ae-blue)]/30 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-5 py-4 text-[var(--text-color)] placeholder:text-[var(--text-color)]/20 transition-all font-semibold text-sm shadow-sm pr-14 group-hover:bg-[var(--bg-color)]"
+                  className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] pr-14 group-hover:bg-[var(--bg-color)]"
                 />
                 <button
                   type="button"
