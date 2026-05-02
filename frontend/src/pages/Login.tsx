@@ -132,32 +132,32 @@ const Login = (): ReactElement => {
           </div>
 
           {/* Social Login */}
-          <div className="grid grid-cols-3 gap-3 mb-6">
+          <div className="flex flex-col gap-2 mb-6">
             {[
-              { icon: <FaGoogle className="text-[#EA4335] text-base" />, label: "Google", href: `${API_BASE}/auth/google`, onClick: undefined },
-              { icon: <FaFacebook className="text-[#0866FF] text-base" />, label: "Facebook", href: undefined, onClick: () => setError("Facebook login coming soon!") },
-              { icon: <FaMicrosoft className="text-[#00A4EF] text-base" />, label: "Microsoft", href: undefined, onClick: () => setError("Microsoft login coming soon!") },
+              { icon: <FaGoogle className="text-[#EA4335]" size={15} />, label: "Continue with Google", href: `${API_BASE}/auth/google`, onClick: undefined },
+              { icon: <FaFacebook className="text-[#0866FF]" size={15} />, label: "Continue with Facebook", href: undefined, onClick: () => setError("Facebook login coming soon!") },
+              { icon: <FaMicrosoft className="text-[#00A4EF]" size={15} />, label: "Continue with Microsoft", href: undefined, onClick: () => setError("Microsoft login coming soon!") },
             ].map(({ icon, label, href, onClick }) =>
               href ? (
                 <a
                   key={label}
                   href={href}
-                  className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-2 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
-                  style={{ background: "var(--social-btn-bg)", border: "1.5px solid var(--input-border)" }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
+                  style={{ background: "var(--social-btn-bg)", border: "1.5px solid var(--input-border)", color: "var(--input-text)" }}
                 >
                   {icon}
-                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "var(--label-text)" }}>{label}</span>
+                  <span>{label}</span>
                 </a>
               ) : (
                 <button
                   key={label}
                   type="button"
                   onClick={onClick}
-                  className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-2 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
-                  style={{ background: "var(--social-btn-bg)", border: "1.5px solid var(--input-border)" }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
+                  style={{ background: "var(--social-btn-bg)", border: "1.5px solid var(--input-border)", color: "var(--input-text)" }}
                 >
                   {icon}
-                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "var(--label-text)" }}>{label}</span>
+                  <span>{label}</span>
                 </button>
               )
             )}
