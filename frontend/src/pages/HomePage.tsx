@@ -190,7 +190,7 @@ const HomePage = () => {
             <FadeInWhenVisible delay={0.1}>
               <Card
                 title="Do it the Algorithmic Explorers Way"
-                subtitle="Phasellus accumsan imperdiet tempor."
+                subtitle="Join a community of forward-thinking explorers."
                 commentLink="AE retreat on"
                 comment="31st December, 2025"
                 first
@@ -209,7 +209,7 @@ const HomePage = () => {
             <FadeInWhenVisible delay={0.4}>
               <Card
                 title="Collaboration & Development"
-                subtitle="Phasellus accumsan imperdiet tempor."
+                subtitle="Collaborate on cutting-edge AI projects."
 
                 commentLink="AE retreat on"
                 comment="31st December, 2025"

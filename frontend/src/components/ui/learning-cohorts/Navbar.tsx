@@ -1,6 +1,6 @@
 import { useState } from "react";
 import favicon from "../learning-cohorts/images/favicon.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../context/useAuth";
 import { HiMenu, HiX } from "react-icons/hi";
 
@@ -66,12 +66,26 @@ function Navbar() {
             <div className="hidden sm:flex gap-4 items-center">
               {!isLoggedIn ? (
                 <>
-                  <Link to="/login" className="text-sm font-bold text-slate-500 hover:text-[var(--ae-blue)] transition-colors">
+                  <NavLink 
+                    to="/login" 
+                    className={({ isActive }) => 
+                      `text-sm font-bold transition-colors ${
+                        isActive ? "text-[var(--ae-blue)]" : "text-slate-500 hover:text-[var(--ae-blue)]"
+                      }`
+                    }
+                  >
                     Login
-                  </Link>
-                  <Link to="/signup" className="text-sm ae-brand-button px-4 py-2 font-bold text-white rounded-full transition-colors">
+                  </NavLink>
+                  <NavLink 
+                    to="/signup" 
+                    className={({ isActive }) => 
+                      `text-sm px-4 py-2 font-bold text-white rounded-full transition-colors ${
+                        isActive ? "bg-[var(--ae-blue)] text-white shadow-lg" : "ae-brand-button"
+                      }`
+                    }
+                  >
                     Sign Up
-                  </Link>
+                  </NavLink>
                 </>
               ) : (
                 <>
