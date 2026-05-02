@@ -171,7 +171,7 @@ export default function AboutPage() {
                         <img 
                           src={member.imageUrl} 
                           alt={member.fullName} 
-                          className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-700"
+                          className="w-full h-full object-cover object-top filter group-hover:scale-105 transition-all duration-700"
                         />
                       ) : (
                         <div className="w-full h-full bg-[var(--bg-color)]/50 flex items-center justify-center border-b border-[var(--ae-border)]">
