@@ -1,9 +1,8 @@
 import { useState, type ReactElement } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { apiFetch } from "../lib/api";
-import loginImg from "/login_mage.png";
 import { FaGoogle, FaFacebook, FaMicrosoft } from "react-icons/fa";
-import { FiEye, FiEyeOff, FiAlertCircle } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiAlertCircle, FiArrowRight } from "react-icons/fi";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
@@ -52,106 +51,189 @@ const Login = (): ReactElement => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-stretch overflow-hidden ae-brand-page font-outfit">
-      {/* ── Left: Form Panel ── */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24 z-10">
-        <div className="w-full max-w-lg ae-brand-card shadow-2xl border border-transparent rounded-[2.5rem] p-6 sm:p-10 md:p-12 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--ae-blue)]/5 rounded-bl-[4rem] -mr-16 -mt-16 pointer-events-none" />
+    <div className="min-h-screen w-full flex overflow-hidden" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
 
-          {/* Brand */}
-          <div className="mb-12 text-center sm:text-left">
-            <div className="inline-flex items-center gap-3 mb-2">
-              <div className="w-9 h-9 rounded-xl ae-brand-button flex items-center justify-center shadow-lg">
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-              </div>
-              <span className="text-[var(--text-color)] font-black text-lg tracking-tight uppercase">A.E Platform</span>
+      {/* ── Left: Decorative Brand Panel ── */}
+      <div
+        className="hidden lg:flex flex-col justify-between w-[45%] xl:w-[50%] shrink-0 relative overflow-hidden p-12"
+        style={{ background: "linear-gradient(135deg, #1e1735 0%, #251d3f 40%, #33418f 100%)" }}
+      >
+        {/* Decorative blobs */}
+        <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full opacity-20" style={{ background: "radial-gradient(circle, #9aa8e7, transparent)" }} />
+        <div className="absolute bottom-[-80px] right-[-80px] w-[300px] h-[300px] rounded-full opacity-15" style={{ background: "radial-gradient(circle, #e3b5ee, transparent)" }} />
+        <div className="absolute top-[40%] left-[60%] w-[200px] h-[200px] rounded-full opacity-10" style={{ background: "radial-gradient(circle, #f5a487, transparent)" }} />
+
+        {/* Brand mark */}
+        <div className="relative z-10">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.2)" }}>
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-white">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
             </div>
-            <h1 className="text-4xl sm:text-6xl font-black text-[var(--text-color)] mt-6 leading-tight italic tracking-tighter uppercase underline decoration-[var(--ae-blue)]/20 underline-offset-8">
-              Welcome <span className="text-[var(--ae-blue)]">Back</span>
+            <span className="text-white font-black text-xl tracking-tight">A.E Platform</span>
+          </div>
+        </div>
+
+        {/* Center quote */}
+        <div className="relative z-10 my-auto">
+          <div className="text-6xl text-white/20 font-serif leading-none mb-4">"</div>
+          <p className="text-white/80 text-xl font-medium leading-relaxed mb-8">
+            The best way to predict the future is to build it ourselves.
+          </p>
+          <p className="text-[#9aa8e7] text-sm font-semibold tracking-widest uppercase">
+            — Accelerated Engineers
+          </p>
+
+          {/* Stats row */}
+          <div className="flex gap-8 mt-12">
+            {[
+              { n: "2.4k+", l: "Members" },
+              { n: "120k+", l: "Learners" },
+              { n: "50+", l: "Modules" },
+            ].map(({ n, l }) => (
+              <div key={l}>
+                <p className="text-white font-black text-2xl">{n}</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest font-semibold">{l}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom tagline */}
+        <div className="relative z-10">
+          <p className="text-white/30 text-xs tracking-widest uppercase">
+            Join the next generation of algorithmic thinkers
+          </p>
+        </div>
+      </div>
+
+      {/* ── Right: Form Panel ── */}
+      <div
+        className="flex-1 flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 xl:px-20 overflow-y-auto"
+        style={{ background: "#F5F6FA" }}
+      >
+        <div className="w-full max-w-md mx-auto">
+
+          {/* Mobile brand header */}
+          <div className="flex items-center gap-3 mb-10 lg:hidden">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow" style={{ background: "#33418f" }}>
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-white">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <span className="font-black text-[#251d3f] text-lg tracking-tight uppercase">A.E Platform</span>
+          </div>
+
+          {/* Heading */}
+          <div className="mb-8">
+            <h1 className="text-3xl sm:text-4xl font-black text-[#251d3f] leading-tight tracking-tight mb-2">
+              Welcome back 👋
             </h1>
+            <p className="text-[#6b7280] text-sm font-medium">
+              Sign in to continue your learning journey
+            </p>
           </div>
 
-          {/* ── Social Login ── */}
-          <div className="grid grid-cols-3 gap-3 mb-10">
-            <a
-              href={`${API_BASE}/auth/google`}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
-            >
-              <FaGoogle className="text-[#EA4335] text-lg" />
-              <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Google</span>
-            </a>
-            <button
-              onClick={() => setError("Facebook login coming soon!")}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
-            >
-              <FaFacebook className="text-[#0866FF] text-lg" />
-              <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Facebook</span>
-            </button>
-            <button
-              onClick={() => setError("Microsoft login coming soon!")}
-              className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
-            >
-              <FaMicrosoft className="text-[#00A4EF] text-lg" />
-              <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Microsoft</span>
-            </button>
+          {/* Social Login */}
+          <div className="grid grid-cols-3 gap-3 mb-6">
+            {[
+              { icon: <FaGoogle className="text-[#EA4335] text-base" />, label: "Google", href: `${API_BASE}/auth/google`, onClick: undefined },
+              { icon: <FaFacebook className="text-[#0866FF] text-base" />, label: "Facebook", href: undefined, onClick: () => setError("Facebook login coming soon!") },
+              { icon: <FaMicrosoft className="text-[#00A4EF] text-base" />, label: "Microsoft", href: undefined, onClick: () => setError("Microsoft login coming soon!") },
+            ].map(({ icon, label, href, onClick }) =>
+              href ? (
+                <a
+                  key={label}
+                  href={href}
+                  className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-2 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
+                  style={{ background: "#fff", border: "1.5px solid #e5e7eb", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+                >
+                  {icon}
+                  <span className="text-[10px] font-bold text-[#374151] uppercase tracking-wider">{label}</span>
+                </a>
+              ) : (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={onClick}
+                  className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-2 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95"
+                  style={{ background: "#fff", border: "1.5px solid #e5e7eb", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+                >
+                  {icon}
+                  <span className="text-[10px] font-bold text-[#374151] uppercase tracking-wider">{label}</span>
+                </button>
+              )
+            )}
           </div>
 
-          <div className="flex items-center gap-6 mb-10">
-            <div className="flex-1 h-px bg-[var(--ae-border)]" />
-            <span className="text-[10px] font-black text-[var(--text-color)]/20 uppercase tracking-[0.3em]">Credentials</span>
-            <div className="flex-1 h-px bg-[var(--ae-border)]" />
+          {/* Divider */}
+          <div className="flex items-center gap-4 mb-6">
+            <div className="flex-1 h-px" style={{ background: "#e5e7eb" }} />
+            <span className="text-[11px] font-semibold text-[#9ca3af] uppercase tracking-widest">or continue with email</span>
+            <div className="flex-1 h-px" style={{ background: "#e5e7eb" }} />
           </div>
 
-          {/* ── Error Alert ── */}
+          {/* Error */}
           {error && (
-            <div className="flex items-center gap-4 bg-red-500/5 border-l-4 border-red-500 rounded-xl px-5 py-4 mb-8 animate-shake">
-              <FiAlertCircle className="w-5 h-5 text-red-500 shrink-0" />
-              <p className="text-sm font-bold text-red-500 italic uppercase tracking-tight">{error}</p>
+            <div className="flex items-center gap-3 px-4 py-3 rounded-xl mb-5 border-l-4 border-red-500" style={{ background: "#fef2f2" }}>
+              <FiAlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+              <p className="text-sm font-semibold text-red-600">{error}</p>
             </div>
           )}
 
-          {/* ── Login Form ── */}
-          <form onSubmit={handleLogin} className="space-y-6">
-            <div className="space-y-1.5">
-              <label htmlFor="email" className="block text-[10px] font-black text-[var(--text-color)]/40 uppercase tracking-[0.15em] ml-1">
+          {/* Form */}
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label htmlFor="email" className="block text-xs font-bold text-[#374151] uppercase tracking-wider mb-2">
                 Email Address
               </label>
               <input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+                className="w-full rounded-xl px-4 py-3.5 text-sm font-medium text-[#111827] transition-all outline-none focus:ring-2"
+                style={{
+                  background: "#fff",
+                  border: "1.5px solid #e5e7eb",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                  "--tw-ring-color": "#33418f40",
+                } as React.CSSProperties}
               />
             </div>
 
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between px-1">
-                <label htmlFor="password" className="block text-[10px] font-black text-[var(--text-color)]/40 uppercase tracking-[0.15em]">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <label htmlFor="password" className="block text-xs font-bold text-[#374151] uppercase tracking-wider">
                   Password
                 </label>
-                <Link to="/forgot-password" className="text-[10px] text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors font-black uppercase tracking-wider italic">
-                  Forgot?
+                <Link to="/forgot-password" className="text-xs font-bold text-[#33418f] hover:text-[#251d3f] transition-colors">
+                  Forgot password?
                 </Link>
               </div>
-              <div className="relative group">
+              <div className="relative">
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] pr-14 group-hover:bg-[var(--bg-color)]"
+                  className="w-full rounded-xl px-4 py-3.5 pr-12 text-sm font-medium text-[#111827] transition-all outline-none focus:ring-2"
+                  style={{
+                    background: "#fff",
+                    border: "1.5px solid #e5e7eb",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                    "--tw-ring-color": "#33418f40",
+                  } as React.CSSProperties}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--text-color)]/20 hover:text-[var(--ae-blue)] transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#33418f] transition-colors"
                 >
-                  {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
+                  {showPassword ? <FiEyeOff size={17} /> : <FiEye size={17} />}
                 </button>
               </div>
             </div>
@@ -159,48 +241,29 @@ const Login = (): ReactElement => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-2xl ae-brand-button text-white shadow-xl hover:shadow-2xl font-black py-5 mt-6 transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3 hover:-translate-y-1 active:translate-y-0 uppercase tracking-[0.2em] italic"
+              className="w-full py-4 rounded-xl font-black text-white text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+              style={{ background: "linear-gradient(135deg, #33418f, #251d3f)", boxShadow: "0 4px 20px rgba(51,65,143,0.35)" }}
             >
               {loading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   Verifying...
                 </>
               ) : (
-                "Sign In →"
+                <>
+                  Sign In
+                  <FiArrowRight className="w-4 h-4" />
+                </>
               )}
             </button>
           </form>
 
-          {/* Footer */}
-          <p className="mt-12 text-center text-xs font-black text-[var(--text-color)]/30 uppercase tracking-widest italic">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors underline decoration-[var(--ae-blue)]/20 underline-offset-4 ml-1">
+          <p className="mt-8 text-center text-sm text-[#6b7280]">
+            Don&apos;t have an account?{" "}
+            <Link to="/signup" className="font-bold text-[#33418f] hover:text-[#251d3f] transition-colors underline underline-offset-2">
               Create one
             </Link>
           </p>
-        </div>
-      </div>
-
-      {/* ── Right: Image Panel ── */}
-      <div className="hidden lg:block relative w-[40%] xl:w-[45%] shrink-0">
-        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-[var(--bg-color)] via-[var(--bg-color)]/30 to-transparent z-10 pointer-events-none" />
-
-        <img
-          src={loginImg}
-          alt="Login Background"
-          className="absolute inset-0 w-full h-full object-cover grayscale-[0.2]"
-        />
-
-        <div className="absolute inset-0 bg-[var(--ae-blue)]/10 z-[5]" />
-
-        <div className="absolute bottom-16 right-12 z-20 max-w-sm">
-          <div className="ae-brand-card backdrop-blur-md rounded-[2.5rem] border border-transparent p-8 shadow-2xl hover:scale-105 transition-transform duration-700">
-            <h3 className="text-3xl font-black text-[var(--text-color)] italic mb-4 uppercase tracking-tighter">Accelerated <span className="text-[var(--ae-blue)]">Engineers</span></h3>
-            <p className="text-[var(--text-color)]/60 text-sm leading-relaxed font-medium italic">
-              "The best way to predict the future is to build it ourselves. Join the next generation of algorithmic thinkers."
-            </p>
-          </div>
         </div>
       </div>
     </div>

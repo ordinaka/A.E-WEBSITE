@@ -2,8 +2,7 @@ import { useState, type ChangeEvent, type ReactElement } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { apiFetch } from "../lib/api";
 import { FaGoogle, FaFacebook, FaMicrosoft } from "react-icons/fa";
-import { FiEye, FiEyeOff, FiAlertCircle, FiCheckCircle } from "react-icons/fi";
-import classImg from "/class.png";
+import { FiEye, FiEyeOff, FiAlertCircle, FiCheckCircle, FiArrowRight } from "react-icons/fi";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
@@ -28,6 +27,12 @@ const getErrorMessage = (error: unknown, fallback: string): string => {
   return fallback;
 };
 
+const inputStyle: React.CSSProperties = {
+  background: "#fff",
+  border: "1.5px solid #e5e7eb",
+  boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+};
+
 const InputField = ({
   id,
   label,
@@ -45,11 +50,11 @@ const InputField = ({
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   extra?: React.ReactNode;
 }) => (
-  <div className="space-y-2">
-    <label htmlFor={id} className="block text-[10px] font-black text-[var(--text-color)]/30 uppercase tracking-[0.2em] ml-1">
+  <div>
+    <label htmlFor={id} className="block text-xs font-bold text-[#374151] uppercase tracking-wider mb-2">
       {label}
     </label>
-    <div className="relative group">
+    <div className="relative">
       <input
         id={id}
         type={type}
@@ -57,7 +62,8 @@ const InputField = ({
         value={value}
         onChange={onChange}
         autoComplete={id}
-        className="w-full rounded-2xl bg-[var(--bg-color)]/50 border-0 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-6 py-4.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/10 transition-all font-semibold text-[15px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] pr-14"
+        className="w-full rounded-xl px-4 py-3 text-sm font-medium text-[#111827] outline-none focus:ring-2 transition-all"
+        style={{ ...inputStyle, "--tw-ring-color": "#33418f40", paddingRight: extra ? "3rem" : undefined } as React.CSSProperties}
       />
       {extra}
     </div>
@@ -140,108 +146,171 @@ const Signup = (): ReactElement => {
     }
   };
 
-  const ToggleBtn = ({
-    show,
-    onToggle,
-  }: {
-    show: boolean;
-    onToggle: () => void;
-  }) => (
+  const ToggleBtn = ({ show, onToggle }: { show: boolean; onToggle: () => void }) => (
     <button
       type="button"
       onClick={onToggle}
-      className="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--text-color)]/20 hover:text-[var(--ae-blue)] transition-colors"
+      className="absolute right-4 top-1/2 -translate-y-1/2 text-[#9ca3af] hover:text-[#33418f] transition-colors"
       aria-label={show ? "Hide password" : "Show password"}
     >
-      {show ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+      {show ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
     </button>
   );
 
   return (
-    <div className="min-h-screen w-full flex items-stretch overflow-hidden ae-brand-page font-outfit">
-      {/* ── Left: Form Panel ── */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24 z-10">
-        <div className="w-full max-w-xl ae-brand-card shadow-2xl border border-transparent rounded-[2.5rem] p-6 sm:p-8 md:p-10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--ae-blue)]/5 rounded-bl-[4rem] -mr-16 -mt-16 pointer-events-none" />
+    <div className="min-h-screen w-full flex overflow-hidden" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
 
-          {/* Brand */}
-          <div className="mb-10 text-center sm:text-left">
-            <div className="inline-flex items-center gap-3 mb-2">
-              <div className="w-9 h-9 rounded-xl ae-brand-button flex items-center justify-center shadow-lg">
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
+      {/* ── Left: Decorative Brand Panel ── */}
+      <div
+        className="hidden lg:flex flex-col justify-between w-[38%] xl:w-[42%] shrink-0 relative overflow-hidden p-12"
+        style={{ background: "linear-gradient(160deg, #1e1735 0%, #251d3f 45%, #33418f 100%)" }}
+      >
+        {/* Blobs */}
+        <div className="absolute top-[-80px] left-[-80px] w-[350px] h-[350px] rounded-full opacity-20" style={{ background: "radial-gradient(circle, #9aa8e7, transparent)" }} />
+        <div className="absolute bottom-[-60px] right-[-60px] w-[280px] h-[280px] rounded-full opacity-15" style={{ background: "radial-gradient(circle, #e3b5ee, transparent)" }} />
+
+        {/* Brand */}
+        <div className="relative z-10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}>
+            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-white">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <span className="text-white font-black text-xl tracking-tight">A.E Platform</span>
+        </div>
+
+        {/* Center content */}
+        <div className="relative z-10 my-auto">
+          <p className="text-white/40 text-xs uppercase tracking-[0.3em] font-semibold mb-4">Why join us?</p>
+          <div className="space-y-5">
+            {[
+              { icon: "🚀", title: "Accelerated Learning", desc: "Structured AI/ML cohorts built by industry experts." },
+              { icon: "🏆", title: "Earn Credentials", desc: "Blockchain-verified certificates upon completion." },
+              { icon: "🌐", title: "Global Network", desc: "Connect with 2,400+ engineers worldwide." },
+            ].map(({ icon, title, desc }) => (
+              <div key={title} className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center text-xl" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  {icon}
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm mb-0.5">{title}</p>
+                  <p className="text-white/50 text-xs leading-relaxed">{desc}</p>
+                </div>
               </div>
-              <span className="text-[var(--text-color)] font-black text-lg tracking-tight uppercase">A.E Platform</span>
+            ))}
+          </div>
+
+          {/* Stats */}
+          <div className="flex gap-6 mt-10 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+            {[{ n: "2.4k+", l: "Members" }, { n: "50+", l: "Modules" }, { n: "100%", l: "Free" }].map(({ n, l }) => (
+              <div key={l}>
+                <p className="text-white font-black text-xl">{n}</p>
+                <p className="text-white/40 text-[10px] uppercase tracking-widest font-semibold">{l}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="relative z-10 text-white/25 text-xs tracking-widest uppercase">
+          Join the next generation of algorithmic thinkers
+        </p>
+      </div>
+
+      {/* ── Right: Form Panel ── */}
+      <div
+        className="flex-1 overflow-y-auto flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-14 xl:px-20"
+        style={{ background: "#F5F6FA" }}
+      >
+        <div className="w-full max-w-lg mx-auto">
+
+          {/* Mobile logo */}
+          <div className="flex items-center gap-3 mb-8 lg:hidden">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#33418f" }}>
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-white">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-black text-[var(--text-color)] mt-6 leading-tight italic tracking-tighter uppercase underline decoration-[var(--ae-blue)]/20 underline-offset-8">
-              Join Us ✨
-            </h1>
+            <span className="font-black text-[#251d3f] text-lg tracking-tight uppercase">A.E Platform</span>
           </div>
 
           {/* ── Success State ── */}
           {success ? (
-            <div className="flex flex-col items-center justify-center py-16 text-center">
-              <div className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 animate-bounce">
-                <FiCheckCircle className="w-10 h-10 text-emerald-400" />
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6 animate-bounce" style={{ background: "#f0fdf4", border: "2px solid #86efac" }}>
+                <FiCheckCircle className="w-10 h-10 text-green-500" />
               </div>
-              <h2 className="text-2xl font-black text-[var(--text-color)] mb-3 uppercase italic tracking-tight">Success! 🎉</h2>
-              <p className="text-[var(--text-color)]/60 text-base mb-2 font-medium italic">Your journey begins shortly.</p>
-              <p className="text-[var(--ae-blue)] text-xs font-black uppercase tracking-widest">Redirecting...</p>
+              <h2 className="text-2xl font-black text-[#111827] mb-2">Account Created! 🎉</h2>
+              <p className="text-[#6b7280] text-sm mb-1">Your journey begins shortly.</p>
+              <p className="text-[#33418f] text-xs font-bold uppercase tracking-widest">Redirecting to login...</p>
             </div>
           ) : (
             <>
-              {/* ── Social Buttons ── */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
-                <a
-                  href={`${API_BASE}/auth/google`}
-                  className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
-                >
-                  <FaGoogle className="text-[#EA4335] text-lg" />
-                  <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Google</span>
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setError("Facebook login coming soon!")}
-                  className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
-                >
-                  <FaFacebook className="text-[#0866FF] text-lg" />
-                  <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Facebook</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setError("Microsoft login coming soon!")}
-                  className="flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/40 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group lg:hover:-translate-y-1 active:scale-95"
-                >
-                  <FaMicrosoft className="text-[#00A4EF] text-lg" />
-                  <span className="text-xs font-black text-[var(--text-color)]/40 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-widest">Microsoft</span>
-                </button>
+              {/* Heading */}
+              <div className="mb-6">
+                <h1 className="text-3xl font-black text-[#251d3f] leading-tight tracking-tight mb-1">
+                  Create your account ✨
+                </h1>
+                <p className="text-[#6b7280] text-sm font-medium">
+                  Join thousands of engineers on their AI journey
+                </p>
               </div>
 
-              {/* ── Divider ── */}
-              <div className="flex items-center gap-6 mb-8">
-                <div className="flex-1 h-px bg-[var(--ae-border)] opacity-50" />
-                <span className="text-[10px] font-black text-[var(--text-color)]/20 uppercase tracking-[0.3em] whitespace-nowrap">OR REGISTER WITH EMAIL</span>
-                <div className="flex-1 h-px bg-[var(--ae-border)] opacity-50" />
+              {/* Social Buttons */}
+              <div className="grid grid-cols-3 gap-3 mb-5">
+                {[
+                  { icon: <FaGoogle className="text-[#EA4335] text-sm" />, label: "Google", href: `${API_BASE}/auth/google`, onClick: undefined as (() => void) | undefined },
+                  { icon: <FaFacebook className="text-[#0866FF] text-sm" />, label: "Facebook", href: undefined, onClick: () => setError("Facebook coming soon!") },
+                  { icon: <FaMicrosoft className="text-[#00A4EF] text-sm" />, label: "Microsoft", href: undefined, onClick: () => setError("Microsoft coming soon!") },
+                ].map(({ icon, label, href, onClick }) =>
+                  href ? (
+                    <a
+                      key={label}
+                      href={href}
+                      className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                      style={{ background: "#fff", border: "1.5px solid #e5e7eb", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+                    >
+                      {icon}
+                      <span className="text-[9px] font-bold text-[#374151] uppercase tracking-wider">{label}</span>
+                    </a>
+                  ) : (
+                    <button
+                      key={label}
+                      type="button"
+                      onClick={onClick}
+                      className="flex flex-col items-center justify-center gap-1.5 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                      style={{ background: "#fff", border: "1.5px solid #e5e7eb", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+                    >
+                      {icon}
+                      <span className="text-[9px] font-bold text-[#374151] uppercase tracking-wider">{label}</span>
+                    </button>
+                  )
+                )}
               </div>
 
-              {/* ── Error Alert ── */}
+              {/* Divider */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="flex-1 h-px" style={{ background: "#e5e7eb" }} />
+                <span className="text-[10px] font-semibold text-[#9ca3af] uppercase tracking-widest whitespace-nowrap">or register with email</span>
+                <div className="flex-1 h-px" style={{ background: "#e5e7eb" }} />
+              </div>
+
+              {/* Error */}
               {error && (
-                <div className="flex items-center gap-4 bg-red-500/5 border-l-4 border-red-500 rounded-lg px-5 py-4 mb-8 animate-shake">
-                  <FiAlertCircle className="w-5 h-5 text-red-500 shrink-0" />
-                  <p className="text-sm font-bold text-red-500 italic uppercase tracking-tight">{error}</p>
+                <div className="flex items-center gap-3 px-4 py-3 rounded-xl mb-4 border-l-4 border-red-500" style={{ background: "#fef2f2" }}>
+                  <FiAlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+                  <p className="text-sm font-semibold text-red-600">{error}</p>
                 </div>
               )}
 
-              {/* ── Form ── */}
-              <form onSubmit={createAccount} className="space-y-6">
-                {/* First + Last Name */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {/* Form */}
+              <form onSubmit={createAccount} className="space-y-4">
+                {/* Name row */}
+                <div className="grid grid-cols-2 gap-3">
                   <InputField
                     id="firstName"
                     label="First Name"
                     type="text"
-                    placeholder="E.g. David"
+                    placeholder="David"
                     value={data.firstName}
                     onChange={handleInputChange("firstName")}
                   />
@@ -249,123 +318,79 @@ const Signup = (): ReactElement => {
                     id="lastName"
                     label="Last Name"
                     type="text"
-                    placeholder="E.g. Smith"
+                    placeholder="Smith"
                     value={data.lastName}
                     onChange={handleInputChange("lastName")}
                   />
                 </div>
 
-                {/* Username */}
                 <InputField
                   id="username"
                   label="Username"
                   type="text"
-                  placeholder="Unique ID"
+                  placeholder="Choose a username"
                   value={data.username}
                   onChange={handleInputChange("username")}
                 />
 
-                {/* Email */}
                 <InputField
                   id="email"
                   label="Email Address"
                   type="email"
-                  placeholder="name@example.com"
+                  placeholder="Enter email address"
                   value={data.email}
                   onChange={handleInputChange("email")}
                 />
 
-                {/* Password + Confirm */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-2 gap-3">
                   <InputField
                     id="password"
-                    label="Security Key"
+                    label="Password"
                     type={showPassword ? "text" : "password"}
                     placeholder="Min. 8 chars"
                     value={data.password}
                     onChange={handleInputChange("password")}
-                    extra={
-                      <ToggleBtn show={showPassword} onToggle={() => setShowPassword((v) => !v)} />
-                    }
+                    extra={<ToggleBtn show={showPassword} onToggle={() => setShowPassword((v) => !v)} />}
                   />
                   <InputField
                     id="confirmPassword"
-                    label="Verification"
+                    label="Confirm"
                     type={showConfirm ? "text" : "password"}
-                    placeholder="Repeat key"
+                    placeholder="Repeat password"
                     value={data.confirmPassword}
                     onChange={handleInputChange("confirmPassword")}
-                    extra={
-                      <ToggleBtn show={showConfirm} onToggle={() => setShowConfirm((v) => !v)} />
-                    }
+                    extra={<ToggleBtn show={showConfirm} onToggle={() => setShowConfirm((v) => !v)} />}
                   />
                 </div>
 
-                {/* Submit */}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-2xl ae-brand-button text-white shadow-xl hover:shadow-2xl font-black py-5 mt-4 transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3 hover:-translate-y-1 active:translate-y-0 uppercase tracking-[0.2em] italic"
+                  className="w-full py-4 rounded-xl font-black text-white text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+                  style={{ background: "linear-gradient(135deg, #33418f, #251d3f)", boxShadow: "0 4px 20px rgba(51,65,143,0.35)" }}
                 >
                   {loading ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Initializing...
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Creating account...
                     </>
                   ) : (
-                    "Create Account →"
+                    <>
+                      Create Account
+                      <FiArrowRight className="w-4 h-4" />
+                    </>
                   )}
                 </button>
               </form>
 
-              {/* Footer */}
-              <p className="mt-10 text-center text-xs font-black text-[var(--text-color)]/30 uppercase tracking-widest italic">
-                Already part of the network?{" "}
-                <Link to="/login" className="text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors underline decoration-[var(--ae-blue)]/20 underline-offset-4 ml-1">
-                  Connect here
+              <p className="mt-6 text-center text-sm text-[#6b7280]">
+                Already have an account?{" "}
+                <Link to="/login" className="font-bold text-[#33418f] hover:text-[#251d3f] transition-colors underline underline-offset-2">
+                  Sign in
                 </Link>
               </p>
             </>
           )}
-        </div>
-      </div>
-
-      {/* ── Right: Image Panel ── */}
-      <div className="hidden lg:block relative w-[40%] xl:w-[45%] shrink-0">
-        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-[var(--bg-color)] via-[var(--bg-color)]/30 to-transparent z-10 pointer-events-none" />
-
-        <img
-          src={classImg}
-          alt="Students learning"
-          className="absolute inset-0 w-full h-full object-cover grayscale-[0.3]"
-        />
-
-        <div className="absolute inset-0 bg-[var(--ae-blue)]/5 z-[5]" />
-
-        {/* Floating stats card */}
-        <div className="absolute top-16 right-12 z-20">
-          <div className="ae-brand-card backdrop-blur-md rounded-[2.5rem] border border-transparent p-8 shadow-2xl min-w-[240px] hover:scale-105 transition-transform duration-700">
-            <p className="text-5xl font-black text-[var(--ae-blue)] italic tracking-tighter leading-none mb-2">2.4k+</p>
-            <p className="text-[var(--text-color)]/40 font-black text-[10px] uppercase tracking-[0.2em]">Active Members</p>
-            <div className="flex items-center gap-1 mt-6">
-              {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Floating bottom badge */}
-        <div className="absolute bottom-16 right-12 z-20 max-w-[280px]">
-          <div className="ae-brand-card backdrop-blur-md rounded-[2.5rem] border border-transparent p-8 shadow-2xl hover:scale-105 transition-transform duration-700">
-            <div className="w-14 h-14 rounded-2xl bg-[var(--ae-blue)]/10 border border-[var(--ae-blue)]/20 flex items-center justify-center mb-6">
-              <FiCheckCircle size={28} className="text-[var(--ae-blue)]" />
-            </div>
-            <p className="text-[var(--text-color)] font-black text-xl italic tracking-tight mb-2 uppercase">Verified Growth</p>
-            <p className="text-[var(--text-color)]/50 font-medium text-xs leading-relaxed italic">Earn blockchain-verified credentials upon cohort completion.</p>
-          </div>
         </div>
       </div>
     </div>
