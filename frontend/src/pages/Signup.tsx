@@ -46,10 +46,10 @@ const InputField = ({
   extra?: React.ReactNode;
 }) => (
   <div className="space-y-1.5">
-    <label htmlFor={id} className="block text-xs font-bold text-[var(--text-color)]/60 uppercase tracking-wider italic">
+    <label htmlFor={id} className="block text-[10px] font-black text-[var(--text-color)]/40 uppercase tracking-[0.15em] ml-1">
       {label}
     </label>
-    <div className="relative">
+    <div className="relative group">
       <input
         id={id}
         type={type}
@@ -57,7 +57,7 @@ const InputField = ({
         value={value}
         onChange={onChange}
         autoComplete={id}
-        className="w-full rounded-2xl bg-[var(--bg-color)]/50 border border-[var(--ae-border)] focus:border-[var(--ae-blue)] focus:ring-4 focus:ring-[rgba(51,65,143,0.1)] outline-none px-4 py-3.5 text-[var(--text-color)] placeholder:text-[var(--text-color)]/30 transition-all font-medium text-sm shadow-sm pr-12"
+        className="w-full rounded-2xl bg-[var(--bg-color)]/60 border border-transparent focus:border-[var(--ae-blue)]/30 focus:bg-[var(--bg-color)] focus:ring-4 focus:ring-[var(--ae-blue)]/5 outline-none px-5 py-4 text-[var(--text-color)] placeholder:text-[var(--text-color)]/20 transition-all font-semibold text-sm shadow-sm pr-12 group-hover:bg-[var(--bg-color)]"
       />
       {extra}
     </div>
@@ -150,10 +150,10 @@ const Signup = (): ReactElement => {
     <button
       type="button"
       onClick={onToggle}
-      className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-color)]/30 hover:text-[var(--ae-blue)] transition-colors"
+      className="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--text-color)]/20 hover:text-[var(--ae-blue)] transition-colors"
       aria-label={show ? "Hide password" : "Show password"}
     >
-      {show ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
+      {show ? <FiEyeOff className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
     </button>
   );
 
@@ -161,11 +161,11 @@ const Signup = (): ReactElement => {
     <div className="min-h-screen w-full flex items-stretch overflow-hidden ae-brand-page font-outfit">
       {/* ── Left: Form Panel ── */}
       <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-16 xl:px-24 z-10">
-        <div className="w-full max-w-xl ae-brand-card shadow-2xl border border-[var(--ae-border)] rounded-[2.5rem] p-6 sm:p-8 md:p-10 relative overflow-hidden">
+        <div className="w-full max-w-xl ae-brand-card shadow-2xl border border-transparent rounded-[2.5rem] p-6 sm:p-8 md:p-10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--ae-blue)]/5 rounded-bl-[4rem] -mr-16 -mt-16 pointer-events-none" />
 
           {/* Brand */}
-          <div className="mb-8">
+          <div className="mb-10 text-center sm:text-left">
             <div className="inline-flex items-center gap-3 mb-2">
               <div className="w-9 h-9 rounded-xl ae-brand-button flex items-center justify-center shadow-lg">
                 <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
@@ -174,78 +174,66 @@ const Signup = (): ReactElement => {
               </div>
               <span className="text-[var(--text-color)] font-black text-lg tracking-tight uppercase">A.E Platform</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black text-[var(--text-color)] mt-6 leading-tight italic tracking-tight">
-              Create your account ✨
+            <h1 className="text-3xl sm:text-5xl font-black text-[var(--text-color)] mt-6 leading-tight italic tracking-tighter uppercase underline decoration-[var(--ae-blue)]/20 underline-offset-8">
+              Join Us ✨
             </h1>
-            <p className="text-[var(--text-color)]/60 font-medium mt-2 text-sm italic">Join thousands of learners today. It's free.</p>
           </div>
 
           {/* ── Success State ── */}
           {success ? (
-            <div className="flex flex-col items-center justify-center py-12 text-center">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mb-4">
-                <FiCheckCircle className="w-8 h-8 text-emerald-400" />
+            <div className="flex flex-col items-center justify-center py-16 text-center">
+              <div className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 animate-bounce">
+                <FiCheckCircle className="w-10 h-10 text-emerald-400" />
               </div>
-              <h2 className="text-xl font-bold text-[var(--text-color)] mb-2">Account Created! 🎉</h2>
-              <p className="text-[var(--text-color)]/60 text-sm mb-1 font-light">Please check your email to verify your account.</p>
-              <p className="text-[var(--text-color)]/40 text-xs animate-pulse font-medium">Redirecting to login…</p>
+              <h2 className="text-2xl font-black text-[var(--text-color)] mb-3 uppercase italic tracking-tight">Success! 🎉</h2>
+              <p className="text-[var(--text-color)]/60 text-base mb-2 font-medium italic">Your journey begins shortly.</p>
+              <p className="text-[var(--ae-blue)] text-xs font-black uppercase tracking-widest">Redirecting...</p>
             </div>
           ) : (
             <>
               {/* ── Social Buttons ── */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-7">
-                {/* Google — real OAuth */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <a
                   href={`${API_BASE}/auth/google`}
-                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-[var(--ae-border)] bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 shadow-sm px-4 py-3 transition-all group"
+                  className="flex-1 flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/50 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group border border-transparent hover:border-[var(--ae-blue)]/10"
                 >
-                  <FaGoogle className="text-[#EA4335]" />
-                  <span className="text-sm font-bold text-[var(--text-color)]/80 transition-colors">Google</span>
+                  <FaGoogle className="text-[#EA4335] text-lg" />
+                  <span className="text-sm font-black text-[var(--text-color)]/60 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-wider">Google</span>
                 </a>
-                {/* Facebook — coming soon */}
                 <button
                   type="button"
-                  onClick={() => setError("Facebook login coming soon! Use Google or email for now.")}
-                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-[var(--ae-border)] bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 shadow-sm px-4 py-3 transition-all group"
+                  onClick={() => setError("Facebook login coming soon!")}
+                  className="flex-1 flex items-center justify-center gap-3 rounded-2xl bg-[var(--bg-color)]/50 hover:bg-[var(--bg-color)] shadow-sm px-4 py-4 transition-all group border border-transparent hover:border-[var(--ae-blue)]/10"
                 >
-                  <FaFacebook className="text-[#0866FF]" />
-                  <span className="text-sm font-bold text-[var(--text-color)]/80 transition-colors">Facebook</span>
-                </button>
-                {/* Microsoft — coming soon */}
-                <button
-                  type="button"
-                  onClick={() => setError("Microsoft login coming soon! Use Google or email for now.")}
-                  className="flex-1 flex items-center justify-center gap-2.5 rounded-2xl border border-[var(--ae-border)] bg-[var(--bg-color)]/50 hover:bg-[var(--ae-blue)]/10 shadow-sm px-4 py-3 transition-all group"
-                >
-                  <FaMicrosoft className="text-[#00A4EF]" />
-                  <span className="text-sm font-bold text-[var(--text-color)]/80 transition-colors">Microsoft</span>
+                  <FaFacebook className="text-[#0866FF] text-lg" />
+                  <span className="text-sm font-black text-[var(--text-color)]/60 group-hover:text-[var(--text-color)] transition-colors uppercase tracking-wider">Facebook</span>
                 </button>
               </div>
 
               {/* ── Divider ── */}
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-6 mb-8">
                 <div className="flex-1 h-px bg-[var(--ae-border)]" />
-                <span className="text-xs font-bold text-[var(--text-color)]/30 uppercase tracking-widest whitespace-nowrap italic">or register with email</span>
+                <span className="text-[10px] font-black text-[var(--text-color)]/20 uppercase tracking-[0.3em] whitespace-nowrap">Secure Registration</span>
                 <div className="flex-1 h-px bg-[var(--ae-border)]" />
               </div>
 
               {/* ── Error Alert ── */}
               {error && (
-                <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 rounded-2xl px-4 py-3 mb-5">
+                <div className="flex items-center gap-4 bg-red-500/5 border-l-4 border-red-500 rounded-lg px-5 py-4 mb-8 animate-shake">
                   <FiAlertCircle className="w-5 h-5 text-red-500 shrink-0" />
-                  <p className="text-sm font-medium text-red-500">{error}</p>
+                  <p className="text-sm font-bold text-red-500 italic uppercase tracking-tight">{error}</p>
                 </div>
               )}
 
               {/* ── Form ── */}
-              <form onSubmit={createAccount} className="space-y-4">
+              <form onSubmit={createAccount} className="space-y-6">
                 {/* First + Last Name */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <InputField
                     id="firstName"
                     label="First Name"
                     type="text"
-                    placeholder="Enter first name"
+                    placeholder="E.g. David"
                     value={data.firstName}
                     onChange={handleInputChange("firstName")}
                   />
@@ -253,7 +241,7 @@ const Signup = (): ReactElement => {
                     id="lastName"
                     label="Last Name"
                     type="text"
-                    placeholder="Enter last name"
+                    placeholder="E.g. Smith"
                     value={data.lastName}
                     onChange={handleInputChange("lastName")}
                   />
@@ -264,7 +252,7 @@ const Signup = (): ReactElement => {
                   id="username"
                   label="Username"
                   type="text"
-                  placeholder="Choose username"
+                  placeholder="Unique ID"
                   value={data.username}
                   onChange={handleInputChange("username")}
                 />
@@ -274,16 +262,16 @@ const Signup = (): ReactElement => {
                   id="email"
                   label="Email Address"
                   type="email"
-                  placeholder="Enter email address"
+                  placeholder="name@example.com"
                   value={data.email}
                   onChange={handleInputChange("email")}
                 />
 
                 {/* Password + Confirm */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <InputField
                     id="password"
-                    label="Password"
+                    label="Security Key"
                     type={showPassword ? "text" : "password"}
                     placeholder="Min. 8 chars"
                     value={data.password}
@@ -294,9 +282,9 @@ const Signup = (): ReactElement => {
                   />
                   <InputField
                     id="confirmPassword"
-                    label="Confirm Password"
+                    label="Verification"
                     type={showConfirm ? "text" : "password"}
-                    placeholder="Repeat password"
+                    placeholder="Repeat key"
                     value={data.confirmPassword}
                     onChange={handleInputChange("confirmPassword")}
                     extra={
@@ -309,24 +297,24 @@ const Signup = (): ReactElement => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-2xl ae-brand-button text-white shadow-xl hover:shadow-2xl font-bold py-4 mt-2 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:-translate-y-1 active:translate-y-0"
+                  className="w-full rounded-2xl ae-brand-button text-white shadow-xl hover:shadow-2xl font-black py-5 mt-4 transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3 hover:-translate-y-1 active:translate-y-0 uppercase tracking-[0.2em] italic"
                 >
                   {loading ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Creating Account…
+                      Initializing...
                     </>
                   ) : (
-                    "Create Account →"
+                    "Authorize Account →"
                   )}
                 </button>
               </form>
 
               {/* Footer */}
-              <p className="mt-8 text-center text-sm font-medium text-[var(--text-color)]/60 italic">
-                Already have an account?{" "}
-                <Link to="/login" className="text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] font-black transition-colors">
-                  Sign in
+              <p className="mt-10 text-center text-xs font-black text-[var(--text-color)]/30 uppercase tracking-widest italic">
+                Already part of the network?{" "}
+                <Link to="/login" className="text-[var(--ae-blue)] hover:text-[var(--ae-plum-deep)] transition-colors underline decoration-[var(--ae-blue)]/20 underline-offset-4 ml-1">
+                  Connect here
                 </Link>
               </p>
             </>
@@ -335,40 +323,40 @@ const Signup = (): ReactElement => {
       </div>
 
       {/* ── Right: Image Panel ── */}
-      <div className="hidden lg:block relative w-[42%] xl:w-[48%] shrink-0">
-        {/* Gradient overlays */}
-        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-[var(--bg-color)] via-[var(--bg-color)]/50 to-transparent z-10 pointer-events-none" />
+      <div className="hidden lg:block relative w-[40%] xl:w-[45%] shrink-0">
+        <div className="absolute inset-x-0 inset-y-0 bg-gradient-to-r from-[var(--bg-color)] via-[var(--bg-color)]/30 to-transparent z-10 pointer-events-none" />
 
         <img
           src={classImg}
           alt="Students learning"
-          className="absolute inset-0 w-full h-full object-cover grayscale-[0.2]"
+          className="absolute inset-0 w-full h-full object-cover grayscale-[0.3]"
         />
 
+        <div className="absolute inset-0 bg-[var(--ae-blue)]/5 z-[5]" />
+
         {/* Floating stats card */}
-        <div className="absolute top-12 right-10 z-20">
-          <div className="ae-brand-card backdrop-blur-md rounded-3xl border border-[var(--ae-border)] p-6 shadow-2xl min-w-[200px] hover:scale-105 transition-transform">
-            <p className="text-4xl font-black text-[var(--ae-blue)] italic tracking-tighter">2.4k+</p>
-            <p className="text-[var(--text-color)]/60 font-bold text-xs uppercase tracking-widest mt-1">Active learners</p>
-            <div className="flex items-center gap-1 mt-3">
+        <div className="absolute top-16 right-12 z-20">
+          <div className="ae-brand-card backdrop-blur-md rounded-[2.5rem] border border-transparent p-8 shadow-2xl min-w-[240px] hover:scale-105 transition-transform duration-700">
+            <p className="text-5xl font-black text-[var(--ae-blue)] italic tracking-tighter leading-none mb-2">2.4k+</p>
+            <p className="text-[var(--text-color)]/40 font-black text-[10px] uppercase tracking-[0.2em]">Active Members</p>
+            <div className="flex items-center gap-1 mt-6">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-4 h-4 text-amber-500 fill-current" viewBox="0 0 24 24">
+                <svg key={i} className="w-5 h-5 text-amber-500 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
               ))}
-              <span className="text-[var(--text-color)] font-black text-xs ml-1 font-outfit">5.0 Rating</span>
             </div>
           </div>
         </div>
 
         {/* Floating bottom badge */}
-        <div className="absolute bottom-12 right-10 z-20 max-w-[240px]">
-          <div className="ae-brand-card backdrop-blur-md rounded-3xl border border-[var(--ae-border)] p-6 shadow-2xl hover:scale-105 transition-transform">
-            <div className="w-12 h-12 rounded-xl bg-[var(--ae-blue)]/10 border border-[var(--ae-blue)]/20 flex items-center justify-center mb-4">
-              <FiCheckCircle size={24} className="text-[var(--ae-blue)]" />
+        <div className="absolute bottom-16 right-12 z-20 max-w-[280px]">
+          <div className="ae-brand-card backdrop-blur-md rounded-[2.5rem] border border-transparent p-8 shadow-2xl hover:scale-105 transition-transform duration-700">
+            <div className="w-14 h-14 rounded-2xl bg-[var(--ae-blue)]/10 border border-[var(--ae-blue)]/20 flex items-center justify-center mb-6">
+              <FiCheckCircle size={28} className="text-[var(--ae-blue)]" />
             </div>
-            <p className="text-[var(--text-color)] font-black text-lg italic tracking-tight mb-1">Certified Growth</p>
-            <p className="text-[var(--text-color)]/60 font-medium text-xs leading-relaxed">Earn blockchain-verified certificates upon cohort completion</p>
+            <p className="text-[var(--text-color)] font-black text-xl italic tracking-tight mb-2 uppercase">Verified Growth</p>
+            <p className="text-[var(--text-color)]/50 font-medium text-xs leading-relaxed italic">Earn blockchain-verified credentials upon cohort completion.</p>
           </div>
         </div>
       </div>

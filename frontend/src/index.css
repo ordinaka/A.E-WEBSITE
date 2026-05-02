@@ -22,6 +22,7 @@
   --card-bg: #FFFFFF;
   --nav-bg: rgba(255, 255, 255, 0.85);
   --secondary-bg: #F8FAFC;
+  --ae-border: rgba(51, 65, 143, 0.08); /* Very subtle brand-tinted border */
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
