@@ -23,15 +23,15 @@ const Login = (): ReactElement => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     setError(null);
 
-    if (!email.trim() || !password.trim()) {
-      setError("Please enter both email and password.");
+    if (!identifier.trim() || !password.trim()) {
+      setError("Please enter your email/username and password.");
       return;
     }
 
@@ -39,12 +39,12 @@ const Login = (): ReactElement => {
     try {
       const response = await apiFetch("/auth/login", {
         method: "POST",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: identifier, password }),
       });
       console.log("Login successful:", response);
       navigate("/home");
     } catch (err: unknown) {
-      setError(getErrorMessage(err, "Invalid email or password. Please try again."));
+      setError(getErrorMessage(err, "Invalid credentials. Please try again."));
     } finally {
       setLoading(false);
     }
@@ -164,7 +164,7 @@ const Login = (): ReactElement => {
           {/* Divider */}
           <div className="flex items-center gap-4 mb-6">
             <div className="flex-1 h-px" style={{ background: "var(--divider-color)" }} />
-            <span className="text-[11px] font-semibold uppercase tracking-widest whitespace-nowrap" style={{ color: "var(--muted-text)" }}>or continue with email</span>
+            <span className="text-[11px] font-semibold uppercase tracking-widest whitespace-nowrap" style={{ color: "var(--muted-text)" }}>or continue manually</span>
             <div className="flex-1 h-px" style={{ background: "var(--divider-color)" }} />
           </div>
 
@@ -179,15 +179,15 @@ const Login = (): ReactElement => {
           {/* Form */}
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "var(--label-text)" }}>
-                Email Address
+              <label htmlFor="identifier" className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "var(--label-text)" }}>
+                Email or Username
               </label>
               <input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                id="identifier"
+                type="text"
+                placeholder="you@example.com or username"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
                 className="w-full rounded-xl px-4 py-3.5 text-sm font-medium transition-all outline-none focus:ring-2 focus:ring-[#33418f]/20"
                 style={{
                   background: "var(--input-bg)",
