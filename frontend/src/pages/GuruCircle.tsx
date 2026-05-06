@@ -96,7 +96,7 @@ export default function GuruCircle() {
         }}
       />
 
-      {/* ── ORBITAL SQUARE ── */}
+      {/* ── ORBITAL SECTION (Desktop) / CAROUSEL (Mobile) ── */}
       <div
         className="relative w-[95vw] md:w-[min(115vw,898px)]"
         style={{
@@ -105,6 +105,63 @@ export default function GuruCircle() {
           flexShrink: 0,
         }}
       >
+        {/* MOBILE AVATAR CAROUSEL */}
+        <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center gap-6">
+          <h1 className="text-center text-2xl font-bold text-[var(--text-color)]">
+            <span>Welcome To The</span>
+            <br />
+            <span style={{ color: "var(--ae-blue)" }}>Guru Circle</span>
+          </h1>
+          <p className="text-center text-sm text-[var(--text-color)]/60 max-w-xs">
+            Dive deep in immersive, interactive groups. Expand horizons, engage in discussions, and elevate your learning journey with us.
+          </p>
+          {/* Horizontal scroll avatars */}
+          <div className="flex gap-3 overflow-x-auto pb-4 px-4 w-full justify-start">
+            {members.map((m) => (
+              <div
+                key={m.id}
+                className="flex-shrink-0 relative group"
+                style={{
+                  opacity: mounted ? 1 : 0,
+                  transition: "opacity 480ms"
+                }}
+              >
+                <div
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    border: "2px solid rgba(255,255,255,0.22)",
+                    boxShadow: "0 2px 14px rgba(0,0,0,0.5)",
+                  }}
+                >
+                  <img
+                    src={m.img}
+                    alt={m.name}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <button className="px-8 py-3"
+            style={{
+              background: "var(--ae-plum)",
+              color: "white",
+              border: "none",
+              borderRadius: "7px",
+              fontWeight: 700,
+              fontSize: "14px",
+              cursor: "pointer",
+            }}
+          >
+            Get Started
+          </button>
+        </div>
+
+      {/* ── DESKTOP ORBITAL LAYOUT ── */}
+      <div className="hidden md:block absolute inset-0">
         {/* SVG rings */}
         <svg
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
@@ -236,7 +293,7 @@ export default function GuruCircle() {
 
         {/* ── CENTER TEXT ── */}
         <div
-          className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-[55%] w-[85%] md:w-[37%] text-center flex flex-col items-center z-[6] transition-opacity duration-600 delay-200"
+          className="hidden md:flex absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-[55%] w-[37%] text-center flex-col items-center z-[6] transition-opacity duration-600 delay-200"
           style={{
             gap: "clamp(6px,1vw,12px)",
             opacity: mounted ? 1 : 0,
@@ -265,7 +322,7 @@ export default function GuruCircle() {
             Dive deep in immersive, interactive groups. Expand horizons, engage in
             discussions, and elevate your learning journey with us.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full justify-center">
+          <div className="hidden md:flex flex-col sm:flex-row gap-3 mt-4 w-full justify-center">
             <button className="px-8 py-3 w-full sm:w-auto"
               style={{
                 background: "var(--ae-plum)",
@@ -328,10 +385,11 @@ export default function GuruCircle() {
           ))}
         </div>
       </div>
+      </div>
 
       {/* ── STATS ROW ── */}
       <div
-        className="flex flex-wrap justify-center gap-8 md:gap-6 lg:gap-[clamp(20px,5vw,72px)] w-full max-w-[min(88vw,760px)] px-6 pb-12 mt-56 md:mt-4 relative z-[30] transition-opacity duration-600 delay-900"
+        className="flex flex-wrap justify-center gap-8 md:gap-6 lg:gap-[clamp(20px,5vw,72px)] w-full max-w-[min(88vw,760px)] px-6 pb-12 mt-12 md:mt-4 relative z-[30] transition-opacity duration-600 delay-900"
         style={{
           opacity: mounted ? 1 : 0,
         }}
