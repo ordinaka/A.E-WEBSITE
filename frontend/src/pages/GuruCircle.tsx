@@ -70,7 +70,6 @@ export default function GuruCircle() {
     <div
       className="ae-brand-page"
       style={{
-        fontFamily: "'Sora','DM Sans',sans-serif",
         color: "var(--text-color)",
         display: "flex",
         flexDirection: "column",

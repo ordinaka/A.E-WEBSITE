@@ -92,7 +92,7 @@ export default function AboutPage() {
                 <Rocket className="w-4 h-4 text-[var(--ae-blue)]" />
                 <span className="text-[10px] font-black text-[var(--ae-blue)] uppercase tracking-[0.2em]">Our Story</span>
               </div>
-              <h1 className="text-[var(--text-color)] text-4xl sm:text-6xl md:text-7xl font-black leading-tight drop-shadow-sm mb-8 italic tracking-tighter uppercase">
+              <h1 className="text-[var(--text-color)] text-4xl sm:text-4xl md:text-5xl font-black leading-tight drop-shadow-sm mb-8 italic tracking-tighter uppercase">
                 Redefining <span className="text-[var(--ae-blue)]">Intelligence</span>
               </h1>
               <p className="text-[var(--text-color)]/70 text-lg md:text-2xl leading-relaxed font-light">
