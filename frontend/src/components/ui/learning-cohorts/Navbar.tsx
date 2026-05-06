@@ -65,12 +65,12 @@ function Navbar() {
         }`}>
 
           {/* LOGO */}
-          <Link to="/" onClick={closeMenu} className="shrink-0">
-            <img src={favicon} className="w-10 h-10 rounded-full" alt="Logo" />
+          <Link to="/" onClick={closeMenu} className="shrink-0 flex items-center justify-center">
+            <img src={favicon} className="w-10 h-10 rounded-full object-cover" alt="Logo" />
           </Link>
 
           {/* DESKTOP NAV LINKS */}
-          <nav className="hidden lg:flex gap-8 text-sm font-medium tracking-wide">
+          <nav className="hidden lg:flex lg:gap-4 xl:gap-6 text-xs xl:text-sm font-medium tracking-wide whitespace-nowrap">
             {navLinks.map((link) => (
               <NavLink 
                 key={link.to} 
@@ -89,8 +89,8 @@ function Navbar() {
           </nav>
 
           {/* PROFILE / LOGIN / HAMBURGER */}
-          <div className="flex gap-4 items-center">
-            <div className="hidden sm:flex gap-6 items-center">
+          <div className="flex gap-3 xl:gap-4 items-center shrink-0">
+            <div className="hidden sm:flex gap-3 xl:gap-6 items-center whitespace-nowrap">
               {!isLoggedIn ? (
                 <>
                   <NavLink 

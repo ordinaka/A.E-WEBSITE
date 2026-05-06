@@ -166,7 +166,7 @@ export default function DashboardPage() {
       >
         <motion.div variants={itemVariants} className="mb-10 auth-hero-card rounded-[28px] p-6 md:p-8">
           <div className="auth-topline mb-6 w-28" />
-          <span className="auth-section-kicker text-xs font-bold uppercase tracking-[0.24em] text-[var(--ae-blue)] mb-4">
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[var(--text-color)]/5 border border-[var(--text-color)]/10 text-[var(--text-color)]/80 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-6">
             Algorithmic Explorers Dashboard
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-3 auth-gradient-text">

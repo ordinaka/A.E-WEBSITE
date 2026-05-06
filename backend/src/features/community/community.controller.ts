@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { communityService } from "./community.service";
-import { asyncHandler } from "../../utils/asyncHandler";
+import { asyncHandler } from "../../shared/utils/async-handler";
 
 export class CommunityController {
   createPost = asyncHandler(async (req: Request, res: Response) => {
     // req.user is guaranteed to be present because this will be a protected route
     const postData = {
-      userId: req.user!.id,
+      userId: req.user!.sub,
       title: req.body.title,
       content: req.body.content,
     };
@@ -30,7 +30,7 @@ export class CommunityController {
   });
 
   getPostById = asyncHandler(async (req: Request, res: Response) => {
-    const post = await communityService.getPostById(req.params.id);
+    const post = await communityService.getPostById(req.params.id as string);
 
     res.status(200).json({
       status: "success",
@@ -39,7 +39,7 @@ export class CommunityController {
   });
 
   deletePost = asyncHandler(async (req: Request, res: Response) => {
-    await communityService.deletePost(req.params.id, req.user!.id, req.user!.role);
+    await communityService.deletePost(req.params.id as string, req.user!.sub, req.user!.role);
 
     res.status(204).json({
       status: "success",
@@ -49,8 +49,8 @@ export class CommunityController {
 
   createComment = asyncHandler(async (req: Request, res: Response) => {
     const commentData = {
-      userId: req.user!.id,
-      postId: req.params.postId,
+      userId: req.user!.sub,
+      postId: req.params.postId as string,
       content: req.body.content,
     };
 
@@ -63,7 +63,7 @@ export class CommunityController {
   });
 
   deleteComment = asyncHandler(async (req: Request, res: Response) => {
-    await communityService.deleteComment(req.params.commentId, req.user!.id, req.user!.role);
+    await communityService.deleteComment(req.params.commentId as string, req.user!.sub, req.user!.role);
 
     res.status(204).json({
       status: "success",

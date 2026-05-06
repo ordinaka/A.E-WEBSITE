@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../../context/useAuth";
-import { apiFetch } from "../../lib/api";
-import PostCard, { PostProps } from "../components/ui/community/PostCard";
-import { Link, Navigate } from "react-router-dom";
+import { useAuth } from "../context/useAuth";
+import { apiFetch } from "../lib/api";
+import PostCard from "../components/ui/community/PostCard";
+import type { PostProps } from "../components/ui/community/PostCard";
+import { Link } from "react-router-dom";
+import { Lock } from "lucide-react";
 
 const CommunityPage = () => {
   const { isLoggedIn, user } = useAuth();
@@ -22,9 +24,8 @@ const CommunityPage = () => {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const data = await apiFetch("/community/v1"); // wait, the backend route is actually /api/v1 is appended. Let's check backend routes... No, apiRouter mounts on /api so /community is sufficient. Wait, backend index.ts says `apiRouter.use("/community", communityRoutes);`. No `v1`. So endpoint is just `/community`.
-      const data2 = await apiFetch("/community");
-      setPosts(data2.posts);
+      const data = await apiFetch("/community");
+      setPosts(data.posts);
     } catch (err: any) {
       setError(err.message || "Failed to load community feed");
     } finally {
@@ -53,18 +54,26 @@ const CommunityPage = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="pt-32 pb-20 min-h-screen bg-[var(--bg-color)] flex items-center justify-center px-4">
-        <div className="text-center ae-brand-card p-12 rounded-3xl border border-[var(--ae-border)] max-w-lg w-full shadow-lg">
-          <div className="w-20 h-20 bg-[var(--bg-color)] rounded-full mx-auto flex items-center justify-center text-4xl mb-6 shadow-sm border border-[var(--ae-border)]">
-            🔒
+      <div className="pt-32 pb-20 min-h-screen bg-[var(--bg-color)] flex items-center justify-center px-4 relative">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none flex justify-center">
+          <div className="w-[800px] h-[500px] bg-[var(--ae-blue)]/5 blur-[120px] rounded-full translate-y-[-20%]"></div>
+        </div>
+        
+        <div className="text-center ae-brand-card p-10 sm:p-14 rounded-[2rem] border border-[var(--ae-border)] max-w-2xl w-full shadow-2xl relative z-10 bg-[var(--bg-color)]/80 backdrop-blur-xl">
+          <div className="w-20 h-20 bg-[var(--bg-color)] rounded-full mx-auto flex items-center justify-center mb-8 shadow-sm border border-[var(--ae-border)]">
+            <Lock className="w-8 h-8 text-[var(--ae-blue)]" strokeWidth={1.5} />
           </div>
-          <h2 className="text-3xl font-bold text-[var(--test-color)] mb-4">Members Only</h2>
-          <p className="text-[var(--text-color)]/70 mb-8">
-            The AE Discovery Circle Community is an exclusive space for verified members. Please log in to join the conversation.
+          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text-color)] mb-5 tracking-tight">Access Restricted</h2>
+          <p className="text-[var(--text-color)]/70 mb-10 text-lg leading-relaxed max-w-lg mx-auto">
+            The AE Discovery Circle is an exclusive hub for verified members to collaborate, share ideas, and grow together. 
+            Log in to participate in the conversation.
           </p>
-          <div className="flex gap-4 justify-center">
-            <Link to="/login" className="ae-brand-button text-white px-8 py-3 rounded-full font-bold shadow-md hover:shadow-xl transition-all">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/login" className="ae-brand-button text-white px-8 py-3.5 rounded-full font-bold shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
               Login to Access
+            </Link>
+            <Link to="/signup" className="px-8 py-3.5 rounded-full font-bold border border-[var(--ae-border)] text-[var(--text-color)] hover:bg-[var(--text-color)]/5 transition-all w-full sm:w-auto">
+              Apply for Membership
             </Link>
           </div>
         </div>
