@@ -218,8 +218,12 @@ export default function ModuleDetailPage() {
 
         {!isLoading && !error && moduleDetail ? (
           <>
-            <section className="ae-brand-card border border-[var(--ae-border)] shadow-sm rounded-3xl p-8">
-              <h1 className="text-4xl font-black text-[var(--text-color)] mb-4">{moduleDetail.title}</h1>
+            <section className="auth-hero-card rounded-3xl p-8">
+              <div className="auth-topline mb-6 w-24" />
+              <span className="auth-section-kicker text-xs font-bold uppercase tracking-[0.24em] text-[var(--ae-blue)] mb-4">
+                Learning Module
+              </span>
+              <h1 className="text-4xl font-black auth-gradient-text mb-4">{moduleDetail.title}</h1>
               {moduleDetail.shortDescription ? (
                 <p className="app-muted-text font-bold text-lg mb-4">{moduleDetail.shortDescription}</p>
               ) : null}

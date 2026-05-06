@@ -164,11 +164,12 @@ export default function DashboardPage() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-10 ae-brand-card border border-[var(--ae-border)] shadow-sm rounded-[28px] p-6 md:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--ae-blue)] mb-3">
+        <motion.div variants={itemVariants} className="mb-10 auth-hero-card rounded-[28px] p-6 md:p-8">
+          <div className="auth-topline mb-6 w-28" />
+          <span className="auth-section-kicker text-xs font-bold uppercase tracking-[0.24em] text-[var(--ae-blue)] mb-4">
             Algorithmic Explorers Dashboard
-          </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 text-[var(--text-color)]">
+          </span>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-3 auth-gradient-text">
             Welcome back, {user?.firstName || "Student"}!
           </h1>
           <p className="text-[var(--text-color)]/70 text-lg max-w-2xl font-medium">
@@ -208,7 +209,7 @@ export default function DashboardPage() {
           <div className="space-y-8">
             <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {/* Stat Cards */}
-              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-purple-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card auth-stat-glow border border-[var(--ae-border)] hover:border-purple-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-purple-50 rounded-xl group-hover:bg-purple-100 transition-colors">
                     <BookOpen className="w-6 h-6 text-purple-600" />
@@ -218,7 +219,7 @@ export default function DashboardPage() {
                 <p className="text-3xl font-black text-[var(--text-color)]">{dashboard.summary.totalModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-emerald-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card auth-stat-glow border border-[var(--ae-border)] hover:border-emerald-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-emerald-50 rounded-xl group-hover:bg-emerald-100 transition-colors">
                     <CheckCircle className="w-6 h-6 text-emerald-600" />
@@ -228,7 +229,7 @@ export default function DashboardPage() {
                 <p className="text-3xl font-black text-[var(--text-color)]">{dashboard.summary.completedModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-amber-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card auth-stat-glow border border-[var(--ae-border)] hover:border-amber-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-amber-50 rounded-xl group-hover:bg-amber-100 transition-colors">
                     <PlayCircle className="w-6 h-6 text-amber-600" />
@@ -238,7 +239,7 @@ export default function DashboardPage() {
                 <p className="text-3xl font-black text-[var(--text-color)]">{dashboard.summary.inProgressModules}</p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -4 }} className="ae-brand-card border border-[var(--ae-border)] hover:border-slate-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
+              <motion.div whileHover={{ y: -4 }} className="ae-brand-card auth-stat-glow border border-[var(--ae-border)] hover:border-slate-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 app-soft-surface rounded-xl transition-colors">
                     <Clock className="w-6 h-6 app-muted-text" />
@@ -249,7 +250,7 @@ export default function DashboardPage() {
               </motion.div>
 
               <Link to="/leaderboard" className="block group">
-                <motion.div whileHover={{ y: -4 }} className="h-full ae-brand-card border border-[var(--ae-border)] hover:border-[var(--ae-blue)]/50 rounded-2xl p-6 shadow-sm hover:shadow-md relative overflow-hidden transition-all">
+                <motion.div whileHover={{ y: -4 }} className="h-full ae-brand-card auth-stat-glow border border-[var(--ae-border)] hover:border-[var(--ae-blue)]/50 rounded-2xl p-6 shadow-sm hover:shadow-md relative overflow-hidden transition-all">
                   <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[var(--ae-blue)] via-[var(--ae-lavender)] to-[var(--ae-peach)]" />
                   <div className="flex items-start justify-between mb-4 relative z-10 pt-2">
                     <div className="p-3 bg-[var(--ae-blue)]/10 rounded-xl group-hover:bg-[var(--ae-blue)]/20 transition-colors">

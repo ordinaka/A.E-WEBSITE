@@ -117,11 +117,15 @@ export default function LeaderboardPage() {
         initial="hidden"
         animate="visible"
       >
-        <motion.section variants={itemVariants} className="text-center mb-12">
+        <motion.section variants={itemVariants} className="auth-hero-card text-center mb-12 rounded-[32px] px-6 py-12">
+          <div className="auth-topline mx-auto mb-6 w-24" />
           <div className="inline-flex items-center justify-center p-4 bg-purple-100 rounded-full mb-4 shadow-sm">
             <Trophy className="w-10 h-10 text-[var(--ae-blue)]" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black mb-3 text-[var(--text-color)]">
+          <div className="auth-section-kicker text-xs font-bold uppercase tracking-[0.24em] text-[var(--ae-blue)] mb-4">
+            Ranking Arena
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black mb-3 auth-gradient-text">
             Global Leaderboard
           </h1>
           <p className="text-[var(--text-color)]/70 font-medium text-lg max-w-2xl mx-auto">
@@ -187,7 +191,7 @@ export default function LeaderboardPage() {
                     variants={itemVariants}
                     whileHover={{ y: -8, scale: 1.02 }}
                     key={entry.userId} 
-                    className={`relative ae-brand-card shadow-sm border rounded-3xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-300 ${bgGlow} ${entry.rank === 1 ? 'md:-mt-8 border-amber-200 hover:border-amber-400/30 shadow-md shadow-amber-500/5' : ''}`}
+                    className={`relative ae-brand-card auth-stat-glow shadow-sm border rounded-3xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-300 ${bgGlow} ${entry.rank === 1 ? 'md:-mt-8 border-amber-200 hover:border-amber-400/30 shadow-md shadow-amber-500/5' : ''}`}
                   >
                     
                     <div className="mb-4">
