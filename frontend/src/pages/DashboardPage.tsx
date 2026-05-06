@@ -157,7 +157,7 @@ export default function DashboardPage() {
   }, [loadDashboard]);
 
   return (
-    <div className="pt-24 px-6 min-h-screen bg-[var(--bg-color)] overflow-hidden relative">
+    <div className="pt-24 px-4 md:px-6 min-h-screen bg-[var(--bg-color)] overflow-x-hidden relative">
       <motion.div 
         className="max-w-6xl mx-auto relative z-10 pb-20"
         variants={containerVariants}
@@ -325,8 +325,8 @@ export default function DashboardPage() {
                     >
                       <motion.div
                         variants={itemVariants}
-                        whileHover={{ scale: 1.01, x: 5 }}
-                        className="ae-brand-card border border-[var(--ae-border)] hover:border-[var(--ae-blue)]/50 rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all shadow-sm hover:shadow-md relative overflow-hidden"
+                        whileHover={{ scale: 1.01 }}
+                        className="ae-brand-card border border-[var(--ae-border)] hover:border-[var(--ae-blue)]/50 rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all shadow-sm hover:shadow-md relative overflow-hidden"
                       >
                         <div className="flex-1 min-w-0 z-10">
                           <div className="flex items-center gap-3 mb-2">
@@ -345,7 +345,7 @@ export default function DashboardPage() {
                           </h3>
                         </div>
                         
-                        <div className="md:w-64 flex flex-col justify-center gap-2 z-10 shrink-0">
+                        <div className="w-full md:w-64 flex flex-col justify-center gap-2 z-10">
                           <div className="flex justify-between text-sm font-bold">
                             <span className="app-muted-text">Progress</span>
                             <span className="text-[var(--ae-blue)]">{Math.round(module.progressPercent)}%</span>
