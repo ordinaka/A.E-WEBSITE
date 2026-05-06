@@ -1,5 +1,5 @@
-import pic1 from "/african2.png"
-import pic2 from "/african4.png"
+import pic1 from "/african3.png"
+import pic2 from "/african6.png"
 import arrow from "../learning-cohorts/images/arrow-narrow-right.png"
 
 export default function CTAFooter() {
