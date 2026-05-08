@@ -148,10 +148,17 @@ const PostCard = ({ post, onUpdate, currentUser }: PostProps) => {
             {(currentUser?.role === "ADMIN" || currentUser?.role === "SUPER_ADMIN") && (
               <button 
                 onClick={handlePin}
-                className="ml-auto p-1.5 rounded-lg text-[var(--text-color)]/40 hover:bg-[var(--ae-blue)]/5 hover:text-[var(--ae-blue)] transition-all"
+                className={`ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  post.isPinned 
+                    ? "bg-[var(--ae-blue)] text-white shadow-sm" 
+                    : "text-[var(--text-color)]/40 hover:bg-[var(--ae-blue)]/5 hover:text-[var(--ae-blue)]"
+                }`}
                 title={post.isPinned ? "Unpin Post" : "Pin Post"}
               >
-                <Pin className={`w-5 h-5 ${post.isPinned ? "fill-current" : ""}`} />
+                <Pin className={`w-4 h-4 ${post.isPinned ? "fill-current" : ""}`} />
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  {post.isPinned ? "Pinned" : "Pin"}
+                </span>
               </button>
             )}
           </div>
