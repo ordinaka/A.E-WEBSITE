@@ -144,14 +144,14 @@ const CommunityPage = () => {
               ))}
             </div>
 
-            <div className="flex justify-between items-center border-t border-[var(--ae-border)] pt-4">
-              <div className="text-xs text-[var(--text-color)]/50">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-t border-[var(--ae-border)] pt-4">
+              <div className="text-xs text-[var(--text-color)]/50 break-all max-w-[200px] sm:max-w-none">
                 Post as <span className="font-bold text-[var(--ae-blue)]">@{user?.username}</span>
               </div>
               <button 
                 type="submit"
                 disabled={isSubmitting || !newPostContent.trim()}
-                className="ae-brand-button text-white px-6 py-2 rounded-full font-bold shadow-md hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="ae-brand-button text-white px-6 py-2.5 rounded-full font-bold shadow-md hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 w-full sm:w-auto justify-center"
               >
                 {isSubmitting ? "Posting..." : "Post to Community"}
               </button>
@@ -160,10 +160,10 @@ const CommunityPage = () => {
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap gap-2 mb-8 items-center">
+        <div className="flex overflow-x-auto pb-4 gap-2 mb-8 items-center scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`px-4 py-2 rounded-full text-sm font-bold border transition-all ${
+            className={`px-4 py-2 rounded-full text-sm font-bold border transition-all whitespace-nowrap ${
               selectedCategory === null 
                 ? "bg-[var(--ae-blue)] text-white border-[var(--ae-blue)]" 
                 : "bg-transparent text-[var(--text-color)]/60 border-[var(--ae-border)] hover:bg-[var(--text-color)]/5"
@@ -175,7 +175,7 @@ const CommunityPage = () => {
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-sm font-bold border transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-bold border transition-all whitespace-nowrap ${
                 selectedCategory === cat.id 
                   ? "bg-[var(--ae-blue)] text-white border-[var(--ae-blue)]" 
                   : "bg-transparent text-[var(--text-color)]/60 border-[var(--ae-border)] hover:bg-[var(--text-color)]/5"
