@@ -38,6 +38,14 @@ enum TestimonialStatus {
   REJECTED
 }
 
+enum CommunityPostCategory {
+  GENERAL
+  QUESTION
+  PROJECT_SHOWCASE
+  RESOURCE
+  OFF_TOPIC
+}
+
 model User {
   id                        String                 @id @default(cuid())
   firstName                 String
@@ -63,6 +71,7 @@ model User {
   approvedTestimonials      Testimonial[]          @relation("ApproverTestimonials")
   communityPosts            CommunityPost[]
   communityComments         CommunityComment[]
+  communityLikes            PostLike[]
 
   @@index([role, status])
 }
@@ -284,16 +293,33 @@ model UserModuleProgress {
 }
 
 model CommunityPost {
-  id        String             @id @default(cuid())
+  id        String                @id @default(cuid())
   userId    String
   title     String?
   content   String
-  createdAt DateTime           @default(now())
-  updatedAt DateTime           @updatedAt
-  user      User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isPinned  Boolean               @default(false)
+  category  CommunityPostCategory @default(GENERAL)
+  createdAt DateTime              @default(now())
+  updatedAt DateTime              @updatedAt
+  user      User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
   comments  CommunityComment[]
+  likes     PostLike[]
 
   @@index([userId, createdAt])
+  @@index([isPinned, createdAt])
+}
+
+model PostLike {
+  id        String        @id @default(cuid())
+  postId    String
+  userId    String
+  createdAt DateTime      @default(now())
+  post      CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@index([postId])
+  @@index([userId])
 }
 
 model CommunityComment {

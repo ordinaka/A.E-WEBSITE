@@ -5,6 +5,7 @@ interface CreatePostData {
   userId: string;
   title?: string;
   content: string;
+  category?: any; // Will use the enum from prisma
 }
 
 interface CreateCommentData {
@@ -24,17 +25,26 @@ export class CommunityService {
       data,
       include: {
         user: { select: { id: true, firstName: true, lastName: true, avatarUrl: true, role: true } },
-        _count: { select: { comments: true } }
+        _count: { select: { comments: true, likes: true } }
       }
     });
   }
 
-  async getAllPosts() {
+  async getAllPosts(category?: any) {
+    const where = category ? { category } : {};
+
     return prisma.communityPost.findMany({
-      orderBy: { createdAt: "desc" },
+      where,
+      orderBy: [
+        { isPinned: "desc" },
+        { createdAt: "desc" }
+      ],
       include: {
         user: { select: { id: true, firstName: true, lastName: true, avatarUrl: true, role: true } },
-        _count: { select: { comments: true } }
+        _count: { select: { comments: true, likes: true } },
+        likes: {
+          select: { userId: true }
+        }
       }
     });
   }
@@ -49,6 +59,10 @@ export class CommunityService {
           include: {
             user: { select: { id: true, firstName: true, lastName: true, avatarUrl: true, role: true } }
           }
+        },
+        _count: { select: { comments: true, likes: true } },
+        likes: {
+          select: { userId: true }
         }
       }
     });
@@ -74,6 +88,44 @@ export class CommunityService {
 
     await prisma.communityPost.delete({ where: { id: postId } });
     return { message: "Post deleted successfully" };
+  }
+
+  async togglePostLike(postId: string, userId: string) {
+    const existingLike = await prisma.postLike.findUnique({
+      where: {
+        postId_userId: { postId, userId }
+      }
+    });
+
+    if (existingLike) {
+      await prisma.postLike.delete({
+        where: { id: existingLike.id }
+      });
+      return { liked: false };
+    }
+
+    await prisma.postLike.create({
+      data: { postId, userId }
+    });
+    return { liked: true };
+  }
+
+  async togglePostPin(postId: string, userRole: string) {
+    if (userRole !== "ADMIN" && userRole !== "SUPER_ADMIN") {
+      throw new AppError(403, "Only admins can pin posts");
+    }
+
+    const post = await prisma.communityPost.findUnique({ where: { id: postId } });
+    if (!post) {
+      throw new AppError(404, "Post not found");
+    }
+
+    const updatedPost = await prisma.communityPost.update({
+      where: { id: postId },
+      data: { isPinned: !post.isPinned }
+    });
+
+    return { isPinned: updatedPost.isPinned };
   }
 
   // Comment Services

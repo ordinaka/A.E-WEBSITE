@@ -14,6 +14,14 @@ router
   .delete(communityController.deletePost);
 
 router
+  .route("/:id/like")
+  .post(communityController.toggleLike);
+
+router
+  .route("/:id/pin")
+  .patch(communityController.togglePin);
+
+router
   .route("/:postId/comments")
   .post(communityController.createComment);
 

@@ -13,18 +13,31 @@ const CommunityPage = () => {
   const [error, setError] = useState("");
   
   const [newPostContent, setNewPostContent] = useState("");
+  const [newPostCategory, setNewPostCategory] = useState("GENERAL");
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const CATEGORIES = [
+    { id: "GENERAL", label: "General", emoji: "💬" },
+    { id: "QUESTION", label: "Questions", emoji: "❓" },
+    { id: "PROJECT_SHOWCASE", label: "Projects", emoji: "🚀" },
+    { id: "RESOURCE", label: "Resources", emoji: "📚" },
+    { id: "OFF_TOPIC", label: "Off-Topic", emoji: "☕" },
+  ];
 
   useEffect(() => {
     if (isLoggedIn) {
       fetchPosts();
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, selectedCategory]);
 
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const data = await apiFetch("/community");
+      const url = selectedCategory 
+        ? `/community?category=${selectedCategory}` 
+        : "/community";
+      const data = await apiFetch(url);
       setPosts(data.posts);
     } catch (err: any) {
       setError(err.message || "Failed to load community feed");
@@ -41,10 +54,16 @@ const CommunityPage = () => {
       setIsSubmitting(true);
       const data = await apiFetch("/community", {
         method: "POST",
-        body: JSON.stringify({ content: newPostContent }),
+        body: JSON.stringify({ 
+          content: newPostContent,
+          category: newPostCategory
+        }),
       });
+      // If we are filtering, and the new post doesn't match, maybe don't show it immediately
+      // or just refresh. Here we just add it to top.
       setPosts([data.post, ...posts]);
       setNewPostContent("");
+      setNewPostCategory("GENERAL");
     } catch (err: any) {
       alert(err.message || "Failed to create post");
     } finally {
@@ -106,9 +125,28 @@ const CommunityPage = () => {
               onChange={(e) => setNewPostContent(e.target.value)}
               disabled={isSubmitting}
             />
-            <div className="flex justify-between items-center">
+            
+            <div className="flex flex-wrap gap-2 mb-4">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setNewPostCategory(cat.id)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 ${
+                    newPostCategory === cat.id 
+                      ? "bg-[var(--ae-blue)] text-white border-[var(--ae-blue)] shadow-sm" 
+                      : "bg-[var(--bg-color)] text-[var(--text-color)]/60 border-[var(--ae-border)] hover:border-[var(--ae-blue)]/30"
+                  }`}
+                >
+                  <span>{cat.emoji}</span>
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex justify-between items-center border-t border-[var(--ae-border)] pt-4">
               <div className="text-xs text-[var(--text-color)]/50">
-                Formatting support (Markdown) coming soon!
+                Post as <span className="font-bold text-[var(--ae-blue)]">@{user?.username}</span>
               </div>
               <button 
                 type="submit"
@@ -119,6 +157,33 @@ const CommunityPage = () => {
               </button>
             </div>
           </form>
+        </div>
+
+        {/* Category Filters */}
+        <div className="flex flex-wrap gap-2 mb-8 items-center">
+          <button
+            onClick={() => setSelectedCategory(null)}
+            className={`px-4 py-2 rounded-full text-sm font-bold border transition-all ${
+              selectedCategory === null 
+                ? "bg-[var(--ae-blue)] text-white border-[var(--ae-blue)]" 
+                : "bg-transparent text-[var(--text-color)]/60 border-[var(--ae-border)] hover:bg-[var(--text-color)]/5"
+            }`}
+          >
+            All Posts
+          </button>
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`px-4 py-2 rounded-full text-sm font-bold border transition-all ${
+                selectedCategory === cat.id 
+                  ? "bg-[var(--ae-blue)] text-white border-[var(--ae-blue)]" 
+                  : "bg-transparent text-[var(--text-color)]/60 border-[var(--ae-border)] hover:bg-[var(--text-color)]/5"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
         </div>
 
         {/* Community Feed */}
@@ -141,7 +206,12 @@ const CommunityPage = () => {
             </div>
           ) : (
             posts.map(post => (
-              <PostCard key={post.id} post={post} />
+              <PostCard 
+                key={post.id} 
+                post={post} 
+                currentUser={user}
+                onUpdate={fetchPosts}
+              />
             ))
           )}
         </div>

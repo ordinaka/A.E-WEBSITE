@@ -9,6 +9,7 @@ export class CommunityController {
       userId: req.user!.sub,
       title: req.body.title,
       content: req.body.content,
+      category: req.body.category,
     };
 
     const post = await communityService.createPost(postData);
@@ -20,12 +21,31 @@ export class CommunityController {
   });
 
   getAllPosts = asyncHandler(async (req: Request, res: Response) => {
-    const posts = await communityService.getAllPosts();
+    const { category } = req.query;
+    const posts = await communityService.getAllPosts(category as any);
 
     res.status(200).json({
       status: "success",
       results: posts.length,
       data: { posts }
+    });
+  });
+
+  toggleLike = asyncHandler(async (req: Request, res: Response) => {
+    const result = await communityService.togglePostLike(req.params.id as string, req.user!.sub);
+    
+    res.status(200).json({
+      status: "success",
+      data: result
+    });
+  });
+
+  togglePin = asyncHandler(async (req: Request, res: Response) => {
+    const result = await communityService.togglePostPin(req.params.id as string, req.user!.role);
+
+    res.status(200).json({
+      status: "success",
+      data: result
     });
   });
 
