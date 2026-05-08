@@ -23,6 +23,7 @@ import {
 } from "../features/testimonials/testimonials.routes";
 import { adminTeamRouter, publicTeamRouter } from "../features/team/team.routes";
 import { usersRouter } from "../features/users/users.routes";
+import { profileRouter } from "../features/users/profile.routes";
 import { communityRoutes } from "../features/community/community.routes";
 import announcementRouter from "../features/announcement/announcement.routes";
 
@@ -42,6 +43,7 @@ apiRouter.use("/public/products", publicProductsRouter);
 apiRouter.use("/public/testimonials", publicTestimonialsRouter);
 apiRouter.use("/public/team", publicTeamRouter);
 apiRouter.use("/leaderboard", leaderboardRouter);
+apiRouter.use("/profiles", profileRouter);
 
 apiRouter.use(authenticate);
 apiRouter.use("/dashboard", dashboardRouter);

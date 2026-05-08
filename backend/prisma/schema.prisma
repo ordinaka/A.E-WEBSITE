@@ -58,6 +58,8 @@ model User {
   role                      UserRole               @default(STUDENT)
   status                    UserStatus             @default(PENDING_VERIFICATION)
   avatarUrl                 String?
+  bio                       String?
+  location                  String?
   emailVerifiedAt           DateTime?
   lastLoginAt               DateTime?
   createdAt                 DateTime               @default(now())

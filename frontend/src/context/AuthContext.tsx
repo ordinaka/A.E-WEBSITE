@@ -12,6 +12,7 @@ export interface AuthUser {
   email: string;
   role: UserRole;
   status?: UserStatus;
+  avatarUrl?: string;
 }
 
 interface AuthContextType {
@@ -65,6 +66,10 @@ const isAuthUser = (value: unknown): value is AuthUser => {
   }
 
   if (value.status !== undefined && !isUserStatus(value.status)) {
+    return false;
+  }
+
+  if (value.avatarUrl !== undefined && typeof value.avatarUrl !== "string") {
     return false;
   }
 

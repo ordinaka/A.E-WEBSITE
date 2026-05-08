@@ -16,6 +16,7 @@ export interface PostProps {
       id: string;
       firstName: string;
       lastName: string;
+      username: string;
       avatarUrl?: string;
       role: string;
     };
@@ -85,20 +86,22 @@ const PostCard = ({ post, onUpdate, currentUser }: PostProps) => {
 
       <div className="flex items-start gap-4">
         {/* Author Avatar */}
-        <div className="w-12 h-12 shrink-0 rounded-full bg-[var(--ae-blue)]/10 text-[var(--ae-blue)] flex items-center justify-center font-bold text-xl overflow-hidden border border-[var(--ae-blue)]/20 shadow-sm">
-          {post.user.avatarUrl ? (
-            <img src={post.user.avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
-          ) : (
-            post.user.firstName.charAt(0) + post.user.lastName.charAt(0)
-          )}
-        </div>
+        <Link to={`/profile/${post.user.username}`} className="shrink-0 group">
+          <div className="w-12 h-12 rounded-full bg-[var(--ae-blue)]/10 text-[var(--ae-blue)] flex items-center justify-center font-bold text-xl overflow-hidden border border-[var(--ae-blue)]/20 shadow-sm group-hover:border-[var(--ae-blue)] transition-all">
+            {post.user.avatarUrl ? (
+              <img src={post.user.avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
+            ) : (
+              post.user.firstName.charAt(0) + post.user.lastName.charAt(0)
+            )}
+          </div>
+        </Link>
 
         {/* Post Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-2 flex-wrap pr-16 md:pr-0">
-            <span className="font-bold text-[var(--text-color)] text-[15px]">
+            <Link to={`/profile/${post.user.username}`} className="font-bold text-[var(--text-color)] text-[15px] hover:text-[var(--ae-blue)] transition-colors">
               {post.user.firstName} {post.user.lastName}
-            </span>
+            </Link>
             
             {post.user.role === "ADMIN" || post.user.role === "SUPER_ADMIN" ? (
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold uppercase tracking-wider">

@@ -158,8 +158,12 @@ function Navbar() {
             </button>
 
             {isLoggedIn && (
-              <Link to={dashboardPath} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full ae-brand-card border border-[var(--ae-border)] text-[var(--text-color)] items-center justify-center cursor-pointer hover:bg-[var(--bg-color)]/80 transition-colors shadow-sm">
-                👤
+              <Link to={`/profile/${user?.username}`} onClick={closeMenu} className="hidden sm:flex w-10 h-10 ml-2 rounded-full ae-brand-card border border-[var(--ae-border)] text-[var(--text-color)] items-center justify-center cursor-pointer hover:bg-[var(--bg-color)]/80 transition-colors shadow-sm overflow-hidden">
+                {user?.avatarUrl ? (
+                  <img src={user.avatarUrl} alt="Me" className="w-full h-full object-cover" />
+                ) : (
+                  "👤"
+                )}
               </Link>
             )}
           </div>

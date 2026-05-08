@@ -14,6 +14,7 @@ import ProductsPage from "./pages/ProductsPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 import ContactPage from "./pages/ContactPage";
 import CommunityPage from "./pages/CommunityPage";
+import ProfilePage from "./pages/ProfilePage";
 
 // Generic Pages included initially
 import Guru from "./pages/Guru";
@@ -59,6 +60,7 @@ function App() {
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/community" element={<CommunityPage />} />
+          <Route path="/profile/:username" element={<ProfilePage />} />
           <Route path="/guru" element={<Guru />} />
           <Route path="/guru-circle" element={<GuruCircle />} />
           <Route path="/login" element={<Login />} />
