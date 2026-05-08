@@ -35,10 +35,11 @@ export default function OAuthCallback() {
       id: userId,
       firstName,
       lastName: params.get("lastName") ?? "",
-      username: params.get("username") ?? email,
+      username: params.get("username") ?? "",
       email,
       role: role as AuthUser["role"],
       status: (status as AuthUser["status"]) ?? "ACTIVE",
+      avatarUrl: params.get("avatarUrl") ?? undefined,
     };
 
     // login() writes to localStorage synchronously before updating React state.

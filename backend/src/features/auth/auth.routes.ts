@@ -32,7 +32,7 @@ authRouter.get(
   passport.authenticate("google", { session: false, failureRedirect: `${env.clientBaseUrl}/login?error=google_failed` }),
   (req, res) => {
     const result = (req.user as unknown) as {
-      user: { id: string; firstName: string; email: string; role: string; status: string };
+      user: { id: string; firstName: string; lastName: string; username: string; email: string; avatarUrl?: string; role: string; status: string };
       accessToken: string;
       refreshToken: string;
     };
@@ -46,7 +46,10 @@ authRouter.get(
       token: result.accessToken,
       userId: result.user.id,
       firstName: result.user.firstName,
+      lastName: result.user.lastName,
+      username: result.user.username,
       email: result.user.email,
+      avatarUrl: result.user.avatarUrl || "",
       role: result.user.role,
       status: result.user.status
     });
