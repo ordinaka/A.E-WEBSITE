@@ -68,7 +68,7 @@ export default function GuruCircle() {
 
   return (
     <div
-      className="ae-brand-page"
+      className="ae-brand-page pt-28 md:pt-0"
       style={{
         color: "var(--text-color)",
         display: "flex",
@@ -97,10 +97,9 @@ export default function GuruCircle() {
 
       {/* ── ORBITAL SECTION (Desktop) / CAROUSEL (Mobile) ── */}
       <div
-        className="relative w-[95vw] md:w-[min(115vw,898px)]"
+        className="relative w-[95vw] md:w-[min(115vw,898px)] mt-4 md:mt-[clamp(-20px,-2vw,-10px)]"
         style={{
           aspectRatio: "1 / 1",
-          marginTop: "clamp(-20px, -2vw, -10px)",
           flexShrink: 0,
         }}
       >
